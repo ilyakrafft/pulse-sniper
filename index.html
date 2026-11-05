@@ -904,8 +904,20 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     });
   }
   try { loadLive().catch(function () {}); } catch (e) {}
+  /* живые рынки Polymarket, которые раз в 6 часов записывает collect.py */
   try {
-    fetch("stats.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+    fetch("data/markets.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+      var list = (j.markets || []).filter(function (m) { return cityById(m.c) && m.b && m.b.length; });
+      if (!list.length) return;
+      MARKETS.length = 0; list.forEach(function (m) { MARKETS.push(m); });
+      state.shifted = 0;
+      var u = new Date(j.updated); if (!isNaN(u)) SNAP = new Intl.DateTimeFormat("ru", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(u);
+      if (state.source === "demo") { var dm = makeDemo(); state.dates = dm.dates; state.data = dm.data; }
+      renderTicker(); renderAll();
+    }).catch(function () {});
+  } catch (e) {}
+  try {
+    fetch("data/stats.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.stats = j.map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, k: r.k, p: r.p, actual: r.actual, hit: r.hit, age: age }; }); state.statsSource = "live"; if (state.view === "report") renderReport();
     }).catch(function () {});
   } catch (e) {}
