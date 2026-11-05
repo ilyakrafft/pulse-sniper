@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>Pulse Sniper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: три раздела (Глобус, Сигналы, Отчёт) и плавающая навигация внизу.
+   Смелое решение одно: столбики температуры на глобусе. Остальное спокойное. */
+:root {
+  --bg: #f2f5fb;
+  --surface: #ffffff;
+  --surface-2: #e8edf8;
+  --line: #d3dbee;
+  --fg: #0f1729;
+  --muted: #566282;
+  --accent: #4f3df0;
+  --accent-ink: #ffffff;
+  --g1: #2563eb;
+  --g2: #7c3aed;
+  --cy: #0891b2;
+  --orb: .14;
+  --good: #11835a;
+  --warn: #a96300;
+  --bad: #c23b3b;
+  --g-fill: #dde5f6;
+  --g-dot: #8fa3cc;
+  --g-line: #b9c6e3;
+  --g-glow: #5b86ff;
+  --shadow: 0 1px 0 rgba(15,23,41,.04), 0 12px 32px rgba(32,52,110,.12);
+  --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #090d16; --surface: #111827; --surface-2: #1a2334; --line: #25314b;
+    --fg: #eaf0ff; --muted: #8b98b8; --accent: #8f86ff; --accent-ink: #06080f;
+    --good: #3df2a8; --warn: #ffbf5e; --bad: #ff6f7d;
+    --g1: #2de2ff; --g2: #8b6cff; --cy: #2de2ff; --orb: .32;
+    --g-fill: #0e1524; --g-dot: #34456b; --g-line: #1d2943; --g-glow: #4c7dff;
+    --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #090d16; --surface: #111827; --surface-2: #1a2334; --line: #25314b;
+  --fg: #eaf0ff; --muted: #8b98b8; --accent: #8f86ff; --accent-ink: #06080f;
+  --good: #3df2a8; --warn: #ffbf5e; --bad: #ff6f7d;
+  --g1: #2de2ff; --g2: #8b6cff; --cy: #2de2ff; --orb: .32;
+  --g-fill: #0e1524; --g-dot: #34456b; --g-line: #1d2943; --g-glow: #4c7dff;
+  --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-block: 12px 110px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-text-size-adjust: 100%;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; }
+.muted { color: var(--muted); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes viewIn { from { opacity: 0; transform: translateY(8px); } }
+@keyframes grow { from { transform: scaleX(0); } }
+@keyframes growY { from { transform: scaleY(0); } }
+@keyframes draw { from { stroke-dashoffset: 1; } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent); } 50% { box-shadow: 0 0 0 6px transparent; } }
+@keyframes sheen { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
+.view { animation: viewIn .38s cubic-bezier(.2,.8,.2,1); }
+.rise { animation: rise .55s cubic-bezier(.2,.8,.2,1) backwards; animation-delay: calc(var(--i, 0) * 50ms); }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 6px 14px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand svg { flex: none; }
+.brand h1 { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: 18px; letter-spacing: .01em; }
+.brand p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.25; }
+.pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 12px; font-family: var(--f-mono); }
+.pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--warn); color: var(--warn); animation: pulse 2.4s infinite; }
+.pill[data-on="1"] i { background: var(--good); color: var(--good); }
+
+.app { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  .stage { position: sticky; top: 16px; }
+}
+.stage { position: relative; border-radius: 22px; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, var(--surface) 0%, var(--bg) 78%); border: 1px solid var(--line); }
+#globe { height: clamp(320px, 50vh, 460px); }
+@media (min-width: 900px) { #globe { height: min(74vh, 700px); } }
+#globe canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+#labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.glabel { position: absolute; left: 0; top: 0; padding: 3px 9px 4px; border-radius: 8px; background: var(--surface); border: 1px solid var(--accent); font-size: 12px; font-weight: 600; white-space: nowrap; transition: opacity .2s; will-change: transform; box-shadow: var(--shadow); }
+.glabel b { font-family: var(--f-mono); font-weight: 500; color: var(--muted); margin-left: 6px; }
+.legend { position: absolute; left: 14px; bottom: 12px; display: grid; gap: 4px; width: 132px; font-family: var(--f-mono); font-size: 10px; color: var(--muted); }
+.legend .bar { height: 6px; border-radius: 3px; }
+.legend div:last-child { display: flex; justify-content: space-between; }
+.hint { position: absolute; right: 14px; bottom: 12px; font-size: 11px; color: var(--muted); }
+.nogl { margin: 0; padding: 40px 20px; color: var(--muted); }
+
+.panel { display: grid; gap: 14px; min-width: 0; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.chip { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 13px; transition: border-color .2s, background .2s, transform .15s; }
+.chip:active { transform: scale(.96); }
+.chip i { width: 9px; height: 9px; border-radius: 50%; }
+.chip span { font-family: var(--f-mono); color: var(--muted); font-size: 12px; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-2); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; min-width: 0; }
+.head { display: grid; gap: 4px; }
+.kick { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.head h2 { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: clamp(22px, 5vw, 30px); line-height: 1.15; text-wrap: balance; }
+.big { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 14px; margin-top: 6px; }
+.big strong { font-family: var(--f-display); font-weight: 500; font-size: clamp(40px, 10vw, 56px); line-height: 1; font-variant-numeric: tabular-nums; }
+.big .range { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.swatch { height: 4px; border-radius: 2px; margin-top: 10px; transform-origin: left; animation: grow .7s cubic-bezier(.2,.8,.2,1); }
+
+.days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.day { display: grid; gap: 2px; justify-items: center; padding: 8px 2px 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); transition: border-color .2s, background .2s, transform .15s; }
+.day:active { transform: scale(.95); }
+.day small { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.day b { font-family: var(--f-mono); font-weight: 500; font-size: 14px; }
+.day .conf { width: 70%; height: 3px; border-radius: 2px; background: var(--surface-2); overflow: hidden; margin-top: 3px; }
+.day .conf em { display: block; height: 100%; background: var(--accent); transform-origin: left; animation: grow .6s cubic-bezier(.2,.8,.2,1); }
+.day[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-2); }
+
+.card h3 { margin: 0 0 4px; font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+.card .sub { margin: 0 0 10px; color: var(--muted); font-size: 12.5px; }
+.chart { width: 100%; height: auto; display: block; overflow: visible; }
+.chart .bar { fill: var(--surface-2); transform-box: fill-box; transform-origin: bottom; animation: growY .6s cubic-bezier(.2,.8,.2,1) backwards; }
+.chart .bar.in { fill: var(--accent); }
+.chart text { fill: var(--muted); font-family: var(--f-mono); font-size: 10px; }
+.chart text.pc { fill: var(--fg); }
+.chart text.tot { fill: var(--fg); font-size: 12px; font-weight: 500; }
+.chart .brk { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+.chart .axis, .chart .grid { stroke: var(--line); }
+.chart .line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; animation: draw 1.2s cubic-bezier(.3,.7,.2,1); }
+.chart .area { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+.chart .pt { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+
+.models { display: grid; gap: 10px; }
+.mrow { display: grid; grid-template-columns: minmax(0, 1.1fr) 56px minmax(0, 1.4fr); align-items: center; gap: 10px; }
+.mrow .nm { font-size: 13px; font-weight: 500; }
+.mrow .nm small { display: block; color: var(--muted); font-weight: 400; font-size: 11px; }
+.mrow .vl { font-family: var(--f-mono); font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; }
+.track { position: relative; height: 18px; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: var(--surface-2); border-radius: 1px; }
+.track .mean { position: absolute; top: 2px; bottom: 2px; left: 50%; width: 2px; background: var(--muted); opacity: .6; }
+.track .dot { position: absolute; top: 3px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); transition: left .6s cubic-bezier(.3,1.2,.4,1); }
+
+.badge { display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid currentColor; white-space: nowrap; }
+.badge i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.badge.strong { color: var(--good); } .badge.mid { color: var(--warn); } .badge.weak { color: var(--bad); }
+.badge.strong i { animation: pulse 2.2s infinite; }
+.signal { display: grid; gap: 8px; }
+.signal .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.signal p { margin: 0; color: var(--muted); font-size: 13px; }
+.pct { font-family: var(--f-display); font-weight: 500; font-size: 26px; font-variant-numeric: tabular-nums; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border: 0; border-radius: 14px; background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 15px; text-decoration: none; position: relative; overflow: hidden; transition: transform .15s; }
+.btn:active { transform: translateY(1px) scale(.99); }
+.btn.sm { width: auto; padding: 9px 14px; font-size: 13px; border-radius: 12px; }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.btn.shine::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); animation: sheen 3.2s infinite; }
+.note { margin: 0; color: var(--muted); font-size: 12px; }
+
+.lockbox { position: relative; overflow: hidden; }
+.lockbox .ph { filter: blur(7px); opacity: .5; pointer-events: none; user-select: none; }
+.lockcta { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; text-align: center; padding: 12px; }
+.lockcta svg { color: var(--accent); }
+.lockcta p { margin: 0; font-size: 13px; font-weight: 600; max-width: 26ch; }
+.phbar { height: 14px; border-radius: 7px; background: var(--surface-2); }
+
+.view-head { display: grid; gap: 4px; margin-bottom: 14px; }
+.view-head h2 { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: clamp(22px, 5vw, 30px); text-wrap: balance; }
+.view-head p { margin: 0; color: var(--muted); max-width: 62ch; }
+.demo { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-radius: 14px; border: 1px dashed var(--warn); color: var(--warn); font-size: 13px; margin-bottom: 14px; }
+.demo b { font-family: var(--f-mono); font-weight: 500; flex: none; }
+.access { display: grid; gap: 14px; margin-bottom: 14px; }
+.access h2 { margin: 2px 0 4px; font-family: var(--f-display); font-weight: 700; font-size: clamp(20px, 4.6vw, 26px); text-wrap: balance; }
+.access p { margin: 0; color: var(--muted); max-width: 60ch; }
+.access .acts { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.access.member { border-color: color-mix(in srgb, var(--good) 55%, var(--line)); }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.sig { display: grid; gap: 12px; align-content: start; }
+.sig-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.sig-top b { font-family: var(--f-display); font-weight: 500; font-size: 18px; display: block; }
+.sig-top small { color: var(--muted); font-size: 12px; }
+.pick { font-size: 13px; color: var(--muted); }
+.pick strong { font-family: var(--f-display); font-weight: 500; color: var(--fg); font-size: 22px; margin-left: 6px; }
+.vs { display: grid; gap: 8px; }
+.vrow { display: grid; grid-template-columns: 56px minmax(0, 1fr) 42px; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }
+.vrow b { font-family: var(--f-mono); font-weight: 500; color: var(--fg); text-align: right; }
+.vbar { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.vbar em { display: block; height: 100%; width: var(--w); background: var(--accent); border-radius: 4px; transform-origin: left; animation: grow .9s cubic-bezier(.2,.8,.2,1) backwards; animation-delay: calc(var(--i, 0) * 50ms + .15s); }
+.vrow.mkt .vbar em { background: var(--muted); }
+.sig-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.edge { font-family: var(--f-mono); font-weight: 500; color: var(--good); font-size: 13px; }
+.sig-foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); }
+
+.tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom: 14px; }
+.tile { padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); display: grid; gap: 2px; }
+.tile small { color: var(--muted); font-size: 12px; }
+.tile strong { font-family: var(--f-display); font-weight: 500; font-size: 28px; font-variant-numeric: tabular-nums; }
+.seg { display: inline-grid; grid-auto-flow: column; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 14px; }
+.seg button { padding: 6px 14px; border: 0; border-radius: 9px; background: none; font-size: 13px; color: var(--muted); font-weight: 600; transition: background .2s, color .2s; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); margin-bottom: 14px; }
+.cal { display: grid; gap: 14px; }
+.calrow { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 12px; align-items: center; font-size: 12px; color: var(--muted); }
+.calbars { display: grid; gap: 5px; }
+.calbars .vrow { grid-template-columns: 56px minmax(0, 1fr) 38px; }
+.res { display: grid; gap: 0; }
+.rrow { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 11px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.rrow:first-child { border-top: 0; }
+.rrow b { font-weight: 600; display: block; }
+.rrow small { color: var(--muted); font-size: 11.5px; }
+.rrow .num { font-family: var(--f-mono); font-size: 12.5px; }
+.ok, .miss { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-weight: 700; font-size: 14px; }
+.ok { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+.miss { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+
+.dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: min(420px, calc(100% - 32px)); display: grid; grid-template-columns: repeat(3, 1fr); padding: 4px; background: color-mix(in srgb, var(--surface) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); z-index: 15; }
+.dock button { position: relative; z-index: 1; background: none; border: 0; padding: 9px 4px 8px; display: grid; justify-items: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--muted); transition: color .25s; }
+.dock button[aria-current="page"] { color: var(--accent-ink); }
+.dock .ind { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 16px; background: var(--accent); transform: translateX(calc(var(--i, 0) * 100%)); transition: transform .4s cubic-bezier(.3,1.15,.4,1); }
+.dock { --i: 0; }
+#toast { position: fixed; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 12px; background: var(--fg); color: var(--bg); font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 20; }
+#toast.on { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- Pulse Sniper: оформление терминала ---------- */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes drift { to { transform: translate(8vmax, 6vmax) scale(1.15); } }
+@keyframes gridMove { to { background-position: 0 44px, 44px 0; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pop { from { opacity: .2; transform: scale(.92); } }
+@keyframes gauge { from { stroke-dashoffset: 1; } }
+@keyframes lock { from { transform: scale(2.6) rotate(-120deg); opacity: 0; } 55% { opacity: 1; } }
+@keyframes introH { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 70% { opacity: 1; transform: translateY(42vh); } 100% { opacity: 0; transform: translateY(42vh); } }
+@keyframes introV { 0% { opacity: 0; transform: translateX(0); } 15% { opacity: 1; } 70% { opacity: 1; transform: translateX(50vw); } 100% { opacity: 0; transform: translateX(50vw); } }
+@keyframes introR { 0% { opacity: 0; transform: scale(2.2); } 40% { opacity: .9; } 100% { opacity: 0; transform: scale(.1); } }
+
+.wrap { position: relative; z-index: 1; }
+.bgfx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.bgfx::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 44px 44px; opacity: .38; -webkit-mask-image: radial-gradient(70% 55% at 50% 18%, #000, transparent 80%); mask-image: radial-gradient(70% 55% at 50% 18%, #000, transparent 80%); animation: gridMove 12s linear infinite; }
+.bgfx i { position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; opacity: var(--orb); will-change: transform; }
+.bgfx i:first-child { left: -20vmax; top: -26vmax; background: radial-gradient(circle, var(--g2), transparent 62%); animation: drift 24s ease-in-out infinite alternate; }
+.bgfx i:last-child { right: -24vmax; bottom: -30vmax; background: radial-gradient(circle, var(--g1), transparent 62%); animation: drift 30s ease-in-out infinite alternate-reverse; }
+
+.intro { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
+.intro .cl { position: absolute; opacity: 0; animation-duration: 1.5s; animation-timing-function: cubic-bezier(.6, 0, .2, 1); animation-fill-mode: forwards; }
+.intro .h { left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--cy), transparent); animation-name: introH; }
+.intro .v { top: 0; bottom: 0; left: 0; width: 1px; background: linear-gradient(180deg, transparent, var(--cy), transparent); animation-name: introV; }
+.intro .rg { position: absolute; left: 50%; top: 42%; width: 60vmin; height: 60vmin; margin: -30vmin 0 0 -30vmin; border: 1.5px solid var(--cy); border-radius: 50%; opacity: 0; animation: introR 1.5s cubic-bezier(.3, .8, .2, 1) forwards; }
+
+.logo { flex: none; overflow: visible; }
+.logo .lg-glow { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--g2) 70%, transparent)); }
+.logo .lg-ring { transform-origin: 24px 24px; animation: spin 14s linear infinite; }
+.logo .lg-pulse { stroke-dasharray: 1; animation: draw 1.6s .25s cubic-bezier(.3, .7, .2, 1) backwards; }
+.brand h1.wm { font-family: var(--f-display); font-weight: 500; font-size: 17px; letter-spacing: .14em; line-height: 1.1; }
+.wm b { font-weight: 700; background: linear-gradient(110deg, var(--g1), var(--g2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.ticker { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--surface) 80%, transparent); margin-bottom: 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.tk { display: flex; width: max-content; padding: 8px 0; animation: marquee 80s linear infinite; }
+.ticker:hover .tk { animation-play-state: paused; }
+.tk-i { position: relative; padding: 0 22px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.tk-i::after { content: ""; position: absolute; right: 0; top: 50%; width: 4px; height: 4px; margin-top: -2px; border-radius: 50%; background: var(--g2); opacity: .6; }
+.tk-i b { color: var(--fg); font-weight: 500; margin-right: 6px; }
+.tk-i em { font-style: normal; color: var(--cy); }
+
+.stage { box-shadow: 0 0 0 1px var(--line), 0 40px 90px -40px var(--g2); }
+.stage::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; background: repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--fg) 3.5%, transparent) 3px 4px); }
+.hud { position: absolute; left: 14px; top: 12px; z-index: 2; display: flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; color: var(--muted); }
+.hud b { color: var(--fg); font-weight: 500; }
+.hud-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bad); color: var(--bad); animation: pulse 1.6s infinite; }
+.reticle { position: absolute; left: 0; top: 0; width: 92px; height: 92px; pointer-events: none; opacity: 0; transition: opacity .25s; will-change: transform; }
+.reticle svg { width: 100%; height: 100%; overflow: visible; }
+.reticle.lock svg { animation: lock .7s cubic-bezier(.2, .9, .2, 1); }
+.reticle .rr { transform-origin: 50px 50px; animation: spin 9s linear infinite; }
+
+.btn:not(.ghost) { background: linear-gradient(115deg, var(--g1), var(--g2)); color: var(--accent-ink); box-shadow: 0 10px 30px -12px var(--g2); }
+.dock .ind { background: linear-gradient(115deg, var(--g1), var(--g2)); box-shadow: 0 6px 20px -8px var(--g2); }
+.seg button[aria-pressed="true"] { background: linear-gradient(115deg, var(--g1), var(--g2)); }
+.big strong { animation: pop .45s cubic-bezier(.2, .9, .2, 1); transform-origin: left bottom; }
+
+.tilt { position: relative; transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .25s cubic-bezier(.2, .8, .2, 1), border-color .2s; }
+.tilt::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .25s; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--cy) 20%, transparent), transparent 65%); }
+.tilt:hover { border-color: color-mix(in srgb, var(--g2) 60%, var(--line)); }
+.tilt:hover::after { opacity: 1; }
+.lockbox::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, transparent 35%, color-mix(in srgb, var(--fg) 9%, transparent) 50%, transparent 65%); animation: sheen 3.4s infinite; }
+.access { background: linear-gradient(135deg, color-mix(in srgb, var(--g2) 12%, var(--surface)), var(--surface)); }
+
+.pickrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.gauge { display: block; flex: none; }
+.gauge .gbg { fill: none; stroke: var(--surface-2); stroke-width: 6; }
+.gauge .gfg { fill: none; stroke: url(#lg); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p)); animation: gauge 1.2s cubic-bezier(.3, .7, .2, 1) backwards; animation-delay: var(--d, 0ms); }
+.gauge text { fill: var(--fg); font-family: var(--f-display); font-weight: 500; font-size: 15px; }
+.gauge text.big { font-size: 17px; }
+.hero { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--g2) 14%, var(--surface)), var(--surface)); }
+.hero h2 { margin: 2px 0 0; font-family: var(--f-display); font-weight: 700; font-size: clamp(20px, 4.6vw, 28px); }
+.radar { display: inline-block; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--cy); position: relative; vertical-align: middle; margin-left: 12px; overflow: hidden; }
+.radar::before { content: ""; position: absolute; inset: 0; background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--cy) 75%, transparent)); animation: spin 2s linear infinite; }
+.radar::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--cy); }
+@media (prefers-reduced-motion: reduce) { .intro { display: none; } .tilt { transform: none; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+
+<div class="bgfx" aria-hidden="true"><i></i><i></i></div>
+<div class="intro" aria-hidden="true"><i class="cl h"></i><i class="cl v"></i><i class="rg"></i></div>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" width="42" height="42" viewBox="0 0 48 48" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="1" style="stop-color:var(--g2)"/></linearGradient></defs>
+        <g class="lg-glow">
+          <circle class="lg-ring" cx="24" cy="24" r="21" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-dasharray="2 5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="14" fill="none" stroke="url(#lg)" stroke-width="2.4"/>
+          <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          <path class="lg-pulse" pathLength="1" d="M6 25h10l3-8 5 17 4-13 2 4h12" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+      <div><h1 class="wm">PULSE <b>SNIPER</b></h1><p>Сигналы по погодным рынкам</p></div>
+    </div>
+    <div class="pills">
+      <div class="pill" id="acc" data-on="0"><i></i><span id="accText">Гость</span></div>
+      <div class="pill" id="src" data-on="0"><i></i><span id="srcText">Демо-данные</span></div>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true"><div class="tk" id="tk"></div></div>
+
+  <section id="v-globe" class="view">
+    <main class="app">
+      <section class="stage" aria-label="Глобус с прогнозом температуры">
+        <div id="globe"></div>
+        <div id="labels"></div>
+        <div class="legend"><div class="bar" id="legendBar"></div><div><span>−20°</span><span>+36°</span></div></div>
+        <div class="hint">Тяните глобус, нажмите на столбик</div>
+        <div class="hud"><span class="hud-dot"></span>ЦЕЛЬ <b id="hudCity">—</b><span id="hudTemp"></span></div>
+        <div class="reticle" id="reticle" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round"><g class="rr"><circle cx="50" cy="50" r="34" stroke="var(--cy)" stroke-width="1.5" stroke-dasharray="4 7"/></g><path d="M14 30V14h16M70 14h16v16M86 70v16H70M30 86H14V70" stroke="var(--g2)" stroke-width="2.4" stroke-linejoin="round"/><path d="M50 4v14M50 82v14M4 50h14M82 50h14" stroke="var(--cy)" stroke-width="1.6"/><circle cx="50" cy="50" r="2.5" fill="var(--cy)"/></svg></div>
+      </section>
+      <section class="panel">
+        <div class="chips" id="chips" role="group" aria-label="Города"></div>
+        <div class="card head" id="head"></div>
+        <div class="days" id="days" role="group" aria-label="День прогноза"></div>
+        <div id="chartCard"></div>
+        <div class="card"><h3>Четыре модели</h3><p class="sub">Чем ближе точки друг к другу, тем увереннее прогноз.</p><div class="models" id="models"></div></div>
+        <div id="mcard"></div>
+        <p class="note" id="note"></p>
+      </section>
+    </main>
+  </section>
+
+  <section id="v-signals" class="view" hidden></section>
+  <section id="v-report" class="view" hidden></section>
+</div>
+
+<nav class="dock" id="dock" aria-label="Разделы">
+  <span class="ind"></span>
+  <button type="button" data-v="globe"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Глобус</button>
+  <button type="button" data-v="signals"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Сигналы</button>
+  <button type="button" data-v="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Отчёт</button>
+</nav>
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  /* ВСТАВЬТЕ СВОЮ РЕФЕРАЛЬНУЮ ССЫЛКУ: сейчас стоит общий адрес сайта без реф-кода. */
+  var REF_URL = "https://pulsemarket.trade/ru";
+  var SITE = "https://pulsemarket.trade/ru/event/";
+  var SNAP = "3 нояб. 2026";
+  var MINUS = "−";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function bC(v, p) { return { l: v + "°C", lo: v - 0.5, hi: v + 0.5, p: p }; }
+  function bF(a, b, p) { return { l: a + "–" + b + "°F", lo: (a - 0.5 - 32) / 1.8, hi: (b + 0.5 - 32) / 1.8, p: p }; }
+  var CITIES = [
+    { id: "dallas", name: "Даллас", slug: "dallas", country: "США", lat: 32.78, lon: -96.8 },
+    { id: "shenzhen", name: "Шэньчжэнь", slug: "shenzhen", country: "Китай", lat: 22.54, lon: 114.06 },
+    { id: "jeddah", name: "Джидда", slug: "jeddah", country: "Саудовская Аравия", lat: 21.49, lon: 39.19 },
+    { id: "london", name: "Лондон", slug: "london", country: "Великобритания", lat: 51.51, lon: -0.13 },
+    { id: "paris", name: "Париж", slug: "paris", country: "Франция", lat: 48.86, lon: 2.35 },
+    { id: "telaviv", name: "Тель-Авив", slug: "tel-aviv", country: "Израиль", lat: 32.09, lon: 34.78 },
+    { id: "helsinki", name: "Хельсинки", slug: "helsinki", country: "Финляндия", lat: 60.17, lon: 24.94 },
+    { id: "amsterdam", name: "Амстердам", slug: "amsterdam", country: "Нидерланды", lat: 52.37, lon: 4.9 },
+    { id: "munich", name: "Мюнхен", slug: "munich", country: "Германия", lat: 48.14, lon: 11.58 },
+    { id: "chongqing", name: "Чунцин", slug: "chongqing", country: "Китай", lat: 29.56, lon: 106.55 },
+    { id: "nyc", name: "Нью-Йорк", slug: "nyc", country: "США", lat: 40.71, lon: -74.0 },
+    { id: "hongkong", name: "Гонконг", slug: "hong-kong", country: "Китай", lat: 22.32, lon: 114.17 },
+    { id: "milan", name: "Милан", slug: "milan", country: "Италия", lat: 45.46, lon: 9.19 },
+    { id: "moscow", name: "Москва", slug: "moscow", country: "Россия", lat: 55.75, lon: 37.62 },
+    { id: "sf", name: "Сан-Франциско", slug: "san-francisco", country: "США", lat: 37.77, lon: -122.42 },
+    { id: "miami", name: "Майами", slug: "miami", country: "США", lat: 25.76, lon: -80.19 },
+    { id: "madrid", name: "Мадрид", slug: "madrid", country: "Испания", lat: 40.42, lon: -3.7 },
+    { id: "la", name: "Лос-Анджелес", slug: "los-angeles", country: "США", lat: 34.05, lon: -118.24 },
+    { id: "houston", name: "Хьюстон", slug: "houston", country: "США", lat: 29.76, lon: -95.37 },
+    { id: "singapore", name: "Сингапур", slug: "singapore", country: "Сингапур", lat: 1.35, lon: 103.82 },
+    { id: "tokyo", name: "Токио", slug: "tokyo", country: "Япония", lat: 35.68, lon: 139.69 },
+    { id: "warsaw", name: "Варшава", slug: "warsaw", country: "Польша", lat: 52.23, lon: 21.01 }
+  ];
+  /* Снимок рынков максимальной температуры с pulsemarket.trade/ru/markets/weather. Показаны два самых вероятных варианта. */
+  var MARKETS = [
+    { c: "dallas", date: "2026-11-03", vol: "$53,5K", b: [bF(76, 77, .96), bF(78, 79, .04)] },
+    { c: "shenzhen", date: "2026-11-03", vol: "$38,0K", b: [bC(28, .96), bC(29, .01)] },
+    { c: "jeddah", date: "2026-11-03", vol: "$25,5K", b: [bC(39, .99), bC(40, .01)] },
+    { c: "london", date: "2026-11-03", vol: "$30,9K", b: [bC(12, .55), bC(13, .33)] },
+    { c: "paris", date: "2026-11-03", vol: "$34,7K", b: [bC(10, .43), bC(9, .30)] },
+    { c: "telaviv", date: "2026-11-03", vol: "$30,5K", b: [bC(28, .94), bC(29, .06)] },
+    { c: "helsinki", date: "2026-11-03", vol: "$28,0K", b: [bC(7, .87), bC(8, .14)] },
+    { c: "amsterdam", date: "2026-11-03", vol: "$26,7K", b: [bC(11, .72), bC(12, .19)] },
+    { c: "munich", date: "2026-11-03", vol: "$29,3K", b: [bC(6, .59), bC(7, .33)] },
+    { c: "chongqing", date: "2026-11-03", vol: "$26,4K", b: [bC(16, .99), bC(17, .02)] },
+    { c: "nyc", date: "2026-11-03", vol: "$20,9K", b: [bF(68, 69, .57), bF(70, 71, .39)] },
+    { c: "hongkong", date: "2026-11-04", vol: "$16,5K", b: [bC(28, .54), bC(27, .26)] },
+    { c: "milan", date: "2026-11-03", vol: "$28,6K", b: [bC(14, .55), bC(15, .34)] },
+    { c: "moscow", date: "2026-11-03", vol: "$17,7K", b: [bC(2, .74), bC(3, .25)] },
+    { c: "sf", date: "2026-11-03", vol: "$13,3K", b: [bF(64, 65, .57), bF(66, 67, .25)] },
+    { c: "miami", date: "2026-11-03", vol: "$18,8K", b: [bF(84, 85, .52), bF(86, 87, .40)] },
+    { c: "madrid", date: "2026-11-03", vol: "$19,3K", b: [bC(15, .59), bC(16, .31)] },
+    { c: "la", date: "2026-11-03", vol: "$13,9K", b: [bF(72, 73, .58), bF(74, 75, .26)] },
+    { c: "houston", date: "2026-11-03", vol: "$14,1K", b: [bF(84, 85, .40), bF(82, 83, .33)] },
+    { c: "singapore", date: "2026-11-04", vol: "$10,1K", b: [bC(33, .50), bC(32, .38)] },
+    { c: "tokyo", date: "2026-11-04", vol: "$9,9K", b: [bC(16, .55), bC(17, .30)] },
+    { c: "warsaw", date: "2026-11-03", vol: "$18,0K", b: [bC(9, .55), bC(10, .46)] }
+  ];
+  var MODELS = [
+    { key: "ecmwf_ifs025", name: "ECMWF IFS", sub: "Европейский центр", w: 1.3, noise: 0.85 },
+    { key: "icon_seamless", name: "ICON", sub: "Германия, DWD", w: 1.1, noise: 1.0 },
+    { key: "gfs_seamless", name: "GFS", sub: "США, NOAA", w: 1.0, noise: 1.15 },
+    { key: "gem_seamless", name: "GEM", sub: "Канада, ECCC", w: 0.9, noise: 1.2 }
+  ];
+  var DAYS = 7, VIEWS = ["globe", "signals", "report"];
+  var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
+  var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+
+  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, free: null, sigs: [], period: 30, stats: [] };
+
+  /* ---------- helpers ---------- */
+  function $(id) { return document.getElementById(id); }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function t0(n) { var r = Math.round(n); return (r < 0 ? MINUS : r > 0 ? "+" : "") + Math.abs(r); }
+  function t1(n) { var r = Math.round(n * 10) / 10; return (r < 0 ? MINUS : "") + Math.abs(r).toFixed(1).replace(".", ","); }
+  function pc(x) { return Math.round(x * 100); }
+  function tempRGB(t) {
+    t = clamp(t, STOPS[0][0], STOPS[STOPS.length - 1][0]);
+    for (var i = 1; i < STOPS.length; i++) {
+      if (t <= STOPS[i][0]) { var a = STOPS[i - 1], b = STOPS[i], k = (t - a[0]) / (b[0] - a[0]); return [0, 1, 2].map(function (j) { return Math.round(a[1][j] + (b[1][j] - a[1][j]) * k); }); }
+    }
+    return STOPS[STOPS.length - 1][1];
+  }
+  function tempColor(t) { var c = tempRGB(t); return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")"; }
+  function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x)); }
+  function cdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
+  function cityById(id) { return CITIES.filter(function (c) { return c.id === id; })[0]; }
+  function marketOf(cityId) { return MARKETS.filter(function (m) { return m.c === cityId; })[0]; }
+  function mdate(m) { var p = m.date.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function today0() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function dayOf(m) { return Math.round((mdate(m) - today0()) / 864e5); }
+  function mktMu(m) { var s = 0, w = 0; m.b.forEach(function (b) { s += b.p * (b.lo + b.hi) / 2; w += b.p; }); return s / w; }
+  function slugOf(m) { var p = (m.orig || m.date).split("-"), d = new Date(+p[0], +p[1] - 1, +p[2]), c = cityById(m.c); return "highest-temperature-in-" + c.slug + "-on-" + MONTHS_EN[d.getMonth()] + "-" + d.getDate() + "-" + d.getFullYear(); }
+  function fmtDate(d) { return new Intl.DateTimeFormat("ru", { day: "numeric", month: "short" }).format(d); }
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function weekKey() { var d = new Date(); d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); var day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day); var y = new Date(Date.UTC(d.getUTCFullYear(), 0, 1)); return d.getUTCFullYear() + "-W" + Math.ceil(((d - y) / 864e5 + 1) / 7); }
+  function daysToMonday() { return ((8 - new Date().getDay()) % 7) || 7; }
+  function plural(n, a, b, c) { var m = n % 10, h = n % 100; return (m === 1 && h !== 11) ? a : (m >= 2 && m <= 4 && (h < 12 || h > 14)) ? b : c; }
+  var toastT;
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.className = "on"; clearTimeout(toastT); toastT = setTimeout(function () { t.className = ""; }, 3200); }
+  function countUp(el) {
+    var to = parseFloat(el.getAttribute("data-count")), dec = +el.getAttribute("data-dec") || 0, suf = el.getAttribute("data-suf") || "";
+    function fmt(v) { return v.toFixed(dec).replace(".", ",") + suf; }
+    if (reduce) { el.textContent = fmt(to); return; }
+    var s = performance.now();
+    (function step(now) { var k = Math.min(1, (now - s) / 900), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(to * e); if (k < 1) requestAnimationFrame(step); })(s);
+  }
+  function runCounts(root) { Array.prototype.forEach.call(root.querySelectorAll("[data-count]"), countUp); }
+
+  /* ---------- демо-данные моделей: опираются на рынок, но с собственной ошибкой ---------- */
+  function makeDemo() {
+    var t = today0(), stamp = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate(), dates = [];
+    for (var d = 0; d < DAYS; d++) dates.push(new Date(t.getFullYear(), t.getMonth(), t.getDate() + d));
+    var out = {};
+    CITIES.forEach(function (c) {
+      var m = marketOf(c.id), rnd = mulberry(hash(c.id + stamp));
+      function g() { return Math.sqrt(-2 * Math.log(rnd() + 1e-9)) * Math.cos(2 * Math.PI * rnd()); }
+      var mu0 = mktMu(m), di = clamp(dayOf(m), 0, DAYS - 1), off = g() * 1.5, walk = [], w = 0;
+      for (var d = 0; d < DAYS; d++) { w = w * 0.7 + g() * 1.3; walk.push(w); }
+      out[c.id] = MODELS.map(function (md) {
+        var bias = g() * 0.4;
+        return walk.map(function (wd, d) { var truth = mu0 + off + (wd - walk[di]); return Math.round((truth + bias + g() * (0.3 + 0.25 * Math.abs(d - 0)) * md.noise * 0.8) * 10) / 10; });
+      });
+    });
+    return { dates: dates, data: out };
+  }
+
+  /* ---------- модель вероятности ---------- */
+  function forecast(cityId, day) {
+    var models = state.data[cityId]; if (!models) return null;
+    var vals = [], ws = [];
+    MODELS.forEach(function (m, i) { var v = models[i][day]; if (isFinite(v)) { vals.push(v); ws.push(m.w); } });
+    if (vals.length < 2) return null;
+    var W = ws.reduce(function (a, b) { return a + b; }, 0);
+    var mu = vals.reduce(function (a, v, i) { return a + v * ws[i]; }, 0) / W;
+    var sdm = Math.sqrt(vals.reduce(function (a, v, i) { return a + ws[i] * (v - mu) * (v - mu); }, 0) / W);
+    var base = 0.6 + 0.3 * day, sigma = Math.sqrt(sdm * sdm + base * base), k0 = Math.round(mu);
+    function pBin(k) { return cdf((k + 0.5 - mu) / sigma) - cdf((k - 0.5 - mu) / sigma); }
+    var half = clamp(Math.ceil(2.2 * sigma), 3, 5), buckets = [];
+    for (var k = k0 - half; k <= k0 + half; k++) buckets.push({ k: k, p: pBin(k) });
+    var pCorr = pBin(k0 - 1) + pBin(k0) + pBin(k0 + 1), range = Math.max.apply(null, vals) - Math.min.apply(null, vals);
+    return { mu: mu, sigma: sigma, p10: mu - 1.2816 * sigma, p90: mu + 1.2816 * sigma, k0: k0, buckets: buckets, pCorr: pCorr, range: range, level: pCorr >= 0.6 && range <= 2 ? "strong" : pCorr >= 0.45 && range <= 3 ? "mid" : "weak", vals: models.map(function (a) { return a[day]; }) };
+  }
+  function pRange(f, lo, hi) { return cdf((hi - f.mu) / f.sigma) - cdf((lo - f.mu) / f.sigma); }
+
+  /* ---------- сигналы: вариант, где модели дают заметно больше, чем цена рынка ---------- */
+  function computeSignals() {
+    var out = [];
+    MARKETS.forEach(function (m) {
+      var d = dayOf(m); if (d < 0 || d >= DAYS) return;
+      var f = forecast(m.c, d); if (!f) return;
+      var best = null;
+      m.b.forEach(function (b) { var pm = pRange(f, b.lo, b.hi), e = pm - b.p; if (!best || e > best.e) best = { b: b, pm: pm, e: e }; });
+      if (best.e >= 0.08 && best.pm >= 0.3 && f.range <= 3) out.push({ id: m.c + "@" + m.date, c: m.c, m: m, d: d, f: f, best: best, level: best.e >= 0.15 && f.range <= 2 ? "strong" : "mid" });
+    });
+    out.sort(function (a, b) { return b.best.e - a.best.e; });
+    return out;
+  }
+  function ensureFree() {
+    var sigs = state.sigs, wk = weekKey(), saved = null;
+    try { saved = JSON.parse(lsGet("izo.free") || "null"); } catch (e) {}
+    var found = saved && saved.week === wk ? sigs.filter(function (s) { return s.id === saved.id; })[0] : null;
+    if (!found && sigs.length) { found = sigs[0]; lsSet("izo.free", JSON.stringify({ week: wk, id: found.id })); }
+    state.free = found ? { id: found.id, c: found.c, d: found.d } : null;
+  }
+  function unlockedFor(c, d) { return state.member || !!(state.free && state.free.c === c && state.free.d === d); }
+  function unlockedSig(s) { return state.member || !!(state.free && state.free.id === s.id); }
+
+  /* ---------- демо-статистика прошлых сигналов ---------- */
+  function makeStats() {
+    var out = [], rnd = mulberry(hash("stats-v2")), t = today0();
+    for (var i = 30; i >= 1; i--) {
+      var dt = new Date(t.getFullYear(), t.getMonth(), t.getDate() - i), n = 2 + Math.floor(rnd() * 2);
+      for (var j = 0; j < n; j++) {
+        var c = CITIES[Math.floor(rnd() * CITIES.length)], p = 0.46 + rnd() * 0.44, hit = rnd() < p * 0.97;
+        var k = Math.round(mktMu(marketOf(c.id)) + (rnd() - 0.5) * 4);
+        var off = hit ? [-1, 0, 0, 1][Math.floor(rnd() * 4)] : (rnd() < 0.5 ? -1 : 1) * (2 + Math.floor(rnd() * 2));
+        out.push({ dt: dt, c: c.id, k: k, p: p, actual: k + off, hit: hit, age: i });
+      }
+    }
+    return out;
+  }
+
+  /* ---------- глобус: панель ---------- */
+  function dayLabel(d, o) { var dt = state.dates[d]; return dt ? new Intl.DateTimeFormat("ru", o).format(dt) : ""; }
+  var LOCK_SVG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>';
+  function lockCta(text) { return '<div class="lockcta">' + LOCK_SVG + '<p>' + text + '</p><a class="btn sm" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться</a></div>'; }
+  function gauge(p, d) {
+    return '<svg class="gauge" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="' + pc(p) + '%"><circle class="gbg" cx="32" cy="32" r="26"/><circle class="gfg" pathLength="1" style="--p:' + p.toFixed(3) + ';--d:' + (d || 0) + 'ms" cx="32" cy="32" r="26" transform="rotate(-90 32 32)"/><text x="32" y="37" text-anchor="middle">' + pc(p) + '</text></svg>';
+  }
+  function renderTicker() {
+    var items = MARKETS.map(function (m) { var c = cityById(m.c), b = m.b[0]; return '<span class="tk-i"><b>' + c.name + '</b>' + b.l + ' <em>' + pc(b.p) + '%</em></span>'; }).join("");
+    $("tk").innerHTML = items + items;
+  }
+  function phBars(n) { var s = ""; for (var i = 0; i < n; i++) s += '<div class="phbar" style="width:' + (88 - i * 14) + '%;margin-top:' + (i ? 10 : 0) + 'px"></div>'; return s; }
+
+  function renderChips() {
+    $("chips").innerHTML = CITIES.map(function (c) {
+      var f = forecast(c.id, state.day);
+      return '<button class="chip" type="button" data-id="' + c.id + '" aria-pressed="' + (c.id === state.city) + '"><i style="background:' + (f ? tempColor(f.mu) : "var(--line)") + '"></i>' + c.name + '<span>' + (f ? t0(f.mu) + "°" : "—") + '</span></button>';
+    }).join("");
+  }
+  function renderHead(f) {
+    var c = cityById(state.city);
+    $("head").innerHTML = '<div class="kick">' + c.country + " · " + dayLabel(state.day, { weekday: "long", day: "numeric", month: "long" }) + '</div><h2>' + c.name + '</h2>' +
+      '<div class="big"><strong>' + t1(f.mu) + '°</strong><span class="range">80% диапазон ' + t1(f.p10) + " … " + t1(f.p90) + '°C</span></div>' +
+      '<div class="swatch" style="background:linear-gradient(90deg,' + tempColor(f.p10) + "," + tempColor(f.mu) + "," + tempColor(f.p90) + ')"></div>';
+  }
+  function renderDays() {
+    var out = "";
+    for (var d = 0; d < DAYS; d++) {
+      var f = forecast(state.city, d); if (!f) continue;
+      out += '<button class="day" type="button" data-d="' + d + '" aria-pressed="' + (d === state.day) + '"><small>' + (d === 0 ? "сег" : dayLabel(d, { weekday: "short" })) + '</small><b>' + t0(f.mu) + '°</b><div class="conf"><em style="width:' + (unlockedFor(state.city, d) ? pc(f.pCorr) : 40) + '%"></em></div></button>';
+    }
+    $("days").innerHTML = out;
+  }
+  function chartSvg(f) {
+    var n = f.buckets.length, padX = 8, W = 360, bw = (W - padX * 2) / n, top = 34, bottom = 142;
+    var maxP = Math.max.apply(null, f.buckets.map(function (b) { return b.p; }));
+    var svg = '<line class="axis" x1="0" x2="360" y1="' + bottom + '" y2="' + bottom + '"/>';
+    f.buckets.forEach(function (b, i) {
+      var h = maxP > 0 ? (b.p / maxP) * (bottom - top - 18) : 0, x = padX + i * bw, inC = Math.abs(b.k - f.k0) <= 1;
+      svg += '<rect class="bar' + (inC ? " in" : "") + '" style="animation-delay:' + (i * 40) + 'ms" x="' + (x + 2) + '" y="' + (bottom - h) + '" width="' + (bw - 4) + '" height="' + h + '" rx="3"/>';
+      if (b.p >= 0.04) svg += '<text class="pc" x="' + (x + bw / 2) + '" y="' + (bottom - h - 5) + '" text-anchor="middle">' + pc(b.p) + '</text>';
+      svg += '<text x="' + (x + bw / 2) + '" y="' + (bottom + 16) + '" text-anchor="middle">' + (b.k < 0 ? MINUS : "") + Math.abs(b.k) + '</text>';
+    });
+    var cx0 = padX + f.buckets.findIndex(function (b) { return b.k === f.k0 - 1; }) * bw + 2, cx1 = cx0 + bw * 3 - 4;
+    svg += '<path class="brk" d="M' + cx0 + " 22 V16 H" + cx1 + ' V22"/><text class="tot" x="' + ((cx0 + cx1) / 2) + '" y="10" text-anchor="middle">' + (f.k0 - 1 < 0 ? MINUS : "") + Math.abs(f.k0 - 1) + "…" + (f.k0 + 1 < 0 ? MINUS : "") + Math.abs(f.k0 + 1) + "°C · " + pc(f.pCorr) + "%</text>";
+    return svg;
+  }
+  function renderChartCard(f) {
+    var inner = '<h3>Вероятность по градусам</h3><p class="sub">Шанс каждого целого градуса, % над столбиком. Выделен коридор из трёх соседних значений.</p>';
+    if (unlockedFor(state.city, state.day)) {
+      var lvl = { strong: "Сильный сигнал", mid: "Умеренный сигнал", weak: "Слабый, лучше пропустить" }[f.level];
+      $("chartCard").innerHTML = '<div class="card">' + inner + '<svg class="chart" viewBox="0 0 360 170" role="img" aria-label="Распределение вероятности температуры">' + chartSvg(f) + '</svg></div>' +
+        '<div class="card signal" style="margin-top:14px"><div class="row"><span class="badge ' + f.level + '"><i></i>' + lvl + '</span><span class="pct">' + pc(f.pCorr) + '%</span></div><p>Коридор ' + t0(f.k0 - 1) + "…" + t0(f.k0 + 1) + '°C. Разброс моделей ' + t1(f.range) + '°.</p></div>';
+    } else {
+      $("chartCard").innerHTML = '<div class="card lockbox">' + inner + '<div class="ph">' + phBars(4) + '<div style="height:90px"></div></div>' + lockCta("Вероятности по градусам открываются после регистрации") + '</div>';
+    }
+  }
+  function renderModels(f) {
+    $("models").innerHTML = MODELS.map(function (m, i) {
+      var v = f.vals[i]; if (!isFinite(v)) return "";
+      var pos = clamp(50 + (v - f.mu) / 6 * 100, 4, 96), dl = v - f.mu;
+      return '<div class="mrow"><div class="nm">' + m.name + '<small>' + m.sub + '</small></div><div class="vl">' + t1(v) + '°</div><div class="track" title="Отклонение: ' + (dl >= 0 ? "+" : MINUS) + Math.abs(dl).toFixed(1).replace(".", ",") + '°"><span class="mean"></span><span class="dot" style="left:' + pos + '%"></span></div></div>';
+    }).join("");
+  }
+  function renderMarketCard(f) {
+    var m = marketOf(state.city), el = $("mcard");
+    if (!m || dayOf(m) !== state.day) { el.innerHTML = ""; return; }
+    var head = '<h3>Рынок на ' + fmtDate(mdate(m)) + '</h3><p class="sub">Цена на Polymarket (снимок ' + SNAP + ') и оценка наших моделей. Объём ' + m.vol + '.</p>';
+    if (!unlockedFor(state.city, state.day)) { el.innerHTML = '<div class="card lockbox">' + head + '<div class="ph">' + phBars(2) + '</div>' + lockCta("Сравнение с рынком открывается после регистрации") + '</div>'; return; }
+    var rows = m.b.map(function (b, i) {
+      var pm = pRange(f, b.lo, b.hi);
+      return '<div class="vs" style="margin-top:' + (i ? 12 : 0) + 'px"><div class="pick">Вариант <strong>' + b.l + '</strong></div><div class="vrow"><span>Модели</span><div class="vbar"><em style="--w:' + pc(pm) + '%"></em></div><b>' + pc(pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(b.p) + '%"></em></div><b>' + pc(b.p) + '%</b></div></div>';
+    }).join("");
+    el.innerHTML = '<div class="card">' + head + rows + '<p class="note" style="margin-top:12px"><a href="' + SITE + slugOf(m) + '" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:none">Открыть рынок на Pulse Market ↗</a></p></div>';
+  }
+  function renderNote() {
+    var t = state.updated ? new Intl.DateTimeFormat("ru", { hour: "2-digit", minute: "2-digit" }).format(state.updated) : "";
+    $("note").textContent = state.source === "live" ? "Open-Meteo, четыре модели, обновлено в " + t + ". Это расчёт моделей, а не гарантия результата." : "Демо-данные: живой запрос к Open-Meteo не прошёл в этом окне. Опубликованная на своём хостинге версия берёт реальные прогнозы.";
+    $("src").setAttribute("data-on", state.source === "live" ? "1" : "0");
+    $("srcText").textContent = state.source === "live" ? "Live · Open-Meteo" : "Демо-данные";
+    $("acc").setAttribute("data-on", state.member ? "1" : "0");
+    $("accText").textContent = state.member ? "Полный доступ" : "Гость";
+  }
+
+  /* ---------- раздел «Сигналы» ---------- */
+  function accessBanner() {
+    if (state.member) return '<div class="card access member rise"><div><span class="kick">Доступ открыт</span><h2>Все сигналы без ограничений</h2><p>Сигналы появляются здесь сразу, как только модели расходятся с ценой рынка. Проверку регистрации выполняет бот.</p></div><div class="acts"><button class="btn ghost" type="button" data-act="guest">Выйти из режима участника</button></div></div>';
+    var n = daysToMonday();
+    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Зарегистрируйтесь по ссылке, и все сигналы будут открыты постоянно.</p></div><div class="acts"><a class="btn shine" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться по ссылке</a><button class="btn ghost" type="button" data-act="member">Я уже зарегистрировался</button></div></div>';
+  }
+  function sigCard(s, i) {
+    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
+    var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
+    if (!open) return '<article class="card sig tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Вариант <strong>••°C</strong></div>' + phBars(2) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
+    var free = !state.member ? '<span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span>' : "";
+    return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") +
+      '<div class="pickrow"><div class="pick">Вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' +
+      '<div class="vs"><div class="vrow"><span>Модели</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
+      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+  }
+  function renderSignals() {
+    var el = $("v-signals"), sigs = state.sigs;
+    var demo = state.source === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Прогнозы моделей здесь придуманы, чтобы показать вид сигнала. Цены рынков взяты со снимка Pulse Market от ' + SNAP + (state.shifted ? ', даты сдвинуты на сегодня только для показа' : '') + '. Не торгуйте по этим карточкам.</span></div>' : "";
+    var list = sigs.length ? '<div class="grid">' + sigs.map(sigCard).join("") + '</div>' : '<div class="card empty">Сейчас нет вариантов, где модели заметно расходятся с рынком. Или снимок рынков устарел и нужна свежая загрузка.</div>';
+    el.innerHTML = '<div class="view-head"><h2>Сигналы</h2><p>Вариант попадает сюда, если модели дают ему заметно больше шансов, чем цена на рынке, и при этом согласны между собой. Рынки: Pulse Market, снимок ' + SNAP + '.</p></div>' + demo + '<div class="card hero rise"><div><span class="kick">Радар рынков</span><h2>' + sigs.length + ' ' + plural(sigs.length, "цель", "цели", "целей") + ' в прицеле<span class="radar"></span></h2></div></div>' + accessBanner() + list +
+      '<p class="note" style="margin-top:14px">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
+  }
+
+  /* ---------- раздел «Отчёт» ---------- */
+  function renderReport() {
+    var el = $("v-report"), cut = state.period, rows = state.stats.filter(function (r) { return r.age <= cut; });
+    rows.sort(function (a, b) { return b.age - a.age; });
+    var n = rows.length, hits = rows.filter(function (r) { return r.hit; }).length, acc = n ? hits / n : 0, avgP = n ? rows.reduce(function (a, r) { return a + r.p; }, 0) / n : 0, best = 0, run = 0;
+    rows.forEach(function (r) { run = r.hit ? run + 1 : 0; best = Math.max(best, run); });
+    /* накопленная точность по дням */
+    var byDay = {}, cum = [], h = 0, tt = 0;
+    rows.forEach(function (r) { (byDay[r.age] = byDay[r.age] || []).push(r); });
+    Object.keys(byDay).map(Number).sort(function (a, b) { return b - a; }).forEach(function (a) { byDay[a].forEach(function (r) { tt++; if (r.hit) h++; }); cum.push({ age: a, v: h / tt }); });
+    var W = 360, Hh = 150, px = 8, py = 14, xs = function (i) { return cum.length < 2 ? W / 2 : px + i * (W - px * 2) / (cum.length - 1); }, ys = function (v) { return py + (1 - v) * (Hh - py * 2 - 12); };
+    var pts = cum.map(function (c, i) { return xs(i) + "," + ys(c.v); }), line = pts.length ? "M" + pts.join(" L") : "", last = cum[cum.length - 1];
+    var svg = [0.5, 0.75, 1].map(function (g) { return '<line class="grid" x1="0" x2="' + W + '" y1="' + ys(g) + '" y2="' + ys(g) + '" stroke-dasharray="3 4"/><text x="0" y="' + (ys(g) - 4) + '">' + pc(g) + '%</text>'; }).join("") +
+      (line ? '<path class="area" d="' + line + " L" + xs(cum.length - 1) + "," + ys(0) + " L" + xs(0) + "," + ys(0) + ' Z"/><path class="line" pathLength="1" d="' + line + '"/><circle class="pt" cx="' + xs(cum.length - 1) + '" cy="' + ys(last.v) + '" r="5"/>' : "") +
+      '<text x="0" y="' + (Hh - 2) + '">' + cut + ' дн. назад</text><text x="' + W + '" y="' + (Hh - 2) + '" text-anchor="end">вчера</text>';
+    /* калибровка */
+    var bins = [[0.4, 0.6, "40–60%"], [0.6, 0.8, "60–80%"], [0.8, 1.01, "80–100%"]].map(function (b) {
+      var s = rows.filter(function (r) { return r.p >= b[0] && r.p < b[1]; }), ap = s.length ? s.reduce(function (a, r) { return a + r.p; }, 0) / s.length : 0, ar = s.length ? s.filter(function (r) { return r.hit; }).length / s.length : 0;
+      return '<div class="calrow"><div><b style="color:var(--fg)">' + b[2] + '</b><br>' + s.length + ' сигн.</div><div class="calbars"><div class="vrow"><span>Заявлено</span><div class="vbar"><em style="--w:' + pc(ap) + '%"></em></div><b>' + pc(ap) + '%</b></div><div class="vrow mkt"><span>Сбылось</span><div class="vbar"><em style="--w:' + pc(ar) + '%"></em></div><b>' + pc(ar) + '%</b></div></div></div>';
+    }).join("");
+    var latest = rows.slice().reverse().slice(0, 10).map(function (r) {
+      var c = cityById(r.c);
+      return '<div class="rrow"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><div class="num">Коридор ' + t0(r.k - 1) + "…" + t0(r.k + 1) + '°<br>Факт ' + t0(r.actual) + '°</div><span class="' + (r.hit ? "ok" : "miss") + '" aria-label="' + (r.hit ? "Сбылось" : "Не сбылось") + '">' + (r.hit ? "✓" : "✕") + '</span></div>';
+    }).join("");
+    var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Зарегистрируйтесь по ссылке, и новые сигналы будут доступны в любое время, не раз в неделю.</p></div><div class="acts"><a class="btn shine" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться по ссылке</a></div></div>';
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: какой коридор мы назвали и какая температура была на самом деле.</p></div>' + demo +
+      '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
+      '<div class="tiles"><div class="tile tilt rise" style="--i:0"><small>Коридор сбылся</small><strong data-count="' + (acc * 100) + '" data-suf="%">' + pc(acc) + '%</strong></div><div class="tile tilt rise" style="--i:1"><small>Сигналов закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile tilt rise" style="--i:2"><small>Средняя уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile tilt rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' +
+      '<div class="two"><div class="card rise" style="--i:4"><h3>Накопленная точность</h3><p class="sub">Доля сбывшихся коридоров по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
+      '<div class="card rise" style="--i:6"><h3>Последние итоги</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div></div>' + cta +
+      '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
+    runCounts(el);
+  }
+
+  /* ---------- общий рендер и события ---------- */
+  function renderAll() {
+    state.sigs = computeSignals(); ensureFree();
+    var f = forecast(state.city, state.day);
+    renderChips();
+    if (f) { renderHead(f); renderChartCard(f); renderModels(f); renderMarketCard(f); }
+    renderDays(); renderNote();
+    $("hudCity").textContent = cityById(state.city).name.toUpperCase();
+    $("hudTemp").textContent = f ? " " + t1(f.mu) + "°" : "";
+    if (state.view === "signals") renderSignals();
+    if (state.view === "report") renderReport();
+    if (globe) globe.sync();
+  }
+  function selectCity(id) {
+    state.city = id; renderAll(); if (globe) globe.focus(id);
+    var rt = $("reticle"); if (rt) { rt.classList.remove("lock"); void rt.offsetWidth; rt.classList.add("lock"); }
+    var chip = document.querySelector('.chip[data-id="' + id + '"]'); if (chip && chip.scrollIntoView) { try { chip.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }); } catch (e) {} }
+  }
+  function setView(v) {
+    if (VIEWS.indexOf(v) < 0) v = "globe";
+    state.view = v;
+    VIEWS.forEach(function (x) { $("v-" + x).hidden = x !== v; });
+    $("dock").style.setProperty("--i", VIEWS.indexOf(v));
+    Array.prototype.forEach.call(document.querySelectorAll("#dock button"), function (b) { if (b.getAttribute("data-v") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+    if (v === "signals") renderSignals(); if (v === "report") renderReport();
+    if (location.hash !== "#" + v) { try { location.hash = v; } catch (e) {} }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", function () { var h = location.hash.slice(1); if (h !== state.view) setView(h); });
+  $("dock").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setView(b.getAttribute("data-v")); });
+  $("chips").addEventListener("click", function (e) { var b = e.target.closest(".chip"); if (b) selectCity(b.getAttribute("data-id")); });
+  $("days").addEventListener("click", function (e) { var b = e.target.closest(".day"); if (b) { state.day = +b.getAttribute("data-d"); renderAll(); } });
+  $("v-report").addEventListener("click", function (e) { var b = e.target.closest("[data-p]"); if (b) { state.period = +b.getAttribute("data-p"); renderReport(); } });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-act]"); if (!a) return;
+    var act = a.getAttribute("data-act"), tg = window.Telegram && window.Telegram.WebApp;
+    if (act === "ref") {
+      if (tg && tg.openLink) { e.preventDefault(); tg.openLink(REF_URL); }
+      toast("После регистрации вернитесь сюда и нажмите «Я уже зарегистрировался».");
+    } else if (act === "member") {
+      state.member = true; lsSet("izo.member", "1"); toast("Доступ открыт на этом устройстве. Бот проверит регистрацию отдельно."); renderAll();
+    } else if (act === "guest") {
+      state.member = false; lsSet("izo.member", "0"); renderAll();
+    }
+  });
+
+  /* ---------- 3D-глобус ---------- */
+  var globe = (function () {
+    var el = $("globe"), labelsEl = $("labels"), reticleEl = $("reticle");
+    if (!window.THREE) { el.innerHTML = '<p class="nogl">Не удалось загрузить 3D-движок. Прогноз справа работает.</p>'; return null; }
+    var T = window.THREE;
+    var renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.setClearColor(0x000000, 0); el.appendChild(renderer.domElement);
+    var scene = new T.Scene(), camera = new T.PerspectiveCamera(35, 1, 0.1, 50), group = new T.Group(); scene.add(group);
+    function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+    function ll(lat, lon, r) { var la = lat * Math.PI / 180, lo = lon * Math.PI / 180; return new T.Vector3(r * Math.cos(la) * Math.sin(lo), r * Math.sin(la), r * Math.cos(la) * Math.cos(lo)); }
+    var fillMat = new T.MeshBasicMaterial({ color: 0x0e1524 }); group.add(new T.Mesh(new T.SphereGeometry(0.995, 64, 48), fillMat));
+    var pts = [], N = 3200, ga = Math.PI * (3 - Math.sqrt(5));
+    for (var i = 0; i < N; i++) { var y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = ga * i; pts.push(Math.cos(th) * r, y, Math.sin(th) * r); }
+    var dg = new T.BufferGeometry(); dg.setAttribute("position", new T.Float32BufferAttribute(pts, 3));
+    var dotMat = new T.PointsMaterial({ size: 0.014, color: 0x34456b, sizeAttenuation: true }); group.add(new T.Points(dg, dotMat));
+    var lp = [], seg = 72;
+    for (var la = -75; la <= 75; la += 15) for (var s = 0; s < seg; s++) { var a = ll(la, s * 360 / seg, 1.001), b = ll(la, (s + 1) * 360 / seg, 1.001); lp.push(a.x, a.y, a.z, b.x, b.y, b.z); }
+    for (var lo = 0; lo < 360; lo += 15) for (var s2 = 0; s2 < seg; s2++) { var a2 = ll(-90 + s2 * 180 / seg, lo, 1.001), b2 = ll(-90 + (s2 + 1) * 180 / seg, lo, 1.001); lp.push(a2.x, a2.y, a2.z, b2.x, b2.y, b2.z); }
+    var lg = new T.BufferGeometry(); lg.setAttribute("position", new T.Float32BufferAttribute(lp, 3));
+    var lineMat = new T.LineBasicMaterial({ color: 0x1d2943, transparent: true, opacity: 0.7 }); group.add(new T.LineSegments(lg, lineMat));
+    var glowMat = new T.ShaderMaterial({ uniforms: { uColor: { value: new T.Color(0x4c7dff) } }, transparent: true, side: T.BackSide, depthWrite: false,
+      vertexShader: "varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }",
+      fragmentShader: "uniform vec3 uColor; varying vec3 vN; void main(){ float i = pow(max(0.0, 0.68 - dot(vN, vec3(0.0,0.0,1.0))), 2.2); gl_FragColor = vec4(uColor, clamp(i * 1.1, 0.0, 1.0)); }" });
+    scene.add(new T.Mesh(new T.SphereGeometry(1.16, 64, 48), glowMat));
+    var pillarGeo = new T.CylinderGeometry(0.018, 0.018, 1, 14); pillarGeo.translate(0, 0.5, 0);
+    var capGeo = new T.SphereGeometry(0.03, 16, 12), proxyGeo = new T.SphereGeometry(0.09, 8, 6), up = new T.Vector3(0, 1, 0), items = [], proxies = [];
+    CITIES.forEach(function (c) {
+      var dir = ll(c.lat, c.lon, 1), mat = new T.MeshBasicMaterial({ color: 0xffffff });
+      var pillar = new T.Mesh(pillarGeo, mat); pillar.position.copy(dir); pillar.quaternion.setFromUnitVectors(up, dir); pillar.scale.set(1, 0.05, 1);
+      var cap = new T.Mesh(capGeo, mat), proxy = new T.Mesh(proxyGeo, new T.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })); proxy.userData.id = c.id;
+      group.add(pillar, cap, proxy); proxies.push(proxy);
+      var lab = document.createElement("div"); lab.className = "glabel"; lab.style.opacity = 0; labelsEl.appendChild(lab);
+      items.push({ c: c, dir: dir, mat: mat, pillar: pillar, cap: cap, proxy: proxy, h: 0.05, th: 0.05, lab: lab });
+    });
+    var ring = new T.Mesh(new T.RingGeometry(0.055, 0.07, 48), new T.MeshBasicMaterial({ color: 0xffffff, side: T.DoubleSide, transparent: true, opacity: 0.9 })); group.add(ring);
+    function hOf(mu) { return 0.08 + (clamp(mu, -15, 40) + 15) / 55 * 0.42; }
+    function applyTheme() {
+      fillMat.color.set(css("--g-fill")); dotMat.color.set(css("--g-dot")); lineMat.color.set(css("--g-line")); glowMat.uniforms.uColor.value.set(css("--g-glow"));
+      glowMat.blending = css("color-scheme").indexOf("dark") > -1 ? T.AdditiveBlending : T.NormalBlending; glowMat.needsUpdate = true; ring.material.color.set(css("--accent"));
+    }
+    var cur = { rx: 0.3, ry: 0 }, tgt = { rx: 0.3, ry: 0 }, vel = 0, dragging = false, last = null, moved = 0, W = 1, H = 1;
+    function setSize() { W = el.clientWidth || 320; H = el.clientHeight || 320; renderer.setSize(W, H, false); camera.aspect = W / H; camera.position.set(0, 0, 3.9 * Math.max(1, 1.05 / camera.aspect)); camera.updateProjectionMatrix(); }
+    function focus(id, instant) {
+      var it = items.filter(function (x) { return x.c.id === id; })[0]; if (!it) return;
+      tgt.ry = -it.c.lon * Math.PI / 180; tgt.rx = clamp(it.c.lat * Math.PI / 180, -1.15, 1.15);
+      var d = (tgt.ry - cur.ry) % (Math.PI * 2); if (d > Math.PI) d -= Math.PI * 2; if (d < -Math.PI) d += Math.PI * 2; tgt.ry = cur.ry + d;
+      if (instant) { cur.ry = tgt.ry; cur.rx = tgt.rx; }
+    }
+    function sync() {
+      items.forEach(function (it) {
+        var f = forecast(it.c.id, state.day); if (!f) return;
+        it.th = hOf(f.mu); var col = tempRGB(f.mu); it.mat.color.setRGB(col[0] / 255, col[1] / 255, col[2] / 255);
+        it.lab.innerHTML = it.c.name + "<b>" + t0(f.mu) + "°</b>";
+      });
+    }
+    var ray = new T.Raycaster(), ndc = new T.Vector2();
+    function pick(e) {
+      var r = renderer.domElement.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      ray.setFromCamera(ndc, camera); var hit = ray.intersectObjects(proxies, false);
+      for (var i = 0; i < hit.length; i++) { var w = hit[i].object.getWorldPosition(new T.Vector3()); if (w.z > 0.1) { selectCity(hit[i].object.userData.id); return; } }
+    }
+    var cv = renderer.domElement;
+    cv.addEventListener("pointerdown", function (e) { dragging = true; moved = 0; last = [e.clientX, e.clientY]; vel = 0; try { cv.setPointerCapture(e.pointerId); } catch (x) {} });
+    cv.addEventListener("pointermove", function (e) { if (!dragging) return; var dx = e.clientX - last[0], dy = e.clientY - last[1]; last = [e.clientX, e.clientY]; moved += Math.abs(dx) + Math.abs(dy); tgt.ry += dx * 0.006; vel = dx * 0.006; if (e.pointerType === "mouse") tgt.rx = clamp(tgt.rx + dy * 0.006, -1.2, 1.2); });
+    cv.addEventListener("pointerup", function (e) { dragging = false; if (moved < 6) pick(e); });
+    cv.addEventListener("pointercancel", function () { dragging = false; });
+    var v3 = new T.Vector3(), n3 = new T.Vector3(), zAxis = new T.Vector3(0, 0, 1);
+    function frame(now) {
+      requestAnimationFrame(frame); if (document.hidden || state.view !== "globe") return;
+      if (!dragging) { tgt.ry += vel; vel *= 0.94; }
+      var k = dragging ? 0.4 : 0.08; cur.ry += (tgt.ry - cur.ry) * k; cur.rx += (tgt.rx - cur.rx) * k;
+      group.rotation.set(cur.rx, cur.ry, 0); group.updateMatrixWorld(true);
+      items.forEach(function (it) {
+        it.h += (it.th - it.h) * 0.12; it.pillar.scale.y = it.h; it.cap.position.copy(it.dir).multiplyScalar(1 + it.h); it.proxy.position.copy(it.cap.position);
+        var isSel = it.c.id === state.city;
+        v3.copy(it.cap.position).applyMatrix4(group.matrixWorld); n3.copy(it.dir).transformDirection(group.matrixWorld); v3.project(camera);
+        var vis = isSel && n3.z > 0.3;
+        it.lab.style.opacity = vis ? 1 : 0;
+        if (isSel) {
+          var sx = (v3.x * 0.5 + 0.5) * W, sy = (-v3.y * 0.5 + 0.5) * H;
+          it.lab.style.transform = "translate(" + sx + "px," + (sy - 50) + "px) translate(-50%,-100%)";
+          if (reticleEl) { reticleEl.style.opacity = vis ? 1 : 0; reticleEl.style.transform = "translate(" + (sx - 46) + "px," + (sy - 46) + "px)"; }
+        }
+      });
+      var sel = items.filter(function (x) { return x.c.id === state.city; })[0];
+      if (sel) { ring.position.copy(sel.dir).multiplyScalar(1.004); ring.quaternion.setFromUnitVectors(zAxis, sel.dir); var p = reduce ? 1 : 1 + 0.25 * Math.sin(now / 380); ring.scale.set(p, p, 1); }
+      renderer.render(scene, camera);
+    }
+    applyTheme(); setSize();
+    if (window.ResizeObserver) new ResizeObserver(setSize).observe(el); else window.addEventListener("resize", setSize);
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
+    new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    if (!reduce) cur.ry = -1.6;
+    focus(state.city, reduce); requestAnimationFrame(frame);
+    return { sync: sync, focus: focus };
+  })();
+
+  /* наклон и подсветка карточек под курсором (только мышь) */
+  var tiltEl = null;
+  function tiltReset() { if (tiltEl) { tiltEl.style.setProperty("--rx", "0deg"); tiltEl.style.setProperty("--ry", "0deg"); tiltEl = null; } }
+  document.addEventListener("pointermove", function (e) {
+    if (e.pointerType !== "mouse" || reduce) return;
+    var t = e.target.closest ? e.target.closest(".tilt") : null;
+    if (t !== tiltEl) tiltReset();
+    if (!t) return;
+    tiltEl = t; var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    t.style.setProperty("--ry", ((x - 0.5) * 7).toFixed(2) + "deg"); t.style.setProperty("--rx", ((0.5 - y) * 7).toFixed(2) + "deg");
+    t.style.setProperty("--mx", (x * 100).toFixed(0) + "%"); t.style.setProperty("--my", (y * 100).toFixed(0) + "%");
+  });
+  document.addEventListener("pointerleave", tiltReset);
+
+  /* ---------- старт ---------- */
+  renderTicker();
+  $("legendBar").style.background = "linear-gradient(90deg," + STOPS.map(function (s, i) { return "rgb(" + s[1].join(",") + ") " + Math.round(i / (STOPS.length - 1) * 100) + "%"; }).join(",") + ")";
+  try { var tg0 = window.Telegram && window.Telegram.WebApp; if (tg0) { tg0.ready(); tg0.expand(); } } catch (e) {}
+  state.member = lsGet("izo.member") === "1";
+  /* снимок рынков старый: двигаем даты на сегодня, чтобы показ не опустел; ссылки на рынки остаются на исходные даты */
+  (function () {
+    var minD = Math.min.apply(null, MARKETS.map(function (m) { return +mdate(m); })), shift = Math.round((+today0() - minD) / 864e5);
+    if (shift <= 0) return;
+    function z(n) { return (n < 10 ? "0" : "") + n; }
+    MARKETS.forEach(function (m) { m.orig = m.date; var d = mdate(m); d.setDate(d.getDate() + shift); m.date = d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate()); });
+    state.shifted = shift;
+  })();
+  var demo = makeDemo(); state.dates = demo.dates; state.data = demo.data; state.updated = new Date(); state.stats = makeStats();
+  renderAll();
+  var h0 = location.hash.slice(1); setView(VIEWS.indexOf(h0) > -1 ? h0 : "globe");
+
+  /* Реальные данные. На своём хостинге: прогнозы Open-Meteo и файлы stats.json / markets.json от бота. */
+  function loadLive() {
+    var ctrl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + CITIES.map(function (c) { return c.lat; }).join(",") + "&longitude=" + CITIES.map(function (c) { return c.lon; }).join(",") + "&daily=temperature_2m_max&models=" + MODELS.map(function (m) { return m.key; }).join(",") + "&forecast_days=" + DAYS + "&timezone=auto";
+    return fetch(url, ctrl ? { signal: ctrl.signal } : {}).then(function (r) { clearTimeout(to); if (!r.ok) throw new Error("http"); return r.json(); }).then(function (j) {
+      var arr = Array.isArray(j) ? j : [j], data = {}, ok = 0;
+      CITIES.forEach(function (c, i) {
+        var o = arr[i]; if (!o || !o.daily) return;
+        var m = MODELS.map(function (md) { var a = o.daily["temperature_2m_max_" + md.key]; return a ? a.map(function (v) { return v == null ? NaN : v; }) : []; });
+        if (m.filter(function (a) { return a.length >= DAYS; }).length >= 2) { data[c.id] = m.map(function (a) { return a.length >= DAYS ? a : new Array(DAYS).fill(NaN); }); ok++; }
+      });
+      if (ok < CITIES.length) throw new Error("incomplete");
+      state.dates = arr[0].daily.time.map(function (s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); });
+      state.data = data; state.source = "live"; state.updated = new Date(); renderAll();
+    });
+  }
+  try { loadLive().catch(function () {}); } catch (e) {}
+  try {
+    fetch("stats.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+      state.stats = j.map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, k: r.k, p: r.p, actual: r.actual, hit: r.hit, age: age }; }); state.statsSource = "live"; if (state.view === "report") renderReport();
+    }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>
