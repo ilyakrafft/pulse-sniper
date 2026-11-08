@@ -340,6 +340,12 @@ input:disabled, .seg button:disabled { opacity: .45; cursor: not-allowed; }
 .auth { display: grid; gap: 14px; max-width: 460px; }
 .authform { display: grid; gap: 12px; }
 .authmsg { min-height: 1.3em; font-size: 13px; color: var(--bad); }
+.steps { margin: 0; padding-left: 22px; display: grid; gap: 22px; }
+.steps li::marker { color: var(--accent); font-family: var(--f-mono); }
+.steps .sub { margin: 4px 0 10px; }
+.notice { padding: 10px 14px; border-radius: 12px; background: var(--surface-2); font-size: 13px; margin: 8px 0 12px; }
+.notice p { margin: 0; }
+.mono { font-family: var(--f-mono); }
 .pfform { display: grid; gap: 12px; }
 .pmframe { display: block; width: 100%; height: 520px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); margin-bottom: 10px; }
 input[type="email"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
@@ -410,15 +416,13 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 <div id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 (function () {
   /* Реферальная ссылка владельца. Все кнопки регистрации ведут сюда. */
   var REF_URL = "https://pulsemarket.trade/?ref=4h5ipy";
-  /* Подключение к Supabase (регистрация по приглашению). Публичные значения, их безопасно хранить в странице. */
+  /* Подключение к Supabase (приём заявок на доступ). Публичные значения, их безопасно хранить в странице. */
   var SUPABASE_URL = "";
   var SUPABASE_ANON = "";
-  var sb = null;
   var SITE = "https://pulsemarket.trade/ru/event/";
   var SNAP = "3 нояб. 2026";
   var MINUS = "−";
@@ -485,7 +489,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, user: null, authMode: "login", authMsg: "", authBusy: false, authEmail: "", pmOpen: false, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
+  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, acc: { status: "none", busy: false, msg: "", addr: "" }, pmOpen: false, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
 
   /* ---------- helpers ---------- */
   function $(id) { return document.getElementById(id); }
@@ -606,7 +610,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   /* ---------- глобус: панель ---------- */
   function dayLabel(d, o) { var dt = state.dates[d]; return dt ? new Intl.DateTimeFormat("ru", o).format(dt) : ""; }
   var LOCK_SVG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>';
-  function lockCta(text) { return '<div class="lockcta">' + LOCK_SVG + '<p>' + text + '</p><button class="btn sm" type="button" data-act="login">Войти</button></div>'; }
+  function lockCta(text) { return '<div class="lockcta">' + LOCK_SVG + '<p>' + text + '</p><button class="btn sm" type="button" data-act="login">Получить доступ</button></div>'; }
   function gauge(p, d) {
     return '<svg class="gauge" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="' + pc(p) + '%"><circle class="gbg" cx="32" cy="32" r="26"/><circle class="gfg" pathLength="1" style="--p:' + p.toFixed(3) + ';--d:' + (d || 0) + 'ms" cx="32" cy="32" r="26" transform="rotate(-90 32 32)"/><text x="32" y="37" text-anchor="middle">' + pc(p) + '</text></svg>';
   }
@@ -691,7 +695,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function accessBanner() {
     if (state.member) return '<div class="card access member rise"><div><span class="kick">Доступ открыт</span><h2>Все сигналы без ограничений</h2><p>Сигналы появляются здесь сразу, как только модели расходятся с ценой рынка. Проверку регистрации выполняет бот.</p></div><div class="acts"><button class="btn ghost" type="button" data-act="guest">Выйти из режима участника</button></div></div>';
     var n = daysToMonday();
-    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ открывается по приглашению: войдите или зарегистрируйтесь в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Войти или зарегистрироваться</button><a class="btn ghost" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
+    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ получают рефералы владельца сервиса на Pulse Market: оставьте заявку в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
   }
   function sigCard(s, i) {
     var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
@@ -736,7 +740,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       return '<div class="rrow"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><div class="num">Коридор ' + t0(r.k - 1) + "…" + t0(r.k + 1) + '°<br>Факт ' + t0(r.actual) + '°</div><span class="' + (r.hit ? "ok" : "miss") + '" aria-label="' + (r.hit ? "Сбылось" : "Не сбылось") + '">' + (r.hit ? "✓" : "✕") + '</span></div>';
     }).join("");
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
-    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Войдите по приглашению, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Войти или зарегистрироваться</button></div></div>';
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
     el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: какой коридор мы назвали и какая температура была на самом деле.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
       '<div class="tiles"><div class="tile tilt rise" style="--i:0"><small>Коридор сбылся</small><strong data-count="' + (acc * 100) + '" data-suf="%">' + pc(acc) + '%</strong></div><div class="tile tilt rise" style="--i:1"><small>Сигналов закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile tilt rise" style="--i:2"><small>Средняя уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile tilt rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' +
@@ -772,50 +776,58 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }
     if (changed) vSave();
   }
-  /* ---------- вход и регистрация по приглашению (Supabase) ---------- */
-  function authInit() {
-    if (!SUPABASE_URL || !SUPABASE_ANON || !window.supabase) return;
-    try {
-      sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-      sb.auth.getSession().then(function (r) { setSession(r && r.data && r.data.session); }).catch(function () {});
-      sb.auth.onAuthStateChange(function (ev, ses) { setSession(ses); });
-    } catch (e) { sb = null; }
+  /* ---------- доступ по заявке: владелец сверяет адрес кошелька со списком рефералов Pulse Market ---------- */
+  function sbCall(fn, body) {
+    if (!SUPABASE_URL || !SUPABASE_ANON) return Promise.reject(new Error("not_configured"));
+    var hd = { "apikey": SUPABASE_ANON, "Content-Type": "application/json" };
+    if (SUPABASE_ANON.indexOf("eyJ") === 0) hd["Authorization"] = "Bearer " + SUPABASE_ANON; /* новые ключи sb_publishable_… идут без этого заголовка */
+    return fetch(SUPABASE_URL + "/rest/v1/rpc/" + fn, { method: "POST", headers: hd, body: JSON.stringify(body) })
+      .then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); });
   }
-  function setSession(ses) {
-    var was = state.member; state.user = ses && ses.user ? ses.user : null; state.member = !!state.user;
-    if (state.member) { state.authMsg = ""; state.authBusy = false; }
-    if (was !== state.member) renderAll();
+  function deviceToken() {
+    var t = lsGet("izo.token");
+    if (!t) {
+      t = (window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID() : "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === "x" ? r : (r & 3 | 8)).toString(16); });
+      lsSet("izo.token", t);
+    }
+    return t;
   }
-  function authView() {
-    var reg = state.authMode === "register";
-    return '<div class="view-head"><h2>Кабинет</h2><p>Вход для участников. Регистрация доступна только по приглашению.</p></div>' +
-      '<div class="card auth rise"><div class="seg wide" role="group" aria-label="Вход или регистрация"><button type="button" data-auth="login" aria-pressed="' + (!reg) + '">Вход</button><button type="button" data-auth="register" aria-pressed="' + reg + '">Регистрация</button></div>' +
-      '<form id="authForm" class="authform" novalidate>' +
-      '<label class="field"><span>Почта</span><input id="auEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" value="' + esc(state.authEmail) + '"></label>' +
-      '<label class="field"><span>Пароль</span><input id="auPass" type="password" autocomplete="' + (reg ? "new-password" : "current-password") + '" placeholder="Не короче 8 символов"></label>' +
-      (reg ? '<label class="field"><span>Код приглашения</span><input id="auInv" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="PS-XXXX-XXXX"></label>' : '') +
-      '<div class="authmsg" role="alert">' + esc(state.authMsg) + '</div>' +
-      '<button class="btn" type="submit"' + (state.authBusy ? " disabled" : "") + '>' + (state.authBusy ? "Подождите…" : reg ? "Создать аккаунт" : "Войти") + '</button></form>' +
-      (sb ? "" : '<p class="note" style="margin-top:12px">Сервер регистрации ещё не подключён, форма заработает после настройки.</p>') + '</div>' +
-      '<p class="note">Нет кода приглашения? Его выдаёт владелец сервиса.</p>';
+  function accSet(st) {
+    var was = state.member; state.acc.status = st; state.member = st === "approved"; lsSet("izo.ok", state.member ? "1" : "0");
+    if (was !== state.member) renderAll(); else if (state.view === "cabinet") renderCabinet();
   }
-  function doAuth() {
-    var email = $("auEmail").value.trim(), pass = $("auPass").value, inv = $("auInv") ? $("auInv").value.trim().toUpperCase() : "", reg = state.authMode === "register";
-    state.authEmail = email;
-    function fail(m) { state.authMsg = m; state.authBusy = false; renderCabinet(); }
-    if (!sb) return fail("Сервер регистрации ещё не подключён.");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail("Проверьте адрес почты.");
-    if (pass.length < 8) return fail("Пароль должен быть не короче 8 символов.");
-    if (reg && !inv) return fail("Введите код приглашения.");
-    state.authBusy = true; state.authMsg = ""; renderCabinet();
-    var p = reg ? sb.auth.signUp({ email: email, password: pass, options: { data: { invite: inv } } }) : sb.auth.signInWithPassword({ email: email, password: pass });
-    p.then(function (r) {
-      state.authBusy = false;
-      if (r.error) { state.authMsg = reg ? "Не удалось создать аккаунт. Код неверный или уже использован, либо почта занята." : "Неверная почта или пароль."; renderCabinet(); return; }
-      if (reg && !(r.data && r.data.session)) { state.authMsg = "Аккаунт создан. Подтвердите почту по письму и затем войдите."; state.authMode = "login"; renderCabinet(); }
-    }).catch(function () { fail("Нет связи с сервером. Попробуйте ещё раз."); });
+  function accCheck() {
+    if (!SUPABASE_URL) return Promise.resolve();
+    state.acc.busy = true; if (state.view === "cabinet") renderCabinet();
+    return sbCall("check_request", { p_token: deviceToken() }).then(function (st) { state.acc.busy = false; state.acc.msg = ""; accSet(String(st)); })
+      .catch(function () { state.acc.busy = false; state.acc.msg = "Нет связи с сервером. Попробуйте позже."; if (state.view === "cabinet") renderCabinet(); });
   }
-  document.addEventListener("submit", function (e) { if (e.target && e.target.id === "authForm") { e.preventDefault(); doAuth(); } });
+  function accInit() { if (lsGet("izo.ok") === "1") state.member = true; state.acc.addr = lsGet("izo.addr2") || ""; accCheck(); }
+  function accSubmit() {
+    var acc = state.acc, a = ($("acAddr") && $("acAddr").value ? $("acAddr").value : "").trim();
+    if (!ADDR_RE.test(a)) { acc.msg = "Адрес должен начинаться с 0x и содержать 42 символа."; acc.addr = a; renderCabinet(); return; }
+    if (!SUPABASE_URL) { acc.msg = "Приём заявок ещё не подключён."; acc.addr = a; renderCabinet(); return; }
+    acc.busy = true; acc.msg = ""; acc.addr = a; lsSet("izo.addr2", a); renderCabinet();
+    sbCall("submit_request", { p_token: deviceToken(), p_addr: a }).then(function (st) {
+      acc.busy = false; if (st === "bad_address") { acc.msg = "Адрес не принят. Проверьте его."; renderCabinet(); } else accSet(String(st));
+    }).catch(function () { acc.busy = false; acc.msg = "Не удалось отправить заявку. Попробуйте ещё раз."; renderCabinet(); });
+  }
+  function accView() {
+    var acc = state.acc, st = acc.status, ready = !!SUPABASE_URL;
+    var step1 = '<li><b>Зарегистрируйтесь на Pulse Market по ссылке</b><p class="sub">Доступ получают только те, кто пришёл по приглашению владельца сервиса. Привязка происходит при регистрации, поэтому сначала нужно пройти по этой ссылке.</p><a class="btn" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться на Pulse Market ↗</a></li>';
+    var step2;
+    if (st === "pending") {
+      step2 = '<li><b>Заявка на проверке</b><div class="notice"><p>Владелец сверяет адрес <span class="mono">' + esc(acc.addr ? acc.addr.slice(0, 6) + "…" + acc.addr.slice(-4) : "") + '</span> со списком приглашённых. После одобрения нажмите «Проверить статус».</p></div><div class="cols"><button class="btn" type="button" data-acc="check"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Проверяю…" : "Проверить статус") + '</button><button class="btn ghost" type="button" data-acc="edit">Изменить адрес</button></div></li>';
+    } else {
+      step2 = '<li><b>Отправьте адрес кошелька</b><p class="sub">Он виден в кошельке Pulse Market в строках EOA и PROXY. Подойдёт любой из двух. Это публичный адрес, по нему нельзя потратить деньги.</p>' +
+        (st === "rejected" ? '<div class="warnbox" role="alert" style="margin-bottom:10px">Заявка отклонена: адрес не найден среди приглашённых. Проверьте адрес или зарегистрируйтесь по ссылке и отправьте заявку заново.</div>' : '') +
+        '<div class="pfform"><label class="field"><span>Адрес кошелька</span><input id="acAddr" type="text" autocomplete="off" spellcheck="false" placeholder="0x…" value="' + esc(acc.addr) + '"></label><div class="authmsg" role="alert">' + esc(acc.msg) + '</div><button class="btn" type="button" data-acc="send"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Отправляю…" : "Отправить заявку") + '</button></div></li>';
+    }
+    if (st === "pending" && acc.msg) step2 = step2.replace('</li>', '<div class="authmsg" role="alert">' + esc(acc.msg) + '</div></li>');
+    return '<div class="view-head"><h2>Кабинет</h2><p>Доступ для рефералов Pulse Market.</p></div><div class="card auth rise"><ol class="steps">' + step1 + step2 + '</ol>' +
+      (ready ? '' : '<p class="note">Приём заявок ещё не подключён, форма заработает после настройки.</p>') + '</div>' +
+      '<p class="note">Почта и пароль не нужны. Мы храним только адрес кошелька из вашей заявки.</p>';
+  }
 
   /* ---------- портфель по публичному адресу PROXY (данные Polymarket, ключи не нужны) ---------- */
   var ADDR_RE = /^0x[a-fA-F0-9]{40}$/;
@@ -852,17 +864,14 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function renderCabinet() {
     var el = $("v-cabinet");
     if (!state.member) {
-      var sig = "out|" + state.authMode + "|" + state.authMsg + "|" + state.authBusy + "|" + (sb ? 1 : 0);
-      if (el.getAttribute("data-sig") === sig && el.querySelector("#authForm")) return; /* не стираем то, что человек уже вводит */
-      el.setAttribute("data-sig", sig); el.innerHTML = authView(); return;
+      if (document.activeElement && document.activeElement.id === "acAddr") return; /* не стираем адрес, пока его вводят */
+      el.innerHTML = accView(); return;
     }
     if (document.activeElement && document.activeElement.id === "pfAddr") return; /* не стираем адрес, пока его вводят */
-    el.setAttribute("data-sig", "in");
     var v = state.virt, tgw = window.Telegram && window.Telegram.WebApp, u = tgw && tgw.initDataUnsafe && tgw.initDataUnsafe.user;
-    var email = state.user && state.user.email ? state.user.email : "";
-    var name = u ? ((u.first_name || "") + " " + (u.last_name || "")).trim() : email;
+    var name = u ? ((u.first_name || "") + " " + (u.last_name || "")).trim() : "";
     var openStake = v.pos.reduce(function (a, p) { return a + p.stake; }, 0), pnl = v.cash + openStake - v.start;
-    var prof = '<div class="card prof rise"><div class="avatar">' + esc((name || "?").charAt(0).toUpperCase()) + '</div><div class="pinfo"><b>' + esc(name || "Участник") + '</b><span class="badge strong"><i></i>Полный доступ</span>' + (u && email ? '<small class="muted">' + esc(email) + '</small>' : '') + '</div><button class="btn ghost sm" type="button" data-act="guest">Выйти</button></div>';
+    var prof = '<div class="card prof rise"><div class="avatar">' + esc((name || "?").charAt(0).toUpperCase()) + '</div><div class="pinfo"><b>' + esc(name || "Участник") + '</b><span class="badge strong"><i></i>Полный доступ</span></div></div>';
     var pm = '<div class="card rise" style="--i:1"><h3>Pulse Market</h3><p class="sub">Кошелёк и портфель на сайте Pulse Market. Приложение не читает ваш баланс: вы видите страницу самого сайта.</p>' +
       (state.pmOpen ? '<iframe class="pmframe" src="https://pulsemarket.trade/ru" title="Pulse Market" loading="lazy" referrerpolicy="no-referrer"></iframe><p class="note" style="margin-bottom:10px">Если здесь пусто или страница просит открыть её в браузере, сайт запретил встраивание. Откройте его кнопкой ниже.</p>' : '') +
       '<div class="cols"><button class="btn ghost" type="button" data-pm="toggle">' + (state.pmOpen ? "Скрыть здесь" : "Показать здесь") + '</button><a class="btn" href="https://pulsemarket.trade/ru" target="_blank" rel="noopener">Открыть в браузере ↗</a></div></div>';
@@ -880,8 +889,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<p class="note">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
   }
   $("v-cabinet").addEventListener("click", function (e) {
-    var au = e.target.closest("[data-auth]");
-    if (au) { state.authMode = au.getAttribute("data-auth"); state.authMsg = ""; renderCabinet(); return; }
+    var ac = e.target.closest("[data-acc]");
+    if (ac) {
+      var k = ac.getAttribute("data-acc");
+      if (k === "send") accSubmit(); else if (k === "check") accCheck(); else if (k === "edit") { state.acc.status = "none"; state.acc.msg = ""; renderCabinet(); }
+      return;
+    }
     if (e.target.closest("[data-pm]")) { state.pmOpen = !state.pmOpen; renderCabinet(); return; }
     var pfb = e.target.closest("[data-pf]");
     if (pfb) {
@@ -944,8 +957,6 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       if (tg && tg.openLink) { e.preventDefault(); tg.openLink(REF_URL); }
     } else if (act === "login") {
       setView("cabinet");
-    } else if (act === "guest") {
-      if (sb) sb.auth.signOut().catch(function () {});
     }
   });
 
@@ -1067,7 +1078,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   renderTicker();
   $("legendBar").style.background = "linear-gradient(90deg," + STOPS.map(function (s, i) { return "rgb(" + s[1].join(",") + ") " + Math.round(i / (STOPS.length - 1) * 100) + "%"; }).join(",") + ")";
   try { var tg0 = window.Telegram && window.Telegram.WebApp; if (tg0) { tg0.ready(); tg0.expand(); } } catch (e) {}
-  state.virt = vLoad(); state.pf.addr = lsGet("izo.addr") || ""; authInit();
+  state.virt = vLoad(); state.pf.addr = lsGet("izo.addr") || ""; accInit();
   /* снимок рынков старый: двигаем даты на сегодня, чтобы показ не опустел; ссылки на рынки остаются на исходные даты */
   (function () {
     var minD = Math.min.apply(null, MARKETS.map(function (m) { return +mdate(m); })), shift = Math.round((+today0() - minD) / 864e5);
