@@ -1,0 +1,61 @@
+{
+ "sent": {
+  "la|2026-11-09": {
+   "city": "la",
+   "date": "2026-11-09",
+   "label": "88–89°F",
+   "to": []
+  },
+  "sf|2026-11-08": {
+   "city": "sf",
+   "date": "2026-11-08",
+   "label": "68–69°F",
+   "to": []
+  },
+  "nyc|2026-11-09": {
+   "city": "nyc",
+   "date": "2026-11-09",
+   "label": "56–57°F",
+   "to": []
+  },
+  "telaviv|2026-11-10": {
+   "city": "telaviv",
+   "date": "2026-11-10",
+   "label": "22°C",
+   "to": []
+  },
+  "miami|2026-11-09": {
+   "city": "miami",
+   "date": "2026-11-09",
+   "label": "82–83°F",
+   "to": []
+  },
+  "amsterdam|2026-11-09": {
+   "city": "amsterdam",
+   "date": "2026-11-09",
+   "label": "9°C",
+   "to": []
+  },
+  "milan|2026-11-09": {
+   "city": "milan",
+   "date": "2026-11-09",
+   "label": "9°C",
+   "to": []
+  },
+  "telaviv|2026-11-09": {
+   "city": "telaviv",
+   "date": "2026-11-09",
+   "label": "21°C",
+   "to": []
+  },
+  "helsinki|2026-11-09": {
+   "city": "helsinki",
+   "date": "2026-11-09",
+   "label": "6°C",
+   "to": []
+  }
+ },
+ "free_week": {},
+ "log": [],
+ "last_summary": "2026-W45"
+}
