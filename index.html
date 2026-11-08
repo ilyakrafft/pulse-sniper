@@ -13,48 +13,48 @@
 /* Layout: три раздела (Глобус, Сигналы, Отчёт) и плавающая навигация внизу.
    Смелое решение одно: столбики температуры на глобусе. Остальное спокойное. */
 :root {
-  --bg: #f2f5fb;
+  --bg: #f4f4f6;
   --surface: #ffffff;
-  --surface-2: #e8edf8;
-  --line: #d3dbee;
-  --fg: #0f1729;
-  --muted: #566282;
-  --accent: #4f3df0;
+  --surface-2: #ececf0;
+  --line: #d9dae1;
+  --fg: #14151a;
+  --muted: #626575;
+  --accent: #e5501b;
   --accent-ink: #ffffff;
-  --g1: #2563eb;
-  --g2: #7c3aed;
-  --cy: #0891b2;
-  --orb: .14;
-  --good: #11835a;
+  --good: #12805a;
   --warn: #a96300;
-  --bad: #c23b3b;
-  --g-fill: #dde5f6;
-  --g-dot: #8fa3cc;
-  --g-line: #b9c6e3;
-  --g-glow: #5b86ff;
-  --shadow: 0 1px 0 rgba(15,23,41,.04), 0 12px 32px rgba(32,52,110,.12);
+  --bad: #c42f2a;
+  --g-fill: #e9e9ee;
+  --g-dot: #b4b6c2;
+  --g-line: #d3d4dc;
+  --g-glow: #ff7a3d;
+  --shadow: 0 1px 0 rgba(20,21,26,.04), 0 12px 32px rgba(60,40,30,.12);
+  --g1: #ff8a3d;
+  --g2: #e5322d;
+  --cy: #c2410c;
+  --orb: .14;
   --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
   --f-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #090d16; --surface: #111827; --surface-2: #1a2334; --line: #25314b;
-    --fg: #eaf0ff; --muted: #8b98b8; --accent: #8f86ff; --accent-ink: #06080f;
-    --good: #3df2a8; --warn: #ffbf5e; --bad: #ff6f7d;
-    --g1: #2de2ff; --g2: #8b6cff; --cy: #2de2ff; --orb: .32;
-    --g-fill: #0e1524; --g-dot: #34456b; --g-line: #1d2943; --g-glow: #4c7dff;
-    --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.5);
+    --bg: #09090c; --surface: #141519; --surface-2: #1d1f25; --line: #2a2c35;
+    --fg: #f4f2f0; --muted: #9a9ca8; --accent: #ff6a2b; --accent-ink: #160a04;
+    --good: #3ddc97; --warn: #ffc15a; --bad: #ff5d5d;
+    --g-fill: #0f1014; --g-dot: #3b3e4a; --g-line: #22242c; --g-glow: #ff5a1f;
+    --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.55);
+    --g1: #ff9a3c; --g2: #e5322d; --cy: #ffb26b; --orb: .26;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #090d16; --surface: #111827; --surface-2: #1a2334; --line: #25314b;
-  --fg: #eaf0ff; --muted: #8b98b8; --accent: #8f86ff; --accent-ink: #06080f;
-  --good: #3df2a8; --warn: #ffbf5e; --bad: #ff6f7d;
-  --g1: #2de2ff; --g2: #8b6cff; --cy: #2de2ff; --orb: .32;
-  --g-fill: #0e1524; --g-dot: #34456b; --g-line: #1d2943; --g-glow: #4c7dff;
-  --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.5);
+  --bg: #09090c; --surface: #141519; --surface-2: #1d1f25; --line: #2a2c35;
+  --fg: #f4f2f0; --muted: #9a9ca8; --accent: #ff6a2b; --accent-ink: #160a04;
+  --good: #3ddc97; --warn: #ffc15a; --bad: #ff5d5d;
+  --g-fill: #0f1014; --g-dot: #3b3e4a; --g-line: #22242c; --g-glow: #ff5a1f;
+  --shadow: 0 1px 0 rgba(255,255,255,.03), 0 14px 36px rgba(0,0,0,.55);
+  --g1: #ff9a3c; --g2: #e5322d; --cy: #ffb26b; --orb: .26;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -234,10 +234,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .ok { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
 .miss { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
 
-.dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: min(420px, calc(100% - 32px)); display: grid; grid-template-columns: repeat(3, 1fr); padding: 4px; background: color-mix(in srgb, var(--surface) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); z-index: 15; }
+.dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: min(480px, calc(100% - 32px)); display: grid; grid-template-columns: repeat(4, 1fr); padding: 4px; background: color-mix(in srgb, var(--surface) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); z-index: 15; }
 .dock button { position: relative; z-index: 1; background: none; border: 0; padding: 9px 4px 8px; display: grid; justify-items: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--muted); transition: color .25s; }
 .dock button[aria-current="page"] { color: var(--accent-ink); }
-.dock .ind { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 16px; background: var(--accent); transform: translateX(calc(var(--i, 0) * 100%)); transition: transform .4s cubic-bezier(.3,1.15,.4,1); }
+.dock .ind { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 4); border-radius: 16px; background: var(--accent); transform: translateX(calc(var(--i, 0) * 100%)); transition: transform .4s cubic-bezier(.3,1.15,.4,1); }
 .dock { --i: 0; }
 #toast { position: fixed; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 12px; background: var(--fg); color: var(--bg); font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 20; }
 #toast.on { opacity: 1; transform: translate(-50%, 0); }
@@ -317,6 +317,32 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .radar::before { content: ""; position: absolute; inset: 0; background: conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--cy) 75%, transparent)); animation: spin 2s linear infinite; }
 .radar::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--cy); }
 @media (prefers-reduced-motion: reduce) { .intro { display: none; } .tilt { transform: none; } }
+
+#acc { cursor: pointer; }
+.prof { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.avatar { flex: none; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 20px; color: var(--accent-ink); background: linear-gradient(135deg, var(--g1), var(--g2)); box-shadow: 0 8px 24px -10px var(--g2); }
+.pinfo { display: grid; gap: 6px; min-width: 0; flex: 1 1 160px; }
+.pinfo b { font-size: 17px; overflow-wrap: anywhere; }
+.field { display: grid; gap: 6px; font-size: 12.5px; color: var(--muted); }
+input[type="text"], input[type="number"], input[type="password"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
+input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+input:disabled, .seg button:disabled { opacity: .45; cursor: not-allowed; }
+.seg.wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); width: 100%; margin-bottom: 10px; }
+.stack { display: grid; gap: 14px; margin-bottom: 14px; }
+.cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.pos { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.pos:first-child { border-top: 0; }
+.pos small { display: block; color: var(--muted); font-size: 11.5px; }
+.pos .num { font-family: var(--f-mono); font-size: 12.5px; }
+.pos .pl { font-family: var(--f-mono); font-size: 13px; font-weight: 500; }
+.pos .pl.up { color: var(--good); } .pos .pl.dn { color: var(--bad); }
+.warnbox { padding: 10px 14px; border-radius: 12px; border: 1px dashed var(--warn); color: var(--warn); font-size: 13px; }
+.auth { display: grid; gap: 14px; max-width: 460px; }
+.authform { display: grid; gap: 12px; }
+.authmsg { min-height: 1.3em; font-size: 13px; color: var(--bad); }
+.pfform { display: grid; gap: 12px; }
+.pmframe { display: block; width: 100%; height: 520px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); margin-bottom: 10px; }
+input[type="email"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
 </style>
 <style>body{margin:0}</style>
 </head>
@@ -370,6 +396,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   </section>
 
   <section id="v-signals" class="view" hidden></section>
+  <section id="v-cabinet" class="view" hidden></section>
   <section id="v-report" class="view" hidden></section>
 </div>
 
@@ -377,15 +404,21 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   <span class="ind"></span>
   <button type="button" data-v="globe"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Глобус</button>
   <button type="button" data-v="signals"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Сигналы</button>
+  <button type="button" data-v="cabinet"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5"/></svg>Кабинет</button>
   <button type="button" data-v="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Отчёт</button>
 </nav>
 <div id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 (function () {
   /* Реферальная ссылка владельца. Все кнопки регистрации ведут сюда. */
   var REF_URL = "https://pulsemarket.trade/?ref=4h5ipy";
+  /* Подключение к Supabase (регистрация по приглашению). Публичные значения, их безопасно хранить в странице. */
+  var SUPABASE_URL = "";
+  var SUPABASE_ANON = "";
+  var sb = null;
   var SITE = "https://pulsemarket.trade/ru/event/";
   var SNAP = "3 нояб. 2026";
   var MINUS = "−";
@@ -448,11 +481,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     { key: "gfs_seamless", name: "GFS", sub: "США, NOAA", w: 1.0, noise: 1.15 },
     { key: "gem_seamless", name: "GEM", sub: "Канада, ECCC", w: 0.9, noise: 1.2 }
   ];
-  var DAYS = 7, VIEWS = ["globe", "signals", "report"];
+  var DAYS = 7, VIEWS = ["globe", "signals", "cabinet", "report"];
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, free: null, sigs: [], period: 30, stats: [] };
+  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, user: null, authMode: "login", authMsg: "", authBusy: false, authEmail: "", pmOpen: false, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
 
   /* ---------- helpers ---------- */
   function $(id) { return document.getElementById(id); }
@@ -573,7 +606,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   /* ---------- глобус: панель ---------- */
   function dayLabel(d, o) { var dt = state.dates[d]; return dt ? new Intl.DateTimeFormat("ru", o).format(dt) : ""; }
   var LOCK_SVG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>';
-  function lockCta(text) { return '<div class="lockcta">' + LOCK_SVG + '<p>' + text + '</p><a class="btn sm" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться</a></div>'; }
+  function lockCta(text) { return '<div class="lockcta">' + LOCK_SVG + '<p>' + text + '</p><button class="btn sm" type="button" data-act="login">Войти</button></div>'; }
   function gauge(p, d) {
     return '<svg class="gauge" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="' + pc(p) + '%"><circle class="gbg" cx="32" cy="32" r="26"/><circle class="gfg" pathLength="1" style="--p:' + p.toFixed(3) + ';--d:' + (d || 0) + 'ms" cx="32" cy="32" r="26" transform="rotate(-90 32 32)"/><text x="32" y="37" text-anchor="middle">' + pc(p) + '</text></svg>';
   }
@@ -658,7 +691,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   function accessBanner() {
     if (state.member) return '<div class="card access member rise"><div><span class="kick">Доступ открыт</span><h2>Все сигналы без ограничений</h2><p>Сигналы появляются здесь сразу, как только модели расходятся с ценой рынка. Проверку регистрации выполняет бот.</p></div><div class="acts"><button class="btn ghost" type="button" data-act="guest">Выйти из режима участника</button></div></div>';
     var n = daysToMonday();
-    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Зарегистрируйтесь по ссылке, и все сигналы будут открыты постоянно.</p></div><div class="acts"><a class="btn shine" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться по ссылке</a><button class="btn ghost" type="button" data-act="member">Я уже зарегистрировался</button></div></div>';
+    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ открывается по приглашению: войдите или зарегистрируйтесь в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Войти или зарегистрироваться</button><a class="btn ghost" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
   }
   function sigCard(s, i) {
     var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
@@ -703,7 +736,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
       return '<div class="rrow"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><div class="num">Коридор ' + t0(r.k - 1) + "…" + t0(r.k + 1) + '°<br>Факт ' + t0(r.actual) + '°</div><span class="' + (r.hit ? "ok" : "miss") + '" aria-label="' + (r.hit ? "Сбылось" : "Не сбылось") + '">' + (r.hit ? "✓" : "✕") + '</span></div>';
     }).join("");
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
-    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Зарегистрируйтесь по ссылке, и новые сигналы будут доступны в любое время, не раз в неделю.</p></div><div class="acts"><a class="btn shine" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться по ссылке</a></div></div>';
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Войдите по приглашению, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Войти или зарегистрироваться</button></div></div>';
     el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: какой коридор мы назвали и какая температура была на самом деле.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
       '<div class="tiles"><div class="tile tilt rise" style="--i:0"><small>Коридор сбылся</small><strong data-count="' + (acc * 100) + '" data-suf="%">' + pc(acc) + '%</strong></div><div class="tile tilt rise" style="--i:1"><small>Сигналов закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile tilt rise" style="--i:2"><small>Средняя уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile tilt rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' +
@@ -713,9 +746,166 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     runCounts(el);
   }
 
+  /* ---------- личный кабинет и виртуальный счёт ---------- */
+  function esc(x) { return String(x).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function usd(n) { return (n < 0 ? MINUS : "") + "$" + Math.abs(n).toFixed(2).replace(".", ","); }
+  function vDefault() { return { start: 100, cash: 100, stake: 5, minEdge: 8, auto: false, pos: [], closed: [] }; }
+  function vLoad() { try { var j = JSON.parse(lsGet("izo.virt") || "null"); if (j && typeof j.cash === "number" && Array.isArray(j.pos)) return j; } catch (e) {} return vDefault(); }
+  function vSave() { lsSet("izo.virt", JSON.stringify(state.virt)); }
+  function vLive() { return state.source === "live" && state.marketsLive; }
+  /* закрывает завершённые ставки и, если включён авто-режим и данные живые, ставит виртуальные деньги на сильные сигналы */
+  function vStep() {
+    var v = state.virt; if (!v) return; var changed = false;
+    v.pos = v.pos.filter(function (p) {
+      var r = state.results[p.c + "|" + p.date]; if (!r) return true;
+      var won = r.win === p.label, pay = won ? p.shares : 0; v.cash += pay;
+      v.closed.unshift({ c: p.c, date: p.date, label: p.label, stake: p.stake, pay: pay, win: r.win, won: won }); changed = true; return false;
+    });
+    if (v.closed.length > 60) v.closed.length = 60;
+    if (v.auto && vLive()) {
+      state.sigs.forEach(function (s) {
+        var id = s.c + "|" + s.m.date, price = s.best.b.p;
+        if (state.results[id] || v.pos.some(function (p) { return p.c + "|" + p.date === id; }) || v.closed.some(function (p) { return p.c + "|" + p.date === id; })) return;
+        if (s.best.e * 100 < v.minEdge || price < 0.05 || v.cash < v.stake) return;
+        v.cash -= v.stake; v.pos.push({ c: s.c, date: s.m.date, label: s.best.b.l, price: price, stake: v.stake, shares: v.stake / price, at: Date.now() }); changed = true;
+      });
+    }
+    if (changed) vSave();
+  }
+  /* ---------- вход и регистрация по приглашению (Supabase) ---------- */
+  function authInit() {
+    if (!SUPABASE_URL || !SUPABASE_ANON || !window.supabase) return;
+    try {
+      sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      sb.auth.getSession().then(function (r) { setSession(r && r.data && r.data.session); }).catch(function () {});
+      sb.auth.onAuthStateChange(function (ev, ses) { setSession(ses); });
+    } catch (e) { sb = null; }
+  }
+  function setSession(ses) {
+    var was = state.member; state.user = ses && ses.user ? ses.user : null; state.member = !!state.user;
+    if (state.member) { state.authMsg = ""; state.authBusy = false; }
+    if (was !== state.member) renderAll();
+  }
+  function authView() {
+    var reg = state.authMode === "register";
+    return '<div class="view-head"><h2>Кабинет</h2><p>Вход для участников. Регистрация доступна только по приглашению.</p></div>' +
+      '<div class="card auth rise"><div class="seg wide" role="group" aria-label="Вход или регистрация"><button type="button" data-auth="login" aria-pressed="' + (!reg) + '">Вход</button><button type="button" data-auth="register" aria-pressed="' + reg + '">Регистрация</button></div>' +
+      '<form id="authForm" class="authform" novalidate>' +
+      '<label class="field"><span>Почта</span><input id="auEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" value="' + esc(state.authEmail) + '"></label>' +
+      '<label class="field"><span>Пароль</span><input id="auPass" type="password" autocomplete="' + (reg ? "new-password" : "current-password") + '" placeholder="Не короче 8 символов"></label>' +
+      (reg ? '<label class="field"><span>Код приглашения</span><input id="auInv" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="PS-XXXX-XXXX"></label>' : '') +
+      '<div class="authmsg" role="alert">' + esc(state.authMsg) + '</div>' +
+      '<button class="btn" type="submit"' + (state.authBusy ? " disabled" : "") + '>' + (state.authBusy ? "Подождите…" : reg ? "Создать аккаунт" : "Войти") + '</button></form>' +
+      (sb ? "" : '<p class="note" style="margin-top:12px">Сервер регистрации ещё не подключён, форма заработает после настройки.</p>') + '</div>' +
+      '<p class="note">Нет кода приглашения? Его выдаёт владелец сервиса.</p>';
+  }
+  function doAuth() {
+    var email = $("auEmail").value.trim(), pass = $("auPass").value, inv = $("auInv") ? $("auInv").value.trim().toUpperCase() : "", reg = state.authMode === "register";
+    state.authEmail = email;
+    function fail(m) { state.authMsg = m; state.authBusy = false; renderCabinet(); }
+    if (!sb) return fail("Сервер регистрации ещё не подключён.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail("Проверьте адрес почты.");
+    if (pass.length < 8) return fail("Пароль должен быть не короче 8 символов.");
+    if (reg && !inv) return fail("Введите код приглашения.");
+    state.authBusy = true; state.authMsg = ""; renderCabinet();
+    var p = reg ? sb.auth.signUp({ email: email, password: pass, options: { data: { invite: inv } } }) : sb.auth.signInWithPassword({ email: email, password: pass });
+    p.then(function (r) {
+      state.authBusy = false;
+      if (r.error) { state.authMsg = reg ? "Не удалось создать аккаунт. Код неверный или уже использован, либо почта занята." : "Неверная почта или пароль."; renderCabinet(); return; }
+      if (reg && !(r.data && r.data.session)) { state.authMsg = "Аккаунт создан. Подтвердите почту по письму и затем войдите."; state.authMode = "login"; renderCabinet(); }
+    }).catch(function () { fail("Нет связи с сервером. Попробуйте ещё раз."); });
+  }
+  document.addEventListener("submit", function (e) { if (e.target && e.target.id === "authForm") { e.preventDefault(); doAuth(); } });
+
+  /* ---------- портфель по публичному адресу PROXY (данные Polymarket, ключи не нужны) ---------- */
+  var ADDR_RE = /^0x[a-fA-F0-9]{40}$/;
+  function okJson(r) { if (!r.ok) throw new Error("http"); return r.json(); }
+  function loadPortfolio() {
+    var pf = state.pf, a = pf.addr.trim();
+    if (!ADDR_RE.test(a)) { pf.err = "Адрес должен начинаться с 0x и содержать 42 символа."; renderCabinet(); return; }
+    pf.loading = true; pf.err = ""; renderCabinet();
+    var base = "https://data-api.polymarket.com";
+    Promise.all([fetch(base + "/value?user=" + a).then(okJson), fetch(base + "/positions?user=" + a + "&sizeThreshold=0.01&limit=50").then(okJson)]).then(function (r) {
+      var v = r[0]; pf.value = Array.isArray(v) && v[0] && isFinite(+v[0].value) ? +v[0].value : 0;
+      pf.pos = (Array.isArray(r[1]) ? r[1] : []).sort(function (x, y) { return (+y.currentValue || 0) - (+x.currentValue || 0); });
+      pf.at = new Date(); pf.loading = false; renderCabinet();
+    }).catch(function () { pf.loading = false; pf.err = "Не удалось получить данные. Проверьте, что вставлен адрес PROXY, и повторите."; renderCabinet(); });
+  }
+  function maybeLoadPf() { var pf = state.pf; if (state.member && ADDR_RE.test(pf.addr) && !pf.loading && (!pf.at || Date.now() - pf.at > 60000)) loadPortfolio(); }
+  function pfCard() {
+    var pf = state.pf, has = pf.at && !pf.err;
+    var form = '<div class="pfform"><label class="field"><span>Адрес PROXY из кошелька Pulse Market</span><input id="pfAddr" type="text" autocomplete="off" spellcheck="false" placeholder="0x…" value="' + esc(pf.addr) + '"></label><div class="cols"><button class="btn" type="button" data-pf="load"' + (pf.loading ? " disabled" : "") + '>' + (pf.loading ? "Загружаю…" : "Показать портфель") + '</button>' + (pf.addr ? '<button class="btn ghost" type="button" data-pf="clear">Убрать адрес</button>' : '') + '</div></div>';
+    var body = "";
+    if (pf.err) body += '<div class="warnbox" role="alert">' + esc(pf.err) + '</div>';
+    if (has) {
+      var total = pf.pos.reduce(function (a, p) { return a + (+p.cashPnl || 0); }, 0);
+      body += '<div class="tiles" style="margin-top:14px"><div class="tile"><small>Стоимость позиций</small><strong>' + usd(pf.value) + '</strong></div><div class="tile"><small>Позиций</small><strong>' + pf.pos.length + '</strong></div><div class="tile"><small>Прибыль по ним</small><strong style="color:var(--' + (total >= 0 ? "good" : "bad") + ')">' + (total >= 0 ? "+" : "") + usd(total) + '</strong></div></div>';
+      body += pf.pos.length ? pf.pos.slice(0, 20).map(function (p) {
+        var pnl = +p.cashPnl || 0, t = String(p.title || p.slug || "Рынок");
+        return '<div class="pos"><div><b>' + esc(t.length > 70 ? t.slice(0, 67) + "…" : t) + '</b><small>' + esc(p.outcome || "") + ' · ' + (+p.size || 0).toFixed(1).replace(".", ",") + ' шт. · ' + Math.round((+p.avgPrice || 0) * 100) + '¢ → ' + Math.round((+p.curPrice || 0) * 100) + '¢</small></div><div class="num">' + usd(+p.currentValue || 0) + '</div><span class="pl ' + (pnl >= 0 ? "up" : "dn") + '">' + (pnl >= 0 ? "+" : "") + usd(pnl) + '</span></div>';
+      }).join("") : '<div class="empty">По этому адресу нет открытых позиций.</div>';
+      body += '<p class="note" style="margin-top:10px">Обновлено в ' + new Intl.DateTimeFormat("ru", { hour: "2-digit", minute: "2-digit" }).format(pf.at) + '. Свободные деньги на счёте (кэш) здесь не видны, их показывает сам сайт Pulse Market.</p>';
+    }
+    return '<div class="card rise" style="--i:2"><h3>Мой портфель</h3><p class="sub">Вставьте публичный адрес PROXY: его видно в кошельке Pulse Market рядом с пометкой PROXY. По адресу можно только смотреть позиции, тратить с него нельзя. Адрес хранится на этом устройстве.</p>' + form + body + '</div>';
+  }
+
+  function renderCabinet() {
+    var el = $("v-cabinet");
+    if (!state.member) {
+      var sig = "out|" + state.authMode + "|" + state.authMsg + "|" + state.authBusy + "|" + (sb ? 1 : 0);
+      if (el.getAttribute("data-sig") === sig && el.querySelector("#authForm")) return; /* не стираем то, что человек уже вводит */
+      el.setAttribute("data-sig", sig); el.innerHTML = authView(); return;
+    }
+    if (document.activeElement && document.activeElement.id === "pfAddr") return; /* не стираем адрес, пока его вводят */
+    el.setAttribute("data-sig", "in");
+    var v = state.virt, tgw = window.Telegram && window.Telegram.WebApp, u = tgw && tgw.initDataUnsafe && tgw.initDataUnsafe.user;
+    var email = state.user && state.user.email ? state.user.email : "";
+    var name = u ? ((u.first_name || "") + " " + (u.last_name || "")).trim() : email;
+    var openStake = v.pos.reduce(function (a, p) { return a + p.stake; }, 0), pnl = v.cash + openStake - v.start;
+    var prof = '<div class="card prof rise"><div class="avatar">' + esc((name || "?").charAt(0).toUpperCase()) + '</div><div class="pinfo"><b>' + esc(name || "Участник") + '</b><span class="badge strong"><i></i>Полный доступ</span>' + (u && email ? '<small class="muted">' + esc(email) + '</small>' : '') + '</div><button class="btn ghost sm" type="button" data-act="guest">Выйти</button></div>';
+    var pm = '<div class="card rise" style="--i:1"><h3>Pulse Market</h3><p class="sub">Кошелёк и портфель на сайте Pulse Market. Приложение не читает ваш баланс: вы видите страницу самого сайта.</p>' +
+      (state.pmOpen ? '<iframe class="pmframe" src="https://pulsemarket.trade/ru" title="Pulse Market" loading="lazy" referrerpolicy="no-referrer"></iframe><p class="note" style="margin-bottom:10px">Если здесь пусто или страница просит открыть её в браузере, сайт запретил встраивание. Откройте его кнопкой ниже.</p>' : '') +
+      '<div class="cols"><button class="btn ghost" type="button" data-pm="toggle">' + (state.pmOpen ? "Скрыть здесь" : "Показать здесь") + '</button><a class="btn" href="https://pulsemarket.trade/ru" target="_blank" rel="noopener">Открыть в браузере ↗</a></div></div>';
+    var mode = '<div class="card rise" style="--i:2"><h3>Как вы торгуете</h3><p class="sub">Приложение ничего не ставит на реальные деньги. Авто-режим работает на виртуальном счёте и показывает, чем бы всё закончилось.</p><div class="seg wide" role="group" aria-label="Режим"><button type="button" data-mode="self" aria-pressed="' + (!v.auto) + '">Торгую сам</button><button type="button" data-mode="auto" aria-pressed="' + v.auto + '">Авто, виртуально</button><button type="button" disabled title="Станет доступно, когда Pulse Market откроет API">Авто, реально</button></div>' +
+      (v.auto && !vLive() ? '<div class="warnbox">Авто-режим включён, но ставки начнутся только на живых данных. Сейчас показаны демо-данные.</div>' : '') + '</div>';
+    var rows = v.pos.map(function (p) { var c = cityById(p.c); return '<div class="pos"><div><b>' + (c ? c.name : esc(p.c)) + '</b><small>' + p.date.slice(8) + "." + p.date.slice(5, 7) + ' · ждёт итога</small></div><div class="num">' + esc(p.label) + '<br>' + usd(p.stake) + ' по ' + Math.round(p.price * 100) + '¢</div><span class="badge mid"><i></i>Открыта</span></div>'; }).join("") +
+      v.closed.slice(0, 15).map(function (p) { var c = cityById(p.c), d = p.pay - p.stake; return '<div class="pos"><div><b>' + (c ? c.name : esc(p.c)) + '</b><small>' + p.date.slice(8) + "." + p.date.slice(5, 7) + ' · ставка ' + esc(p.label) + ', итог ' + esc(p.win) + '</small></div><div class="num">' + usd(p.stake) + '</div><span class="pl ' + (d >= 0 ? "up" : "dn") + '">' + (d >= 0 ? "+" : "") + usd(d) + '</span></div>'; }).join("");
+    var virt = '<div class="card rise" style="--i:3"><h3>Виртуальный счёт</h3><p class="sub">Начальные $100 нарисованы, настоящих денег здесь нет. Данные хранятся только на этом устройстве.</p>' +
+      '<div class="tiles"><div class="tile"><small>Свободно</small><strong>' + usd(v.cash) + '</strong></div><div class="tile"><small>В ставках</small><strong>' + usd(openStake) + '</strong></div><div class="tile"><small>Итог</small><strong style="color:var(--' + (pnl >= 0 ? "good" : "bad") + ')">' + (pnl >= 0 ? "+" : "") + usd(pnl) + '</strong></div></div>' +
+      '<div class="cols"><label class="field"><span>Ставка на сигнал, $</span><input id="stakeIn" type="number" min="1" max="1000" step="1" value="' + v.stake + '"></label><label class="field"><span>Минимальное преимущество, п.п.</span><input id="edgeIn" type="number" min="1" max="50" step="1" value="' + v.minEdge + '"></label></div>' +
+      '<div style="margin-top:14px"><button class="btn ghost sm" type="button" data-vreset="1">' + (state.resetArm ? "Нажмите ещё раз, чтобы сбросить" : "Сбросить виртуальный счёт") + '</button></div></div>' +
+      '<div class="card rise" style="--i:4"><h3>Ставки</h3>' + (rows || '<div class="empty">Пока пусто. Включите «Авто, виртуально», и сильные сигналы появятся здесь.</div>') + '</div>';
+    var api = '<div class="card rise" style="--i:5"><h3>Подключение API Pulse Market</h3><p class="sub">Сейчас недоступно: у Pulse Market пока нет открытого API для торговли. Когда он появится, ключ можно будет ввести здесь. Он будет жить только в памяти вкладки, не записываться на устройство и не уходить никуда, кроме самой биржи.</p><label class="field"><span>API-ключ</span><input type="password" disabled autocomplete="off" placeholder="Станет доступно позже"></label></div>';
+    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + pm + pfCard() + mode + virt + api + '</div>' +
+      '<p class="note">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
+  }
+  $("v-cabinet").addEventListener("click", function (e) {
+    var au = e.target.closest("[data-auth]");
+    if (au) { state.authMode = au.getAttribute("data-auth"); state.authMsg = ""; renderCabinet(); return; }
+    if (e.target.closest("[data-pm]")) { state.pmOpen = !state.pmOpen; renderCabinet(); return; }
+    var pfb = e.target.closest("[data-pf]");
+    if (pfb) {
+      if (pfb.getAttribute("data-pf") === "clear") { state.pf = { addr: "", loading: false, err: "", value: null, pos: [], at: null }; lsSet("izo.addr", ""); renderCabinet(); return; }
+      var inp = $("pfAddr"); state.pf.addr = inp ? inp.value.trim() : state.pf.addr; lsSet("izo.addr", state.pf.addr); state.pf.at = null; loadPortfolio(); return;
+    }
+    var m = e.target.closest("[data-mode]");
+    if (m && !m.disabled) { state.virt.auto = m.getAttribute("data-mode") === "auto"; vSave(); renderAll(); return; }
+    if (e.target.closest("[data-vreset]")) {
+      if (!state.resetArm) { state.resetArm = true; renderCabinet(); return; }
+      state.virt = vDefault(); state.resetArm = false; vSave(); renderAll(); toast("Виртуальный счёт сброшен.");
+    }
+  });
+  $("v-cabinet").addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.id === "nameIn") lsSet("izo.name", t.value.trim().slice(0, 40));
+    if (t.id === "stakeIn") { state.virt.stake = clamp(Math.round(parseFloat(t.value) || 5), 1, 1000); vSave(); renderAll(); }
+    if (t.id === "edgeIn") { state.virt.minEdge = clamp(Math.round(parseFloat(t.value) || 8), 1, 50); vSave(); renderAll(); }
+  });
+  $("acc").addEventListener("click", function () { setView("cabinet"); });
+
   /* ---------- общий рендер и события ---------- */
   function renderAll() {
-    state.sigs = computeSignals(); ensureFree();
+    state.sigs = computeSignals(); ensureFree(); vStep();
     var f = forecast(state.city, state.day);
     renderChips();
     if (f) { renderHead(f); renderChartCard(f); renderModels(f); renderMarketCard(f); }
@@ -724,6 +914,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     $("hudTemp").textContent = f ? " " + t1(f.mu) + "°" : "";
     if (state.view === "signals") renderSignals();
     if (state.view === "report") renderReport();
+    if (state.view === "cabinet") renderCabinet();
     if (globe) globe.sync();
   }
   function selectCity(id) {
@@ -737,7 +928,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     VIEWS.forEach(function (x) { $("v-" + x).hidden = x !== v; });
     $("dock").style.setProperty("--i", VIEWS.indexOf(v));
     Array.prototype.forEach.call(document.querySelectorAll("#dock button"), function (b) { if (b.getAttribute("data-v") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
-    if (v === "signals") renderSignals(); if (v === "report") renderReport();
+    if (v === "signals") renderSignals(); if (v === "report") renderReport(); if (v === "cabinet") { renderCabinet(); maybeLoadPf(); }
     if (location.hash !== "#" + v) { try { location.hash = v; } catch (e) {} }
     window.scrollTo(0, 0);
   }
@@ -751,11 +942,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     var act = a.getAttribute("data-act"), tg = window.Telegram && window.Telegram.WebApp;
     if (act === "ref") {
       if (tg && tg.openLink) { e.preventDefault(); tg.openLink(REF_URL); }
-      toast("После регистрации вернитесь сюда и нажмите «Я уже зарегистрировался».");
-    } else if (act === "member") {
-      state.member = true; lsSet("izo.member", "1"); toast("Доступ открыт на этом устройстве. Бот проверит регистрацию отдельно."); renderAll();
+    } else if (act === "login") {
+      setView("cabinet");
     } else if (act === "guest") {
-      state.member = false; lsSet("izo.member", "0"); renderAll();
+      if (sb) sb.auth.signOut().catch(function () {});
     }
   });
 
@@ -856,6 +1046,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     return { sync: sync, focus: focus };
   })();
 
+  try {
+    fetch("data/results.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.results = j || {}; renderAll(); }).catch(function () {});
+  } catch (e) {}
   /* наклон и подсветка карточек под курсором (только мышь) */
   var tiltEl = null;
   function tiltReset() { if (tiltEl) { tiltEl.style.setProperty("--rx", "0deg"); tiltEl.style.setProperty("--ry", "0deg"); tiltEl = null; } }
@@ -874,7 +1067,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   renderTicker();
   $("legendBar").style.background = "linear-gradient(90deg," + STOPS.map(function (s, i) { return "rgb(" + s[1].join(",") + ") " + Math.round(i / (STOPS.length - 1) * 100) + "%"; }).join(",") + ")";
   try { var tg0 = window.Telegram && window.Telegram.WebApp; if (tg0) { tg0.ready(); tg0.expand(); } } catch (e) {}
-  state.member = lsGet("izo.member") === "1";
+  state.virt = vLoad(); state.pf.addr = lsGet("izo.addr") || ""; authInit();
   /* снимок рынков старый: двигаем даты на сегодня, чтобы показ не опустел; ссылки на рынки остаются на исходные даты */
   (function () {
     var minD = Math.min.apply(null, MARKETS.map(function (m) { return +mdate(m); })), shift = Math.round((+today0() - minD) / 864e5);
@@ -910,7 +1103,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
       var list = (j.markets || []).filter(function (m) { return cityById(m.c) && m.b && m.b.length; });
       if (!list.length) return;
       MARKETS.length = 0; list.forEach(function (m) { MARKETS.push(m); });
-      state.shifted = 0;
+      state.shifted = 0; state.marketsLive = true;
       var u = new Date(j.updated); if (!isNaN(u)) SNAP = new Intl.DateTimeFormat("ru", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(u);
       if (state.source === "demo") { var dm = makeDemo(); state.dates = dm.dates; state.data = dm.data; }
       renderTicker(); renderAll();
