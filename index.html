@@ -422,6 +422,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   /* Подключение к Supabase (приём заявок на доступ). Публичные значения, их безопасно хранить в странице. */
   var SUPABASE_URL = "https://nhcufemevxtlilsvbwah.supabase.co";
   var SUPABASE_ANON = "sb_publishable_bFNl7cT1ol679mQ64GvPkQ_IVyahPYO";
+  var BOT = "pulsniper_bot";
   var SITE = "https://pulsemarket.trade/ru/event/";
   var SNAP = "3 нояб. 2026";
   var MINUS = "−";
@@ -811,6 +812,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       acc.busy = false; if (st === "bad_address") { acc.msg = "Адрес не принят. Проверьте его."; renderCabinet(); } else accSet(String(st));
     }).catch(function () { acc.busy = false; acc.msg = "Не удалось отправить заявку. Попробуйте ещё раз."; renderCabinet(); });
   }
+  function notifyCard() {
+    return '<div class="card rise"><h3>Уведомления в Telegram</h3><p class="sub">' + (state.member ? 'Бот пришлёт каждый новый сигнал с пометкой «можно ставить», затем итог сделки и статистику за неделю.' : 'Бот пришлёт один бесплатный сигнал в неделю, итог по нему и статистику. Полный поток сигналов открывается после одобрения заявки.') + '</p><a class="btn" href="https://t.me/' + BOT + '?start=' + encodeURIComponent(deviceToken()) + '" target="_blank" rel="noopener">Включить уведомления ↗</a><p class="sub" style="margin-top:10px">Откроется чат с ботом, нажмите Start.</p></div>';
+  }
   function accView() {
     var acc = state.acc, st = acc.status, ready = !!SUPABASE_URL;
     var step1 = '<li><b>Зарегистрируйтесь на Pulse Market по ссылке</b><p class="sub">Доступ получают только те, кто пришёл по приглашению владельца сервиса. Привязка происходит при регистрации, поэтому сначала нужно пройти по этой ссылке.</p><a class="btn" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться на Pulse Market ↗</a></li>';
@@ -824,7 +828,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }
     if (st === "pending" && acc.msg) step2 = step2.replace('</li>', '<div class="authmsg" role="alert">' + esc(acc.msg) + '</div></li>');
     return '<div class="view-head"><h2>Кабинет</h2><p>Доступ для рефералов Pulse Market.</p></div><div class="card auth rise"><ol class="steps">' + step1 + step2 + '</ol>' +
-      (ready ? '' : '<p class="note">Приём заявок ещё не подключён, форма заработает после настройки.</p>') + '</div>' +
+      (ready ? '' : '<p class="note">Приём заявок ещё не подключён, форма заработает после настройки.</p>') + '</div>' + notifyCard() +
       '<p class="note">Почта и пароль не нужны. Мы храним только адрес кошелька из вашей заявки.</p>';
   }
 
@@ -884,7 +888,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<div style="margin-top:14px"><button class="btn ghost sm" type="button" data-vreset="1">' + (state.resetArm ? "Нажмите ещё раз, чтобы сбросить" : "Сбросить виртуальный счёт") + '</button></div></div>' +
       '<div class="card rise" style="--i:4"><h3>Ставки</h3>' + (rows || '<div class="empty">Пока пусто. Включите «Авто, виртуально», и сильные сигналы появятся здесь.</div>') + '</div>';
     var api = '<div class="card rise" style="--i:5"><h3>Подключение API Pulse Market</h3><p class="sub">Сейчас недоступно: у Pulse Market пока нет открытого API для торговли. Когда он появится, ключ можно будет ввести здесь. Он будет жить только в памяти вкладки, не записываться на устройство и не уходить никуда, кроме самой биржи.</p><label class="field"><span>API-ключ</span><input type="password" disabled autocomplete="off" placeholder="Станет доступно позже"></label></div>';
-    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + pm + pfCard() + mode + virt + api + '</div>' +
+    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + notifyCard() + pm + pfCard() + mode + virt + api + '</div>' +
       '<p class="note">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
   }
   $("v-cabinet").addEventListener("click", function (e) {
