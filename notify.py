@@ -11,6 +11,7 @@ import html
 import json
 import math
 import os
+import re
 import urllib.request
 
 import collect
@@ -146,30 +147,68 @@ def esc(x):
     return html.escape(str(x))
 
 
+def explain(label):
+    """Что значит вариант простыми словами: условие победы и перевод в градусы Цельсия."""
+    m = re.match(r"^(-?\d+)[–-](-?\d+)°F$", label)
+    if m:
+        a, b = int(m.group(1)), int(m.group(2))
+        return "от %d до %d°F" % (a, b), "≈%d–%d°C" % (round((a - 32) / 1.8), round((b - 32) / 1.8)), True
+    m = re.match(r"^(-?\d+(?:\.\d+)?)°([CF]) и (ниже|выше)$", label)
+    if m:
+        v, u, low = m.group(1), m.group(2), m.group(3) == "ниже"
+        conv = "≈%d°C" % round((float(v) - 32) / 1.8) if u == "F" else ""
+        return "%s°%s или %s" % (v, u, "холоднее" if low else "теплее"), conv, False
+    m = re.match(r"^(-?\d+(?:\.\d+)?)°C$", label)
+    if m:
+        return "ровно %s°C" % m.group(1), "", False
+    return label, "", False
+
+
+def money(x):
+    return ("$%.2f" % x).replace(".", ",")
+
+
 def signal_text(s, member):
     d = dt.date.fromisoformat(s["date"])
+    cond, conv, rng = explain(s["label"])
     head = "⚡ <b>Сильный сигнал</b>" if s["strong"] else "⚡ <b>Сигнал</b>"
-    t = "%s\n%s · %s\n\nВариант: <b>%s</b>\nМодели дают %d%%, рынок оценивает в %d%%\nПреимущество: +%d п.п." % (
-        head, esc(NAMES.get(s["city"], s["city"])), dlabel(d), esc(s["label"]),
-        round(s["pm"] * 100), round(s["price"] * 100), round(s["edge"] * 100))
+    price = s["price"]
+    t = "%s · %s · %s\n\n" % (head, esc(NAMES.get(s["city"], s["city"])), dlabel(d))
+    t += "👉 <b>Ставка: «ДА» на «%s»</b>\n" % esc(s["label"])
+    if conv:
+        t += "(%s)\n" % esc(conv)
+    t += "Это один вариант из списка рынка%s, ставится одной кнопкой.\n\n" % (" (диапазон из двух градусов)" if rng else "")
+    t += "Выиграет, если максимум дня будет <b>%s</b>. При любой другой температуре ставка сгорает.\n\n" % esc(cond)
+    t += "Модели: %d%% · рынок: %d%% · преимущество +%d п.п.\n" % (round(s["pm"] * 100), round(price * 100), round(s["edge"] * 100))
+    if price > 0:
+        t += "Цена «Да» %d¢: ставка $10 при выигрыше вернёт ≈ %s.\n" % (round(price * 100), money(10 / price))
+    t += "\n<b>Как поставить:</b>\n1. Нажмите кнопку «Открыть рынок» ниже.\n2. Найдите строку «%s».\n3. Выберите «Да» (Yes) и введите сумму." % esc(s["label"])
     if member:
         return t + "\n\n✅ Можно ставить. Итог пришлю, когда рынок закроется."
-    return (t + "\n\n🎁 Это бесплатный сигнал недели. Постоянные сигналы с пометкой «можно ставить» "
-            "получают рефералы владельца сервиса на Pulse Market. Зарегистрируйтесь по ссылке и отправьте заявку в приложении.")
+    return (t + "\n\n🎁 Это бесплатный сигнал недели. Постоянные сигналы получают рефералы владельца сервиса на Pulse Market: "
+            "зарегистрируйтесь по ссылке и отправьте заявку в приложении.")
 
 
 def outcome_text(rec, win, hit):
     d = dt.date.fromisoformat(rec["date"])
-    head = "✅ <b>Сделка завершилась удачно</b>" if hit else "❌ <b>Сделка завершилась неудачно</b>"
-    return "%s\n%s · %s\n\nНаш вариант: %s\nИтог рынка: %s" % (
+    head = "✅ <b>Ставка выиграла</b>" if hit else "❌ <b>Ставка не сыграла</b>"
+    t = "%s\n%s · %s\n\nНаш вариант: <b>%s</b>\nИтог рынка: <b>%s</b>" % (
         head, esc(NAMES.get(rec["city"], rec["city"])), dlabel(d), esc(rec["label"]), esc(win))
+    if not hit:
+        t += "\n\nСигнал не гарантирует результат: рынок закрылся на другом варианте."
+    return t
 
 
 def week_text(rows, open_n):
     n = len(rows)
     hits = sum(1 for r in rows if r["hit"])
-    t = "📊 <b>Итоги недели</b>\n\nСигналов закрыто: %d\nУдачных: %d\nНеудачных: %d\nТочность: %d%%" % (
+    t = "📊 <b>Итоги недели</b>\n\nСигналов закрыто: %d\n✅ Выиграло: %d\n❌ Не сыграло: %d\nДоля выигравших: %d%%" % (
         n, hits, n - hits, round(100 * hits / n) if n else 0)
+    priced = [r for r in rows if r.get("price")]
+    if priced and len(priced) == n:
+        roi = sum((10 / r["price"] - 10) if r["hit"] else -10 for r in priced)
+        t += "\n\nУсловный итог, если ставить по $10 на каждый сигнал по цене из сигнала: <b>%s%s</b> (без комиссий)." % (
+            "+" if roi >= 0 else "−", money(abs(roi)))
     if open_n:
         t += "\nЕщё ждут итога: %d" % open_n
     return t
@@ -232,7 +271,7 @@ def run(now=None):
     for s in sigs:
         if s["key"] in st["sent"]:
             continue
-        rec = {"city": s["city"], "date": s["date"], "label": s["label"], "to": []}
+        rec = {"city": s["city"], "date": s["date"], "label": s["label"], "pm": s["pm"], "price": s["price"], "to": []}
         for h, chat in members.items():
             if send(chat, signal_text(s, True), ("Открыть на Pulse Market", s["url"])):
                 rec["to"].append(h)
@@ -247,6 +286,7 @@ def run(now=None):
 
     # итоги
     results = collect.load("results.json", {})
+    bets = collect.load("bets.json", [])
     for key, rec in list(st["sent"].items()):
         r = results.get(key)
         if not r or rec.get("done"):
@@ -257,7 +297,9 @@ def run(now=None):
                 send(everyone[h], outcome_text(rec, r["win"], hit))
         rec["done"] = True
         rec["hit"] = hit
-        st["log"].append({"date": rec["date"], "week": week_of(dt.date.fromisoformat(rec["date"])), "hit": hit})
+        st["log"].append({"date": rec["date"], "week": week_of(dt.date.fromisoformat(rec["date"])), "hit": hit, "price": rec.get("price")})
+        bets.append({"date": rec["date"], "city": rec["city"], "label": rec["label"], "win": r["win"], "hit": hit,
+                     "price": rec.get("price"), "pm": rec.get("pm")})
 
     # недельная статистика: воскресенье, после 17:00 UTC
     if now.weekday() == 6 and now.hour >= 17 and st.get("last_summary") != wk:
@@ -273,6 +315,8 @@ def run(now=None):
     st["sent"] = {k: v for k, v in st["sent"].items() if v["date"] >= cut}
     st["log"] = [x for x in st["log"] if x["date"] >= cut]
     st["free_week"] = {h: w for h, w in st["free_week"].items() if w == wk}
+    cut90 = (today - dt.timedelta(days=90)).isoformat()
+    collect.save("bets.json", [b for b in bets if b["date"] >= cut90])
     collect.save("bot.json", st)
 
 
