@@ -576,8 +576,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       var d = dayOf(m); if (d < 0 || d >= DAYS) return;
       var f = forecast(m.c, d); if (!f) return;
       var best = null;
-      m.b.forEach(function (b) { var pm = pRange(f, b.lo, b.hi), e = pm - b.p; if (!best || e > best.e) best = { b: b, pm: pm, e: e }; });
-      if (best.e >= 0.08 && best.pm >= 0.3 && f.range <= 3) out.push({ id: m.c + "@" + m.date, c: m.c, m: m, d: d, f: f, best: best, level: best.e >= 0.15 && f.range <= 2 ? "strong" : "mid" });
+      m.b.forEach(function (b) { var pm = pRange(f, b.lo, b.hi), e = pm - b.p; if (b.p >= 0.05 && (!best || e > best.e)) best = { b: b, pm: pm, e: e }; });
+      if (best && best.e >= 0.08 && best.pm >= 0.3 && f.range <= 3) out.push({ id: m.c + "@" + m.date, c: m.c, m: m, d: d, f: f, best: best, level: best.e >= 0.15 && f.range <= 2 ? "strong" : "mid" });
     });
     out.sort(function (a, b) { return b.best.e - a.best.e; });
     return out;
@@ -697,13 +697,29 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var n = daysToMonday();
     return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ получают рефералы владельца сервиса на Pulse Market: оставьте заявку в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
   }
+  function explain(l) {
+    var m = /^(-?\d+)[–-](-?\d+)°F$/.exec(l);
+    if (m) { var a = +m[1], b = +m[2]; return { cond: "от " + a + " до " + b + "°F", c: "≈" + Math.round((a - 32) / 1.8) + "–" + Math.round((b - 32) / 1.8) + "°C", range: true }; }
+    m = /^(-?\d+(?:[.,]\d+)?)°([CF]) и (ниже|выше)$/.exec(l);
+    if (m) return { cond: m[1] + "°" + m[2] + " или " + (m[3] === "ниже" ? "холоднее" : "теплее"), c: m[2] === "F" ? "≈" + Math.round((parseFloat(m[1].replace(",", ".")) - 32) / 1.8) + "°C" : "", range: false };
+    m = /^(-?\d+(?:[.,]\d+)?)°C$/.exec(l);
+    if (m) return { cond: "ровно " + m[1] + "°C", c: "", range: false };
+    return { cond: l, c: "", range: false };
+  }
+  function todoBox(b, date) {
+    var ex = explain(b.l), pr = b.p, ret = pr > 0 ? 10 / pr : 0;
+    return '<div class="todo"><div class="todo-h"><span class="yes">ДА</span><div><b>Ставьте «Да» на «' + esc(b.l) + '»</b><small>' + (ex.c ? esc(ex.c) + ' · ' : '') + (ex.range ? 'это один вариант из двух градусов, ставится одной кнопкой' : 'один вариант в списке рынка') + '</small></div></div>' +
+      '<p>Выиграет, если максимум дня ' + date + ' будет <b>' + esc(ex.cond) + '</b>. При любой другой температуре ставка сгорает.</p>' +
+      '<p class="pay">Цена «Да» сейчас ' + Math.round(pr * 100) + '¢. Ставка $10 при выигрыше вернёт ≈ ' + usd(ret) + '.</p>' +
+      '<details><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>В списке найдите строку «' + esc(b.l) + '».</li><li>Выберите «Да» (Yes) и введите сумму.</li></ol></details></div>';
+  }
   function sigCard(s, i) {
     var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
     var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
     if (!open) return '<article class="card sig tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Вариант <strong>••°C</strong></div>' + phBars(2) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
     var free = !state.member ? '<span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span>' : "";
     return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") +
-      '<div class="pickrow"><div class="pick">Вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' +
+      '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) +
       '<div class="vs"><div class="vrow"><span>Модели</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
       '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
   }
@@ -719,8 +735,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function renderReport() {
     var el = $("v-report"), cut = state.period, rows = state.stats.filter(function (r) { return r.age <= cut; });
     rows.sort(function (a, b) { return b.age - a.age; });
-    var n = rows.length, hits = rows.filter(function (r) { return r.hit; }).length, acc = n ? hits / n : 0, avgP = n ? rows.reduce(function (a, r) { return a + r.p; }, 0) / n : 0, best = 0, run = 0;
-    rows.forEach(function (r) { run = r.hit ? run + 1 : 0; best = Math.max(best, run); });
+    var n = rows.length, hits = rows.filter(function (r) { return r.hit; }).length, miss = 0, acc = n ? hits / n : 0, avgP = n ? rows.reduce(function (a, r) { return a + r.p; }, 0) / n : 0, best = 0, run = 0;
+    miss = n - hits; rows.forEach(function (r) { run = r.hit ? run + 1 : 0; best = Math.max(best, run); });
     /* накопленная точность по дням */
     var byDay = {}, cum = [], h = 0, tt = 0;
     rows.forEach(function (r) { (byDay[r.age] = byDay[r.age] || []).push(r); });
@@ -736,16 +752,30 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       return '<div class="calrow"><div><b style="color:var(--fg)">' + b[2] + '</b><br>' + s.length + ' сигн.</div><div class="calbars"><div class="vrow"><span>Заявлено</span><div class="vbar"><em style="--w:' + pc(ap) + '%"></em></div><b>' + pc(ap) + '%</b></div><div class="vrow mkt"><span>Сбылось</span><div class="vbar"><em style="--w:' + pc(ar) + '%"></em></div><b>' + pc(ar) + '%</b></div></div></div>';
     }).join("");
     var latest = rows.slice().reverse().slice(0, 10).map(function (r) {
-      var c = cityById(r.c);
-      return '<div class="rrow"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><div class="num">Коридор ' + t0(r.k - 1) + "…" + t0(r.k + 1) + '°<br>Факт ' + t0(r.actual) + '°</div><span class="' + (r.hit ? "ok" : "miss") + '" aria-label="' + (r.hit ? "Сбылось" : "Не сбылось") + '">' + (r.hit ? "✓" : "✕") + '</span></div>';
+      var c = cityById(r.c), lo = r.k - 1, hi = r.k + 1, off = r.actual < lo ? lo - r.actual : r.actual > hi ? r.actual - hi : 0;
+      return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Попали" : "✕ Мимо на " + off + "°") + '</span></div>' +
+        '<div class="rr2-box"><div><i>Наш коридор</i><span>' + t0(lo) + '…' + t0(hi) + '°</span></div><div><i>Факт</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + t0(r.actual) + '°</span></div></div></div>';
     }).join("");
+    var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
+    var bn = bets.length, bh = bets.filter(function (r) { return r.hit; }).length, roi = 0, roiN = 0;
+    bets.forEach(function (r) { if (r.price > 0) { roiN++; roi += r.hit ? (10 / r.price - 10) : -10; } });
+    var betRows = bets.slice(0, 6).map(function (r) {
+      var c = cityById(r.c);
+      return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Выиграла" : "✕ Не сыграла") + '</span></div>' +
+        '<div class="rr2-box"><div><i>Наш вариант</i><span>' + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
+    }).join("");
+    var betsCard = '<div class="card rise" style="--i:3"><h3>Ставка «Да» на один вариант</h3><p class="sub">Так выглядит сигнал в боте: одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
+      (bn ? '<div class="bigscore"><strong>' + bh + ' из ' + bn + '</strong><span>сыграло (' + pc(bh / bn) + '%)</span></div>' + (roiN ? '<p class="sub" style="margin:8px 0 0">Условный итог, если ставить по $10 на каждый сигнал по цене из сигнала: <b style="color:var(--' + (roi >= 0 ? "good" : "bad") + ')">' + (roi >= 0 ? "+" : "") + usd(roi) + '</b> (без комиссий).</p>' : '') + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
+        : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
+    var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
     var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
-    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: какой коридор мы назвали и какая температура была на самом деле.</p></div>' + demo +
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: попала ли фактическая температура в наш коридор и сыграл ли вариант из сигнала.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
-      '<div class="tiles"><div class="tile tilt rise" style="--i:0"><small>Коридор сбылся</small><strong data-count="' + (acc * 100) + '" data-suf="%">' + pc(acc) + '%</strong></div><div class="tile tilt rise" style="--i:1"><small>Сигналов закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile tilt rise" style="--i:2"><small>Средняя уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile tilt rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' +
-      '<div class="two"><div class="card rise" style="--i:4"><h3>Накопленная точность</h3><p class="sub">Доля сбывшихся коридоров по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
-      '<div class="card rise" style="--i:6"><h3>Последние итоги</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div></div>' + cta +
+      '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>' + how +
+      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile rise" style="--i:2"><small>Уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + betsCard +
+      '<div class="two"><div class="card rise" style="--i:4"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
+      '<div class="card rise" style="--i:6"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в отчёте в °C.</p></div>' + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
   }
@@ -1163,12 +1193,66 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }).catch(function () {});
   } catch (e) {}
   try {
+    fetch("data/bets.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+      state.bets = (j || []).map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, label: r.label, win: r.win, hit: r.hit, price: r.price, age: age }; }); if (state.view === "report") renderReport();
+    }).catch(function () {});
     fetch("data/stats.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.stats = j.map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, k: r.k, p: r.p, actual: r.actual, hit: r.hit, age: age }; }); state.statsSource = "live"; if (state.view === "report") renderReport();
     }).catch(function () {});
   } catch (e) {}
 })();
 </script>
+<style>
+/* Понятные сигналы и отчёт */
+.todo { display: grid; gap: 8px; padding: 12px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--g1) 45%, var(--line)); background: color-mix(in srgb, var(--g1) 9%, var(--surface)); }
+.todo-h { display: flex; gap: 12px; align-items: center; }
+.todo .yes { flex: none; padding: 9px 13px; border-radius: 11px; background: linear-gradient(115deg, var(--g1), var(--g2)); color: var(--accent-ink); font-family: var(--f-display); font-weight: 700; font-size: 16px; box-shadow: 0 8px 22px -10px var(--g2); }
+.todo-h b { display: block; font-size: 14.5px; line-height: 1.3; }
+.todo-h small { color: var(--muted); font-size: 12px; }
+.todo p { margin: 0; font-size: 13px; }
+.todo .pay { color: var(--muted); font-size: 12.5px; }
+.todo summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: 13px; }
+.todo ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 4px; font-size: 13px; }
+.rep-hero { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--g1) 14%, var(--surface)), var(--surface) 70%); }
+.rep-hero .gauge { flex: none; width: 84px; height: 84px; }
+.rh-t { min-width: 0; }
+.rh-t .kick { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.rh-t strong { font-family: var(--f-display); font-size: clamp(34px, 9vw, 48px); font-weight: 700; line-height: 1.1; }
+.rh-t em { font-style: normal; font-family: var(--f-display); font-size: 20px; color: var(--muted); }
+.chips2 { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.rtag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.rtag.win { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+.rtag.lose { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+.how { margin-bottom: 14px; display: grid; gap: 12px; }
+.how h3 { margin: 0; }
+.how-row { display: grid; grid-template-columns: 126px minmax(0, 1fr); gap: 14px; align-items: center; }
+.how-row + .how-row { padding-top: 12px; border-top: 1px solid var(--line); }
+.how-row p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
+.how-row p b { color: var(--fg); }
+.how-c { display: flex; gap: 4px; min-width: 0; }
+.how-c i { flex: 1; text-align: center; font-style: normal; font-family: var(--f-mono); font-size: 12px; padding: 7px 0; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); }
+.how-c i.mid { border-color: var(--g1); color: var(--g1); }
+.how-c i.fact { border-color: var(--good); color: var(--good); background: color-mix(in srgb, var(--good) 12%, transparent); font-weight: 700; }
+.tiles3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.tiles3 .tile { padding: 12px 12px 10px; }
+.tiles3 .tile small { font-size: 11.5px; }
+.tiles3 .tile strong { font-size: 24px; }
+.betsempty { margin-top: 4px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.card .sub { text-wrap: pretty; }
+.bigscore { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.bigscore strong { font-family: var(--f-display); font-size: 34px; }
+.bigscore span { color: var(--muted); }
+.rr2 { display: grid; gap: 8px; padding: 11px 12px; border: 1px solid var(--line); border-left-width: 4px; border-radius: 14px; margin-top: 8px; }
+.rr2.win { border-left-color: var(--good); } .rr2.lose { border-left-color: var(--bad); }
+.rr2-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.rr2-top b { display: block; font-weight: 600; }
+.rr2-top small { color: var(--muted); font-size: 11.5px; }
+.rr2-box { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rr2-box > div { background: var(--surface-2); border-radius: 10px; padding: 7px 10px; min-width: 0; }
+.rr2-box i { display: block; font-style: normal; font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+.rr2-box span { font-family: var(--f-mono); font-size: 14.5px; font-weight: 600; overflow-wrap: anywhere; }
+.rr2-box .fact.win { color: var(--good); } .rr2-box .fact.lose { color: var(--bad); }
+</style>
 <style>
 /* ===== Эффекты: подсветка под пальцем, бегущая рамка, волна на кнопках, искры ===== */
 @property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
@@ -1201,7 +1285,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 :root:not([data-theme="dark"]) .bgfx::after { mix-blend-mode: multiply; }
 .big strong { background: linear-gradient(100deg, var(--fg) 30%, var(--g1) 50%, var(--fg) 70%); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: numGlow 6s ease-in-out infinite; }
 .btn:not(.ghost):not(.sm) { animation: breathe 3.4s ease-in-out infinite; }
-.card.tilt { transition: transform .08s linear, border-color .3s; will-change: transform; }
+.card.fxt { transition: transform .08s linear, border-color .3s; will-change: transform; }
 #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4; }
 </style>
 <canvas id="fx" aria-hidden="true"></canvas>
@@ -1240,11 +1324,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   /* наклон карточек за курсором (только мышь), порядок появления чипов */
   document.addEventListener("pointermove", function (e) {
     if (e.pointerType !== "mouse") return;
-    var c = e.target.closest && e.target.closest(".card"); if (!c) return;
+    var c = e.target.closest && e.target.closest(".card"); if (!c || c.classList.contains("tilt")) return;
     var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
-    c.classList.add("tilt"); c.style.transform = "perspective(700px) rotateX(" + (-py * 4) + "deg) rotateY(" + (px * 5) + "deg) translateY(-2px)";
+    c.classList.add("fxt"); c.style.transform = "perspective(700px) rotateX(" + (-py * 4) + "deg) rotateY(" + (px * 5) + "deg) translateY(-2px)";
   }, { passive: true });
-  document.addEventListener("pointerout", function (e) { var c = e.target.closest && e.target.closest(".card.tilt"); if (c && !c.contains(e.relatedTarget)) { c.style.transform = ""; c.classList.remove("tilt"); } }, { passive: true });
+  document.addEventListener("pointerout", function (e) { var c = e.target.closest && e.target.closest(".card.fxt"); if (c && !c.contains(e.relatedTarget)) { c.style.transform = ""; c.classList.remove("fxt"); } }, { passive: true });
   var chipsEl = document.getElementById("chips");
   if (chipsEl && window.MutationObserver) {
     var tag = function () { Array.prototype.forEach.call(chipsEl.children, function (c, i) { c.style.setProperty("--k", i); }); };
