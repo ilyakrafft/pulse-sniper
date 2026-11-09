@@ -794,6 +794,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }
   function accSet(st) {
     var was = state.member; state.acc.status = st; state.member = st === "approved"; lsSet("izo.ok", state.member ? "1" : "0");
+    if (state.member && !was && window.__fx) window.__fx.burst();
     if (was !== state.member) renderAll(); else if (state.view === "cabinet") renderCabinet();
   }
   function accCheck() {
@@ -1128,6 +1129,112 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       state.stats = j.map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, k: r.k, p: r.p, actual: r.actual, hit: r.hit, age: age }; }); state.statsSource = "live"; if (state.view === "report") renderReport();
     }).catch(function () {});
   } catch (e) {}
+})();
+</script>
+<style>
+/* ===== Эффекты: подсветка под пальцем, бегущая рамка, волна на кнопках, искры ===== */
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ang { to { --ang: 360deg; } }
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+@keyframes titleSheen { 0%, 55% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+@keyframes dockPop { 0% { transform: scale(.7) translateY(4px); } 60% { transform: scale(1.18) translateY(-2px); } 100% { transform: none; } }
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.card { position: relative; isolation: isolate; transition: border-color .3s, transform .3s cubic-bezier(.2,.8,.2,1); }
+.card::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: var(--sp, 0); transition: opacity .35s;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--g1) 20%, transparent), transparent 70%); }
+.card:has(.badge.strong)::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: conic-gradient(from var(--ang), transparent 0 68%, var(--g1), var(--g2), transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: ang 5s linear infinite; }
+@media (hover: hover) { .card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--g1) 45%, var(--line)); } }
+.btn { position: relative; overflow: hidden; }
+.fx-rip { position: absolute; border-radius: 50%; background: rgba(255,255,255,.5); transform: scale(0); animation: ripple .65s ease-out forwards; pointer-events: none; }
+.view-head h2 { background: linear-gradient(100deg, var(--fg) 42%, var(--g1) 50%, var(--fg) 58%); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: titleSheen 7s ease-in-out infinite; }
+.dock button[aria-current="page"] svg { animation: dockPop .55s cubic-bezier(.3,1.6,.5,1); }
+.logo { animation: floatY 5s ease-in-out infinite; }
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4; }
+</style>
+<canvas id="fx" aria-hidden="true"></canvas>
+<script>
+(function () {
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tg = window.Telegram && window.Telegram.WebApp, hap = tg && tg.HapticFeedback;
+  function haptic(kind) { try { if (!hap) return; if (kind === "ok") hap.notificationOccurred("success"); else hap.impactOccurred("light"); } catch (e) {} }
+  /* подсветка карточки под пальцем и мышью, волна на кнопках, лёгкая вибрация */
+  var lastCard = null;
+  function spot(e) {
+    var c = e.target.closest && e.target.closest(".card");
+    if (lastCard && lastCard !== c) lastCard.style.setProperty("--sp", 0);
+    lastCard = c;
+    if (!c) return;
+    var r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px"); c.style.setProperty("--sp", 1);
+  }
+  document.addEventListener("pointermove", spot, { passive: true });
+  document.addEventListener("pointerdown", function (e) {
+    spot(e);
+    var b = e.target.closest && e.target.closest(".btn, .dock button, .chip, [data-act], [data-acc]");
+    if (!b) return;
+    haptic();
+    if (still) return;
+    if (b.classList.contains("btn")) {
+      var r = b.getBoundingClientRect(), s = Math.max(r.width, r.height) * 2, d = document.createElement("span");
+      d.className = "fx-rip"; d.style.cssText = "width:" + s + "px;height:" + s + "px;left:" + (e.clientX - r.left - s / 2) + "px;top:" + (e.clientY - r.top - s / 2) + "px";
+      b.appendChild(d); setTimeout(function () { d.remove(); }, 700);
+    }
+    if (api) api.pop(e.clientX, e.clientY, 7);
+  }, { passive: true });
+  document.addEventListener("pointerup", function () { if (lastCard) lastCard.style.setProperty("--sp", 0); }, { passive: true });
+
+  /* искры и конфетти на одном холсте */
+  var api = null;
+  if (still) { window.__fx = { burst: function () {}, pop: function () {} }; return; }
+  var cv = document.getElementById("fx"), cx = cv.getContext("2d"), W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
+  var cols = ["#ff9a3c", "#e5322d"], ps = [], embers = [], N = 34, slow = 0, frames = 0, t0 = 0, run = true, lastCol = 0;
+  function readCols() { var s = getComputedStyle(document.documentElement); cols = [s.getPropertyValue("--g1").trim() || "#ff9a3c", s.getPropertyValue("--g2").trim() || "#e5322d"]; }
+  function size() { W = window.innerWidth; H = window.innerHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function ember(init) { return { x: Math.random() * W, y: init ? Math.random() * H : H + 10, r: .6 + Math.random() * 1.8, v: 8 + Math.random() * 22, ph: Math.random() * 6.28, a: .12 + Math.random() * .3, c: Math.random() < .6 ? 0 : 1 }; }
+  function pop(x, y, n) { for (var i = 0; i < n; i++) { var a = Math.random() * 6.28, v = 40 + Math.random() * 110; ps.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 20, life: 1, d: 1.6 + Math.random() * 1.2, r: 1 + Math.random() * 1.8, c: Math.random() < .5 ? 0 : 1, g: 120 }); } }
+  function burst() {
+    for (var i = 0; i < 110; i++) { var a = -1.57 + (Math.random() - .5) * 2.6, v = 220 + Math.random() * 420; ps.push({ x: W / 2, y: H * .55, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, d: .5 + Math.random() * .5, r: 2 + Math.random() * 3, c: Math.random() * 3 | 0, g: 520, sq: true, rot: Math.random() * 6 }); }
+    haptic("ok");
+  }
+  var tcol = ["#ff9a3c", "#e5322d", "#ffd166"];
+  var lastTrail = 0;
+  document.addEventListener("pointermove", function (e) {
+    var n = performance.now(); if (n - lastTrail < 40 || (e.pointerType === "mouse" && !e.buttons)) return; lastTrail = n;
+    ps.push({ x: e.clientX, y: e.clientY, vx: (Math.random() - .5) * 30, vy: (Math.random() - .5) * 30 - 10, life: 1, d: 2.2, r: 1 + Math.random() * 1.6, c: Math.random() < .5 ? 0 : 1, g: 40 });
+    if (ps.length > 220) ps.splice(0, ps.length - 220);
+  }, { passive: true });
+  function frame(t) {
+    if (!run) return;
+    var dt = Math.min(.05, (t - t0) / 1000 || .016); t0 = t;
+    frames++; if (dt > .028) slow++;
+    if (frames === 90) { if (slow > 40) N = 10; }
+    if (t - lastCol > 4000) { readCols(); lastCol = t; }
+    cx.clearRect(0, 0, W, H);
+    while (embers.length < N) embers.push(ember(embers.length < N / 2));
+    if (embers.length > N) embers.length = N;
+    for (var i = 0; i < embers.length; i++) {
+      var e = embers[i]; e.y -= e.v * dt; e.x += Math.sin(t / 1400 + e.ph) * 10 * dt;
+      if (e.y < -10) { embers[i] = ember(false); continue; }
+      cx.globalAlpha = e.a * Math.min(1, (H - e.y) / 80) * Math.min(1, e.y / 120 + .2); cx.fillStyle = cols[e.c];
+      cx.beginPath(); cx.arc(e.x, e.y, e.r, 0, 6.28); cx.fill();
+    }
+    for (var j = ps.length - 1; j >= 0; j--) {
+      var p = ps[j]; p.life -= dt / p.d; if (p.life <= 0) { ps.splice(j, 1); continue; }
+      p.vy += p.g * dt; p.x += p.vx * dt; p.y += p.vy * dt; cx.globalAlpha = Math.max(0, p.life);
+      cx.fillStyle = p.sq ? tcol[p.c] : cols[p.c];
+      if (p.sq) { p.rot += dt * 8; cx.save(); cx.translate(p.x, p.y); cx.rotate(p.rot); cx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); cx.restore(); }
+      else { cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.28); cx.fill(); }
+    }
+    cx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+  size(); readCols(); window.addEventListener("resize", size);
+  document.addEventListener("visibilitychange", function () { run = !document.hidden; if (run) { t0 = performance.now(); requestAnimationFrame(frame); } });
+  api = { pop: pop, burst: burst };
+  window.__fx = api;
+  requestAnimationFrame(frame);
 })();
 </script>
 
