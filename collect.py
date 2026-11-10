@@ -25,20 +25,32 @@ MONTHS = ["january", "february", "march", "april", "may", "june", "july",
 # Модели Open-Meteo (бесплатно, без ключа). «seamless» уже включает региональные модели:
 # ICON-EU/D2, GFS+HRRR, UKMO UKV, Météo-France AROME/ARPEGE, JMA MSM, KMA LDPS.
 # key, вес, название, подпись
+US = ["dallas", "nyc", "sf", "miami", "la", "houston"]
+EU = ["london", "paris", "amsterdam", "munich", "milan", "madrid", "helsinki", "warsaw"]
+# key, вес, название, подпись, города (None = все). Региональные модели точнее на 1–2 дня и запрашиваются только для своих городов.
 MODELS = [
-    ("ecmwf_ifs025", 1.3, "ECMWF IFS", "Европейский центр"),
-    ("ecmwf_aifs025_single", 1.2, "ECMWF AIFS", "ИИ-модель ECMWF"),
-    ("icon_seamless", 1.1, "ICON", "Германия, DWD (EU, D2)"),
-    ("gfs_seamless", 1.0, "GFS", "США, NOAA (HRRR)"),
-    ("ukmo_seamless", 1.0, "UKMO", "Великобритания, Met Office"),
-    ("meteofrance_seamless", 0.9, "Météo-France", "ARPEGE, AROME"),
-    ("gem_seamless", 0.8, "GEM", "Канада, ECCC"),
-    ("jma_seamless", 0.6, "JMA", "Япония, GSM, MSM"),
-    ("kma_seamless", 0.5, "KMA", "Корея, GDPS"),
-    ("cma_grapes_global", 0.4, "CMA GRAPES", "Китай"),
-    ("bom_access_global", 0.4, "BoM ACCESS", "Австралия"),
+    ("ecmwf_ifs025", 1.3, "ECMWF IFS", "Европейский центр", None),
+    ("ecmwf_aifs025_single", 1.2, "ECMWF AIFS", "ИИ-модель ECMWF", None),
+    ("icon_seamless", 1.1, "ICON", "Германия, DWD", None),
+    ("gfs_seamless", 1.0, "GFS", "США, NOAA", None),
+    ("ukmo_seamless", 1.0, "UKMO", "Великобритания, Met Office", None),
+    ("meteofrance_seamless", 0.9, "Météo-France", "ARPEGE, AROME", None),
+    ("gem_seamless", 0.8, "GEM", "Канада, ECCC", None),
+    ("jma_seamless", 0.6, "JMA", "Япония, GSM, MSM", None),
+    ("kma_seamless", 0.5, "KMA", "Корея, GDPS", None),
+    ("cma_grapes_global", 0.4, "CMA GRAPES", "Китай", None),
+    ("bom_access_global", 0.4, "BoM ACCESS", "Австралия", None),
+    ("gfs_hrrr", 1.3, "NOAA HRRR", "США, 3 км", US),
+    ("ncep_nbm_conus", 1.2, "NOAA NBM", "США, сводный", US),
+    ("icon_d2", 1.3, "ICON-D2", "Европа, 2 км", EU),
+    ("knmi_harmonie_arome_europe", 1.0, "HARMONIE-AROME", "Европа, 2,5 км", EU),
+    ("meteofrance_arome_france_hd", 1.2, "AROME HD", "Франция, 1,5 км", ["paris"]),
+    ("ukmo_uk_deterministic_2km", 1.2, "UKMO UKV", "Великобритания, 2 км", ["london"]),
 ]
 MODEL_W = {m[0]: m[1] for m in MODELS}
+MODEL_W["ens"] = 1.6
+ENS_MODELS = ["ecmwf_ifs025", "gfs025", "icon_seamless", "gem_global"]  # ансамбли: ECMWF ENS, GEFS, ICON-EPS, GEPS
+ENS_URL = "https://ensemble-api.open-meteo.com/v1/ensemble"
 OLD_KEYS = ["ecmwf_ifs025", "icon_seamless", "gfs_seamless", "gem_seamless"]  # порядок старого формата forecasts.json
 # id, slug в адресе события, широта и долгота СТАНЦИИ (аэропорта, по которому закрывается рынок), код ICAO
 CITIES = [
@@ -173,8 +185,9 @@ def as_dict(vals):
     return {k: v for k, v in zip(OLD_KEYS, vals or [])}
 
 
-def consensus(vals):
-    pairs = [(v, MODEL_W.get(k, 0.5)) for k, v in as_dict(vals).items() if isinstance(v, (int, float)) and math.isfinite(v)]
+def consensus(vals, wmap=None):
+    wmap = wmap or {}
+    pairs = [(v, wmap.get(k, MODEL_W.get(k, 0.5))) for k, v in as_dict(vals).items() if isinstance(v, (int, float)) and math.isfinite(v)]
     if len(pairs) < MIN_MODELS:
         return None
     W = sum(w for _, w in pairs)
@@ -195,11 +208,32 @@ def calib_of(calib, city):
     return clamp(bias * n / (n + 6), -1.5, 1.5), rmse, n
 
 
-def predict(vals, lead, calib_city=(0.0, None, 0)):
-    c = consensus(vals)
+def model_weights(calib, city):
+    """Вес каждой модели по её собственной ошибке в этом городе: точные растут, слабые теряют вес."""
+    rows = (calib.get(city) or [])[-40:]
+    errs = {}
+    for r in rows:
+        for k, v in (r.get("m") or {}).items():
+            errs.setdefault(k, []).append(abs(v - r["a"]))
+    ok = {k: sum(e) / len(e) for k, e in errs.items() if len(e) >= 8}
+    if len(ok) < 3:
+        return {}
+    ref = sorted(ok.values())[len(ok) // 2]
+    out = {}
+    for k, mae in ok.items():
+        n = len(errs[k])
+        f = clamp((ref / max(mae, 0.3)) ** 2, 0.3, 3.0)
+        out[k] = MODEL_W.get(k, 0.5) * (1 + (f - 1) * n / (n + 10.0))
+    return out
+
+
+def predict(vals, lead, calib_city=(0.0, None, 0), es=None, wmap=None):
+    c = consensus(vals, wmap)
     if not c:
         return None
     mu, sdm, n = c
+    if es is not None and es > 0:  # реальный разброс ансамблей (с запасом: ансамбли обычно слишком уверены)
+        sdm = math.sqrt(0.5 * sdm ** 2 + 0.5 * (1.2 * es) ** 2)
     bias, rmse, hist = calib_city
     base = BASE_SIGMA + LEAD_SIGMA * max(lead, 0)
     if rmse is not None:
@@ -220,8 +254,8 @@ def bucket_prob(lo, hi, mu, sigma, floor=None):
     return cdf((hi - mu) / sigma) - cdf((lo - mu) / sigma)
 
 
-def corridor(vals, lead=1, calib_city=(0.0, None, 0)):
-    pr = predict(vals, lead, calib_city)
+def corridor(vals, lead=1, calib_city=(0.0, None, 0), wmap=None):
+    pr = predict(vals, lead, calib_city, None, wmap)
     if not pr:
         return None
     mu, sigma = pr["mu"], pr["sigma"]
@@ -249,10 +283,11 @@ def collect_markets(today):
 def collect_forecast_all(now):
     """Все модели по координатам станций. Каждая модель отдельным запросом: одна неудача не ломает остальные."""
     import time
-    lat = ",".join(str(c[2]) for c in CITIES)
-    lon = ",".join(str(c[3]) for c in CITIES)
     maps, offsets, used = {}, {}, []
-    for key, w, name, sub in MODELS:
+    for key, w, name, sub, region in MODELS:
+        cs = [c for c in CITIES if region is None or c[0] in region]
+        lat = ",".join(str(c[2]) for c in cs)
+        lon = ",".join(str(c[3]) for c in cs)
         url = "%s?latitude=%s&longitude=%s&daily=temperature_2m_max&models=%s&forecast_days=7&timezone=auto" % (METEO, lat, lon, key)
         try:
             data = get(url)
@@ -261,13 +296,16 @@ def collect_forecast_all(now):
             continue
         data = data if isinstance(data, list) else [data]
         got = 0
-        for c, o in zip(CITIES, data):
+        for c, o in zip(cs, data):
             daily = (o or {}).get("daily") or {}
             arr = daily.get("temperature_2m_max_" + key) or daily.get("temperature_2m_max")
             times = daily.get("time")
             if not arr or not times:
                 continue
-            maps.setdefault(c[0], {})[key] = {t: v for t, v in zip(times, arr) if isinstance(v, (int, float))}
+            mp = {t: v for t, v in zip(times, arr) if isinstance(v, (int, float))}
+            if not mp:
+                continue
+            maps.setdefault(c[0], {})[key] = mp
             offsets[c[0]] = int((o or {}).get("utc_offset_seconds") or 0)
             got += 1
         if got:
@@ -280,6 +318,71 @@ def collect_forecast_all(now):
     dates = [(first + dt.timedelta(days=i)).isoformat() for i in range(7)]
     cities = {cid: {k: [mp.get(d) for d in dates] for k, mp in per.items()} for cid, per in maps.items()}
     return {"updated": now.isoformat(timespec="minutes"), "models": used, "dates": dates, "offsets": offsets, "cities": cities}
+
+
+def collect_ens(now):
+    """Ансамбли (ECMWF ENS, GEFS, ICON-EPS, GEPS): по каждому участнику суточный максимум, затем среднее и разброс."""
+    import time
+    lat = ",".join(str(c[2]) for c in CITIES)
+    lon = ",".join(str(c[3]) for c in CITIES)
+    pool = {}  # город -> дата -> список максимумов участников
+    used = 0
+    for key in ENS_MODELS:
+        url = "%s?latitude=%s&longitude=%s&hourly=temperature_2m&models=%s&forecast_days=7&timezone=auto" % (ENS_URL, lat, lon, key)
+        try:
+            data = get(url)
+        except Exception as e:  # noqa: BLE001
+            print("ансамбль", key, "не загрузился:", type(e).__name__)
+            continue
+        data = data if isinstance(data, list) else [data]
+        got = 0
+        for c, o in zip(CITIES, data):
+            h = (o or {}).get("hourly") or {}
+            times = h.get("time") or []
+            for name, arr in h.items():
+                if not name.startswith("temperature_2m") or not isinstance(arr, list):
+                    continue
+                per = {}
+                for t, v in zip(times, arr):
+                    if isinstance(v, (int, float)):
+                        per.setdefault(t[:10], []).append(v)
+                for d, vs in per.items():
+                    if len(vs) >= 22:  # только полные сутки
+                        pool.setdefault(c[0], {}).setdefault(d, []).append(max(vs))
+                got += 1
+        if got:
+            used += 1
+        time.sleep(1)
+    out = {}
+    for cid, per in pool.items():
+        for d, vs in per.items():
+            if len(vs) >= 20:
+                m = sum(vs) / len(vs)
+                sd = math.sqrt(sum((v - m) ** 2 for v in vs) / len(vs))
+                out.setdefault(cid, {})[d] = [round(m, 2), round(sd, 2), len(vs)]
+    if used < 1 or not out:
+        return None
+    return {"updated": now.isoformat(timespec="minutes"), "models": used, "cities": out}
+
+
+def merge_ens(fc, ens):
+    """Добавляем ансамбль как ещё одну «модель» и сохраняем его разброс для расчёта вероятностей."""
+    if not ens or not fc.get("cities"):
+        return fc
+    dates = fc.get("dates") or []
+    sd = {}
+    got = 0
+    for cid, per in (ens.get("cities") or {}).items():
+        if cid not in fc["cities"]:
+            continue
+        fc["cities"][cid]["ens"] = [per[d][0] if d in per else None for d in dates]
+        sd[cid] = [per[d][1] if d in per else None for d in dates]
+        got += 1
+    if got:
+        fc["ens_sd"] = sd
+        fc["models"] = [m for m in fc.get("models", []) if m["key"] != "ens"] + [
+            {"key": "ens", "name": "Ансамбли", "sub": "ECMWF, GEFS, ICON, GEM: %d" % ens.get("models", 0), "w": MODEL_W["ens"]}]
+    return fc
 
 
 def freeze_forecasts(forecasts, fc, today):
@@ -349,7 +452,8 @@ def build_signals(markets, fc, calib, obs, now, sigs):
         i = (fc.get("dates") or []).index(m["date"]) if m["date"] in (fc.get("dates") or []) else None
         if i is None:
             continue
-        pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]))
+        es = ((fc.get("ens_sd") or {}).get(m["c"]) or [None] * 7)[i] if i < 7 else None
+        pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]), es, model_weights(calib, m["c"]))
         if not pr or pr["sd"] > MAX_SD:
             continue
         floor = None
@@ -435,7 +539,8 @@ def resolve(forecasts, stats, results, watch, calib, today):
         cs = consensus(vals) if vals else None
         if cs:
             rows = calib.setdefault(cid, [])
-            rows.append({"d": day, "mu": round(cs[0], 2), "sd": round(cs[1], 2), "a": win[0]["c"]})
+            rows.append({"d": day, "mu": round(cs[0], 2), "sd": round(cs[1], 2), "a": win[0]["c"],
+                         "m": {k: round(v, 1) for k, v in vals.items() if isinstance(v, (int, float))}})
             calib[cid] = rows[-60:]
         c = corridor(vals) if vals else None
         if c and c["p"] >= 0.45 and (cid, day) not in done:
@@ -466,6 +571,20 @@ def main():
                 print("прогнозы: моделей", len(fc["models"]))
     except Exception as e:  # noqa: BLE001
         print("прогнозы не загрузились:", e)
+    try:
+        ens = load("ens.json", {})
+        upd = dt.datetime.fromisoformat(ens.get("updated", "2000-01-01T00:00+00:00"))
+        if (now - upd).total_seconds() > 170 * 60:
+            new = collect_ens(now)
+            if new:
+                ens = new
+                save("ens.json", ens)
+                print("ансамбли: источников", ens["models"])
+        if fc.get("cities") and ens.get("cities"):
+            fc = merge_ens(fc, ens)
+            save("forecast.json", fc)
+    except Exception as e:  # noqa: BLE001
+        print("ансамбли не загрузились:", e)
     markets = None
     try:
         markets = collect_markets(today)
