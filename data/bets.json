@@ -1,1 +1,13 @@
-[]
+[
+ {
+  "date": "2026-11-10",
+  "city": "dallas",
+  "label": "76–77°F",
+  "win": "78–79°F",
+  "hit": false,
+  "price": 0.555,
+  "pm": 0.615,
+  "edge": 0.06,
+  "level": "mid"
+ }
+]

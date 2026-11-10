@@ -16,7 +16,29 @@
   "edge": 0.06,
   "level": "mid",
   "first": "2026-11-10T20:53+00:00",
+  "status": "done",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-10-2026",
+  "win": "78–79°F",
+  "hit": false
+ },
+ {
+  "key": "paris|2026-11-10",
+  "city": "paris",
+  "date": "2026-11-10",
+  "label": "13°C",
+  "lo": 12.5,
+  "hi": 13.5,
+  "price": 0.53,
+  "pm": 0.631,
+  "pm_model": 0.699,
+  "mu": 13,
+  "sigma": 0.5,
+  "sd": 0.63,
+  "n": 10,
+  "edge": 0.101,
+  "level": "strong",
+  "first": "2026-11-10T21:24+00:00",
   "status": "open",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-10-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-10-2026"
  }
 ]

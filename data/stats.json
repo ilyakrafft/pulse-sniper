@@ -1286,5 +1286,19 @@
    "gfs_seamless": 16.9,
    "gem_seamless": 16.7
   }
+ },
+ {
+  "date": "2026-11-10",
+  "city": "dallas",
+  "k": 24,
+  "p": 0.653,
+  "actual": 26,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 22.7,
+   "icon_seamless": 22.9,
+   "gfs_seamless": 24.6,
+   "gem_seamless": 24.5
+  }
  }
 ]
