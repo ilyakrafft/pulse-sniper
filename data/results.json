@@ -1,0 +1,58 @@
+{
+ "amsterdam|2026-11-10": {
+  "win": "9°C",
+  "actual": 9
+ },
+ "helsinki|2026-11-10": {
+  "win": "6°C",
+  "actual": 6
+ },
+ "hongkong|2026-11-10": {
+  "win": "22°C",
+  "actual": 22
+ },
+ "houston|2026-11-10": {
+  "win": "76–77°F",
+  "actual": 25
+ },
+ "jeddah|2026-11-10": {
+  "win": "31°C",
+  "actual": 31
+ },
+ "london|2026-11-10": {
+  "win": "11°C",
+  "actual": 11
+ },
+ "madrid|2026-11-10": {
+  "win": "19°C",
+  "actual": 19
+ },
+ "miami|2026-11-10": {
+  "win": "84–85°F",
+  "actual": 29
+ },
+ "milan|2026-11-10": {
+  "win": "13°C",
+  "actual": 13
+ },
+ "moscow|2026-11-10": {
+  "win": "4°C",
+  "actual": 4
+ },
+ "munich|2026-11-10": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "nyc|2026-11-10": {
+  "win": "62–63°F",
+  "actual": 17
+ },
+ "telaviv|2026-11-10": {
+  "win": "23°C",
+  "actual": 23
+ },
+ "warsaw|2026-11-10": {
+  "win": "3°C",
+  "actual": 3
+ }
+}

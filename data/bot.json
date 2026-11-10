@@ -22,7 +22,9 @@
    "city": "telaviv",
    "date": "2026-11-10",
    "label": "22°C",
-   "to": []
+   "to": [],
+   "done": true,
+   "hit": false
   },
   "miami|2026-11-09": {
    "city": "miami",
@@ -100,7 +102,9 @@
    "label": "11°C",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "london|2026-11-09": {
    "city": "london",
@@ -124,7 +128,9 @@
    "label": "82–83°F",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "jeddah|2026-11-09": {
    "city": "jeddah",
@@ -148,7 +154,9 @@
    "label": "70–71°F",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "nyc|2026-11-10": {
    "city": "nyc",
@@ -156,7 +164,9 @@
    "label": "60–61°F",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "miami|2026-11-11": {
    "city": "miami",
@@ -180,7 +190,9 @@
    "label": "16°C",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "moscow|2026-11-09": {
    "city": "moscow",
@@ -246,7 +258,9 @@
    "price": 0.225,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "tokyo|2026-11-11": {
    "city": "tokyo",
@@ -306,7 +320,9 @@
    "price": 0.29,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "helsinki|2026-11-10": {
    "city": "helsinki",
@@ -316,7 +332,9 @@
    "price": 0.096,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "la|2026-11-11": {
    "city": "la",
@@ -346,7 +364,9 @@
    "price": 0.145,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "munich|2026-11-11": {
    "city": "munich",
@@ -406,7 +426,9 @@
    "price": 0.18,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": true
   },
   "sf|2026-11-11": {
    "city": "sf",
@@ -460,7 +482,78 @@
   }
  },
  "free_week": {},
- "log": [],
+ "log": [
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.225
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.29
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.096
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.145
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": true,
+   "price": 0.18
+  }
+ ],
  "last_summary": "2026-W45",
- "offset": 418675140
+ "offset": 418675140,
+ "members": [
+  "12b3338af259"
+ ],
+ "members_init": true
 }

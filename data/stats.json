@@ -1272,5 +1272,19 @@
    27.3,
    28.9
   ]
+ },
+ {
+  "date": "2026-11-10",
+  "city": "nyc",
+  "k": 17,
+  "p": 0.675,
+  "actual": 17,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 15.5,
+   "icon_seamless": 17.4,
+   "gfs_seamless": 16.9,
+   "gem_seamless": 16.7
+  }
  }
 ]

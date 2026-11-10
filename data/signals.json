@@ -1,0 +1,22 @@
+[
+ {
+  "key": "dallas|2026-11-10",
+  "city": "dallas",
+  "date": "2026-11-10",
+  "label": "76–77°F",
+  "lo": 24.167,
+  "hi": 25.278,
+  "price": 0.555,
+  "pm": 0.615,
+  "pm_model": 0.655,
+  "mu": 24.4,
+  "sigma": 0.5,
+  "sd": 0.93,
+  "n": 9,
+  "edge": 0.06,
+  "level": "mid",
+  "first": "2026-11-10T20:53+00:00",
+  "status": "open",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-10-2026"
+ }
+]
