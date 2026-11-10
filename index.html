@@ -6,6 +6,11 @@
 <meta name="color-scheme" content="light dark">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <title>Pulse Sniper</title>
+
+
+
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -323,9 +328,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .avatar { flex: none; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 20px; color: var(--accent-ink); background: linear-gradient(135deg, var(--g1), var(--g2)); box-shadow: 0 8px 24px -10px var(--g2); }
 .pinfo { display: grid; gap: 6px; min-width: 0; flex: 1 1 160px; }
 .pinfo b { font-size: 17px; overflow-wrap: anywhere; }
+.ptt { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+.ptt .tile { padding: 10px !important; }
+.ptt strong { font-size: 22px !important; }
+.corr summary { cursor: pointer; display: grid; gap: 4px; list-style: none; }
+.corr summary::-webkit-details-marker { display: none; }
+.corr summary span { color: var(--muted); font-size: 12.5px; }
+.corr[open] summary { margin-bottom: 14px; }
 .field { display: grid; gap: 6px; font-size: 12.5px; color: var(--muted); }
-input[type="text"], input[type="number"], input[type="password"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+input[type="text"], input[type="number"], input[type="password"], input[type="url"], input[type="email"], textarea { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
+textarea { resize: vertical; line-height: 1.4; }
+input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 input:disabled, .seg button:disabled { opacity: .45; cursor: not-allowed; }
 .seg.wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); width: 100%; margin-bottom: 10px; }
 .stack { display: grid; gap: 14px; margin-bottom: 14px; }
@@ -353,6 +366,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 <style>body{margin:0}</style>
 </head>
 <body>
+
 
 <div class="bgfx" aria-hidden="true"><i></i><i></i></div>
 <div class="intro" aria-hidden="true"><i class="cl h"></i><i class="cl v"></i><i class="rg"></i></div>
@@ -419,6 +433,16 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 (function () {
   /* Реферальная ссылка владельца. Все кнопки регистрации ведут сюда. */
   var REF_URL = "https://pulsemarket.trade/?ref=4h5ipy";
+  /* партнёр: код из ссылки приглашения (?p=… или startapp=…) определяет, чья реф-ссылка показывается */
+  var PARTNER = (function () {
+    try {
+      var q = new URLSearchParams(location.search).get("p"), tw = window.Telegram && window.Telegram.WebApp, sp = tw && tw.initDataUnsafe && tw.initDataUnsafe.start_param;
+      var v = String(q || sp || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 16);
+      if (v) { localStorage.setItem("izo.partner", v); return v; }
+      return (localStorage.getItem("izo.partner") || "").replace(/[^a-z0-9]/g, "").slice(0, 16);
+    } catch (e) { return ""; }
+  })();
+  function refUrl() { return state && state.refUrl ? state.refUrl : REF_URL; }
   /* Подключение к Supabase (приём заявок на доступ). Публичные значения, их безопасно хранить в странице. */
   var SUPABASE_URL = "https://nhcufemevxtlilsvbwah.supabase.co";
   var SUPABASE_ANON = "sb_publishable_bFNl7cT1ol679mQ64GvPkQ_IVyahPYO";
@@ -489,7 +513,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-  var state = { city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, acc: { status: "none", busy: false, msg: "", addr: "" }, pmOpen: false, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
+  var state = { refUrl: (function () { try { var u = localStorage.getItem("izo.ref"); return /^https:\/\/pulsemarket\.trade\//.test(u || "") ? u : ""; } catch (e) { return ""; } })(), city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, acc: { status: "none", busy: false, msg: "", addr: "" }, sigFile: null, pmOpen: false, pt: { loaded: false, loading: false, info: null, busy: false, msg: "", ok: "" }, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
 
   /* ---------- helpers ---------- */
   function $(id) { return document.getElementById(id); }
@@ -560,7 +584,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var W = ws.reduce(function (a, b) { return a + b; }, 0);
     var mu = vals.reduce(function (a, v, i) { return a + v * ws[i]; }, 0) / W;
     var sdm = Math.sqrt(vals.reduce(function (a, v, i) { return a + ws[i] * (v - mu) * (v - mu); }, 0) / W);
-    var base = 0.6 + 0.3 * day, sigma = Math.sqrt(sdm * sdm + base * base), k0 = Math.round(mu);
+    var base = 1.0 + 0.25 * day, sigma = Math.sqrt(sdm * sdm + base * base), k0 = Math.round(mu);
     function pBin(k) { return cdf((k + 0.5 - mu) / sigma) - cdf((k - 0.5 - mu) / sigma); }
     var half = clamp(Math.ceil(2.2 * sigma), 3, 5), buckets = [];
     for (var k = k0 - half; k <= k0 + half; k++) buckets.push({ k: k, p: pBin(k) });
@@ -570,7 +594,21 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function pRange(f, lo, hi) { return cdf((hi - f.mu) / f.sigma) - cdf((lo - f.mu) / f.sigma); }
 
   /* ---------- сигналы: вариант, где модели дают заметно больше, чем цена рынка ---------- */
+  function fileSignals() {
+    var out = [];
+    (state.sigFile || []).forEach(function (r) {
+      if (r.status !== "open") return;
+      var m = MARKETS.filter(function (x) { return x.c === r.city && x.date === r.date; })[0]; if (!m) return;
+      var d = dayOf(m); if (d < -1 || d >= DAYS) return;
+      var b = m.b.filter(function (x) { return x.l === r.label; })[0] || { l: r.label, p: r.price, lo: r.lo, hi: r.hi };
+      var f = forecast(r.city, Math.max(d, 0)) || { range: r.sd * 2, mu: r.mu, sigma: r.sigma };
+      out.push({ id: r.city + "@" + r.date, c: r.city, m: m, d: d, f: f, best: { b: b, pm: r.pm, e: r.edge }, level: r.level, sd: r.sd, first: r.first, price0: r.price });
+    });
+    out.sort(function (a, b) { return b.best.e - a.best.e; });
+    return out;
+  }
   function computeSignals() {
+    if (state.source === "live" && state.marketsLive) return fileSignals();
     var out = [];
     MARKETS.forEach(function (m) {
       var d = dayOf(m); if (d < 0 || d >= DAYS) return;
@@ -684,7 +722,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }
   function renderNote() {
     var t = state.updated ? new Intl.DateTimeFormat("ru", { hour: "2-digit", minute: "2-digit" }).format(state.updated) : "";
-    $("note").textContent = state.source === "live" ? "Open-Meteo, четыре модели, обновлено в " + t + ". Это расчёт моделей, а не гарантия результата." : "Демо-данные: живой запрос к Open-Meteo не прошёл в этом окне. Опубликованная на своём хостинге версия берёт реальные прогнозы.";
+    $("note").textContent = state.source === "live" ? "Open-Meteo, " + MODELS.length + " " + plural(MODELS.length, "модель", "модели", "моделей") + " по координатам станций, обновлено в " + t + ". Это расчёт, а не гарантия результата." : "Демо-данные: живой запрос к Open-Meteo не прошёл в этом окне. Опубликованная на своём хостинге версия берёт реальные прогнозы.";
     $("src").setAttribute("data-on", state.source === "live" ? "1" : "0");
     $("srcText").textContent = state.source === "live" ? "Live · Open-Meteo" : "Демо-данные";
     $("acc").setAttribute("data-on", state.member ? "1" : "0");
@@ -695,7 +733,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function accessBanner() {
     if (state.member) return '<div class="card access member rise"><div><span class="kick">Доступ открыт</span><h2>Все сигналы без ограничений</h2><p>Сигналы появляются здесь сразу, как только модели расходятся с ценой рынка. Проверку регистрации выполняет бот.</p></div><div class="acts"><button class="btn ghost" type="button" data-act="guest">Выйти из режима участника</button></div></div>';
     var n = daysToMonday();
-    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ получают рефералы владельца сервиса на Pulse Market: оставьте заявку в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
+    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ получают рефералы владельца сервиса на Pulse Market: оставьте заявку в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + refUrl() + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
   }
   function explain(l) {
     var m = /^(-?\d+)[–-](-?\d+)°F$/.exec(l);
@@ -713,15 +751,22 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<p class="pay">Цена «Да» сейчас ' + Math.round(pr * 100) + '¢. Ставка $10 при выигрыше вернёт ≈ ' + usd(ret) + '.</p>' +
       '<details><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>В списке найдите строку «' + esc(b.l) + '».</li><li>Выберите «Да» (Yes) и введите сумму.</li></ol></details></div>';
   }
+  function sigNote(s) {
+    if (s.price0 == null) return "";
+    var t = "";
+    try { t = new Intl.DateTimeFormat("ru", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(s.first)); } catch (e) {}
+    var moved = s.best.b.p - s.price0, gone = s.best.b.p >= s.best.pm - 0.01;
+    return '<p class="note" style="margin:0">Сигнал выдан ' + t + ' по цене ' + Math.round(s.price0 * 100) + '¢, сейчас ' + Math.round(s.best.b.p * 100) + '¢.' + (gone ? ' <b style="color:var(--bad)">Цена выросла, выгода пропала: лучше пропустить.</b>' : (moved > 0.04 ? ' Цена подросла, выгода меньше.' : '')) + '</p>';
+  }
   function sigCard(s, i) {
     var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
     var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
     if (!open) return '<article class="card sig tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Вариант <strong>••°C</strong></div>' + phBars(2) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
     var free = !state.member ? '<span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span>' : "";
     return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") +
-      '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) +
-      '<div class="vs"><div class="vrow"><span>Модели</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
-      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+      '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) + sigNote(s) +
+      '<div class="vs"><div class="vrow"><span>Наша оценка</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
+      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
   }
   function renderSignals() {
     var el = $("v-signals"), sigs = state.sigs;
@@ -759,23 +804,29 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
     var bn = bets.length, bh = bets.filter(function (r) { return r.hit; }).length, roi = 0, roiN = 0;
     bets.forEach(function (r) { if (r.price > 0) { roiN++; roi += r.hit ? (10 / r.price - 10) : -10; } });
-    var betRows = bets.slice(0, 6).map(function (r) {
+    var betRows = bets.slice(0, 10).map(function (r) {
       var c = cityById(r.c);
       return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Выиграла" : "✕ Не сыграла") + '</span></div>' +
         '<div class="rr2-box"><div><i>Наш вариант</i><span>' + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
     }).join("");
-    var betsCard = '<div class="card rise" style="--i:3"><h3>Ставка «Да» на один вариант</h3><p class="sub">Так выглядит сигнал в боте: одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
-      (bn ? '<div class="bigscore"><strong>' + bh + ' из ' + bn + '</strong><span>сыграло (' + pc(bh / bn) + '%)</span></div>' + (roiN ? '<p class="sub" style="margin:8px 0 0">Условный итог, если ставить по $10 на каждый сигнал по цене из сигнала: <b style="color:var(--' + (roi >= 0 ? "good" : "bad") + ')">' + (roi >= 0 ? "+" : "") + usd(roi) + '</b> (без комиссий).</p>' : '') + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
-        : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
-    var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
+    var openN = (state.sigFile || []).filter(function (r) { return r.status === "open"; }).length, staked = roiN, net = 0;
+    bets.forEach(function (r) { if (r.price > 0) net += r.hit ? (1 / r.price - 1) : -1; });
+    var betsCard = '<div class="card rep-hero rise" style="--i:0">' + gauge(bn ? bh / bn : 0, 150) + '<div class="rh-t"><span class="kick">Сыграли наши сигналы</span><strong data-count="' + bh + '">' + bh + '</strong><em> из ' + bn + '</em><div class="chips2"><span class="rtag win">✓ Выиграли ' + bh + '</span><span class="rtag lose">✕ Не сыграли ' + (bn - bh) + '</span></div></div></div>' +
+      '<div class="card rise" style="--i:1"><h3>Итог по деньгам</h3><p class="sub">Сигнал записывается в момент выдачи: вариант и цена «Да». После закрытия рынка он сверяется с итогом. Это те же сигналы, что в разделе «Сигналы» и в боте.</p>' +
+      (bn ? '<div class="bigscore"><strong style="color:var(--' + (net >= 0 ? "good" : "bad") + ')">' + (net >= 0 ? "+" : "") + usd(net) + '</strong><span>если ставить по $1 на каждый сигнал, без комиссий</span></div>' + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
+        : '<div class="betsempty">Закрытых сигналов пока нет. Каждый сигнал попадёт сюда после закрытия рынка.</div>') +
+      (openN ? '<p class="sub" style="margin:10px 0 0">Ждут итога: ' + openN + '</p>' : '') + '</div>';
+    var how = '<div class="card how rise" style="--i:2"><h3>Что такое коридор</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
     var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
-    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: попала ли фактическая температура в наш коридор и сыграл ли вариант из сигнала.</p></div>' + demo +
+    var corrHero = '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>';
+    var corr = '<details class="corr"><summary class="card"><b>Справка: точность прогноза по коридору</b><span>Это не ставка. Попасть в три градуса проще, чем в один, поэтому цифры здесь выше, чем у сигналов.</span></summary><div class="stack">' + corrHero + how +
+      '<div class="tiles tiles3"><div class="tile"><small>Закрыто</small><strong>' + n + '</strong></div><div class="tile"><small>Уверенность</small><strong>' + pc(avgP) + '%</strong></div><div class="tile"><small>Лучшая серия</small><strong>' + best + '</strong></div></div>' +
+      '<div class="two"><div class="card"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
+      '<div class="card"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в °C.</p></div></div></details>';
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов: что мы посоветовали, по какой цене и чем закончился рынок.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
-      '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>' + how +
-      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile rise" style="--i:2"><small>Уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + betsCard +
-      '<div class="two"><div class="card rise" style="--i:4"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
-      '<div class="card rise" style="--i:6"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в отчёте в °C.</p></div>' + cta +
+      '<div class="stack">' + betsCard + corr + '</div>' + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
   }
@@ -827,40 +878,111 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     if (state.member && !was) { if (window.__fx) window.__fx.burst(); if (window.__snd) window.__snd.chime(); }
     if (was !== state.member) renderAll(); else if (state.view === "cabinet") renderCabinet();
   }
-  function accCheck() {
+  function accCheck(silent) {
     if (!SUPABASE_URL) return Promise.resolve();
-    state.acc.busy = true; if (state.view === "cabinet") renderCabinet();
-    return sbCall("check_request", { p_token: deviceToken() }).then(function (st) { state.acc.busy = false; state.acc.msg = ""; accSet(String(st)); })
-      .catch(function () { state.acc.busy = false; state.acc.msg = "Нет связи с сервером. Попробуйте позже."; if (state.view === "cabinet") renderCabinet(); });
+    if (!silent) { state.acc.busy = true; if (state.view === "cabinet") renderCabinet(); }
+    return sbCall("check_request", { p_token: deviceToken() }).then(function (st) { state.acc.busy = false; state.acc.msg = ""; if (silent && String(st) === state.acc.status) return; accSet(String(st)); })
+      .catch(function () { if (silent) return; state.acc.busy = false; state.acc.msg = "Нет связи с сервером. Попробуйте позже."; if (state.view === "cabinet") renderCabinet(); });
   }
-  function accInit() { if (lsGet("izo.ok") === "1") state.member = true; state.acc.addr = lsGet("izo.addr2") || ""; accCheck(); }
+  function accInit() {
+    if (lsGet("izo.ok") === "1") state.member = true; state.acc.mask = lsGet("izo.mail") || ""; accCheck();
+    if (PARTNER && SUPABASE_URL) sbCall("get_partner", { p_code: PARTNER }).then(function (u) {
+      if (typeof u === "string" && /^https:\/\/pulsemarket\.trade\//.test(u)) { state.refUrl = u; lsSet("izo.ref", u); if (state.view === "cabinet") renderCabinet(); else if (state.view === "signals") renderSignals(); }
+    }).catch(function () {});
+    /* пока заявка ждёт, тихо проверяем статус: доступ откроется сам, как только пригласитель обновит список */
+    setInterval(function () { if (!document.hidden && state.acc.status === "pending" && !state.acc.busy) accCheck(true); }, 45000);
+    document.addEventListener("visibilitychange", function () { if (!document.hidden && state.acc.status === "pending") accCheck(true); });
+  }
+  var MAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/;
+  function sha256hex(t) {
+    if (!(window.crypto && window.crypto.subtle && window.TextEncoder)) return Promise.reject(new Error("nocrypto"));
+    return window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function (b) { return Array.prototype.map.call(new Uint8Array(b), function (x) { return ("0" + x.toString(16)).slice(-2); }).join(""); });
+  }
+  function maskMail(e) { var p = e.split("@"); return p[0].slice(0, 2) + "•••@" + p[1]; }
   function accSubmit() {
-    var acc = state.acc, a = ($("acAddr") && $("acAddr").value ? $("acAddr").value : "").trim();
-    if (!ADDR_RE.test(a)) { acc.msg = "Адрес должен начинаться с 0x и содержать 42 символа."; acc.addr = a; renderCabinet(); return; }
-    if (!SUPABASE_URL) { acc.msg = "Приём заявок ещё не подключён."; acc.addr = a; renderCabinet(); return; }
-    acc.busy = true; acc.msg = ""; acc.addr = a; lsSet("izo.addr2", a); renderCabinet();
-    sbCall("submit_request", { p_token: deviceToken(), p_addr: a }).then(function (st) {
-      acc.busy = false; if (st === "bad_address") { acc.msg = "Адрес не принят. Проверьте его."; renderCabinet(); } else accSet(String(st));
-    }).catch(function () { acc.busy = false; acc.msg = "Не удалось отправить заявку. Попробуйте ещё раз."; renderCabinet(); });
+    var acc = state.acc, raw = ($("acMail") && $("acMail").value ? $("acMail").value : "").trim().toLowerCase();
+    acc.mail = raw;
+    if (!MAIL_RE.test(raw) || raw.length > 120) { acc.msg = "Введите почту полностью, например name@gmail.com."; renderCabinet(); return; }
+    if (!SUPABASE_URL) { acc.msg = "Проверка пока не подключена."; renderCabinet(); return; }
+    acc.busy = true; acc.msg = ""; renderCabinet();
+    sha256hex(raw).then(function (h) { return sbCall("submit_email", { p_token: deviceToken(), p_hash: h, p_partner: PARTNER || null }); }).then(function (st) {
+      acc.busy = false; acc.mask = maskMail(raw); lsSet("izo.mail", acc.mask); acc.mail = "";
+      if (st === "busy") { acc.msg = "Эта почта уже используется на трёх устройствах. Напишите своему пригласителю."; renderCabinet(); } else if (st === "bad_email") { acc.msg = "Почта не принята. Проверьте, как она написана."; renderCabinet(); } else accSet(String(st));
+    }).catch(function (e) { acc.busy = false; acc.msg = e && e.message === "nocrypto" ? "Этот браузер не умеет проверять почту. Откройте приложение через Telegram." : "Не удалось проверить. Попробуйте ещё раз."; renderCabinet(); });
   }
   function notifyCard() {
-    return '<div class="card rise"><h3>Уведомления в Telegram</h3><p class="sub">' + (state.member ? 'Бот пришлёт каждый новый сигнал с пометкой «можно ставить», затем итог сделки и статистику за неделю.' : 'Бот пришлёт один бесплатный сигнал в неделю, итог по нему и статистику. Полный поток сигналов открывается после одобрения заявки.') + '</p><a class="btn" href="https://t.me/' + BOT + '?start=' + encodeURIComponent(deviceToken()) + '" target="_blank" rel="noopener">Включить уведомления ↗</a><p class="sub" style="margin-top:10px">Откроется чат с ботом, нажмите Start.</p></div>';
+    return '<div class="card rise"><h3>Уведомления в Telegram</h3><p class="sub">' + (state.member ? 'Бот пришлёт каждый новый сигнал с пометкой «можно ставить», затем итог сделки и статистику за неделю.' : 'Бот пришлёт один бесплатный сигнал в неделю, итог по нему и статистику. Полный поток сигналов открывается после проверки почты.') + '</p><a class="btn" href="https://t.me/' + BOT + '?start=' + encodeURIComponent(deviceToken()) + '" target="_blank" rel="noopener">Включить уведомления ↗</a><p class="sub" style="margin-top:10px">Откроется чат с ботом, нажмите Start.</p></div>';
+  }
+  /* ---------- партнёрская панель: свой код, своя ссылка на приложение, свой список рефералов ---------- */
+  var REF_RE = /^https:\/\/pulsemarket\.trade\/[^\s]*ref=[A-Za-z0-9_-]{3,40}[^\s]*$/;
+  function myLink(code) { return location.origin + location.pathname + "?p=" + code; }
+  function loadPartner() {
+    var pt = state.pt; if (pt.loading || !SUPABASE_URL) return; pt.loading = true;
+    sbCall("app_partner_info", { p_token: deviceToken() }).then(function (r) { pt.info = r && r.partner ? r : null; pt.loaded = true; pt.loading = false; if (state.view === "cabinet") renderCabinet(); })
+      .catch(function () { pt.loaded = true; pt.loading = false; });
+  }
+  function ptSay(ok, msg) { state.pt.busy = false; state.pt.ok = ok ? msg : ""; state.pt.msg = ok ? "" : msg; renderCabinet(); }
+  function ptCreate() {
+    var v = ($("ptRef") && $("ptRef").value || "").trim(), pt = state.pt;
+    var m = v.match(/https:\/\/pulsemarket\.trade\/[^\s]*/); v = m ? m[0] : v;
+    if (!REF_RE.test(v)) { ptSay(false, "Вставьте вашу реферальную ссылку Pulse Market целиком, вида https://pulsemarket.trade/?ref=ВАШ_КОД"); return; }
+    pt.busy = true; pt.msg = ""; renderCabinet();
+    sbCall("app_partner", { p_token: deviceToken(), p_ref: v }).then(function (r) {
+      if (r === "not_member") ptSay(false, "Партнёром может стать только участник с открытым доступом.");
+      else if (r === "bad_ref") ptSay(false, "Ссылка не подошла. Скопируйте её с Pulse Market заново.");
+      else if (/^[a-z0-9]{3,16}$/.test(String(r))) { pt.loaded = false; pt.ok = "Готово: ваша партнёрская ссылка создана."; pt.busy = false; loadPartner(); if (window.__fx) window.__fx.burst(); }
+      else ptSay(false, "Не получилось. Попробуйте ещё раз.");
+    }).catch(function () { ptSay(false, "Нет связи с сервером. Попробуйте ещё раз."); });
+  }
+  function ptAdd() {
+    var txt = ($("ptList") && $("ptList").value || ""), pt = state.pt;
+    var mails = {}; (txt.match(/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/g) || []).forEach(function (e) { mails[e.toLowerCase()] = 1; });
+    var list = Object.keys(mails);
+    if (!list.length) { ptSay(false, "Не нашёл ни одной почты. Скопируйте список рефералов с Pulse Market и вставьте сюда."); return; }
+    if (list.length > 300) { ptSay(false, "За один раз можно добавить до 300 почт. Разделите список на части."); return; }
+    pt.busy = true; pt.msg = ""; renderCabinet();
+    Promise.all(list.map(sha256hex)).then(function (hs) { return sbCall("app_add_emails", { p_token: deviceToken(), p_hashes: hs }); }).then(function (r) {
+      if (r && r.added !== undefined) { pt.ok = "Принято почт: " + list.length + ". Новых: " + r.added + ". Доступ открыт у ожидавших: " + r.opened + "."; pt.busy = false; pt.loaded = false; loadPartner(); }
+      else ptSay(false, r && r.error === "limit" ? "Достигнут лимит списка." : "Список не принят. Проверьте права партнёра.");
+    }).catch(function () { ptSay(false, "Не удалось добавить. Попробуйте ещё раз."); });
+  }
+  function ptCopy(text) {
+    var done = function () { toast("Ссылка скопирована"); };
+    try { navigator.clipboard.writeText(text).then(done, function () { toast("Выделите и скопируйте ссылку вручную"); }); } catch (e) { toast("Выделите и скопируйте ссылку вручную"); }
+  }
+  function partnerCard() {
+    var pt = state.pt, i = pt.info, tgw = window.Telegram && window.Telegram.WebApp;
+    var msgs = (pt.msg ? '<div class="authmsg" role="alert">' + esc(pt.msg) + '</div>' : '') + (pt.ok ? '<div class="notice"><p>' + esc(pt.ok) + '</p></div>' : '');
+    if (!pt.loaded && pt.loading) return '<div class="card rise"><h3>Партнёрская программа</h3><p class="sub">Загружаю…</p></div>';
+    if (!i) {
+      return '<div class="card rise"><h3>Стать партнёром</h3><p class="sub">Приглашайте своих людей и стройте свою структуру. Вставьте вашу реферальную ссылку Pulse Market, и приложение выдаст вашу личную ссылку. Люди, которые придут по ней, будут регистрироваться на Pulse Market под вами.</p>' +
+        '<div class="pfform"><label class="field"><span>Ваша реферальная ссылка Pulse Market</span><input id="ptRef" type="url" autocomplete="off" spellcheck="false" placeholder="https://pulsemarket.trade/?ref=…"></label>' + msgs +
+        '<button class="btn" type="button" data-pt="create"' + (pt.busy ? " disabled" : "") + '>' + (pt.busy ? "Создаю…" : "Получить мою ссылку") + '</button></div></div>';
+    }
+    var link = myLink(i.code);
+    return '<div class="card rise"><h3>Моя партнёрская ссылка</h3><p class="sub">Отправьте эту ссылку людям. Они увидят вашу реф-ссылку Pulse Market, зарегистрируются под вами и введут почту в приложении.</p>' +
+      '<div class="mono" style="word-break:break-all;margin:8px 0 12px;user-select:all;font-size:12.5px">' + esc(link) + '</div>' +
+      '<div class="cols"><button class="btn" type="button" data-pt="copy">Копировать</button><button class="btn ghost" type="button" data-pt="share">Отправить в Telegram</button></div>' +
+      '<div class="tiles ptt" style="margin-top:14px"><div class="tile"><small>В списке</small><strong>' + (+i.total || 0) + '</strong></div><div class="tile"><small>Вошли</small><strong>' + (+i.joined || 0) + '</strong></div><div class="tile"><small>Ждут</small><strong>' + (+i.waiting || 0) + '</strong></div></div>' +
+      '<h3 style="margin-top:18px">Открыть доступ вашим людям</h3><p class="sub">На Pulse Market откройте список рефералов, скопируйте почты и вставьте сюда в любом виде. Все, кто в списке, получат доступ сами. Сами почты не хранятся, только их отпечатки.</p>' +
+      '<div class="pfform"><label class="field"><span>Список почт</span><textarea id="ptList" rows="4" spellcheck="false" placeholder="name@gmail.com&#10;friend@mail.ru"></textarea></label>' + msgs +
+      '<button class="btn" type="button" data-pt="add"' + (pt.busy ? " disabled" : "") + '>' + (pt.busy ? "Добавляю…" : "Добавить в список") + '</button></div></div>';
   }
   function accView() {
     var acc = state.acc, st = acc.status, ready = !!SUPABASE_URL;
-    var step1 = '<li><b>Зарегистрируйтесь на Pulse Market по ссылке</b><p class="sub">Доступ получают только те, кто пришёл по приглашению владельца сервиса. Привязка происходит при регистрации, поэтому сначала нужно пройти по этой ссылке.</p><a class="btn" data-act="ref" href="' + REF_URL + '" target="_blank" rel="noopener">Зарегистрироваться на Pulse Market ↗</a></li>';
+    var step1 = '<li><b>Зарегистрируйтесь на Pulse Market по ссылке</b><p class="sub">Доступ получают только те, кто пришёл по приглашению владельца сервиса. Привязка происходит при регистрации, поэтому сначала нужно пройти по этой ссылке.</p><a class="btn" data-act="ref" href="' + refUrl() + '" target="_blank" rel="noopener">Зарегистрироваться на Pulse Market ↗</a></li>';
     var step2;
     if (st === "pending") {
-      step2 = '<li><b>Заявка на проверке</b><div class="notice"><p>Владелец сверяет адрес <span class="mono">' + esc(acc.addr ? acc.addr.slice(0, 6) + "…" + acc.addr.slice(-4) : "") + '</span> со списком приглашённых. После одобрения нажмите «Проверить статус».</p></div><div class="cols"><button class="btn" type="button" data-acc="check"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Проверяю…" : "Проверить статус") + '</button><button class="btn ghost" type="button" data-acc="edit">Изменить адрес</button></div></li>';
+      step2 = '<li><b>Почты пока нет в списке</b><div class="notice"><p>Почту <span class="mono">' + esc(acc.mask || "") + '</span> мы пока не нашли среди приглашённых. Если вы только что зарегистрировались по ссылке выше, делать ничего не нужно: список вашего пригласителя обновляется, доступ откроется сам, а бот напишет вам об этом (включите уведомления ниже). Если вы регистрировались не по ссылке, пройдите регистрацию по ссылке вашего пригласителя и введите почту заново.</p></div><div class="cols"><button class="btn" type="button" data-acc="check"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Проверяю…" : "Проверить снова") + '</button><button class="btn ghost" type="button" data-acc="edit">Изменить почту</button></div></li>';
     } else {
-      step2 = '<li><b>Отправьте адрес кошелька</b><p class="sub">Он виден в кошельке Pulse Market в строках EOA и PROXY. Подойдёт любой из двух. Это публичный адрес, по нему нельзя потратить деньги.</p>' +
-        (st === "rejected" ? '<div class="warnbox" role="alert" style="margin-bottom:10px">Заявка отклонена: адрес не найден среди приглашённых. Проверьте адрес или зарегистрируйтесь по ссылке и отправьте заявку заново.</div>' : '') +
-        '<div class="pfform"><label class="field"><span>Адрес кошелька</span><input id="acAddr" type="text" autocomplete="off" spellcheck="false" placeholder="0x…" value="' + esc(acc.addr) + '"></label><div class="authmsg" role="alert">' + esc(acc.msg) + '</div><button class="btn" type="button" data-acc="send"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Отправляю…" : "Отправить заявку") + '</button></div></li>';
+      step2 = '<li><b>Введите почту с Pulse Market</b><p class="sub">Ту же, с которой вы зарегистрировались по ссылке. Почта нигде не сохраняется: с телефона уходит только её цифровой отпечаток.</p>' +
+        (st === "rejected" ? '<div class="warnbox" role="alert" style="margin-bottom:10px">Доступ для этого устройства закрыт владельцем.</div>' : '') +
+        '<div class="pfform"><label class="field"><span>Почта</span><input id="acMail" type="email" inputmode="email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="name@gmail.com" value="' + esc(acc.mail || "") + '"></label><div class="authmsg" role="alert">' + esc(acc.msg) + '</div><button class="btn" type="button" data-acc="send"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Проверяю…" : "Проверить почту") + '</button></div></li>';
     }
     if (st === "pending" && acc.msg) step2 = step2.replace('</li>', '<div class="authmsg" role="alert">' + esc(acc.msg) + '</div></li>');
     return '<div class="view-head"><h2>Кабинет</h2><p>Доступ для рефералов Pulse Market.</p></div><div class="card auth rise"><ol class="steps">' + step1 + step2 + '</ol>' +
-      (ready ? '' : '<p class="note">Приём заявок ещё не подключён, форма заработает после настройки.</p>') + '</div>' + notifyCard() +
-      '<p class="note">Почта и пароль не нужны. Мы храним только адрес кошелька из вашей заявки.</p>';
+      (ready ? '' : '<p class="note">Проверка пока не подключена, форма заработает после настройки.</p>') + '</div>' + notifyCard() +
+      '<p class="note">Пароль не нужен. Почта не сохраняется, хранится только её отпечаток. На другом устройстве достаточно снова ввести ту же почту.</p>';
   }
 
   /* ---------- портфель по публичному адресу PROXY (данные Polymarket, ключи не нужны) ---------- */
@@ -898,10 +1020,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function renderCabinet() {
     var el = $("v-cabinet");
     if (!state.member) {
-      if (document.activeElement && document.activeElement.id === "acAddr") return; /* не стираем адрес, пока его вводят */
+      if (document.activeElement && document.activeElement.id === "acMail") return; /* не стираем адрес, пока его вводят */
       el.innerHTML = accView(); return;
     }
-    if (document.activeElement && document.activeElement.id === "pfAddr") return; /* не стираем адрес, пока его вводят */
+    if (document.activeElement && /^(pfAddr|ptRef|ptList)$/.test(document.activeElement.id)) return;
+    if (!state.pt.loaded && !state.pt.loading) loadPartner(); /* не стираем адрес, пока его вводят */
     var v = state.virt, tgw = window.Telegram && window.Telegram.WebApp, u = tgw && tgw.initDataUnsafe && tgw.initDataUnsafe.user;
     var name = u ? ((u.first_name || "") + " " + (u.last_name || "")).trim() : "";
     var openStake = v.pos.reduce(function (a, p) { return a + p.stake; }, 0), pnl = v.cash + openStake - v.start;
@@ -919,7 +1042,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<div style="margin-top:14px"><button class="btn ghost sm" type="button" data-vreset="1">' + (state.resetArm ? "Нажмите ещё раз, чтобы сбросить" : "Сбросить виртуальный счёт") + '</button></div></div>' +
       '<div class="card rise" style="--i:4"><h3>Ставки</h3>' + (rows || '<div class="empty">Пока пусто. Включите «Авто, виртуально», и сильные сигналы появятся здесь.</div>') + '</div>';
     var api = '<div class="card rise" style="--i:5"><h3>Подключение API Pulse Market</h3><p class="sub">Сейчас недоступно: у Pulse Market пока нет открытого API для торговли. Когда он появится, ключ можно будет ввести здесь. Он будет жить только в памяти вкладки, не записываться на устройство и не уходить никуда, кроме самой биржи.</p><label class="field"><span>API-ключ</span><input type="password" disabled autocomplete="off" placeholder="Станет доступно позже"></label></div>';
-    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + notifyCard() + pm + pfCard() + mode + virt + api + '</div>' +
+    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + notifyCard() + partnerCard() + pm + pfCard() + mode + virt + api + '</div>' +
       '<p class="note">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
   }
   $("v-cabinet").addEventListener("click", function (e) {
@@ -927,6 +1050,17 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     if (ac) {
       var k = ac.getAttribute("data-acc");
       if (k === "send") accSubmit(); else if (k === "check") accCheck(); else if (k === "edit") { state.acc.status = "none"; state.acc.msg = ""; renderCabinet(); }
+      return;
+    }
+    var ptb = e.target.closest("[data-pt]");
+    if (ptb) {
+      var pk = ptb.getAttribute("data-pt");
+      if (pk === "create") ptCreate(); else if (pk === "add") ptAdd();
+      else if (state.pt.info) {
+        var L = myLink(state.pt.info.code);
+        if (pk === "copy") ptCopy(L);
+        else { var su = "https://t.me/share/url?url=" + encodeURIComponent(L) + "&text=" + encodeURIComponent("Pulse Sniper: вероятностные прогнозы температуры и сигналы для Pulse Market"); var tw = window.Telegram && window.Telegram.WebApp; if (tw && tw.openTelegramLink) tw.openTelegramLink(su); else window.open(su, "_blank", "noopener"); }
+      }
       return;
     }
     if (e.target.closest("[data-pm]")) { state.pmOpen = !state.pmOpen; renderCabinet(); return; }
@@ -988,7 +1122,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var a = e.target.closest("[data-act]"); if (!a) return;
     var act = a.getAttribute("data-act"), tg = window.Telegram && window.Telegram.WebApp;
     if (act === "ref") {
-      if (tg && tg.openLink) { e.preventDefault(); tg.openLink(REF_URL); }
+      if (tg && tg.openLink) { e.preventDefault(); tg.openLink(refUrl()); }
     } else if (act === "login") {
       setView("cabinet");
     }
@@ -1165,18 +1299,23 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 
   /* Реальные данные. На своём хостинге: прогнозы Open-Meteo и файлы stats.json / markets.json от бота. */
   function loadLive() {
-    var ctrl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
-    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + CITIES.map(function (c) { return c.lat; }).join(",") + "&longitude=" + CITIES.map(function (c) { return c.lon; }).join(",") + "&daily=temperature_2m_max&models=" + MODELS.map(function (m) { return m.key; }).join(",") + "&forecast_days=" + DAYS + "&timezone=auto";
-    return fetch(url, ctrl ? { signal: ctrl.signal } : {}).then(function (r) { clearTimeout(to); if (!r.ok) throw new Error("http"); return r.json(); }).then(function (j) {
-      var arr = Array.isArray(j) ? j : [j], data = {}, ok = 0;
-      CITIES.forEach(function (c, i) {
-        var o = arr[i]; if (!o || !o.daily) return;
-        var m = MODELS.map(function (md) { var a = o.daily["temperature_2m_max_" + md.key]; return a ? a.map(function (v) { return v == null ? NaN : v; }) : []; });
-        if (m.filter(function (a) { return a.length >= DAYS; }).length >= 2) { data[c.id] = m.map(function (a) { return a.length >= DAYS ? a : new Array(DAYS).fill(NaN); }); ok++; }
+    return fetch("data/forecast.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (j) {
+      var ms = (j.models || []).filter(function (m) { return m && m.key; });
+      if (ms.length < 3 || !j.dates || !j.cities) throw new Error("incomplete");
+      var upd = new Date(j.updated); if (isNaN(upd) || Date.now() - upd > 36 * 3600 * 1000) throw new Error("stale");
+      var data = {}, ok = 0, t0d = today0(), ds = [], pos = {};
+      for (var q = 0; q < DAYS; q++) ds.push(new Date(t0d.getFullYear(), t0d.getMonth(), t0d.getDate() + q));
+      j.dates.forEach(function (s, i) { pos[s] = i; });
+      var key = function (d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); };
+      CITIES.forEach(function (c) {
+        var per = j.cities[c.id]; if (!per) return;
+        var m = ms.map(function (md) { var a = per[md.key] || []; return ds.map(function (d) { var v = a[pos[key(d)]]; return v == null ? NaN : v; }); });
+        if (m.filter(function (a) { return a.some(isFinite); }).length >= 3) { data[c.id] = m; ok++; }
       });
-      if (ok < CITIES.length) throw new Error("incomplete");
-      state.dates = arr[0].daily.time.map(function (s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); });
-      state.data = data; state.source = "live"; state.updated = new Date(); renderAll();
+      if (ok < CITIES.length * 0.7) throw new Error("incomplete");
+      CITIES.forEach(function (c) { if (!data[c.id]) data[c.id] = ms.map(function () { return new Array(DAYS).fill(NaN); }); });
+      MODELS.length = 0; ms.forEach(function (m) { MODELS.push({ key: m.key, name: m.name || m.key, sub: m.sub || "", w: +m.w || 0.5, noise: 1 }); });
+      state.dates = ds; state.data = data; state.source = "live"; state.updated = upd; renderAll();
     });
   }
   try { loadLive().catch(function () {}); } catch (e) {}
@@ -1193,6 +1332,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }).catch(function () {});
   } catch (e) {}
   try {
+    fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+      state.sigFile = Array.isArray(j) ? j : []; renderAll();
+    }).catch(function () {});
     fetch("data/bets.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.bets = (j || []).map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, label: r.label, win: r.win, hit: r.hit, price: r.price, age: age }; }); if (state.view === "report") renderReport();
     }).catch(function () {});

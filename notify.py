@@ -12,6 +12,7 @@ import json
 import math
 import os
 import re
+import sys
 import urllib.request
 
 import collect
@@ -21,6 +22,11 @@ SB_URL = os.environ.get("SB_URL", "").rstrip("/")
 SB_KEY = os.environ.get("SB_KEY", "")
 SB_SECRET = os.environ.get("SB_SECRET", "")
 REF_URL = "https://pulsemarket.trade/?ref=4h5ipy"
+APP_URL = "https://ilyakrafft.github.io/pulse-sniper/"
+BOT_NAME = "pulsniper_bot"
+BOT_APP = os.environ.get("BOT_APP", "")  # короткое имя Mini App из BotFather (необязательно)
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}")
+REF_RE = re.compile(r"https://pulsemarket\.trade/[^\s]*ref=[A-Za-z0-9_\-]{3,40}[^\s]*")
 EVENT_URL = "https://pulsemarket.trade/ru/event/"
 NAMES = {
     "dallas": "Даллас", "shenzhen": "Шэньчжэнь", "jeddah": "Джидда", "london": "Лондон", "paris": "Париж",
@@ -30,7 +36,6 @@ NAMES = {
     "singapore": "Сингапур", "tokyo": "Токио", "warsaw": "Варшава",
 }
 MON = ["янв.", "февр.", "марта", "апр.", "мая", "июня", "июля", "авг.", "сент.", "окт.", "нояб.", "дек."]
-MIN_EDGE, MIN_PM, MAX_RANGE, MIN_PRICE = 0.08, 0.3, 3, 0.05
 
 
 # ---------- сеть ----------
@@ -85,61 +90,16 @@ def cdf(z):
     return 0.5 * (1 + math.erf(z / math.sqrt(2)))
 
 
-def model(vals, lead):
-    pairs = [(v, w) for v, (_, w) in zip(vals, collect.MODELS) if v is not None]
-    if len(pairs) < 2:
-        return None
-    W = sum(w for _, w in pairs)
-    mu = sum(v * w for v, w in pairs) / W
-    sdm = math.sqrt(sum(w * (v - mu) ** 2 for v, w in pairs) / W)
-    sigma = math.sqrt(sdm ** 2 + (0.6 + 0.3 * lead) ** 2)
-    return mu, sigma, max(v for v, _ in pairs) - min(v for v, _ in pairs)
-
-
-def fresh_forecasts():
-    lat = ",".join(str(c[2]) for c in collect.CITIES)
-    lon = ",".join(str(c[3]) for c in collect.CITIES)
-    url = "%s?latitude=%s&longitude=%s&daily=temperature_2m_max&models=%s&forecast_days=4&timezone=auto" % (
-        collect.METEO, lat, lon, ",".join(m for m, _ in collect.MODELS))
-    data = collect.get(url)
-    data = data if isinstance(data, list) else [data]
-    out = {}
-    for (cid, _, _, _), o in zip(collect.CITIES, data):
-        daily = o.get("daily") or {}
-        for i, day in enumerate(daily.get("time") or []):
-            vals = []
-            for m, _ in collect.MODELS:
-                arr = daily.get("temperature_2m_max_" + m) or []
-                vals.append(arr[i] if i < len(arr) else None)
-            out["%s|%s" % (cid, day)] = vals
+def find_signals(today):
+    """Сигналы считает collect.py и записывает в data/signals.json. Бот и приложение берут одни и те же записи."""
+    out = []
+    for r in collect.load("signals.json", []):
+        if r.get("status") != "open" or r["date"] < (today - dt.timedelta(days=1)).isoformat():
+            continue
+        out.append({"key": r["key"], "city": r["city"], "date": r["date"], "label": r["label"], "pm": r["pm"], "price": r["price"],
+                    "edge": r["edge"], "strong": r.get("level") == "strong", "url": r.get("url") or EVENT_URL})
+    out.sort(key=lambda s: -s["edge"])
     return out
-
-
-def find_signals(markets, forecasts, today):
-    sigs = []
-    slugs = {c[0]: c[1] for c in collect.CITIES}
-    for m in markets:
-        d = dt.date.fromisoformat(m["date"])
-        lead = (d - today).days
-        if lead < 0 or lead > 2:
-            continue
-        f = model(forecasts.get("%s|%s" % (m["c"], m["date"])) or [], lead)
-        if not f:
-            continue
-        mu, sigma, rng = f
-        best = None
-        for b in m["b"]:
-            pm = cdf((b["hi"] - mu) / sigma) - cdf((b["lo"] - mu) / sigma)
-            e = pm - b["p"]
-            if b["p"] >= MIN_PRICE and (best is None or e > best[2]):
-                best = (b, pm, e)
-        if best and best[2] >= MIN_EDGE and best[1] >= MIN_PM and rng <= MAX_RANGE:
-            b, pm, e = best
-            sigs.append({"key": "%s|%s" % (m["c"], m["date"]), "city": m["c"], "date": m["date"], "label": b["l"],
-                         "pm": round(pm, 3), "price": b["p"], "edge": round(e, 3), "strong": e >= 0.15 and rng <= 2,
-                         "url": EVENT_URL + collect.slug_for(slugs[m["c"]], d)})
-    sigs.sort(key=lambda s: -s["edge"])
-    return sigs
 
 
 # ---------- тексты ----------
@@ -179,7 +139,7 @@ def signal_text(s, member):
         t += "(%s)\n" % esc(conv)
     t += "Это один вариант из списка рынка%s, ставится одной кнопкой.\n\n" % (" (диапазон из двух градусов)" if rng else "")
     t += "Выиграет, если максимум дня будет <b>%s</b>. При любой другой температуре ставка сгорает.\n\n" % esc(cond)
-    t += "Модели: %d%% · рынок: %d%% · преимущество +%d п.п.\n" % (round(s["pm"] * 100), round(price * 100), round(s["edge"] * 100))
+    t += "Наша оценка: %d%% · цена рынка: %d%% · преимущество +%d п.п.\n" % (round(s["pm"] * 100), round(price * 100), round(s["edge"] * 100))
     if price > 0:
         t += "Цена «Да» %d¢: ставка $10 при выигрыше вернёт ≈ %s.\n" % (round(price * 100), money(10 / price))
     t += "\n<b>Как поставить:</b>\n1. Нажмите кнопку «Открыть рынок» ниже.\n2. Найдите строку «%s».\n3. Выберите «Да» (Yes) и введите сумму." % esc(s["label"])
@@ -215,19 +175,30 @@ def week_text(rows, open_n):
 
 
 # ---------- шаги ----------
-def process_updates(st):
-    try:
-        res = tg("getUpdates", {"offset": st.get("offset", 0), "timeout": 0, "allowed_updates": ["message"]})
-    except Exception as e:  # noqa: BLE001
-        print("getUpdates:", type(e).__name__)
+def mail_hash(e):
+    return hashlib.sha256(e.strip().lower().encode("utf-8")).hexdigest()
+
+
+def partner_link(code):
+    if BOT_APP:
+        return "https://t.me/%s/%s?startapp=%s" % (BOT_NAME, BOT_APP, code)
+    return "%s?p=%s" % (APP_URL, code)
+
+
+PARTNER_HELP = ("Как открывать доступ вашим рефералам:\n"
+                "1. Откройте на Pulse Market список ваших рефералов.\n"
+                "2. Скопируйте почты и пришлите их мне сообщением (можно сразу много, в любом виде).\n"
+                "3. Все, кто в списке, получат доступ сами, а я напишу им об этом.\n\n"
+                "Сами почты я не сохраняю, храню только их необратимые отпечатки. Повторять список можно в любой момент: уже добавленные не задваиваются.")
+
+
+def handle_message(msg):
+    text = (msg.get("text") or "").strip()
+    chat = (msg.get("chat") or {}).get("id")
+    uid = (msg.get("from") or {}).get("id")
+    if not chat or not text:
         return
-    for u in res.get("result", []):
-        st["offset"] = u["update_id"] + 1
-        msg = u.get("message") or {}
-        text = (msg.get("text") or "").strip()
-        chat = (msg.get("chat") or {}).get("id")
-        if not chat or not text.startswith("/start"):
-            continue
+    if text.startswith("/start"):
         parts = text.split(maxsplit=1)
         if len(parts) == 2:
             try:
@@ -239,7 +210,105 @@ def process_updates(st):
             else:
                 send(chat, "Не удалось подключить уведомления. Откройте приложение Pulse Sniper и нажмите «Включить уведомления» ещё раз.")
         else:
-            send(chat, "Это бот Pulse Sniper. Откройте приложение, перейдите в Кабинет и нажмите «Включить уведомления».")
+            send(chat, "Это бот Pulse Sniper. Откройте приложение, перейдите в Кабинет и нажмите «Включить уведомления».\n\n"
+                       "Есть своя реферальная ссылка Pulse Market и хотите приглашать людей в приложение? Пришлите:\n/partner ваша_ссылка")
+        return
+    if text.startswith("/owner"):
+        parts = text.split(maxsplit=1)
+        try:
+            r = rpc("bot_owner", {"p_secret": SB_SECRET, "p_tg": uid, "p_code": parts[1].strip() if len(parts) == 2 else ""})
+        except Exception:  # noqa: BLE001
+            r = "error"
+        try:
+            tg("deleteMessage", {"chat_id": chat, "message_id": msg.get("message_id")})
+        except Exception:  # noqa: BLE001
+            pass
+        send(chat, "✅ Вы подтверждены как владелец. Теперь можно присылать список почт ваших рефералов." if r == "ok"
+             else "Код не подошёл.")
+        return
+    if text.startswith("/partner") or text.startswith("/mylink"):
+        m = REF_RE.search(text)
+        if not m:
+            send(chat, "Пришлите команду вместе с вашей реферальной ссылкой Pulse Market, например:\n/partner https://pulsemarket.trade/?ref=ВАШ_КОД")
+            return
+        try:
+            code = rpc("bot_partner", {"p_secret": SB_SECRET, "p_tg": uid, "p_ref": m.group(0)})
+        except Exception:  # noqa: BLE001
+            code = "error"
+        if code == "not_member":
+            send(chat, "Партнёром можно стать после входа в приложение: зарегистрируйтесь на Pulse Market по ссылке вашего пригласителя, откройте приложение и введите почту. Когда пригласитель вас добавит, вы сможете подключить свою ссылку.")
+            return
+        if not re.match(r"^[a-z0-9]{3,16}$", str(code)):
+            send(chat, "Не удалось подключить ссылку. Проверьте, что она вида https://pulsemarket.trade/?ref=ВАШ_КОД, и пришлите ещё раз.")
+            return
+        send(chat, "✅ Вы подключены как партнёр.\n\nВаша ссылка для приглашения людей в приложение:\n%s\n\n%s" % (partner_link(code), PARTNER_HELP))
+        return
+    mails = sorted(set(e.lower() for e in EMAIL_RE.findall(text)))
+    if mails:
+        try:
+            r = rpc("bot_add_emails", {"p_secret": SB_SECRET, "p_tg": uid, "p_hashes": [mail_hash(e) for e in mails]})
+        except Exception:  # noqa: BLE001
+            send(chat, "Не удалось добавить список. Попробуйте ещё раз чуть позже.")
+            return
+        if isinstance(r, dict) and r.get("error") == "no_partner":
+            send(chat, "Сначала подключите вашу реферальную ссылку: /partner https://pulsemarket.trade/?ref=ВАШ_КОД")
+            return
+        if isinstance(r, dict) and r.get("error") in ("not_member", "too_many", "limit"):
+            send(chat, "Список не принят: у вас нет прав партнёра или в списке слишком много почт (максимум 300 за раз).")
+            return
+        if isinstance(r, dict) and "added" in r:
+            send(chat, "✅ Принято почт: %d. Новых рефералов: %d. Всего в вашем списке: %d.\nДоступ открыт у ожидавших: %d." % (
+                len(mails), r["added"], r["total"], r["opened"]))
+            try:
+                tg("deleteMessage", {"chat_id": chat, "message_id": msg.get("message_id")})
+            except Exception:  # noqa: BLE001
+                pass
+            return
+        send(chat, "Не удалось добавить список. Попробуйте ещё раз чуть позже.")
+        return
+
+
+def process_updates(st):
+    try:
+        res = tg("getUpdates", {"offset": st.get("offset", 0), "timeout": 0, "allowed_updates": ["message"]})
+    except Exception as e:  # noqa: BLE001
+        print("getUpdates:", type(e).__name__)
+        return
+    for u in res.get("result", []):
+        st["offset"] = u["update_id"] + 1
+        try:
+            handle_message(u.get("message") or {})
+        except Exception as e:  # noqa: BLE001
+            print("сообщение не обработано:", type(e).__name__)
+
+
+def get_subs():
+    try:
+        return rpc("bot_subscribers", {"p_secret": SB_SECRET}) or []
+    except Exception as e:  # noqa: BLE001
+        print("подписчики:", type(e).__name__)
+        return []
+
+
+def welcome_new(st, subs):
+    """Новым участникам (их почта появилась в списке) пишет, что доступ открыт."""
+    cur = {hid(s["chat_id"]): s["chat_id"] for s in subs if s.get("status") == "approved"}
+    known = set(st.get("members", []))
+    if st.get("members_init"):
+        for h, chat in cur.items():
+            if h not in known:
+                send(chat, "✅ <b>Доступ открыт!</b>\n\nТеперь вы будете получать все сигналы с пометкой «можно ставить», итоги сделок и статистику недели. "
+                           "В приложении полный доступ уже включён.")
+    st["members"] = sorted(cur)
+    st["members_init"] = True
+
+
+def run_chat(now=None):
+    """Быстрый режим: только сообщения боту и приветствие новых участников."""
+    st = collect.load("bot.json", {})
+    process_updates(st)
+    welcome_new(st, get_subs())
+    collect.save("bot.json", st)
 
 
 def run(now=None):
@@ -251,11 +320,9 @@ def run(now=None):
     st.setdefault("free_week", {})
     st.setdefault("log", [])
     process_updates(st)
-    try:
-        subs = rpc("bot_subscribers", {"p_secret": SB_SECRET}) or []
-    except Exception as e:  # noqa: BLE001
-        print("подписчики:", type(e).__name__)
-        subs = []
+    subs = get_subs()
+    welcome_new(st, subs)
+    refs = {hid(s["chat_id"]): s.get("ref") or REF_URL for s in subs}
     members = {hid(s["chat_id"]): s["chat_id"] for s in subs if s.get("status") == "approved"}
     others = {hid(s["chat_id"]): s["chat_id"] for s in subs if s.get("status") != "approved"}
     everyone = dict(others)
@@ -263,8 +330,7 @@ def run(now=None):
 
     # новые сигналы
     try:
-        markets = collect.load("markets.json", {}).get("markets", [])
-        sigs = find_signals(markets, fresh_forecasts(), today)
+        sigs = find_signals(today)
     except Exception as e:  # noqa: BLE001
         print("сигналы:", type(e).__name__, e)
         sigs = []
@@ -278,7 +344,7 @@ def run(now=None):
         for h, chat in others.items():
             if st["free_week"].get(h) == wk:
                 continue
-            if send(chat, signal_text(s, False), ("Регистрация на Pulse Market", REF_URL)):
+            if send(chat, signal_text(s, False), ("Регистрация на Pulse Market", refs.get(h, REF_URL))):
                 rec["to"].append(h)
                 st["free_week"][h] = wk
         st["sent"][s["key"]] = rec
@@ -286,7 +352,6 @@ def run(now=None):
 
     # итоги
     results = collect.load("results.json", {})
-    bets = collect.load("bets.json", [])
     for key, rec in list(st["sent"].items()):
         r = results.get(key)
         if not r or rec.get("done"):
@@ -298,8 +363,6 @@ def run(now=None):
         rec["done"] = True
         rec["hit"] = hit
         st["log"].append({"date": rec["date"], "week": week_of(dt.date.fromisoformat(rec["date"])), "hit": hit, "price": rec.get("price")})
-        bets.append({"date": rec["date"], "city": rec["city"], "label": rec["label"], "win": r["win"], "hit": hit,
-                     "price": rec.get("price"), "pm": rec.get("pm")})
 
     # недельная статистика: воскресенье, после 17:00 UTC
     if now.weekday() == 6 and now.hour >= 17 and st.get("last_summary") != wk:
@@ -315,8 +378,6 @@ def run(now=None):
     st["sent"] = {k: v for k, v in st["sent"].items() if v["date"] >= cut}
     st["log"] = [x for x in st["log"] if x["date"] >= cut]
     st["free_week"] = {h: w for h, w in st["free_week"].items() if w == wk}
-    cut90 = (today - dt.timedelta(days=90)).isoformat()
-    collect.save("bets.json", [b for b in bets if b["date"] >= cut90])
     collect.save("bot.json", st)
 
 
@@ -325,6 +386,9 @@ if __name__ == "__main__":
         print("Секреты бота не заданы, уведомления пропущены.")
     else:
         try:
-            run()
+            if len(sys.argv) > 1 and sys.argv[1] == "chat":
+                run_chat()
+            else:
+                run()
         except Exception as e:  # noqa: BLE001
             print("ошибка уведомлений:", type(e).__name__, e)
