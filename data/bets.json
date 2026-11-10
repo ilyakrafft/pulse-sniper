@@ -9,5 +9,16 @@
   "pm": 0.615,
   "edge": 0.06,
   "level": "mid"
+ },
+ {
+  "date": "2026-11-10",
+  "city": "paris",
+  "label": "13°C",
+  "win": "12°C",
+  "hit": false,
+  "price": 0.53,
+  "pm": 0.631,
+  "edge": 0.101,
+  "level": "strong"
  }
 ]

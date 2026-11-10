@@ -38,7 +38,29 @@
   "edge": 0.101,
   "level": "strong",
   "first": "2026-11-10T21:24+00:00",
+  "status": "done",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-10-2026",
+  "win": "12°C",
+  "hit": false
+ },
+ {
+  "key": "telaviv|2026-11-11",
+  "city": "telaviv",
+  "date": "2026-11-11",
+  "label": "22°C",
+  "lo": 21.5,
+  "hi": 22.5,
+  "price": 0.215,
+  "pm": 0.27,
+  "pm_model": 0.307,
+  "mu": 22.32,
+  "sigma": 1.22,
+  "sd": 0.71,
+  "n": 9,
+  "edge": 0.055,
+  "level": "mid",
+  "first": "2026-11-10T22:43+00:00",
   "status": "open",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-10-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tel-aviv-on-november-11-2026"
  }
 ]
