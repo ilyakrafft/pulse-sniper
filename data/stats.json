@@ -1328,5 +1328,19 @@
    "gfs_seamless": 12.8,
    "gem_seamless": 13.6
   }
+ },
+ {
+  "date": "2026-11-10",
+  "city": "sf",
+  "k": 21,
+  "p": 0.704,
+  "actual": 23,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 19.9,
+   "icon_seamless": 20.4,
+   "gfs_seamless": 21.3,
+   "gem_seamless": 20.9
+  }
  }
 ]

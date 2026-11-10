@@ -80,7 +80,9 @@
    "label": "68–69°F",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "tokyo|2026-11-10": {
    "city": "tokyo",
@@ -560,6 +562,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.385
+  },
+  {
+   "date": "2026-11-10",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
   },
   {
    "date": "2026-11-10",

@@ -48,5 +48,19 @@
     "gem_seamless": 13.6
    }
   }
+ ],
+ "sf": [
+  {
+   "d": "2026-11-10",
+   "mu": 20.55,
+   "sd": 0.54,
+   "a": 22.5,
+   "m": {
+    "ecmwf_ifs025": 19.9,
+    "icon_seamless": 20.4,
+    "gfs_seamless": 21.3,
+    "gem_seamless": 20.9
+   }
+  }
  ]
 }
