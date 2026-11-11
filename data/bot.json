@@ -292,7 +292,9 @@
    "price": 0.14,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "telaviv|2026-11-11": {
    "city": "telaviv",
@@ -670,6 +672,12 @@
    "week": "2026-W46",
    "hit": true,
    "price": null
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.14
   }
  ],
  "last_summary": "2026-W45",

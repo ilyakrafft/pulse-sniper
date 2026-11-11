@@ -1551,5 +1551,63 @@
    "cma_grapes_global": 14.6,
    "ens": 15.27
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "milan",
+  "k": 12,
+  "p": 0.743,
+  "actual": 12,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 11.8,
+   "ecmwf_aifs025_single": 11.7,
+   "icon_seamless": 11.5,
+   "gfs_seamless": 11.9,
+   "ukmo_seamless": 12.1,
+   "gem_seamless": 12.2,
+   "jma_seamless": 11.8,
+   "cma_grapes_global": 11.3,
+   "ens": 12.8
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "paris",
+  "k": 14,
+  "p": 0.695,
+  "actual": 15,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 15.0,
+   "ecmwf_aifs025_single": 13.9,
+   "icon_seamless": 15.2,
+   "gfs_seamless": 14.2,
+   "ukmo_seamless": 14.7,
+   "gem_seamless": 13.5,
+   "jma_seamless": 15.2,
+   "cma_grapes_global": 12.6,
+   "meteofrance_arome_france_hd": 14.0,
+   "ens": 14.57
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "warsaw",
+  "k": 4,
+  "p": 0.643,
+  "actual": 3,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 2.3,
+   "ecmwf_aifs025_single": 3.4,
+   "icon_seamless": 4.4,
+   "gfs_seamless": 5.9,
+   "ukmo_seamless": 3.9,
+   "gem_seamless": 3.8,
+   "jma_seamless": 5.5,
+   "cma_grapes_global": 4.9,
+   "ens": 3.72
+  }
  }
 ]
