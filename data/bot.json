@@ -188,7 +188,9 @@
    "label": "60–61°F",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "madrid|2026-11-10": {
    "city": "madrid",
@@ -366,7 +368,9 @@
    "price": 0.19,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "dallas|2026-11-11": {
    "city": "dallas",
@@ -376,7 +380,9 @@
    "price": 0.099,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "hongkong|2026-11-10": {
    "city": "hongkong",
@@ -694,6 +700,24 @@
    "week": "2026-W46",
    "hit": false,
    "price": null
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.19
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.099
   }
  ],
  "last_summary": "2026-W45",
