@@ -62,5 +62,24 @@
     "gem_seamless": 20.9
    }
   }
+ ],
+ "singapore": [
+  {
+   "d": "2026-11-11",
+   "mu": 31.24,
+   "sd": 1.09,
+   "a": 31.0,
+   "m": {
+    "ecmwf_ifs025": 31.0,
+    "ecmwf_aifs025_single": 30.9,
+    "icon_seamless": 32.8,
+    "gfs_seamless": 30.8,
+    "ukmo_seamless": 33.2,
+    "gem_seamless": 31.3,
+    "jma_seamless": 29.5,
+    "cma_grapes_global": 29.3,
+    "ens": 30.8
+   }
+  }
  ]
 }
