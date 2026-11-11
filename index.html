@@ -11,6 +11,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -598,6 +600,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var out = [];
     (state.sigFile || []).forEach(function (r) {
       if (r.status !== "open") return;
+      var until = Date.parse(r.until || (r.date + "T12:00:00Z")); if (isFinite(until) && Date.now() > until) return;
       var m = MARKETS.filter(function (x) { return x.c === r.city && x.date === r.date; })[0]; if (!m) return;
       var d = dayOf(m); if (d < -1 || d >= DAYS) return;
       var b = m.b.filter(function (x) { return x.l === r.label; })[0] || { l: r.label, p: r.price, lo: r.lo, hi: r.hi };
@@ -809,24 +812,18 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Выиграла" : "✕ Не сыграла") + '</span></div>' +
         '<div class="rr2-box"><div><i>Наш вариант</i><span>' + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
     }).join("");
-    var openN = (state.sigFile || []).filter(function (r) { return r.status === "open"; }).length, staked = roiN, net = 0;
-    bets.forEach(function (r) { if (r.price > 0) net += r.hit ? (1 / r.price - 1) : -1; });
-    var betsCard = '<div class="card rep-hero rise" style="--i:0">' + gauge(bn ? bh / bn : 0, 150) + '<div class="rh-t"><span class="kick">Сыграли наши сигналы</span><strong data-count="' + bh + '">' + bh + '</strong><em> из ' + bn + '</em><div class="chips2"><span class="rtag win">✓ Выиграли ' + bh + '</span><span class="rtag lose">✕ Не сыграли ' + (bn - bh) + '</span></div></div></div>' +
-      '<div class="card rise" style="--i:1"><h3>Итог по деньгам</h3><p class="sub">Сигнал записывается в момент выдачи: вариант и цена «Да». После закрытия рынка он сверяется с итогом. Это те же сигналы, что в разделе «Сигналы» и в боте.</p>' +
-      (bn ? '<div class="bigscore"><strong style="color:var(--' + (net >= 0 ? "good" : "bad") + ')">' + (net >= 0 ? "+" : "") + usd(net) + '</strong><span>если ставить по $1 на каждый сигнал, без комиссий</span></div>' + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
-        : '<div class="betsempty">Закрытых сигналов пока нет. Каждый сигнал попадёт сюда после закрытия рынка.</div>') +
-      (openN ? '<p class="sub" style="margin:10px 0 0">Ждут итога: ' + openN + '</p>' : '') + '</div>';
-    var how = '<div class="card how rise" style="--i:2"><h3>Что такое коридор</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
+    var betsCard = '<div class="card rise" style="--i:3"><h3>Ставка «Да» на один вариант</h3><p class="sub">Так выглядит сигнал в боте: одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
+      (bn ? '<div class="bigscore"><strong>' + bh + ' из ' + bn + '</strong><span>сыграло (' + pc(bh / bn) + '%)</span></div>' + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
+        : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
+    var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
     var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
-    var corrHero = '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>';
-    var corr = '<details class="corr"><summary class="card"><b>Справка: точность прогноза по коридору</b><span>Это не ставка. Попасть в три градуса проще, чем в один, поэтому цифры здесь выше, чем у сигналов.</span></summary><div class="stack">' + corrHero + how +
-      '<div class="tiles tiles3"><div class="tile"><small>Закрыто</small><strong>' + n + '</strong></div><div class="tile"><small>Уверенность</small><strong>' + pc(avgP) + '%</strong></div><div class="tile"><small>Лучшая серия</small><strong>' + best + '</strong></div></div>' +
-      '<div class="two"><div class="card"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
-      '<div class="card"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в °C.</p></div></div></details>';
-    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов: что мы посоветовали, по какой цене и чем закончился рынок.</p></div>' + demo +
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: попала ли фактическая температура в наш коридор и сыграл ли вариант из сигнала.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
-      '<div class="stack">' + betsCard + corr + '</div>' + cta +
+      '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>' + how +
+      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile rise" style="--i:2"><small>Уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + betsCard +
+      '<div class="two"><div class="card rise" style="--i:4"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
+      '<div class="card rise" style="--i:6"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в отчёте в °C.</p></div>' + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
   }

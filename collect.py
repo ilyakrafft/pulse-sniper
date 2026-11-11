@@ -77,6 +77,8 @@ MODEL_SHARE = 0.6     # доля моделей в итоговой вероят
 MAX_SD = 1.3          # допустимый разброс моделей, °C
 MAX_PER_DAY = 3       # сигналов на одну дату рынка
 MIN_MODELS = 4
+LAST_NEW_HOUR = 14   # на сегодняшний рынок новые сигналы только до 14:00 по времени города
+UNTIL_HOUR = 16      # после 16:00 по времени города сигнал в приложении и в боте больше не показывается
 BASE_SIGMA, LEAD_SIGMA = 1.0, 0.25   # типичная ошибка суточного максимума на станции, °C
 
 def get(url):
@@ -456,6 +458,8 @@ def build_signals(markets, fc, calib, obs, now, sigs):
         pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]), es, model_weights(calib, m["c"]))
         if not pr or pr["sd"] > MAX_SD:
             continue
+        if lead == 0 and ln.hour >= LAST_NEW_HOUR:
+            continue  # день уже прошёл пик, рынок почти решён: сигнал бесполезен
         floor = None
         mu, sigma = pr["mu"], pr["sigma"]
         if lead == 0 and ICAO.get(m["c"]):
@@ -484,6 +488,8 @@ def build_signals(markets, fc, calib, obs, now, sigs):
                           "sigma": round(pr["sigma"], 2), "sd": round(pr["sd"], 2), "n": pr["n"], "edge": round(e, 3),
                           "level": "strong" if e >= 0.10 and pr["sd"] <= 0.8 and p >= 0.4 else "mid",
                           "first": now.isoformat(timespec="minutes"), "status": "open",
+                          "until": (dt.datetime(d.year, d.month, d.day, UNTIL_HOUR, tzinfo=dt.timezone.utc)
+                                    - dt.timedelta(seconds=(fc.get("offsets") or {}).get(m["c"], 0))).isoformat(timespec="minutes"),
                           "url": EVENT_URL + slug_for(next(c[1] for c in CITIES if c[0] == m["c"]), d)})
     fresh.sort(key=lambda s: -s["edge"])
     for s in fresh:

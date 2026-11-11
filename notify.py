@@ -96,6 +96,9 @@ def find_signals(today):
     for r in collect.load("signals.json", []):
         if r.get("status") != "open" or r["date"] < (today - dt.timedelta(days=1)).isoformat():
             continue
+        until = r.get("until") or (r["date"] + "T12:00+00:00")
+        if dt.datetime.now(dt.timezone.utc) > dt.datetime.fromisoformat(until):
+            continue  # время ставить на этот рынок прошло
         out.append({"key": r["key"], "city": r["city"], "date": r["date"], "label": r["label"], "pm": r["pm"], "price": r["price"],
                     "edge": r["edge"], "strong": r.get("level") == "strong", "url": r.get("url") or EVENT_URL})
     out.sort(key=lambda s: -s["edge"])
