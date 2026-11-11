@@ -157,5 +157,24 @@
     "ens": 13.7
    }
   }
+ ],
+ "helsinki": [
+  {
+   "d": "2026-11-11",
+   "mu": 4.84,
+   "sd": 0.33,
+   "a": 5.0,
+   "m": {
+    "ecmwf_ifs025": 5.1,
+    "ecmwf_aifs025_single": 4.8,
+    "icon_seamless": 4.6,
+    "gfs_seamless": 5.1,
+    "ukmo_seamless": 5.1,
+    "gem_seamless": 4.9,
+    "jma_seamless": 4.2,
+    "cma_grapes_global": 3.8,
+    "ens": 5.0
+   }
+  }
  ]
 }

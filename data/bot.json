@@ -320,7 +320,9 @@
    "price": 0.275,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "munich|2026-11-10": {
    "city": "munich",
@@ -622,6 +624,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.18
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.275
   }
  ],
  "last_summary": "2026-W45",
