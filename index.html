@@ -366,9 +366,7 @@ input:disabled, .seg button:disabled { opacity: .45; cursor: not-allowed; }
 input[type="email"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
 </style>
 <style>body{margin:0}</style>
-</head>
 <body>
-
 
 <div class="bgfx" aria-hidden="true"><i></i><i></i></div>
 <div class="intro" aria-hidden="true"><i class="cl h"></i><i class="cl v"></i><i class="rg"></i></div>
@@ -515,7 +513,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-  var state = { refUrl: (function () { try { var u = localStorage.getItem("izo.ref"); return /^https:\/\/pulsemarket\.trade\//.test(u || "") ? u : ""; } catch (e) { return ""; } })(), city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, acc: { status: "none", busy: false, msg: "", addr: "" }, sigFile: null, pmOpen: false, pt: { loaded: false, loading: false, info: null, busy: false, msg: "", ok: "" }, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
+  var state = { refUrl: (function () { try { var u = localStorage.getItem("izo.ref"); return /^https:\/\/pulsemarket\.trade\//.test(u || "") ? u : ""; } catch (e) { return ""; } })(), city: "london", day: 0, view: "globe", source: "demo", statsSource: "demo", updated: null, dates: [], data: {}, member: false, acc: { status: "none", busy: false, msg: "", addr: "" }, sigFile: null, skips: [], amt: 10, pmOpen: false, pt: { loaded: false, loading: false, info: null, busy: false, msg: "", ok: "" }, pf: { addr: "", loading: false, err: "", value: null, pos: [], at: null }, free: null, results: {}, virt: null, marketsLive: false, resetArm: false, sigs: [], period: 30, stats: [] };
 
   /* ---------- helpers ---------- */
   function $(id) { return document.getElementById(id); }
@@ -605,7 +603,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       var d = dayOf(m); if (d < -1 || d >= DAYS) return;
       var b = m.b.filter(function (x) { return x.l === r.label; })[0] || { l: r.label, p: r.price, lo: r.lo, hi: r.hi };
       var f = forecast(r.city, Math.max(d, 0)) || { range: r.sd * 2, mu: r.mu, sigma: r.sigma };
-      out.push({ id: r.city + "@" + r.date, c: r.city, m: m, d: d, f: f, best: { b: b, pm: r.pm, e: r.edge }, level: r.level, sd: r.sd, first: r.first, price0: r.price });
+      var legs = (r.legs && r.legs.length ? r.legs : [{ l: r.label, price: r.price }]).map(function (L) {
+        var bk = m.b.filter(function (x) { return x.l === L.l; })[0];
+        return { l: L.l, price0: L.price, price: bk ? (bk.ask || bk.p) : L.price, mid: bk ? bk.p : L.price, pm: L.pm };
+      });
+      out.push({ id: r.city + "@" + r.date, c: r.city, m: m, d: d, f: f, best: { b: b, pm: r.pm, e: r.edge }, level: r.level, sd: r.sd, first: r.first, price0: r.price,
+        kind: r.kind || "single", labels: r.labels || [r.label], legs: legs, dist: r.dist || [], st: r.st, liq: r.liq, v24: r.v24 });
     });
     out.sort(function (a, b) { return b.best.e - a.best.e; });
     return out;
@@ -754,6 +757,67 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<p class="pay">Цена «Да» сейчас ' + Math.round(pr * 100) + '¢. Ставка $10 при выигрыше вернёт ≈ ' + usd(ret) + '.</p>' +
       '<details><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>В списке найдите строку «' + esc(b.l) + '».</li><li>Выберите «Да» (Yes) и введите сумму.</li></ol></details></div>';
   }
+  function rangeLabel(ls) {
+    if (ls.some(function (x) { return /и ниже|и выше/.test(x); })) return ls.join(" · ");
+    var a = ls[0].match(/-?\d+(?:[.,]\d+)?/), nums = ls[ls.length - 1].match(/-?\d+(?:[.,]\d+)?/g), unit = (ls[ls.length - 1].match(/°[CF]/) || [""])[0];
+    return a && nums ? a[0] + "–" + nums[nums.length - 1] + unit : ls.join(" · ");
+  }
+  function money0(n) { return "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function chipsRow(s) {
+    var h = "";
+    if (s.st) h += '<span class="chip st" title="Станция, по которой рынок определит итог">📍 ' + esc(s.st) + '</span>';
+    if (s.liq) h += '<span class="chip">ликвидность ' + money0(s.liq) + '</span>';
+    if (s.v24) h += '<span class="chip">объём за сутки ' + money0(s.v24) + '</span>';
+    var thin = s.liq && s.liq < 2000 ? '<p class="note warn">Рынок тонкий: от большой ставки цена сдвинется против вас. Ставьте немного.</p>' : "";
+    return h ? '<div class="chips">' + h + '</div>' + thin : "";
+  }
+  function distChart(s) {
+    var d = (s.dist || []).filter(function (x) { return x.m >= 0.005 || x.p >= 0.02 || s.labels.indexOf(x.l) >= 0; });
+    if (d.length < 2) return "";
+    if (d.length > 9) { var ci = 0; d.forEach(function (x, k) { if (s.labels.indexOf(x.l) >= 0 && !ci) ci = k; }); var a = Math.max(0, Math.min(ci - 3, d.length - 9)); d = d.slice(a, a + 9); }
+    var mx = Math.max.apply(null, d.map(function (x) { return Math.max(x.m, x.p); })) * 1.08 || 1;
+    return '<div class="dist"><div class="dist-h"><span>Где вероятнее закроется максимум</span><span class="lg"><i class="a"></i>модели <i class="b"></i>цена рынка</span></div>' +
+      d.map(function (x, k) {
+        var on = s.labels.indexOf(x.l) >= 0;
+        return '<div class="drow' + (on ? " on" : "") + '"><span class="dl">' + esc(x.l) + '</span><div class="dtr"><em style="--w:' + (x.m / mx * 100) + '%;--i:' + k + '"></em><i style="left:' + Math.min(99, x.p / mx * 100) + '%"></i></div><b>' + pc(x.m) + '%</b></div>';
+      }).join("") + '</div>';
+  }
+  function calcNums(card) {
+    var prices = card.getAttribute("data-prices").split(",").map(Number), cost = prices.reduce(function (a, b) { return a + b; }, 0);
+    var amt = Math.max(0, Math.min(100000, +state.amt || 0)), n = cost > 0 ? amt / cost : 0;
+    var f = function (v) { return "$" + v.toFixed(2).replace(".", ","); };
+    card.querySelectorAll("[data-stake]").forEach(function (td, i) { td.textContent = f(n * prices[i]); });
+    card.querySelectorAll("[data-pay]").forEach(function (td) { td.textContent = f(n); });
+    var set = function (k, v) { var e = card.querySelector("[data-" + k + "]"); if (e) e.textContent = v; };
+    set("in", f(amt)); set("win", f(n)); set("prof", (n - amt >= 0 ? "+" : MINUS) + f(Math.abs(n - amt))); set("loss", MINUS + f(amt));
+  }
+  function corrCard(s, i) {
+    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s), rng = rangeLabel(s.labels);
+    var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
+    if (!open) return '<article class="card sig corr tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Коридор <strong>••–••°</strong></div>' + phBars(3) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
+    var cost = s.legs.reduce(function (a, L) { return a + L.price; }, 0), gone = cost >= s.best.pm - 0.01;
+    var free = !state.member ? '<div><span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span></div>' : "";
+    var rows = s.legs.map(function (L, k) { return '<tr style="--i:' + k + '"><td><b>' + esc(L.l) + '</b></td><td>' + Math.round(L.price * 100) + '¢</td><td data-stake>—</td><td data-pay>—</td></tr>'; }).join("");
+    var t = ""; try { t = new Intl.DateTimeFormat("ru", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(s.first)); } catch (e) {}
+    var note = '<p class="note" style="margin:0">Сигнал выдан ' + t + ', тогда коридор стоил ' + Math.round(s.price0 * 100) + '¢, сейчас ' + Math.round(cost * 100) + '¢.' + (gone ? ' <b style="color:var(--bad)">Цена выросла, выгода пропала: лучше пропустить.</b>' : "") + '</p>';
+    return '<article class="card sig corr tilt rise ' + s.level + '" style="--i:' + i + '">' + top + free + chipsRow(s) +
+      '<div class="pickrow"><div class="pick">Коридор <strong>' + esc(rng) + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' +
+      '<div class="cor-yes"><span class="yes">ДА</span><div><b>Ставьте «Да» сразу на три соседних варианта</b><small>Попадёт в любой из них, вы в плюсе. Нет, теряете вложенное.</small></div></div>' +
+      '<div class="calc" data-prices="' + s.legs.map(function (L) { return L.price; }).join(",") + '"><div class="calc-in"><label>Сколько вложить, $</label><input type="number" inputmode="decimal" min="1" max="100000" step="1" value="' + esc(state.amt) + '" data-calc aria-label="Сумма вложения в долларах"><div class="qa">' +
+      [5, 10, 25, 50].map(function (v) { return '<button type="button" data-amt="' + v + '">' + v + '</button>'; }).join("") + '</div></div>' +
+      '<table class="ctab"><thead><tr><th>Исход</th><th>Цена</th><th>Ставка</th><th>Выплата</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+      '<div class="csum"><div><small>Вложите</small><b data-in>—</b></div><div class="w"><small>Попали, вернётся</small><b data-win>—</b><em data-prof></em></div><div class="l"><small>Мимо</small><b data-loss>—</b></div></div>' +
+      '<p class="be">Выгодно, если шанс попасть выше <b>' + pc(cost) + '%</b>. Наша оценка: <b>' + pc(s.best.pm) + '%</b>.</p></div>' +
+      distChart(s) + note +
+      '<details class="how2"><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>Найдите три строки из таблицы.</li><li>В каждой выберите «Да» (Yes) и введите сумму из колонки «Ставка».</li></ol></details>' +
+      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+  }
+  function skipsBox() {
+    var it = (state.skips || []).filter(function (x) { return !state.sigs.some(function (s) { return s.c === x.c && s.m.date === x.date; }); });
+    if (!it.length) return "";
+    var rows = it.slice(0, 40).map(function (x) { var c = cityById(x.c); return '<div class="skr"><b>' + (c ? c.name : esc(x.c)) + '</b><small>' + esc(x.date.slice(8) + "." + x.date.slice(5, 7)) + '</small><span>' + esc(x.r) + '</span></div>'; }).join("");
+    return '<details class="card skips rise"><summary><b>Почему нет сигналов по другим рынкам (' + it.length + ')</b><span>Мы смотрим все рынки и берём только те, где есть перевес.</span></summary><div>' + rows + '</div></details>';
+  }
   function sigNote(s) {
     if (s.price0 == null) return "";
     var t = "";
@@ -762,21 +826,23 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     return '<p class="note" style="margin:0">Сигнал выдан ' + t + ' по цене ' + Math.round(s.price0 * 100) + '¢, сейчас ' + Math.round(s.best.b.p * 100) + '¢.' + (gone ? ' <b style="color:var(--bad)">Цена выросла, выгода пропала: лучше пропустить.</b>' : (moved > 0.04 ? ' Цена подросла, выгода меньше.' : '')) + '</p>';
   }
   function sigCard(s, i) {
+    if (s.kind === "corr") return corrCard(s, i);
     var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
     var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
     if (!open) return '<article class="card sig tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Вариант <strong>••°C</strong></div>' + phBars(2) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
     var free = !state.member ? '<span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span>' : "";
-    return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") +
-      '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) + sigNote(s) +
+    return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") + chipsRow(s) +
+      '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) + sigNote(s) + distChart(s) +
       '<div class="vs"><div class="vrow"><span>Наша оценка</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
       '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
   }
   function renderSignals() {
     var el = $("v-signals"), sigs = state.sigs;
     var demo = state.source === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Прогнозы моделей здесь придуманы, чтобы показать вид сигнала. Цены рынков взяты со снимка Pulse Market от ' + SNAP + (state.shifted ? ', даты сдвинуты на сегодня только для показа' : '') + '. Не торгуйте по этим карточкам.</span></div>' : "";
-    var list = sigs.length ? '<div class="grid">' + sigs.map(sigCard).join("") + '</div>' : '<div class="card empty">Сейчас нет вариантов, где модели заметно расходятся с рынком. Или снимок рынков устарел и нужна свежая загрузка.</div>';
+    var list = (sigs.length ? '<div class="grid">' + sigs.map(sigCard).join("") + '</div>' : '<div class="card empty">Сейчас нет вариантов, где модели заметно расходятся с рынком. Или снимок рынков устарел и нужна свежая загрузка.</div>') + skipsBox();
     el.innerHTML = '<div class="view-head"><h2>Сигналы</h2><p>Вариант попадает сюда, если модели дают ему заметно больше шансов, чем цена на рынке, и при этом согласны между собой. Рынки: Pulse Market, снимок ' + SNAP + '.</p></div>' + demo + '<div class="card hero rise"><div><span class="kick">Радар рынков</span><h2>' + sigs.length + ' ' + plural(sigs.length, "цель", "цели", "целей") + ' в прицеле<span class="radar"></span></h2></div></div>' + accessBanner() + list +
       '<p class="note" style="margin-top:14px">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
+    el.querySelectorAll(".calc").forEach(calcNums);
   }
 
   /* ---------- раздел «Отчёт» ---------- */
@@ -810,9 +876,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var betRows = bets.slice(0, 10).map(function (r) {
       var c = cityById(r.c);
       return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Выиграла" : "✕ Не сыграла") + '</span></div>' +
-        '<div class="rr2-box"><div><i>Наш вариант</i><span>' + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
+        '<div class="rr2-box"><div><i>Наш вариант</i><span>' + (r.kind === 'corr' ? 'Коридор ' : '') + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
     }).join("");
-    var betsCard = '<div class="card rise" style="--i:3"><h3>Ставка «Да» на один вариант</h3><p class="sub">Так выглядит сигнал в боте: одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
+    var betsCard = '<div class="card rise" style="--i:3"><h3>Сигналы из бота и приложения</h3><p class="sub">Здесь каждый сигнал целиком: коридор из трёх вариантов или одна ставка. Сыграл, если итог рынка внутри ваших вариантов. Одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
       (bn ? '<div class="bigscore"><strong>' + bh + ' из ' + bn + '</strong><span>сыграло (' + pc(bh / bn) + '%)</span></div>' + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
         : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
     var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
@@ -1115,7 +1181,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   $("chips").addEventListener("click", function (e) { var b = e.target.closest(".chip"); if (b) selectCity(b.getAttribute("data-id")); });
   $("days").addEventListener("click", function (e) { var b = e.target.closest(".day"); if (b) { state.day = +b.getAttribute("data-d"); renderAll(); } });
   $("v-report").addEventListener("click", function (e) { var b = e.target.closest("[data-p]"); if (b) { state.period = +b.getAttribute("data-p"); renderReport(); } });
+  try { var sa = +localStorage.getItem("izo.amt"); if (sa > 0) state.amt = sa; } catch (e) {}
+  function saveAmt(v) { state.amt = v; try { localStorage.setItem("izo.amt", String(v)); } catch (e) {} document.querySelectorAll(".calc").forEach(function (cd) { var inp = cd.querySelector("[data-calc]"); if (inp && document.activeElement !== inp) inp.value = v; calcNums(cd); }); }
+  document.addEventListener("input", function (e) { if (e.target && e.target.hasAttribute && e.target.hasAttribute("data-calc")) saveAmt(+e.target.value || 0); });
   document.addEventListener("click", function (e) {
+    var qb = e.target.closest("[data-amt]"); if (qb) { saveAmt(+qb.getAttribute("data-amt")); return; }
     var a = e.target.closest("[data-act]"); if (!a) return;
     var act = a.getAttribute("data-act"), tg = window.Telegram && window.Telegram.WebApp;
     if (act === "ref") {
@@ -1332,8 +1402,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.sigFile = Array.isArray(j) ? j : []; renderAll();
     }).catch(function () {});
+    fetch("data/skips.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
+      state.skips = Array.isArray(j) ? j : (j && j.items) || []; if (state.view === "signals") renderAll();
+    }).catch(function () {});
     fetch("data/bets.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
-      state.bets = (j || []).map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, label: r.label, win: r.win, hit: r.hit, price: r.price, age: age }; }); if (state.view === "report") renderReport();
+      state.bets = (j || []).map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, label: (r.labels && r.labels.length > 1 ? rangeLabel(r.labels) : r.label), kind: r.kind, win: r.win, hit: r.hit, price: r.price, age: age }; }); if (state.view === "report") renderReport();
     }).catch(function () {});
     fetch("data/stats.json").then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.stats = j.map(function (r) { var d = new Date(r.date), age = Math.round((today0() - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); return { dt: d, c: r.city, k: r.k, p: r.p, actual: r.actual, hit: r.hit, age: age }; }); state.statsSource = "live"; if (state.view === "report") renderReport();
@@ -1542,6 +1615,29 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 #snd[aria-pressed="true"] .eq b:nth-child(3) { animation-duration: 1.1s; animation-delay: -.5s; }
 #snd.hint { animation: pulse 2.2s infinite; color: var(--g1); }
 @keyframes eqb { from { height: 3px; } to { height: 12px; } }
+
+/* Коридор, калькулятор, график, пропуски */
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:3px 9px;border-radius:99px;border:1px solid var(--line);font-size:11.5px;color:var(--muted)}.chip.st{color:var(--fg)}
+.note.warn{color:var(--bad)}
+.cor-yes{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;border:1px solid color-mix(in srgb,var(--g1) 45%,var(--line));background:color-mix(in srgb,var(--g1) 9%,var(--surface))}
+.cor-yes .yes{flex:none;padding:9px 13px;border-radius:11px;background:linear-gradient(115deg,var(--g1),var(--g2));color:var(--accent-ink);font-family:var(--f-display);font-weight:700;font-size:16px}
+.cor-yes b{display:block;font-size:14px;line-height:1.3}.cor-yes small{color:var(--muted);font-size:12px}
+.calc{display:grid;gap:10px;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.calc-in{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.calc-in label{flex:1 1 100%;font-size:12px;color:var(--muted)}
+.calc-in input{width:96px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;font-size:16px}
+.qa{display:flex;gap:6px}.qa button{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}.qa button:hover{border-color:var(--accent);transform:translateY(-1px)}
+.ctab{width:100%;border-collapse:collapse;font-size:13px}.ctab th{text-align:left;color:var(--muted);font-weight:500;font-size:11.5px;padding:4px 6px}.ctab td{padding:7px 6px;border-top:1px solid var(--line);animation:fadeup .5s backwards;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes fadeup{from{opacity:0;transform:translateY(6px)}}
+.csum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.csum>div{padding:9px;border-radius:11px;background:color-mix(in srgb,var(--muted) 9%,transparent);min-width:0}.csum small{display:block;color:var(--muted);font-size:11px}.csum b{font-family:var(--f-display);font-size:16px}.csum em{display:block;font-style:normal;font-size:12px;color:var(--ok,var(--accent))}.csum .l b{color:var(--bad)}
+.be{margin:0;font-size:12.5px;color:var(--muted)}
+.dist{display:grid;gap:5px}.dist-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.lg i{display:inline-block;width:9px;height:9px;border-radius:3px;margin:0 4px 0 8px;background:var(--accent)}.lg i.b{width:3px;height:11px;background:var(--fg);border-radius:1px}
+.drow{display:grid;grid-template-columns:78px 1fr 40px;gap:8px;align-items:center;font-size:12px}.drow .dl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}.drow.on .dl{color:var(--fg);font-weight:600}.drow b{text-align:right;font-weight:600}
+.dtr{position:relative;height:10px;border-radius:5px;background:color-mix(in srgb,var(--muted) 14%,transparent)}.dtr em{display:block;height:100%;width:var(--w);border-radius:5px;background:color-mix(in srgb,var(--accent) 55%,transparent);transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*60ms)}.drow.on .dtr em{background:var(--accent)}.dtr i{position:absolute;top:-2px;width:3px;height:14px;border-radius:2px;background:var(--fg)}
+.how2 summary,.skips summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:13px}.how2 ol{margin:8px 0 0;padding-left:20px;display:grid;gap:4px;font-size:13px}
+.skips summary b{display:block;color:var(--fg)}.skips summary span{display:block;color:var(--muted);font-size:12px;font-weight:400}.skips>div{display:grid;gap:6px;margin-top:10px}
+.skr{display:grid;grid-template-columns:auto auto 1fr;gap:8px;font-size:12.5px;align-items:baseline}.skr small{color:var(--muted)}.skr span{color:var(--muted);min-width:0}
+@media(max-width:420px){.skr{grid-template-columns:auto 1fr}.skr span{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.dtr em,.ctab td{animation:none}}
 </style>
 <script>
 /* Мелодия: создаётся прямо в телефоне (синтезатор), файлов и авторских прав нет. Включается кнопкой «Звук». */
@@ -1626,5 +1722,4 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 })();
 </script>
 
-</body>
-</html>
+</body></html>

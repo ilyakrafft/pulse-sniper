@@ -78,6 +78,9 @@ MAX_SD = 1.3          # допустимый разброс моделей, °C
 MAX_PER_DAY = 3       # сигналов на одну дату рынка
 MIN_MODELS = 4
 LAST_NEW_HOUR = 14   # на сегодняшний рынок новые сигналы только до 14:00 по времени города
+MAX_CORR_COST = 0.92   # сумма цен трёх вариантов: чтобы осталась запас на комиссию
+MIN_CORR_P = 0.50     # шанс попасть в коридор
+MIN_CORR_EDGE = 0.05  # шанс минус стоимость коридора
 UNTIL_HOUR = 16      # после 16:00 по времени города сигнал в приложении и в боте больше не показывается
 BASE_SIGMA, LEAD_SIGMA = 1.0, 0.25   # типичная ошибка суточного максимума на станции, °C
 
@@ -158,8 +161,30 @@ def buckets_of(event):
         price = yes_price(mk)
         if parsed and price is not None:
             label, lo, hi, centre = parsed
-            out.append({"l": label, "lo": round(lo, 3), "hi": round(hi, 3), "p": round(price, 3), "c": round(centre, 2)})
+            b = {"l": label, "lo": round(lo, 3), "hi": round(hi, 3), "p": round(price, 3), "c": round(centre, 2)}
+            try:  # реальная цена покупки «Да» (лучшая заявка продавца): купить по средней цене нельзя
+                ask = float(mk.get("bestAsk"))
+                if 0 < ask < 1:
+                    b["ask"] = round(ask, 3)
+            except (TypeError, ValueError):
+                pass
+            out.append(b)
     return out
+
+
+def station_of(ev):
+    """Станция, по которой закрывается рынок, из правил самого события (ссылка Wunderground заканчивается кодом ICAO)."""
+    parts = [ev.get("resolutionSource"), ev.get("description")] + [mk.get("resolutionSource") for mk in (ev.get("markets") or [])[:2]]
+    txt = " ".join(str(x) for x in parts if x)
+    m = re.search(r"wunderground\.com/[^\s\"')]*?/([A-Z]{4})(?:[/?#\s\"')]|$)", txt)
+    return m.group(1) if m else None
+
+
+def num(v):
+    try:
+        return round(float(v), 2)
+    except (TypeError, ValueError):
+        return None
 
 
 def vol_label(v):
@@ -277,7 +302,8 @@ def collect_markets(today):
                 continue
             b = sorted(buckets_of(ev), key=lambda x: -x["p"])
             if b:
-                markets.append({"c": cid, "date": d.isoformat(), "vol": vol_label(ev.get("volume")), "b": b})
+                markets.append({"c": cid, "date": d.isoformat(), "vol": vol_label(ev.get("volume")), "b": b,
+                                "st": station_of(ev), "liq": num(ev.get("liquidity")), "v24": num(ev.get("volume24hr"))})
     return markets
 
 
@@ -432,79 +458,124 @@ def fetch_obs(markets, fc, now):
 
 
 # ---------- сигналы ----------
+def buy_price(b):
+    a = b.get("ask")
+    return a if isinstance(a, (int, float)) and 0 < a < 1 else b["p"]
+
+
+def evaluate(m, fc, calib, obs, now):
+    """Один рынок -> (сигнал или None, причина отказа по-русски)."""
+    vals = (fc.get("cities") or {}).get(m["c"])
+    if not vals:
+        return None, "Нет прогноза моделей по этому городу"
+    icao = ICAO.get(m["c"])
+    if m.get("st") and icao and m["st"] != icao:
+        return None, "Рынок закрывается по станции %s, а прогноз у нас по %s: не рискуем" % (m["st"], icao)
+    d = dt.date.fromisoformat(m["date"])
+    ln = local_now(now, fc, m["c"])
+    lead = (d - ln.date()).days
+    if lead < 0 or lead > 2:
+        return None, "Рынок вне окна сигналов"
+    dates = fc.get("dates") or []
+    if m["date"] not in dates:
+        return None, "Нет прогноза на эту дату"
+    i = dates.index(m["date"])
+    es = ((fc.get("ens_sd") or {}).get(m["c"]) or [None] * 7)[i] if i < 7 else None
+    pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]), es, model_weights(calib, m["c"]))
+    if not pr:
+        return None, "Мало моделей дали прогноз"
+    if pr["sd"] > MAX_SD:
+        return None, "Модели расходятся (разброс %.1f°), уверенного прогноза нет" % pr["sd"]
+    if lead == 0 and ln.hour >= LAST_NEW_HOUR:
+        return None, "День уже прошёл пик, рынок почти решён"
+    floor = None
+    mu, sigma = pr["mu"], pr["sigma"]
+    if lead == 0 and icao:
+        if m["c"] in obs:
+            floor = obs[m["c"]] - 1.0
+            f = clamp((17 - (ln.hour + ln.minute / 60.0)) / 10.0, 0.3, 1.0)
+            sigma = max(0.5, sigma * f)
+            mu = max(mu, obs[m["c"]])
+            pr = dict(pr, mu=mu, sigma=sigma)
+        elif ln.hour >= 12:
+            return None, "Нет свежих данных станции на сегодня"
+    bks = sorted(m["b"], key=lambda b: b["lo"])
+    pms = [bucket_prob(b["lo"], b["hi"], mu, sigma, floor) for b in bks]
+    dist = [{"l": b["l"], "m": round(p, 3), "p": b["p"]} for b, p in zip(bks, pms)]
+    base = {"city": m["c"], "date": m["date"], "mu": round(mu, 2), "sigma": round(sigma, 2), "sd": round(pr["sd"], 2), "n": pr["n"],
+            "st": m.get("st") or icao, "liq": m.get("liq"), "v24": m.get("v24"), "dist": dist,
+            "first": now.isoformat(timespec="minutes"), "status": "open",
+            "until": (dt.datetime(d.year, d.month, d.day, UNTIL_HOUR, tzinfo=dt.timezone.utc)
+                      - dt.timedelta(seconds=(fc.get("offsets") or {}).get(m["c"], 0))).isoformat(timespec="minutes")}
+    # --- коридор: три соседних варианта, ставки так, чтобы выплата была одинаковой ---
+    best_c = None
+    for j in range(0, len(bks) - 2):
+        w = bks[j:j + 3]
+        cost = sum(buy_price(b) for b in w)
+        mid = sum(b["p"] for b in w)
+        pm = sum(pms[j:j + 3])
+        p = MODEL_SHARE * pm + (1 - MODEL_SHARE) * mid
+        e = p - cost
+        if best_c is None or e > best_c[0]:
+            best_c = (e, j, w, cost, pm, p)
+    if best_c and best_c[3] <= MAX_CORR_COST and best_c[5] >= MIN_CORR_P and best_c[0] >= MIN_CORR_EDGE:
+        e, j, w, cost, pm, p = best_c
+        return dict(base, kind="corr", label=w[1]["l"], labels=[b["l"] for b in w], lo=w[0]["lo"], hi=w[2]["hi"],
+                    legs=[{"l": b["l"], "price": buy_price(b), "pm": round(x, 3)} for b, x in zip(w, pms[j:j + 3])],
+                    price=round(cost, 3), pm=round(p, 3), pm_model=round(pm, 3), edge=round(e, 3),
+                    level="strong" if e >= 0.10 and p >= 0.65 and pr["sd"] <= 0.8 else "mid"), None
+    # --- один вариант (если коридор не прошёл) ---
+    top2 = sorted(pms, reverse=True)[:2]
+    best = None
+    for b, pm in zip(bks, pms):
+        price = buy_price(b)
+        if not (MIN_PRICE <= price <= MAX_PRICE) or pm < min(top2):
+            continue
+        p = MODEL_SHARE * pm + (1 - MODEL_SHARE) * b["p"]
+        e = p - price
+        if best is None or e > best[2]:
+            best = (b, p, e, pm, price)
+    if best and best[1] >= MIN_PM and best[2] >= MIN_EDGE:
+        b, p, e, pm, price = best
+        return dict(base, kind="single", label=b["l"], labels=[b["l"]], lo=b["lo"], hi=b["hi"], legs=[{"l": b["l"], "price": price, "pm": round(pm, 3)}],
+                    price=price, pm=round(p, 3), pm_model=round(pm, 3), edge=round(e, 3),
+                    level="strong" if e >= 0.10 and pr["sd"] <= 0.8 and p >= 0.4 else "mid"), None
+    return None, "Цена рынка уже учла прогноз: выгоды нет (лучшее преимущество %+d п.п.)" % round(((best_c[0] if best_c else 0)) * 100)
+
+
 def build_signals(markets, fc, calib, obs, now, sigs):
     """Единые правила. Новый сигнал фиксируется один раз: цена и вероятность остаются теми, что были в момент выдачи."""
     have = {s["key"] for s in sigs}
     per_date = {}
     for s in sigs:
         per_date[s["date"]] = per_date.get(s["date"], 0) + 1
-    fresh = []
+    fresh, skips = [], []
     for m in markets:
         key = "%s|%s" % (m["c"], m["date"])
         if key in have:
             continue
-        vals = (fc.get("cities") or {}).get(m["c"])
-        if not vals:
-            continue
-        d = dt.date.fromisoformat(m["date"])
-        ln = local_now(now, fc, m["c"])
-        lead = (d - ln.date()).days
-        if lead < 0 or lead > 2:
-            continue
-        i = (fc.get("dates") or []).index(m["date"]) if m["date"] in (fc.get("dates") or []) else None
-        if i is None:
-            continue
-        es = ((fc.get("ens_sd") or {}).get(m["c"]) or [None] * 7)[i] if i < 7 else None
-        pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]), es, model_weights(calib, m["c"]))
-        if not pr or pr["sd"] > MAX_SD:
-            continue
-        if lead == 0 and ln.hour >= LAST_NEW_HOUR:
-            continue  # день уже прошёл пик, рынок почти решён: сигнал бесполезен
-        floor = None
-        mu, sigma = pr["mu"], pr["sigma"]
-        if lead == 0 and ICAO.get(m["c"]):
-            if m["c"] in obs:
-                floor = obs[m["c"]] - 1.0
-                f = clamp((17 - (ln.hour + ln.minute / 60.0)) / 10.0, 0.3, 1.0)  # к вечеру максимум дня почти известен
-                sigma = max(0.5, sigma * f)
-                mu = max(mu, obs[m["c"]])
-                pr = dict(pr, mu=mu, sigma=sigma)
-            elif ln.hour >= 12:
-                continue  # день идёт, а наблюдений нет: не рискуем
-        pms = [(bucket_prob(b["lo"], b["hi"], mu, sigma, floor), b) for b in m["b"]]
-        top2 = sorted((p for p, _ in pms), reverse=True)[:2]
-        best = None
-        for pm, b in pms:
-            if not (MIN_PRICE <= b["p"] <= MAX_PRICE) or pm < min(top2):
-                continue
-            p = MODEL_SHARE * pm + (1 - MODEL_SHARE) * b["p"]
-            e = p - b["p"]
-            if best is None or e > best[2]:
-                best = (b, p, e, pm)
-        if best and best[1] >= MIN_PM and best[2] >= MIN_EDGE:
-            b, p, e, pm = best
-            fresh.append({"key": key, "city": m["c"], "date": m["date"], "label": b["l"], "lo": b["lo"], "hi": b["hi"],
-                          "price": b["p"], "pm": round(p, 3), "pm_model": round(pm, 3), "mu": round(pr["mu"], 2),
-                          "sigma": round(pr["sigma"], 2), "sd": round(pr["sd"], 2), "n": pr["n"], "edge": round(e, 3),
-                          "level": "strong" if e >= 0.10 and pr["sd"] <= 0.8 and p >= 0.4 else "mid",
-                          "first": now.isoformat(timespec="minutes"), "status": "open",
-                          "until": (dt.datetime(d.year, d.month, d.day, UNTIL_HOUR, tzinfo=dt.timezone.utc)
-                                    - dt.timedelta(seconds=(fc.get("offsets") or {}).get(m["c"], 0))).isoformat(timespec="minutes"),
-                          "url": EVENT_URL + slug_for(next(c[1] for c in CITIES if c[0] == m["c"]), d)})
+        sig, why = evaluate(m, fc, calib, obs, now)
+        if sig:
+            sig["key"] = key
+            sig["url"] = EVENT_URL + slug_for(next(c[1] for c in CITIES if c[0] == m["c"]), dt.date.fromisoformat(m["date"]))
+            fresh.append(sig)
+        else:
+            skips.append({"c": m["c"], "date": m["date"], "r": why})
     fresh.sort(key=lambda s: -s["edge"])
     for s in fresh:
         if per_date.get(s["date"], 0) >= MAX_PER_DAY:
+            skips.append({"c": s["city"], "date": s["date"], "r": "Уже есть %d сигнала на эту дату: берём самые сильные" % MAX_PER_DAY})
             continue
         per_date[s["date"]] = per_date.get(s["date"], 0) + 1
         sigs.append(s)
-    return sigs
+    return sigs, skips
 
 
 def settle_signals(sigs, results):
     for s in sigs:
         r = results.get(s["key"])
         if s["status"] == "open" and r:
-            s["win"], s["hit"], s["status"] = r["win"], s["label"] == r["win"], "done"
+            s["win"], s["hit"], s["status"] = r["win"], r["win"] in (s.get("labels") or [s["label"]]), "done"
     return sigs
 
 
@@ -513,7 +584,8 @@ def bets_from(sigs, old):
     for s in sigs:
         if s["status"] == "done":
             keep[(s["date"], s["city"])] = {"date": s["date"], "city": s["city"], "label": s["label"], "win": s["win"],
-                                              "hit": s["hit"], "price": s["price"], "pm": s["pm"], "edge": s["edge"], "level": s["level"]}
+                                              "hit": s["hit"], "price": s["price"], "pm": s["pm"], "edge": s["edge"], "level": s["level"],
+                                              "kind": s.get("kind", "single"), "labels": s.get("labels") or [s["label"]]}
     cut = (dt.date.today() - dt.timedelta(days=90)).isoformat()
     return sorted((b for b in keep.values() if b["date"] >= cut), key=lambda b: b["date"])
 
@@ -606,8 +678,13 @@ def main():
     except Exception as e:  # noqa: BLE001
         print("итоги не посчитались:", e)
     try:
+        skips = []
         if markets and fc.get("cities"):
-            sigs = build_signals(markets, fc, calib, fetch_obs(markets, fc, now), now, sigs)
+            sigs, skips = build_signals(markets, fc, calib, fetch_obs(markets, fc, now), now, sigs)
+            save("skips.json", {"updated": now.isoformat(timespec="minutes"), "items": skips})
+            bad = sorted({"%s %s≠%s" % (m["c"], m["st"], ICAO.get(m["c"])) for m in markets if m.get("st") and ICAO.get(m["c"]) and m["st"] != ICAO[m["c"]]})
+            if bad:
+                print("ВНИМАНИЕ, станция рынка не совпадает с нашей:", ", ".join(bad))
         sigs = settle_signals(sigs, results)
         cut = (today - dt.timedelta(days=30)).isoformat()
         sigs = [s for s in sigs if s["date"] >= cut]

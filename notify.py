@@ -100,7 +100,8 @@ def find_signals(today):
         if dt.datetime.now(dt.timezone.utc) > dt.datetime.fromisoformat(until):
             continue  # время ставить на этот рынок прошло
         out.append({"key": r["key"], "city": r["city"], "date": r["date"], "label": r["label"], "pm": r["pm"], "price": r["price"],
-                    "edge": r["edge"], "strong": r.get("level") == "strong", "url": r.get("url") or EVENT_URL})
+                    "edge": r["edge"], "strong": r.get("level") == "strong", "url": r.get("url") or EVENT_URL,
+                    "kind": r.get("kind", "single"), "labels": r.get("labels") or [r["label"]], "legs": r.get("legs") or [], "st": r.get("st")})
     out.sort(key=lambda s: -s["edge"])
     return out
 
@@ -131,7 +132,31 @@ def money(x):
     return ("$%.2f" % x).replace(".", ",")
 
 
+def corr_text(s, member):
+    d = dt.date.fromisoformat(s["date"])
+    head = "⚡ <b>Сильный сигнал · коридор</b>" if s["strong"] else "⚡ <b>Сигнал · коридор</b>"
+    cost = s["price"]
+    t = "%s · %s · %s\n\n" % (head, esc(NAMES.get(s["city"], s["city"])), dlabel(d))
+    t += "👉 <b>Ставьте «ДА» сразу на три соседних варианта:</b>\n"
+    n = 10 / cost if cost > 0 else 0
+    for leg in s["legs"]:
+        t += "• <b>%s</b>: цена %d¢, сумма %s\n" % (esc(leg["l"]), round(leg["price"] * 100), money(n * leg["price"]))
+    t += "\nСуммы даны для вложения $10 в коридор. Выплата будет одинаковой при любом из трёх исходов.\n\n"
+    t += "✅ Если максимум дня попадёт в <b>любой</b> из трёх вариантов, вернётся ≈ %s (прибыль %s).\n" % (money(n), money(n - 10))
+    t += "❌ Если мимо, потеряете вложенные $10.\n\n"
+    t += "Шанс попасть: <b>%d%%</b> · коридор стоит %d%% (выгодно при шансе выше) · преимущество +%d п.п.\n" % (round(s["pm"] * 100), round(cost * 100), round(s["edge"] * 100))
+    if s.get("st"):
+        t += "Станция, по которой закроется рынок: %s.\n" % esc(s["st"])
+    t += "\n<b>Как поставить:</b>\n1. Нажмите «Открыть рынок» ниже.\n2. В каждой из трёх строк выберите «Да» (Yes) и введите свою сумму."
+    if member:
+        return t + "\n\n✅ Можно ставить. Итог пришлю, когда рынок закроется."
+    return (t + "\n\n🎁 Это бесплатный сигнал недели. Постоянные сигналы получают рефералы владельца сервиса на Pulse Market: "
+            "зарегистрируйтесь по ссылке и отправьте заявку в приложении.")
+
+
 def signal_text(s, member):
+    if s.get("kind") == "corr":
+        return corr_text(s, member)
     d = dt.date.fromisoformat(s["date"])
     cond, conv, rng = explain(s["label"])
     head = "⚡ <b>Сильный сигнал</b>" if s["strong"] else "⚡ <b>Сигнал</b>"
@@ -155,8 +180,9 @@ def signal_text(s, member):
 def outcome_text(rec, win, hit):
     d = dt.date.fromisoformat(rec["date"])
     head = "✅ <b>Ставка выиграла</b>" if hit else "❌ <b>Ставка не сыграла</b>"
-    t = "%s\n%s · %s\n\nНаш вариант: <b>%s</b>\nИтог рынка: <b>%s</b>" % (
-        head, esc(NAMES.get(rec["city"], rec["city"])), dlabel(d), esc(rec["label"]), esc(win))
+    ours = ", ".join(rec.get("labels") or [rec["label"]])
+    t = "%s\n%s · %s\n\nНаш %s: <b>%s</b>\nИтог рынка: <b>%s</b>" % (
+        head, esc(NAMES.get(rec["city"], rec["city"])), dlabel(d), "коридор" if rec.get("kind") == "corr" else "вариант", esc(ours), esc(win))
     if not hit:
         t += "\n\nСигнал не гарантирует результат: рынок закрылся на другом варианте."
     return t
@@ -340,7 +366,8 @@ def run(now=None):
     for s in sigs:
         if s["key"] in st["sent"]:
             continue
-        rec = {"city": s["city"], "date": s["date"], "label": s["label"], "pm": s["pm"], "price": s["price"], "to": []}
+        rec = {"city": s["city"], "date": s["date"], "label": s["label"], "pm": s["pm"], "price": s["price"], "to": [],
+               "kind": s.get("kind", "single"), "labels": s.get("labels") or [s["label"]]}
         for h, chat in members.items():
             if send(chat, signal_text(s, True), ("Открыть на Pulse Market", s["url"])):
                 rec["to"].append(h)
@@ -359,7 +386,7 @@ def run(now=None):
         r = results.get(key)
         if not r or rec.get("done"):
             continue
-        hit = rec["label"] == r["win"]
+        hit = r["win"] in (rec.get("labels") or [rec["label"]])
         for h in rec["to"]:
             if h in everyone:
                 send(everyone[h], outcome_text(rec, r["win"], hit))
