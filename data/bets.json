@@ -8,7 +8,11 @@
   "price": 0.555,
   "pm": 0.615,
   "edge": 0.06,
-  "level": "mid"
+  "level": "mid",
+  "kind": "single",
+  "labels": [
+   "76–77°F"
+  ]
  },
  {
   "date": "2026-11-10",
@@ -19,6 +23,10 @@
   "price": 0.53,
   "pm": 0.631,
   "edge": 0.101,
-  "level": "strong"
+  "level": "strong",
+  "kind": "single",
+  "labels": [
+   "13°C"
+  ]
  }
 ]
