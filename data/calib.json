@@ -176,5 +176,24 @@
     "ens": 5.0
    }
   }
+ ],
+ "moscow": [
+  {
+   "d": "2026-11-11",
+   "mu": 2.77,
+   "sd": 0.83,
+   "a": 3.0,
+   "m": {
+    "ecmwf_ifs025": 3.5,
+    "ecmwf_aifs025_single": 2.4,
+    "icon_seamless": 3.1,
+    "gfs_seamless": 3.3,
+    "ukmo_seamless": 3.1,
+    "gem_seamless": 1.9,
+    "jma_seamless": 1.2,
+    "cma_grapes_global": 0.4,
+    "ens": 3.3
+   }
+  }
  ]
 }

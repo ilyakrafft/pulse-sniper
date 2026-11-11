@@ -1456,5 +1456,24 @@
    "cma_grapes_global": 3.8,
    "ens": 4.98
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "moscow",
+  "k": 3,
+  "p": 0.677,
+  "actual": 3,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 3.5,
+   "ecmwf_aifs025_single": 2.4,
+   "icon_seamless": 3.1,
+   "gfs_seamless": 3.3,
+   "ukmo_seamless": 3.1,
+   "gem_seamless": 1.9,
+   "jma_seamless": 1.2,
+   "cma_grapes_global": 0.4,
+   "ens": 3.3
+  }
  }
 ]

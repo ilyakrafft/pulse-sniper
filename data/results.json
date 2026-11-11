@@ -94,5 +94,9 @@
  "helsinki|2026-11-11": {
   "win": "5°C",
   "actual": 5
+ },
+ "moscow|2026-11-11": {
+  "win": "3°C",
+  "actual": 3
  }
 }

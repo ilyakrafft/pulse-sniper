@@ -78,17 +78,6 @@
   "cma_grapes_global": 11.3,
   "ens": 12.8
  },
- "moscow|2026-11-11": {
-  "ecmwf_ifs025": 3.5,
-  "ecmwf_aifs025_single": 2.4,
-  "icon_seamless": 3.1,
-  "gfs_seamless": 3.3,
-  "ukmo_seamless": 3.1,
-  "gem_seamless": 1.9,
-  "jma_seamless": 1.2,
-  "cma_grapes_global": 0.4,
-  "ens": 3.3
- },
  "madrid|2026-11-11": {
   "ecmwf_ifs025": 14.9,
   "ecmwf_aifs025_single": 14.8,
@@ -252,7 +241,7 @@
  "paris|2026-11-12": {
   "ecmwf_ifs025": 10.4,
   "ecmwf_aifs025_single": 10.5,
-  "icon_seamless": 11.0,
+  "icon_seamless": 10.8,
   "gfs_seamless": 11.1,
   "ukmo_seamless": 12.2,
   "gem_seamless": 10.5,
@@ -370,7 +359,7 @@
   "gem_seamless": 18.8,
   "jma_seamless": 14.2,
   "cma_grapes_global": 11.8,
-  "ncep_nbm_conus": 14.6,
+  "gfs_hrrr": 14.4,
   "ens": 14.36
  },
  "miami|2026-11-12": {
@@ -382,7 +371,7 @@
   "gem_seamless": 29.4,
   "jma_seamless": 27.6,
   "cma_grapes_global": 28.0,
-  "ncep_nbm_conus": 27.5,
+  "gfs_hrrr": 27.2,
   "ens": 27.77
  },
  "dallas|2026-11-12": {
@@ -394,7 +383,7 @@
   "gem_seamless": 22.9,
   "jma_seamless": 21.1,
   "cma_grapes_global": 20.7,
-  "ncep_nbm_conus": 24.3,
+  "gfs_hrrr": 22.8,
   "ens": 23.57
  },
  "houston|2026-11-12": {
@@ -406,7 +395,7 @@
   "gem_seamless": 21.1,
   "jma_seamless": 22.9,
   "cma_grapes_global": 22.5,
-  "ncep_nbm_conus": 23.7,
+  "gfs_hrrr": 23.0,
   "ens": 23.97
  },
  "sf|2026-11-12": {
@@ -418,7 +407,6 @@
   "gem_seamless": 22.5,
   "jma_seamless": 17.4,
   "cma_grapes_global": 21.0,
-  "ncep_nbm_conus": 21.4,
   "ens": 20.73
  },
  "la|2026-11-12": {
@@ -430,7 +418,6 @@
   "gem_seamless": 25.8,
   "jma_seamless": 19.4,
   "cma_grapes_global": 23.4,
-  "ncep_nbm_conus": 24.5,
   "ens": 25.37
  },
  "shenzhen|2026-11-13": {
@@ -618,7 +605,6 @@
   "gem_seamless": 7.1,
   "jma_seamless": 6.9,
   "cma_grapes_global": 8.4,
-  "ncep_nbm_conus": 10.4,
   "ens": 9.4
  },
  "miami|2026-11-13": {
@@ -630,7 +616,6 @@
   "gem_seamless": 27.1,
   "jma_seamless": 25.2,
   "cma_grapes_global": 23.8,
-  "ncep_nbm_conus": 25.0,
   "ens": 25.02
  },
  "dallas|2026-11-13": {
@@ -642,7 +627,6 @@
   "gem_seamless": 18.6,
   "jma_seamless": 19.0,
   "cma_grapes_global": 16.3,
-  "ncep_nbm_conus": 21.8,
   "ens": 20.84
  },
  "houston|2026-11-13": {
@@ -654,7 +638,6 @@
   "gem_seamless": 21.2,
   "jma_seamless": 21.6,
   "cma_grapes_global": 18.7,
-  "ncep_nbm_conus": 23.6,
   "ens": 22.97
  },
  "sf|2026-11-13": {
@@ -666,7 +649,6 @@
   "gem_seamless": 17.4,
   "jma_seamless": 16.9,
   "cma_grapes_global": 15.8,
-  "ncep_nbm_conus": 16.7,
   "ens": 17.79
  },
  "la|2026-11-13": {
@@ -678,7 +660,6 @@
   "gem_seamless": 22.1,
   "jma_seamless": 18.2,
   "cma_grapes_global": 21.7,
-  "ncep_nbm_conus": 20.6,
   "ens": 21.16
  },
  "tokyo|2026-11-14": {
@@ -745,7 +726,6 @@
   "gem_seamless": 18.8,
   "jma_seamless": 19.7,
   "cma_grapes_global": 16.1,
-  "ncep_nbm_conus": 21.0,
   "ens": 19.31
  },
  "dallas|2026-11-15": {
@@ -756,7 +736,6 @@
   "ukmo_seamless": 18.2,
   "gem_seamless": 14.2,
   "jma_seamless": 20.7,
-  "ncep_nbm_conus": 15.9,
   "ens": 15.78
  },
  "dallas|2026-11-16": {
@@ -767,7 +746,6 @@
   "ukmo_seamless": 16.3,
   "gem_seamless": 16.8,
   "jma_seamless": 19.8,
-  "ncep_nbm_conus": 15.8,
   "ens": 14.85
  },
  "shenzhen|2026-11-15": {
@@ -1038,7 +1016,6 @@
   "gem_seamless": 5.4,
   "jma_seamless": 7.6,
   "cma_grapes_global": 6.3,
-  "ncep_nbm_conus": 8.3,
   "ens": 7.62
  },
  "nyc|2026-11-15": {
@@ -1049,7 +1026,6 @@
   "ukmo_seamless": 9.0,
   "gem_seamless": 7.9,
   "jma_seamless": 8.1,
-  "ncep_nbm_conus": 10.1,
   "ens": 9.43
  },
  "nyc|2026-11-16": {
@@ -1060,7 +1036,6 @@
   "ukmo_seamless": 9.2,
   "gem_seamless": 9.2,
   "jma_seamless": 9.1,
-  "ncep_nbm_conus": 10.6,
   "ens": 9.03
  },
  "hongkong|2026-11-15": {
@@ -1155,7 +1130,6 @@
   "gem_seamless": 16.4,
   "jma_seamless": 16.5,
   "cma_grapes_global": 19.1,
-  "ncep_nbm_conus": 16.6,
   "ens": 16.93
  },
  "sf|2026-11-15": {
@@ -1166,7 +1140,6 @@
   "ukmo_seamless": 18.7,
   "gem_seamless": 17.8,
   "jma_seamless": 17.3,
-  "ncep_nbm_conus": 16.3,
   "ens": 16.96
  },
  "sf|2026-11-16": {
@@ -1177,7 +1150,6 @@
   "ukmo_seamless": 16.3,
   "gem_seamless": 13.4,
   "jma_seamless": 16.0,
-  "ncep_nbm_conus": 14.5,
   "ens": 15.31
  },
  "miami|2026-11-14": {
@@ -1189,7 +1161,6 @@
   "gem_seamless": 20.2,
   "jma_seamless": 23.5,
   "cma_grapes_global": 20.2,
-  "ncep_nbm_conus": 22.1,
   "ens": 21.61
  },
  "miami|2026-11-15": {
@@ -1200,7 +1171,6 @@
   "ukmo_seamless": 24.9,
   "gem_seamless": 25.5,
   "jma_seamless": 26.7,
-  "ncep_nbm_conus": 24.8,
   "ens": 25.01
  },
  "miami|2026-11-16": {
@@ -1211,7 +1181,6 @@
   "ukmo_seamless": 25.6,
   "gem_seamless": 25.3,
   "jma_seamless": 28.1,
-  "ncep_nbm_conus": 25.6,
   "ens": 25.33
  },
  "madrid|2026-11-14": {
@@ -1254,7 +1223,6 @@
   "gem_seamless": 17.6,
   "jma_seamless": 18.5,
   "cma_grapes_global": 20.7,
-  "ncep_nbm_conus": 20.2,
   "ens": 21.05
  },
  "la|2026-11-15": {
@@ -1265,7 +1233,6 @@
   "ukmo_seamless": 21.2,
   "gem_seamless": 19.6,
   "jma_seamless": 19.5,
-  "ncep_nbm_conus": 20.3,
   "ens": 21.14
  },
  "la|2026-11-16": {
@@ -1276,7 +1243,6 @@
   "ukmo_seamless": 19.1,
   "gem_seamless": 18.5,
   "jma_seamless": 19.7,
-  "ncep_nbm_conus": 19.1,
   "ens": 18.89
  },
  "houston|2026-11-14": {
@@ -1288,7 +1254,6 @@
   "gem_seamless": 18.6,
   "jma_seamless": 22.3,
   "cma_grapes_global": 15.5,
-  "ncep_nbm_conus": 21.3,
   "ens": 20.19
  },
  "houston|2026-11-15": {
@@ -1299,7 +1264,6 @@
   "ukmo_seamless": 24.5,
   "gem_seamless": 21.0,
   "jma_seamless": 24.3,
-  "ncep_nbm_conus": 21.3,
   "ens": 20.93
  },
  "houston|2026-11-16": {
@@ -1310,7 +1274,6 @@
   "ukmo_seamless": 25.3,
   "gem_seamless": 19.1,
   "jma_seamless": 22.1,
-  "ncep_nbm_conus": 19.6,
   "ens": 19.79
  },
  "singapore|2026-11-15": {
@@ -1393,7 +1356,6 @@
   "gfs_seamless": 17.3,
   "gem_seamless": 17.4,
   "jma_seamless": 12.9,
-  "ncep_nbm_conus": 17.7,
   "ens": 15.43
  },
  "shenzhen|2026-11-17": {
@@ -1493,7 +1455,6 @@
   "gfs_seamless": 10.1,
   "gem_seamless": 11.1,
   "jma_seamless": 10.1,
-  "ncep_nbm_conus": 10.7,
   "ens": 8.95
  },
  "hongkong|2026-11-17": {
@@ -1532,8 +1493,7 @@
   "icon_seamless": 16.4,
   "gfs_seamless": 15.7,
   "gem_seamless": 13.3,
-  "jma_seamless": 15.0,
-  "ncep_nbm_conus": 14.5
+  "jma_seamless": 15.0
  },
  "miami|2026-11-17": {
   "ecmwf_ifs025": 25.9,
@@ -1542,7 +1502,6 @@
   "gfs_seamless": 32.0,
   "gem_seamless": 25.9,
   "jma_seamless": 28.1,
-  "ncep_nbm_conus": 26.2,
   "ens": 25.7
  },
  "madrid|2026-11-17": {
@@ -1561,8 +1520,7 @@
   "icon_seamless": 19.2,
   "gfs_seamless": 19.7,
   "gem_seamless": 15.9,
-  "jma_seamless": 20.0,
-  "ncep_nbm_conus": 18.7
+  "jma_seamless": 20.0
  },
  "houston|2026-11-17": {
   "ecmwf_ifs025": 15.9,
@@ -1571,7 +1529,6 @@
   "gfs_seamless": 19.3,
   "gem_seamless": 19.9,
   "jma_seamless": 17.3,
-  "ncep_nbm_conus": 19.1,
   "ens": 18.19
  },
  "singapore|2026-11-17": {
