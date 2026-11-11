@@ -195,5 +195,24 @@
     "ens": 3.3
    }
   }
+ ],
+ "jeddah": [
+  {
+   "d": "2026-11-11",
+   "mu": 30.52,
+   "sd": 0.71,
+   "a": 33.0,
+   "m": {
+    "ecmwf_ifs025": 30.2,
+    "ecmwf_aifs025_single": 31.1,
+    "icon_seamless": 30.6,
+    "gfs_seamless": 30.2,
+    "ukmo_seamless": 31.8,
+    "gem_seamless": 31.0,
+    "jma_seamless": 28.8,
+    "cma_grapes_global": 30.4,
+    "ens": 30.1
+   }
+  }
  ]
 }

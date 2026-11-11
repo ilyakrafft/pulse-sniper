@@ -228,7 +228,9 @@
    "label": "30°C",
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "chongqing|2026-11-10": {
    "city": "chongqing",
@@ -638,6 +640,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.25
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": null
   }
  ],
  "last_summary": "2026-W45",

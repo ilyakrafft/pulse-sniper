@@ -1475,5 +1475,24 @@
    "cma_grapes_global": 0.4,
    "ens": 3.3
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "jeddah",
+  "k": 31,
+  "p": 0.677,
+  "actual": 33,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 30.2,
+   "ecmwf_aifs025_single": 31.1,
+   "icon_seamless": 30.6,
+   "gfs_seamless": 30.2,
+   "ukmo_seamless": 31.8,
+   "gem_seamless": 31.0,
+   "jma_seamless": 28.8,
+   "cma_grapes_global": 30.4,
+   "ens": 30.13
+  }
  }
 ]
