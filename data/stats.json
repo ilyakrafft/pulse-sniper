@@ -1648,5 +1648,25 @@
    "ukmo_uk_deterministic_2km": 10.2,
    "ens": 9.73
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "miami",
+  "k": 28,
+  "p": 0.688,
+  "actual": 29,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 27.8,
+   "ecmwf_aifs025_single": 27.8,
+   "icon_seamless": 27.5,
+   "gfs_seamless": 29.2,
+   "ukmo_seamless": 28.9,
+   "gem_seamless": 26.2,
+   "jma_seamless": 28.9,
+   "cma_grapes_global": 27.1,
+   "ncep_nbm_conus": 28.6,
+   "ens": 27.76
+  }
  }
 ]

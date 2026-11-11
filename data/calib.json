@@ -366,5 +366,25 @@
     "ens": 9.7
    }
   }
+ ],
+ "miami": [
+  {
+   "d": "2026-11-11",
+   "mu": 28.01,
+   "sd": 0.8,
+   "a": 29.17,
+   "m": {
+    "ecmwf_ifs025": 27.8,
+    "ecmwf_aifs025_single": 27.8,
+    "icon_seamless": 27.5,
+    "gfs_seamless": 29.2,
+    "ukmo_seamless": 28.9,
+    "gem_seamless": 26.2,
+    "jma_seamless": 28.9,
+    "cma_grapes_global": 27.1,
+    "ncep_nbm_conus": 28.6,
+    "ens": 27.8
+   }
+  }
  ]
 }
