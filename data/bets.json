@@ -43,5 +43,20 @@
   "labels": [
    "24°C"
   ]
+ },
+ {
+  "date": "2026-11-11",
+  "city": "telaviv",
+  "label": "22°C",
+  "win": "22°C",
+  "hit": true,
+  "price": 0.215,
+  "pm": 0.27,
+  "edge": 0.055,
+  "level": "mid",
+  "kind": "single",
+  "labels": [
+   "22°C"
+  ]
  }
 ]

@@ -214,5 +214,43 @@
     "ens": 30.1
    }
   }
+ ],
+ "munich": [
+  {
+   "d": "2026-11-11",
+   "mu": 11.78,
+   "sd": 0.94,
+   "a": 12.0,
+   "m": {
+    "ecmwf_ifs025": 11.1,
+    "ecmwf_aifs025_single": 11.3,
+    "icon_seamless": 11.2,
+    "gfs_seamless": 13.7,
+    "ukmo_seamless": 10.6,
+    "gem_seamless": 12.4,
+    "jma_seamless": 13.2,
+    "cma_grapes_global": 12.2,
+    "ens": 11.7
+   }
+  }
+ ],
+ "telaviv": [
+  {
+   "d": "2026-11-11",
+   "mu": 22.28,
+   "sd": 0.54,
+   "a": 22.0,
+   "m": {
+    "ecmwf_ifs025": 22.3,
+    "ecmwf_aifs025_single": 23.0,
+    "icon_seamless": 22.7,
+    "gfs_seamless": 21.6,
+    "ukmo_seamless": 21.7,
+    "gem_seamless": 22.9,
+    "jma_seamless": 22.6,
+    "cma_grapes_global": 21.1,
+    "ens": 22.1
+   }
+  }
  ]
 }
