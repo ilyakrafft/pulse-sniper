@@ -847,49 +847,38 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 
   /* ---------- раздел «Отчёт» ---------- */
   function renderReport() {
-    var el = $("v-report"), cut = state.period, rows = state.stats.filter(function (r) { return r.age <= cut; });
-    rows.sort(function (a, b) { return b.age - a.age; });
-    var n = rows.length, hits = rows.filter(function (r) { return r.hit; }).length, miss = 0, acc = n ? hits / n : 0, avgP = n ? rows.reduce(function (a, r) { return a + r.p; }, 0) / n : 0, best = 0, run = 0;
-    miss = n - hits; rows.forEach(function (r) { run = r.hit ? run + 1 : 0; best = Math.max(best, run); });
-    /* накопленная точность по дням */
+    var el = $("v-report"), cut = state.period;
+    var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
+    var bn = bets.length, bh = bets.filter(function (r) { return r.hit; }).length, bm = bn - bh, acc = bn ? bh / bn : 0, best = 0, run = 0;
+    bets.slice().reverse().forEach(function (r) { run = r.hit ? run + 1 : 0; best = Math.max(best, run); });
+    var corrN = bets.filter(function (r) { return r.kind === "corr"; }).length;
+    /* накопленная доля сыгравших сигналов */
     var byDay = {}, cum = [], h = 0, tt = 0;
-    rows.forEach(function (r) { (byDay[r.age] = byDay[r.age] || []).push(r); });
+    bets.forEach(function (r) { (byDay[r.age] = byDay[r.age] || []).push(r); });
     Object.keys(byDay).map(Number).sort(function (a, b) { return b - a; }).forEach(function (a) { byDay[a].forEach(function (r) { tt++; if (r.hit) h++; }); cum.push({ age: a, v: h / tt }); });
     var W = 360, Hh = 150, px = 8, py = 14, xs = function (i) { return cum.length < 2 ? W / 2 : px + i * (W - px * 2) / (cum.length - 1); }, ys = function (v) { return py + (1 - v) * (Hh - py * 2 - 12); };
     var pts = cum.map(function (c, i) { return xs(i) + "," + ys(c.v); }), line = pts.length ? "M" + pts.join(" L") : "", last = cum[cum.length - 1];
-    var svg = [0.5, 0.75, 1].map(function (g) { return '<line class="grid" x1="0" x2="' + W + '" y1="' + ys(g) + '" y2="' + ys(g) + '" stroke-dasharray="3 4"/><text x="0" y="' + (ys(g) - 4) + '">' + pc(g) + '%</text>'; }).join("") +
+    var svg = [0.25, 0.5, 0.75, 1].map(function (g) { return '<line class="grid" x1="0" x2="' + W + '" y1="' + ys(g) + '" y2="' + ys(g) + '" stroke-dasharray="3 4"/><text x="0" y="' + (ys(g) - 4) + '">' + pc(g) + '%</text>'; }).join("") +
       (line ? '<path class="area" d="' + line + " L" + xs(cum.length - 1) + "," + ys(0) + " L" + xs(0) + "," + ys(0) + ' Z"/><path class="line" pathLength="1" d="' + line + '"/><circle class="pt" cx="' + xs(cum.length - 1) + '" cy="' + ys(last.v) + '" r="5"/>' : "") +
-      '<text x="0" y="' + (Hh - 2) + '">' + cut + ' дн. назад</text><text x="' + W + '" y="' + (Hh - 2) + '" text-anchor="end">вчера</text>';
-    /* калибровка */
-    var bins = [[0.4, 0.6, "40–60%"], [0.6, 0.8, "60–80%"], [0.8, 1.01, "80–100%"]].map(function (b) {
-      var s = rows.filter(function (r) { return r.p >= b[0] && r.p < b[1]; }), ap = s.length ? s.reduce(function (a, r) { return a + r.p; }, 0) / s.length : 0, ar = s.length ? s.filter(function (r) { return r.hit; }).length / s.length : 0;
-      return '<div class="calrow"><div><b style="color:var(--fg)">' + b[2] + '</b><br>' + s.length + ' сигн.</div><div class="calbars"><div class="vrow"><span>Заявлено</span><div class="vbar"><em style="--w:' + pc(ap) + '%"></em></div><b>' + pc(ap) + '%</b></div><div class="vrow mkt"><span>Сбылось</span><div class="vbar"><em style="--w:' + pc(ar) + '%"></em></div><b>' + pc(ar) + '%</b></div></div></div>';
-    }).join("");
-    var latest = rows.slice().reverse().slice(0, 10).map(function (r) {
-      var c = cityById(r.c), lo = r.k - 1, hi = r.k + 1, off = r.actual < lo ? lo - r.actual : r.actual > hi ? r.actual - hi : 0;
-      return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + c.name + '</b><small>' + fmtDate(r.dt) + ' · уверенность ' + pc(r.p) + '%</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Попали" : "✕ Мимо на " + off + "°") + '</span></div>' +
-        '<div class="rr2-box"><div><i>Наш коридор</i><span>' + t0(lo) + '…' + t0(hi) + '°</span></div><div><i>Факт</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + t0(r.actual) + '°</span></div></div></div>';
-    }).join("");
-    var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
-    var bn = bets.length, bh = bets.filter(function (r) { return r.hit; }).length, roi = 0, roiN = 0;
-    bets.forEach(function (r) { if (r.price > 0) { roiN++; roi += r.hit ? (10 / r.price - 10) : -10; } });
-    var betRows = bets.slice(0, 10).map(function (r) {
+      '<text x="0" y="' + (Hh - 2) + '">' + cut + ' дн. назад</text><text x="' + W + '" y="' + (Hh - 2) + '" text-anchor="end">сегодня</text>';
+    var betRows = bets.slice(0, 15).map(function (r) {
       var c = cityById(r.c);
-      return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Выиграла" : "✕ Не сыграла") + '</span></div>' +
-        '<div class="rr2-box"><div><i>Наш вариант</i><span>' + (r.kind === 'corr' ? 'Коридор ' : '') + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
+      return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Сыграл" : "✕ Не сыграл") + '</span></div>' +
+        '<div class="rr2-box"><div><i>Наш сигнал «Да»</i><span>' + (r.kind === "corr" ? "Коридор " : "") + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
     }).join("");
-    var betsCard = '<div class="card rise" style="--i:3"><h3>Сигналы из бота и приложения</h3><p class="sub">Здесь каждый сигнал целиком: коридор из трёх вариантов или одна ставка. Сыграл, если итог рынка внутри ваших вариантов. Одна ставка на один вариант, например «68–69°F». Она выигрывает реже коридора, зато платит больше.</p>' +
-      (bn ? '<div class="bigscore"><strong>' + bh + ' из ' + bn + '</strong><span>сыграло (' + pc(bh / bn) + '%)</span></div>' + '<div class="res" style="margin-top:10px">' + betRows + '</div>'
-        : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
-    var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
-    var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
-    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
-    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Закрытые рынки: попала ли фактическая температура в наш коридор и сыграл ли вариант из сигнала.</p></div>' + demo +
-      '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
-      '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>' + how +
-      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + n + '">' + n + '</strong></div><div class="tile rise" style="--i:2"><small>Уверенность</small><strong data-count="' + (avgP * 100) + '" data-suf="%">' + pc(avgP) + '%</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + betsCard +
-      '<div class="two"><div class="card rise" style="--i:4"><h3>Доля попаданий в коридор</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Накопленная точность по дням">' + svg + '</svg></div><div class="card rise" style="--i:5"><h3>Совпадает ли уверенность с результатом</h3><p class="sub">Если заявлено 70%, сбываться должно около 70%.</p><div class="cal">' + bins + '</div></div></div>' +
-      '<div class="card rise" style="--i:6"><h3>Последние итоги по коридору</h3><div class="res">' + (latest || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в отчёте в °C.</p></div>' + cta +
+    /* справочно: проверка самих моделей, без цен рынка */
+    var rows = state.stats.filter(function (r) { return r.age <= cut; }), sn = rows.length, sh = rows.filter(function (r) { return r.hit; }).length;
+    var ref = sn ? '<details class="card ref rise" style="--i:6"><summary><b>Проверка моделей (справочно)</b><span>Попали ли мы в три градуса вокруг прогноза: ' + sh + ' из ' + sn + ' (' + pc(sh / sn) + '%). Это не ваши ставки: здесь нет цен рынка.</span></summary></details>' : "";
+    var demo = state.statsSource === "demo" && !bn ? '<div class="demo rise"><b>ДЕМО</b><span>Реальный отчёт появится, когда закроются рынки, по которым бот выдал сигналы.</span></div>' : "";
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны сразу.</p></div><button class="btn" type="button" data-act="login">Открыть кабинет</button></div>';
+    var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>20</i><i class="mid">21</i><i>22</i></div><p>Каждая строка это один сигнал из бота и приложения. Если вы поставили «Да» на его варианты, итог рынка решает всё: внутри вариантов значит «Сыграл», иначе «Не сыграл».</p></div></div>';
+    var hero = bn ? '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Сигналы сыграли</span><strong data-count="' + bh + '">' + bh + '</strong><em> из ' + bn + '</em><div class="chips2"><span class="rtag win">✓ Сыграли ' + bh + '</span><span class="rtag lose">✕ Не сыграли ' + bm + '</span></div></div></div>' :
+      '<div class="card rep-hero rise" style="--i:0"><div class="rh-t"><span class="kick">Сигналы</span><strong>0</strong><em> закрыто</em><div class="betsempty" style="margin-top:8px">Первые итоги появятся, когда закроются рынки, по которым уже выданы сигналы.</div></div></div>';
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов, которые вы видели в боте и приложении. Один счёт, без пересчётов.</p></div>' + demo +
+      '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' + hero +
+      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + bn + '">' + bn + '</strong></div><div class="tile rise" style="--i:2"><small>Коридоров</small><strong data-count="' + corrN + '">' + corrN + '</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + how +
+      (cum.length ? '<div class="card rise" style="--i:4"><h3>Доля сыгравших сигналов</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Доля сыгравших сигналов">' + svg + '</svg></div>' : "") +
+      '<div class="card rise" style="--i:5"><h3>Все закрытые сигналы</h3><div class="res">' + (betRows || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в единицах рынка (°C или °F).</p></div>' + ref + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
   }
@@ -1634,6 +1623,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .drow{display:grid;grid-template-columns:78px 1fr 40px;gap:8px;align-items:center;font-size:12px}.drow .dl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}.drow.on .dl{color:var(--fg);font-weight:600}.drow b{text-align:right;font-weight:600}
 .dtr{position:relative;height:10px;border-radius:5px;background:color-mix(in srgb,var(--muted) 14%,transparent)}.dtr em{display:block;height:100%;width:var(--w);border-radius:5px;background:color-mix(in srgb,var(--accent) 55%,transparent);transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*60ms)}.drow.on .dtr em{background:var(--accent)}.dtr i{position:absolute;top:-2px;width:3px;height:14px;border-radius:2px;background:var(--fg)}
 .how2 summary,.skips summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:13px}.how2 ol{margin:8px 0 0;padding-left:20px;display:grid;gap:4px;font-size:13px}
+.ref summary{cursor:pointer}.ref summary b{display:block}.ref summary span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
 .skips summary b{display:block;color:var(--fg)}.skips summary span{display:block;color:var(--muted);font-size:12px;font-weight:400}.skips>div{display:grid;gap:6px;margin-top:10px}
 .skr{display:grid;grid-template-columns:auto auto 1fr;gap:8px;font-size:12.5px;align-items:baseline}.skr small{color:var(--muted)}.skr span{color:var(--muted);min-width:0}
 @media(max-width:420px){.skr{grid-template-columns:auto 1fr}.skr span{grid-column:1/-1}}
