@@ -74,5 +74,21 @@
  "singapore|2026-11-11": {
   "win": "31°C",
   "actual": 31
+ },
+ "chongqing|2026-11-11": {
+  "win": "16°C",
+  "actual": 16
+ },
+ "hongkong|2026-11-11": {
+  "win": "25°C",
+  "actual": 25
+ },
+ "shenzhen|2026-11-11": {
+  "win": "25°C",
+  "actual": 25
+ },
+ "tokyo|2026-11-11": {
+  "win": "14°C",
+  "actual": 14
  }
 }

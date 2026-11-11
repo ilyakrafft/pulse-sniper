@@ -276,7 +276,9 @@
    "price": 0.083,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "milan|2026-11-11": {
    "city": "milan",
@@ -404,7 +406,9 @@
    "price": 0.205,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "shenzhen|2026-11-10": {
    "city": "shenzhen",
@@ -498,7 +502,9 @@
    "price": 0.18,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   }
  },
  "free_week": {},
@@ -598,6 +604,24 @@
    "week": "2026-W46",
    "hit": true,
    "price": 0.185
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.083
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.205
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.18
   }
  ],
  "last_summary": "2026-W45",

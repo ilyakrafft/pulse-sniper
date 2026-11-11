@@ -1361,5 +1361,81 @@
    "cma_grapes_global": 29.3,
    "ens": 30.77
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "chongqing",
+  "k": 16,
+  "p": 0.634,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 17.7,
+   "ecmwf_aifs025_single": 16.0,
+   "icon_seamless": 15.2,
+   "gfs_seamless": 15.4,
+   "ukmo_seamless": 16.7,
+   "gem_seamless": 15.4,
+   "jma_seamless": 18.6,
+   "cma_grapes_global": 16.6,
+   "ens": 16.72
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "hongkong",
+  "k": 24,
+  "p": 0.72,
+  "actual": 25,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 24.1,
+   "ecmwf_aifs025_single": 24.0,
+   "icon_seamless": 23.6,
+   "gfs_seamless": 23.4,
+   "ukmo_seamless": 23.2,
+   "gem_seamless": 24.0,
+   "jma_seamless": 25.1,
+   "cma_grapes_global": 22.2,
+   "ens": 23.81
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "shenzhen",
+  "k": 25,
+  "p": 0.643,
+  "actual": 25,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 25.0,
+   "ecmwf_aifs025_single": 23.8,
+   "icon_seamless": 23.8,
+   "gfs_seamless": 26.0,
+   "ukmo_seamless": 23.9,
+   "gem_seamless": 25.8,
+   "jma_seamless": 25.3,
+   "cma_grapes_global": 22.0,
+   "ens": 24.84
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "tokyo",
+  "k": 14,
+  "p": 0.692,
+  "actual": 14,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 13.6,
+   "ecmwf_aifs025_single": 14.3,
+   "icon_seamless": 13.3,
+   "gfs_seamless": 14.5,
+   "ukmo_seamless": 13.4,
+   "gem_seamless": 12.0,
+   "jma_seamless": 13.8,
+   "cma_grapes_global": 12.9,
+   "ens": 13.65
+  }
  }
 ]
