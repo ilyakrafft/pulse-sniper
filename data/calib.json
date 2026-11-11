@@ -327,5 +327,44 @@
     "ens": 3.7
    }
   }
+ ],
+ "amsterdam": [
+  {
+   "d": "2026-11-11",
+   "mu": 7.06,
+   "sd": 0.89,
+   "a": 5.0,
+   "m": {
+    "ecmwf_ifs025": 7.7,
+    "ecmwf_aifs025_single": 6.3,
+    "icon_seamless": 5.7,
+    "gfs_seamless": 8.8,
+    "ukmo_seamless": 6.8,
+    "gem_seamless": 7.4,
+    "jma_seamless": 6.1,
+    "cma_grapes_global": 7.5,
+    "ens": 7.2
+   }
+  }
+ ],
+ "london": [
+  {
+   "d": "2026-11-11",
+   "mu": 9.66,
+   "sd": 0.58,
+   "a": 10.0,
+   "m": {
+    "ecmwf_ifs025": 8.7,
+    "ecmwf_aifs025_single": 9.1,
+    "icon_seamless": 9.6,
+    "gfs_seamless": 9.3,
+    "ukmo_seamless": 10.2,
+    "gem_seamless": 9.7,
+    "jma_seamless": 10.8,
+    "cma_grapes_global": 10.5,
+    "ukmo_uk_deterministic_2km": 10.2,
+    "ens": 9.7
+   }
+  }
  ]
 }

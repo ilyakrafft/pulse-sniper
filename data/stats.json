@@ -1609,5 +1609,44 @@
    "cma_grapes_global": 4.9,
    "ens": 3.72
   }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "amsterdam",
+  "k": 7,
+  "p": 0.671,
+  "actual": 5,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 7.7,
+   "ecmwf_aifs025_single": 6.3,
+   "icon_seamless": 5.7,
+   "gfs_seamless": 8.8,
+   "ukmo_seamless": 6.8,
+   "gem_seamless": 7.4,
+   "jma_seamless": 6.1,
+   "cma_grapes_global": 7.5,
+   "ens": 7.21
+  }
+ },
+ {
+  "date": "2026-11-11",
+  "city": "london",
+  "k": 10,
+  "p": 0.709,
+  "actual": 10,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 8.7,
+   "ecmwf_aifs025_single": 9.1,
+   "icon_seamless": 9.6,
+   "gfs_seamless": 9.3,
+   "ukmo_seamless": 10.2,
+   "gem_seamless": 9.7,
+   "jma_seamless": 10.8,
+   "cma_grapes_global": 10.5,
+   "ukmo_uk_deterministic_2km": 10.2,
+   "ens": 9.73
+  }
  }
 ]

@@ -104,7 +104,9 @@
   "edge": 0.074,
   "level": "mid",
   "first": "2026-11-11T01:00+00:00",
-  "status": "open",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-11-2026"
+  "status": "done",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-11-2026",
+  "win": "10°C",
+  "hit": false
  }
 ]

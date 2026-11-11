@@ -408,7 +408,9 @@
    "price": 0.085,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "chongqing|2026-11-11": {
    "city": "chongqing",
@@ -678,6 +680,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.14
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.085
   }
  ],
  "last_summary": "2026-W45",

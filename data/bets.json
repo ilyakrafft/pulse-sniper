@@ -58,5 +58,20 @@
   "labels": [
    "22°C"
   ]
+ },
+ {
+  "date": "2026-11-11",
+  "city": "london",
+  "label": "9°C",
+  "win": "10°C",
+  "hit": false,
+  "price": 0.2,
+  "pm": 0.274,
+  "edge": 0.074,
+  "level": "mid",
+  "kind": "single",
+  "labels": [
+   "9°C"
+  ]
  }
 ]
