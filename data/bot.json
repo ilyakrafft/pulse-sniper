@@ -472,7 +472,9 @@
    "price": 0.12,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "amsterdam|2026-11-12": {
    "city": "amsterdam",
@@ -718,6 +720,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.099
+  },
+  {
+   "date": "2026-11-11",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.12
   }
  ],
  "last_summary": "2026-W45",
