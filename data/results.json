@@ -198,5 +198,17 @@
  "paris|2026-11-12": {
   "win": "12°C",
   "actual": 12
+ },
+ "amsterdam|2026-11-12": {
+  "win": "10°C",
+  "actual": 10
+ },
+ "london|2026-11-12": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "munich|2026-11-12": {
+  "win": "12°C",
+  "actual": 12
  }
 }

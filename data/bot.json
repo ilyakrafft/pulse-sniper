@@ -486,7 +486,9 @@
    "price": 0.179,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "singapore|2026-11-12": {
    "city": "singapore",
@@ -878,6 +880,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.372
+  },
+  {
+   "date": "2026-11-12",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.179
   }
  ],
  "last_summary": "2026-W45",
