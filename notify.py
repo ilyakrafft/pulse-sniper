@@ -100,7 +100,7 @@ def find_signals(today):
         if dt.datetime.now(dt.timezone.utc) > dt.datetime.fromisoformat(until):
             continue  # время ставить на этот рынок прошло
         out.append({"key": r["key"], "city": r["city"], "date": r["date"], "label": r["label"], "pm": r["pm"], "price": r["price"],
-                    "edge": r["edge"], "strong": r.get("level") == "strong", "url": r.get("url") or EVENT_URL,
+                    "edge": r["edge"], "strong": r.get("level") == "strong", "light": r.get("level") == "light", "url": r.get("url") or EVENT_URL,
                     "kind": r.get("kind", "single"), "labels": r.get("labels") or [r["label"]], "legs": r.get("legs") or [], "st": r.get("st")})
     out.sort(key=lambda s: -s["edge"])
     return out
@@ -134,7 +134,7 @@ def money(x):
 
 def corr_text(s, member):
     d = dt.date.fromisoformat(s["date"])
-    head = "⚡ <b>Сильный сигнал · коридор</b>" if s["strong"] else "⚡ <b>Сигнал · коридор</b>"
+    head = "⚡ <b>Сильный сигнал · коридор</b>" if s["strong"] else ("⚡ <b>Осторожный сигнал · коридор</b>" if s.get("light") else "⚡ <b>Сигнал · коридор</b>")
     cost = s["price"]
     t = "%s · %s · %s\n\n" % (head, esc(NAMES.get(s["city"], s["city"])), dlabel(d))
     t += "👉 <b>Ставьте «ДА» сразу на три соседних варианта:</b>\n"

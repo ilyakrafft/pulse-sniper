@@ -170,7 +170,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 .badge { display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid currentColor; white-space: nowrap; }
 .badge i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.badge.strong { color: var(--good); } .badge.mid { color: var(--warn); } .badge.weak { color: var(--bad); }
+.badge.strong { color: var(--good); } .badge.mid, .badge.light { color: var(--warn); } .badge.weak { color: var(--bad); }
 .badge.strong i { animation: pulse 2.2s infinite; }
 .signal { display: grid; gap: 8px; }
 .signal .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -417,6 +417,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   <section id="v-signals" class="view" hidden></section>
   <section id="v-cabinet" class="view" hidden></section>
   <section id="v-report" class="view" hidden></section>
+  <section id="v-strategy" class="view" hidden></section>
 </div>
 
 <nav class="dock" id="dock" aria-label="Разделы">
@@ -509,7 +510,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     { key: "gfs_seamless", name: "GFS", sub: "США, NOAA", w: 1.0, noise: 1.15 },
     { key: "gem_seamless", name: "GEM", sub: "Канада, ECCC", w: 0.9, noise: 1.2 }
   ];
-  var DAYS = 7, VIEWS = ["globe", "signals", "cabinet", "report"];
+  var DAYS = 7, VIEWS = ["globe", "signals", "cabinet", "report", "strategy"];
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
@@ -792,7 +793,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     set("in", f(amt)); set("win", f(n)); set("prof", (n - amt >= 0 ? "+" : MINUS) + f(Math.abs(n - amt))); set("loss", MINUS + f(amt));
   }
   function corrCard(s, i) {
-    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s), rng = rangeLabel(s.labels);
+    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : s.level === "light" ? "Осторожный" : "Умеренный", open = unlockedSig(s), rng = rangeLabel(s.labels);
     var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
     if (!open) return '<article class="card sig corr tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Коридор <strong>••–••°</strong></div>' + phBars(3) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
     var cost = s.legs.reduce(function (a, L) { return a + L.price; }, 0), gone = cost >= s.best.pm - 0.01;
@@ -827,7 +828,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }
   function sigCard(s, i) {
     if (s.kind === "corr") return corrCard(s, i);
-    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : "Умеренный", open = unlockedSig(s);
+    var c = cityById(s.c), lvl = s.level === "strong" ? "Сильный" : s.level === "light" ? "Осторожный" : "Умеренный", open = unlockedSig(s);
     var top = '<div class="sig-top"><div><b>' + c.name + '</b><small>' + fmtDate(mdate(s.m)) + ' · максимум дня</small></div><span class="badge ' + s.level + '"><i></i>' + lvl + '</span></div>';
     if (!open) return '<article class="card sig tilt lockbox rise" style="--i:' + i + '">' + top + '<div class="ph"><div class="pick">Вариант <strong>••°C</strong></div>' + phBars(2) + '</div>' + lockCta("Этот сигнал открыт только участникам") + '</article>';
     var free = !state.member ? '<span class="badge mid" style="margin-left:6px">Бесплатный сигнал недели</span>' : "";
@@ -866,6 +867,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       return '<div class="rr2 ' + (r.hit ? "win" : "lose") + '"><div class="rr2-top"><div><b>' + (c ? c.name : esc(r.c)) + '</b><small>' + fmtDate(r.dt) + '</small></div><span class="rtag ' + (r.hit ? "win" : "lose") + '">' + (r.hit ? "✓ Сыграл" : "✕ Не сыграл") + '</span></div>' +
         '<div class="rr2-box"><div><i>Наш сигнал «Да»</i><span>' + (r.kind === "corr" ? "Коридор " : "") + esc(r.label) + '</span></div><div><i>Итог рынка</i><span class="fact ' + (r.hit ? "win" : "lose") + '">' + esc(r.win) + '</span></div></div></div>';
     }).join("");
+    var dots = bets.slice(0, 20).reverse().map(function (r, k) { return '<i class="' + (r.hit ? "w" : "l") + '" style="--i:' + k + '" title="' + (r.hit ? "Сыграл" : "Не сыграл") + '"></i>'; }).join("");
+    var byC = {}; bets.forEach(function (r) { var o = byC[r.c] = byC[r.c] || { n: 0, h: 0 }; o.n++; if (r.hit) o.h++; });
+    var cityRows = Object.keys(byC).sort(function (a, b) { return byC[b].n - byC[a].n; }).slice(0, 8).map(function (id, k) { var o = byC[id], c = cityById(id); return '<div class="vrow"><span>' + (c ? c.name : esc(id)) + '</span><div class="vbar"><em style="--w:' + (o.h / o.n * 100) + '%;--i:' + k + '"></em></div><b>' + o.h + '/' + o.n + '</b></div>'; }).join("");
     /* справочно: проверка самих моделей, без цен рынка */
     var rows = state.stats.filter(function (r) { return r.age <= cut; }), sn = rows.length, sh = rows.filter(function (r) { return r.hit; }).length;
     var ref = sn ? '<details class="card ref rise" style="--i:6"><summary><b>Проверка моделей (справочно)</b><span>Попали ли мы в три градуса вокруг прогноза: ' + sh + ' из ' + sn + ' (' + pc(sh / sn) + '%). Это не ваши ставки: здесь нет цен рынка.</span></summary></details>' : "";
@@ -877,10 +881,52 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов, которые вы видели в боте и приложении. Один счёт, без пересчётов.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' + hero +
       '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + bn + '">' + bn + '</strong></div><div class="tile rise" style="--i:2"><small>Коридоров</small><strong data-count="' + corrN + '">' + corrN + '</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + how +
+      (dots ? '<div class="card rise" style="--i:3"><h3>Последние сигналы</h3><p class="sub">Каждая точка это один закрытый сигнал: зелёная сыграл, красная нет.</p><div class="dots">' + dots + '</div></div>' : "") +
       (cum.length ? '<div class="card rise" style="--i:4"><h3>Доля сыгравших сигналов</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Доля сыгравших сигналов">' + svg + '</svg></div>' : "") +
-      '<div class="card rise" style="--i:5"><h3>Все закрытые сигналы</h3><div class="res">' + (betRows || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в единицах рынка (°C или °F).</p></div>' + ref + cta +
+      (bn > 1 ? '<div class="card rise" style="--i:5"><h3>По городам</h3><p class="sub">Сколько сигналов сыграло в каждом городе.</p><div class="cityb">' + cityRows + '</div></div>' : "") + '<div class="card rise" style="--i:5"><h3>Все закрытые сигналы</h3><div class="res">' + (betRows || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в единицах рынка (°C или °F).</p></div>' + ref + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
+  }
+
+  /* ---------- раздел «Стратегия» ---------- */
+  var CHECK = ["Знаю станцию, по которой рынок определит итог", "Смотрю прогноз именно для этой станции", "Минимум 3 из 5 моделей сходятся в пределах 1°", "Нет приближающегося фронта или грозы", "Сумма цен трёх вариантов меньше 100¢", "На каждый вариант не меньше $1", "Сумму не жалко потерять", "Знаю, по какой цене продам досрочно"];
+  var STEPS = [
+    ["Что вы покупаете", "Рынок спрашивает: какой будет максимум температуры в городе в этот день. Каждый градус это отдельный ответ с ценой в центах. Если ответ сбылся, он платит $1 за бумагу, иначе 0. Цена 29¢ значит, что рынок оценивает шанс в 29%."],
+    ["Станция решает всё", "Итог считает конкретная метеостанция из описания рынка, а не город целиком. В одном городе станции могут отличаться на 3°. Поэтому мы считаем прогноз по этой же станции и показываем её на карточке."],
+    ["Коридор из трёх градусов", "Вместо одного градуса берём три соседних, например 27, 28 и 29. Попасть в «плюс-минус один» заметно вероятнее, чем в точный градус. Часть выигрыша мы отдаём ради более частых попаданий. Дальние дешёвые «лотерейные» ответы не берём: они почти не сбываются."],
+    ["Деньги делим по цене", "Сумма делится пропорционально цене каждого варианта: дорогому больше, дешёвому меньше. Тогда выплата одинакова при любом исходе внутри коридора. Главное правило: сумма цен трёх вариантов должна быть меньше 100¢, иначе даже при верном прогнозе вы в минусе."],
+    ["Вход и выход", "Вход: «Да» на каждый из трёх вариантов. Если станция уже намерила температуру внутри коридора, цена этого варианта может вырасти до 80–90¢. Тогда его можно продать и зафиксировать прибыль, не дожидаясь конца дня."],
+    ["Честно о рисках", "Это вероятность, а не гарантия: иногда весь коридор сгорает. Стратегия рассчитана на плюс на длинной дистанции, а не на каждую сделку. Ставьте только ту сумму, потерю которой переживёте. Заявленные 82,7% попаданий у автора стратегии мы независимо не проверяли, свои результаты смотрите в отчёте."]
+  ];
+  function renderStrategy() {
+    var el = $("v-strategy"); if (!el) return;
+    var steps = STEPS.map(function (x, k) { return '<details class="stp rise" style="--i:' + k + '"' + (k === 0 ? " open" : "") + '><summary><i>' + (k + 1) + '</i><b>' + x[0] + '</b></summary><p>' + x[1] + '</p></details>'; }).join("");
+    var chk = CHECK.map(function (x, k) { return '<label class="ck"><input type="checkbox" data-ck><span>' + x + '</span></label>'; }).join("");
+    var amt = Math.max(3, +state.amt || 10);
+    el.innerHTML = '<div class="view-head"><h2>Стратегия</h2><p>Как зарабатывать на коридорах и не терять всё на одной ставке. Коротко и по шагам.</p></div>' +
+      '<div class="card hero strat-hero rise"><div><span class="kick">Коридор</span><h2>Три соседних градуса вместо одного</h2><div class="trio"><span>27°</span><span class="mid">28°</span><span>29°</span></div><p class="sub" style="margin:10px 0 0">Прогноз 28°: ставим «Да» на 27, 28 и 29. Попал максимум в любой из них, вы получаете выплату.</p></div></div>' +
+      '<div class="steps">' + steps + '</div>' +
+      '<div class="card scalc rise" style="--i:6"><h3>Калькулятор коридора</h3><p class="sub">Введите цены «Да» трёх вариантов с рынка (в центах) и сумму. Калькулятор разделит деньги и скажет, стоит ли входить.</p>' +
+      '<div class="sp3">' + [17, 24, 19].map(function (v, k) { return '<label>Вариант ' + (k + 1) + '<span><input type="number" inputmode="decimal" min="1" max="99" step="1" value="' + v + '" data-sp="' + k + '" aria-label="Цена варианта ' + (k + 1) + ' в центах">¢</span></label>'; }).join("") + '</div>' +
+      '<div class="calc-in"><label>Сколько вложить всего, $</label><input type="number" inputmode="decimal" min="3" max="100000" step="1" value="' + amt + '" data-samt aria-label="Общая сумма"><div class="qa">' + [5, 10, 25, 50].map(function (v) { return '<button type="button" data-samtq="' + v + '">' + v + '</button>'; }).join("") + '</div></div>' +
+      '<div class="sres" data-sres></div></div>' +
+      '<div class="card rise" style="--i:7"><h3>Чек-лист перед ставкой</h3><div class="ckbar"><em data-ckbar style="--w:0%"></em></div><div class="cks">' + chk + '</div><p class="sub" data-cktxt style="margin:8px 0 0">Отметьте пункты, которые выполнены.</p></div>' +
+      '<div class="card hero rise" style="--i:8"><div><span class="kick">Дальше</span><h2>Готовые коридоры в сигналах</h2><p class="sub">Мы сами находим выгодные коридоры по моделям и ценам рынка.</p><button class="btn" type="button" data-v-go="signals">Открыть сигналы</button></div></div>' +
+      '<p class="note" style="margin-top:14px">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
+    stratCalc();
+  }
+  function stratCalc() {
+    var el = $("v-strategy"), box = el && el.querySelector("[data-sres]"); if (!box) return;
+    var ps = [0, 1, 2].map(function (k) { var i = el.querySelector('[data-sp="' + k + '"]'); return Math.max(0, Math.min(99, +i.value || 0)) / 100; });
+    var amt = Math.max(0, +(el.querySelector("[data-samt]").value) || 0), cost = ps[0] + ps[1] + ps[2], f = function (v) { return "$" + v.toFixed(2).replace(".", ","); };
+    if (!ps.every(function (p) { return p > 0; })) { box.innerHTML = '<p class="note">Введите три цены.</p>'; return; }
+    var n = amt / cost, stakes = ps.map(function (p) { return n * p; }), tiny = stakes.some(function (v) { return v < 1; });
+    var verdict = cost >= 1 ? '<div class="vd vbad"><b>Не входить</b><span>Сумма цен ' + Math.round(cost * 100) + '¢ не меньше 100¢. Даже при попадании вы в минусе.</span></div>' :
+      cost > 0.92 ? '<div class="vd vwarn"><b>Впритык</b><span>Сумма цен ' + Math.round(cost * 100) + '¢: запас мал, комиссия может съесть прибыль.</span></div>' :
+      '<div class="vd vok"><b>Можно входить</b><span>Сумма цен ' + Math.round(cost * 100) + '¢. Выгодно, если шанс попасть выше ' + Math.round(cost * 100) + '%.</span></div>';
+    box.innerHTML = verdict + '<table class="ctab"><thead><tr><th>Вариант</th><th>Цена</th><th>Ставка</th></tr></thead><tbody>' + stakes.map(function (v, k) { return '<tr><td><b>' + (k + 1) + '</b></td><td>' + Math.round(ps[k] * 100) + '¢</td><td>' + f(v) + '</td></tr>'; }).join("") + '</tbody></table>' +
+      '<div class="csum"><div><small>Вложите</small><b>' + f(amt) + '</b></div><div class="w"><small>Попали, вернётся</small><b>' + f(n) + '</b><em>' + (n - amt >= 0 ? "+" : MINUS) + f(Math.abs(n - amt)) + '</em></div><div class="l"><small>Мимо</small><b>' + MINUS + f(amt) + '</b></div></div>' +
+      (tiny ? '<p class="note warn">На площадке минимальный ордер $1. Увеличьте сумму: на каждый вариант нужно не меньше $1 (в сумме от $3).</p>' : "");
   }
 
   /* ---------- личный кабинет и виртуальный счёт ---------- */
@@ -1159,9 +1205,10 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     if (VIEWS.indexOf(v) < 0) v = "globe";
     state.view = v;
     VIEWS.forEach(function (x) { $("v-" + x).hidden = x !== v; });
-    $("dock").style.setProperty("--i", VIEWS.indexOf(v));
+    var di = VIEWS.indexOf(v); $("dock").classList.toggle("off", di > 3); if (di <= 3) $("dock").style.setProperty("--i", di);
+    var sp = document.getElementById("stratPill"); if (sp) sp.setAttribute("aria-pressed", v === "strategy" ? "true" : "false");
     Array.prototype.forEach.call(document.querySelectorAll("#dock button"), function (b) { if (b.getAttribute("data-v") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
-    if (v === "signals") renderSignals(); if (v === "report") renderReport(); if (v === "cabinet") { renderCabinet(); maybeLoadPf(); }
+    if (v === "signals") renderSignals(); if (v === "report") renderReport(); if (v === "strategy") renderStrategy(); if (v === "cabinet") { renderCabinet(); maybeLoadPf(); }
     if (location.hash !== "#" + v) { try { location.hash = v; } catch (e) {} }
     window.scrollTo(0, 0);
   }
@@ -1172,8 +1219,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   $("v-report").addEventListener("click", function (e) { var b = e.target.closest("[data-p]"); if (b) { state.period = +b.getAttribute("data-p"); renderReport(); } });
   try { var sa = +localStorage.getItem("izo.amt"); if (sa > 0) state.amt = sa; } catch (e) {}
   function saveAmt(v) { state.amt = v; try { localStorage.setItem("izo.amt", String(v)); } catch (e) {} document.querySelectorAll(".calc").forEach(function (cd) { var inp = cd.querySelector("[data-calc]"); if (inp && document.activeElement !== inp) inp.value = v; calcNums(cd); }); }
+  document.addEventListener("input", function (e) { var t = e.target; if (t && t.hasAttribute && (t.hasAttribute("data-sp") || t.hasAttribute("data-samt"))) { if (t.hasAttribute("data-samt")) { var v = +t.value || 0; if (v > 0) { state.amt = v; try { localStorage.setItem("izo.amt", String(v)); } catch (x) {} } } stratCalc(); } });
+  document.addEventListener("change", function (e) { var t = e.target; if (t && t.hasAttribute && t.hasAttribute("data-ck")) { var all = document.querySelectorAll("[data-ck]"), n = 0; all.forEach(function (c) { if (c.checked) n++; }); var bar = document.querySelector("[data-ckbar]"), tx = document.querySelector("[data-cktxt]"); if (bar) bar.style.setProperty("--w", (n / all.length * 100) + "%"); if (tx) tx.textContent = n === all.length ? "Всё готово: можно ставить." : "Выполнено " + n + " из " + all.length; } });
   document.addEventListener("input", function (e) { if (e.target && e.target.hasAttribute && e.target.hasAttribute("data-calc")) saveAmt(+e.target.value || 0); });
   document.addEventListener("click", function (e) {
+    var gb = e.target.closest("[data-v-go]"); if (gb) { setView(gb.getAttribute("data-v-go")); return; }
+    var sq = e.target.closest("[data-samtq]"); if (sq) { var sv = +sq.getAttribute("data-samtq"); state.amt = sv; try { localStorage.setItem("izo.amt", String(sv)); } catch (x) {} var si = document.querySelector("[data-samt]"); if (si) si.value = sv; stratCalc(); return; }
     var qb = e.target.closest("[data-amt]"); if (qb) { saveAmt(+qb.getAttribute("data-amt")); return; }
     var a = e.target.closest("[data-act]"); if (!a) return;
     var act = a.getAttribute("data-act"), tg = window.Telegram && window.Telegram.WebApp;
@@ -1351,6 +1402,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   })();
   var demo = makeDemo(); state.dates = demo.dates; state.data = demo.data; state.updated = new Date(); state.stats = makeStats();
   renderAll();
+  (function () { var pills = document.querySelector(".pills"); if (!pills) return; var b = document.createElement("button"); b.type = "button"; b.id = "stratPill"; b.className = "pill"; b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Стратегия и инструкция");
+    b.innerHTML = '<span class="bk">📖</span><span class="t">Стратегия</span>'; pills.appendChild(b); b.addEventListener("click", function () { setView(state.view === "strategy" ? "globe" : "strategy"); }); })();
   var h0 = location.hash.slice(1); setView(VIEWS.indexOf(h0) > -1 ? h0 : "globe");
 
   /* Реальные данные. На своём хостинге: прогнозы Open-Meteo и файлы stats.json / markets.json от бота. */
@@ -1615,7 +1668,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .calc-in{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.calc-in label{flex:1 1 100%;font-size:12px;color:var(--muted)}
 .calc-in input{width:96px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;font-size:16px}
 .qa{display:flex;gap:6px}.qa button{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}.qa button:hover{border-color:var(--accent);transform:translateY(-1px)}
-.ctab{width:100%;border-collapse:collapse;font-size:13px}.ctab th{text-align:left;color:var(--muted);font-weight:500;font-size:11.5px;padding:4px 6px}.ctab td{padding:7px 6px;border-top:1px solid var(--line);animation:fadeup .5s backwards;animation-delay:calc(var(--i,0)*90ms)}
+.ctab{width:100%;border-collapse:collapse;font-size:13px}.ctab th{text-align:left;color:var(--muted);font-weight:500;font-size:11.5px;padding:4px 6px}.ctab td{padding:7px 6px;border-top:1px solid var(--line)}.corr .ctab td{animation:fadeup .5s backwards;animation-delay:calc(var(--i,0)*90ms)}
 @keyframes fadeup{from{opacity:0;transform:translateY(6px)}}
 .csum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.csum>div{padding:9px;border-radius:11px;background:color-mix(in srgb,var(--muted) 9%,transparent);min-width:0}.csum small{display:block;color:var(--muted);font-size:11px}.csum b{font-family:var(--f-display);font-size:16px}.csum em{display:block;font-style:normal;font-size:12px;color:var(--ok,var(--accent))}.csum .l b{color:var(--bad)}
 .be{margin:0;font-size:12.5px;color:var(--muted)}
@@ -1628,88 +1681,28 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .skr{display:grid;grid-template-columns:auto auto 1fr;gap:8px;font-size:12.5px;align-items:baseline}.skr small{color:var(--muted)}.skr span{color:var(--muted);min-width:0}
 @media(max-width:420px){.skr{grid-template-columns:auto 1fr}.skr span{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.dtr em,.ctab td{animation:none}}
+
+/* Стратегия */
+.dock.off .ind{opacity:0}
+#stratPill{cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:6px}#stratPill[aria-pressed="true"]{color:var(--g1)}#stratPill .bk{display:inline-block;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-2px) rotate(-6deg)}}
+.trio{display:flex;gap:10px;margin-top:12px}.trio span{flex:1;text-align:center;padding:14px 0;border-radius:14px;border:1px solid var(--line);font-family:var(--f-display);font-size:22px;animation:fadeup .6s backwards}.trio span:nth-child(2){animation-delay:.12s}.trio span:nth-child(3){animation-delay:.24s}.trio .mid{background:linear-gradient(115deg,var(--g1),var(--g2));color:var(--accent-ink);border-color:transparent;box-shadow:0 10px 28px -12px var(--g2);animation:fadeup .6s .12s backwards,glow 2.6s 1s infinite}
+@keyframes glow{50%{box-shadow:0 10px 34px -6px var(--g2)}}
+.steps{display:grid;gap:8px;margin:12px 0}
+.stp{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface)}.stp summary{display:flex;gap:12px;align-items:center;cursor:pointer;list-style:none}.stp summary::-webkit-details-marker{display:none}.stp summary i{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px;background:linear-gradient(115deg,var(--g1),var(--g2));color:var(--accent-ink)}.stp p{margin:10px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5}.stp[open]{border-color:color-mix(in srgb,var(--g1) 50%,var(--line))}
+.scalc{display:grid;gap:12px}.scalc h3{margin:0}
+.sp3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.sp3 label{display:grid;gap:4px;font-size:12px;color:var(--muted);min-width:0}.sp3 span{display:flex;align-items:center;gap:4px}.sp3 input,.scalc .calc-in input{width:100%;min-width:0;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;font-size:16px}
+.scalc .calc-in input{width:96px}
+.vd{display:grid;gap:2px;padding:10px 12px;border-radius:12px}.vd b{font-family:var(--f-display)}.vd span{font-size:12.5px}.vd.vok{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}.vd.vwarn{background:color-mix(in srgb,var(--warn) 14%,transparent);color:var(--warn)}.vd.vbad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.cks{display:grid;gap:8px;margin-top:10px}.ck{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;cursor:pointer}.ck input{margin-top:3px;accent-color:var(--g2);width:18px;height:18px;flex:none}
+.ckbar{height:6px;border-radius:3px;background:color-mix(in srgb,var(--muted) 16%,transparent);overflow:hidden;margin-top:10px}.ckbar em{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--g1),var(--g2));transition:width .4s cubic-bezier(.2,.8,.2,1)}
+
+.dots{display:flex;flex-wrap:wrap;gap:7px}.dots i{width:16px;height:16px;border-radius:50%;animation:dotin .5s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:calc(var(--i)*40ms)}.dots i.w{background:var(--good);box-shadow:0 0 10px -2px var(--good)}.dots i.l{background:var(--bad)}
+@keyframes dotin{from{transform:scale(0)}}
+.cityb{display:grid;gap:8px}
+.res .rr2{animation:fadeup .5s backwards}.res .rr2:nth-child(2){animation-delay:.06s}.res .rr2:nth-child(3){animation-delay:.12s}.res .rr2:nth-child(4){animation-delay:.18s}.res .rr2:nth-child(n+5){animation-delay:.24s}
+@media(prefers-reduced-motion:reduce){.dots i,.res .rr2,.trio span,.vd{animation:none}}
 </style>
-<script>
-/* Мелодия: создаётся прямо в телефоне (синтезатор), файлов и авторских прав нет. Включается кнопкой «Звук». */
-(function () {
-  var KEY = "izo.snd", AC = null, master, mus, on = false, timer = null, nextT = 0, bar = 0, step = 0, lastLead = 2;
-  var BPM = 76, E8 = 60 / BPM / 2;
-  var CH = [{ r: 45, n: [57, 60, 64, 67] }, { r: 41, n: [53, 57, 60, 64] }, { r: 48, n: [55, 60, 64, 67] }, { r: 43, n: [55, 59, 62, 67] }];
-  var PENTA = [69, 72, 74, 76, 79, 81], ARP = [0, 2, 1, 3, 2, 1, 3, 2];
-  function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-  function lw(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-  function hz(m) { return 440 * Math.pow(2, (m - 69) / 12); }
-  function build() {
-    var Ctor = window.AudioContext || window.webkitAudioContext; if (!Ctor) return false;
-    AC = new Ctor(); master = AC.createGain(); master.gain.value = 0;
-    var comp = AC.createDynamicsCompressor(); master.connect(comp); comp.connect(AC.destination);
-    mus = AC.createGain(); mus.gain.value = 1; mus.connect(master);
-    var n = Math.floor(AC.sampleRate * 2.6), buf = AC.createBuffer(2, n, AC.sampleRate);
-    for (var c = 0; c < 2; c++) { var d = buf.getChannelData(c); for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2.6); }
-    var cv = AC.createConvolver(); cv.buffer = buf; var wet = AC.createGain(); wet.gain.value = 0.55; mus.connect(cv); cv.connect(wet); wet.connect(master);
-    return true;
-  }
-  function osc(type, f, t, dur, peak, att, dest, det, cutoff) {
-    var o = AC.createOscillator(), g = AC.createGain(), node = o;
-    o.type = type; o.frequency.value = f; if (det) o.detune.value = det;
-    if (cutoff) { var lp = AC.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = cutoff; lp.Q.value = 0.5; o.connect(lp); node = lp; }
-    node.connect(g); g.connect(dest || mus);
-    g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(peak, t + att); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.start(t); o.stop(t + dur + 0.05);
-  }
-  function tick() {
-    if (!AC || !on) return;
-    while (nextT < AC.currentTime + 0.5) {
-      var ch = CH[bar % 4], s = step % 8, t = nextT;
-      if (s === 0) {
-        ch.n.forEach(function (m) { [-7, 7].forEach(function (dt) { osc("sawtooth", hz(m), t, E8 * 8 + 1.2, 0.014, 1.4, null, dt, 750); }); });
-        osc("sine", hz(ch.r), t, E8 * 8 + 0.6, 0.11, 0.05);
-      }
-      if (Math.random() > 0.18) osc("triangle", hz(ch.n[ARP[s]] + 12), t, 0.55, s % 4 === 0 ? 0.05 : 0.032, 0.006, null, 0, 2600);
-      if ((s === 0 || s === 4 || s === 6) && Math.random() < 0.55) {
-        lastLead = Math.max(0, Math.min(PENTA.length - 1, lastLead + (Math.random() < 0.5 ? -1 : 1) * (1 + (Math.random() < 0.3 ? 1 : 0))));
-        osc("sine", hz(PENTA[lastLead]), t, 1.5, 0.04, 0.03);
-        osc("sine", hz(PENTA[lastLead] + 12), t, 1.0, 0.012, 0.03);
-      }
-      nextT += E8; step++; if (step % 8 === 0) bar++;
-    }
-  }
-  function ui() { var b = document.getElementById("snd"); if (b) { b.setAttribute("aria-pressed", on ? "true" : "false"); b.classList.remove("hint"); b.querySelector("span.t").textContent = on ? "Звук вкл" : "Звук"; } }
-  function start() {
-    if (!AC && !build()) return;
-    on = true; try { AC.resume(); } catch (e) {}
-    var n = AC.currentTime; master.gain.cancelScheduledValues(n); master.gain.setTargetAtTime(0.65, n, 0.7);
-    nextT = n + 0.12; if (!timer) timer = setInterval(tick, 120); lw(KEY, "1"); ui();
-  }
-  function stop() {
-    on = false; lw(KEY, "0"); ui(); if (!AC) return;
-    master.gain.cancelScheduledValues(AC.currentTime); master.gain.setTargetAtTime(0, AC.currentTime, 0.25);
-    setTimeout(function () { if (!on) { clearInterval(timer); timer = null; try { AC.suspend(); } catch (e) {} } }, 1200);
-  }
-  function blip() {
-    if (!on || !AC) return; var t = AC.currentTime, o = AC.createOscillator(), g = AC.createGain();
-    o.type = "sine"; o.frequency.setValueAtTime(700, t); o.frequency.exponentialRampToValueAtTime(1250, t + 0.07); o.connect(g); g.connect(master);
-    g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(0.07, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.11); o.start(t); o.stop(t + 0.14);
-  }
-  function chime() {
-    if (!on || !AC) return; [72, 76, 79, 84].forEach(function (m, i) { osc("sine", hz(m), AC.currentTime + i * 0.12, 1.4, 0.09, 0.01, master); });
-  }
-  var pills = document.querySelector(".pills");
-  if (pills) {
-    var b = document.createElement("button"); b.type = "button"; b.id = "snd"; b.className = "pill hint"; b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Включить или выключить мелодию");
-    b.innerHTML = '<span class="eq"><b></b><b></b><b></b></span><span class="t">Звук</span>'; pills.appendChild(b);
-    b.addEventListener("click", function () { if (on) stop(); else start(); });
-  }
-  var wanted = ls(KEY) === "1";
-  if (wanted) { var snd = document.getElementById("snd"); if (snd) snd.classList.remove("hint"); }
-  document.addEventListener("pointerdown", function (e) {
-    var inBtn = e.target.closest && e.target.closest("#snd");
-    if (!inBtn && wanted && !on) { wanted = false; start(); return; }
-    if (!inBtn && on && e.target.closest && e.target.closest(".btn, .dock button, .chip, .day, [data-act], [data-acc], [data-p], [data-mode]")) blip();
-  }, { passive: true });
-  document.addEventListener("visibilitychange", function () { if (!AC || !on) return; if (document.hidden) { try { AC.suspend(); } catch (e) {} } else { try { AC.resume(); } catch (e) {} nextT = AC.currentTime + 0.1; } });
-  window.__snd = { chime: chime, state: function () { return { on: on, ctx: AC && AC.state }; } };
-})();
-</script>
+
 
 </body></html>

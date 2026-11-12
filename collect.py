@@ -75,12 +75,13 @@ MIN_PM = 0.25         # итоговая вероятность варианта
 MIN_EDGE = 0.05       # итоговая вероятность минус цена
 MODEL_SHARE = 0.6     # доля моделей в итоговой вероятности, остальное это сама цена рынка
 MAX_SD = 1.3          # допустимый разброс моделей, °C
-MAX_PER_DAY = 3       # сигналов на одну дату рынка
+MAX_PER_DAY = 6       # сигналов на одну дату рынка
 MIN_MODELS = 4
 LAST_NEW_HOUR = 14   # на сегодняшний рынок новые сигналы только до 14:00 по времени города
-MAX_CORR_COST = 0.92   # сумма цен трёх вариантов: чтобы осталась запас на комиссию
-MIN_CORR_P = 0.50     # шанс попасть в коридор
-MIN_CORR_EDGE = 0.05  # шанс минус стоимость коридора
+MAX_CORR_COST = 0.95   # сумма цен трёх вариантов: чтобы осталась запас на комиссию
+MIN_CORR_P = 0.45     # шанс попасть в коридор
+MIN_CORR_EDGE = 0.025  # шанс минус стоимость коридора
+ALLOW_SINGLE = False   # одиночные ставки отключены: они проигрывают чаще коридора
 UNTIL_HOUR = 16      # после 16:00 по времени города сигнал в приложении и в боте больше не показывается
 BASE_SIGMA, LEAD_SIGMA = 1.0, 0.25   # типичная ошибка суточного максимума на станции, °C
 
@@ -523,8 +524,10 @@ def evaluate(m, fc, calib, obs, now):
         return dict(base, kind="corr", label=w[1]["l"], labels=[b["l"] for b in w], lo=w[0]["lo"], hi=w[2]["hi"],
                     legs=[{"l": b["l"], "price": buy_price(b), "pm": round(x, 3)} for b, x in zip(w, pms[j:j + 3])],
                     price=round(cost, 3), pm=round(p, 3), pm_model=round(pm, 3), edge=round(e, 3),
-                    level="strong" if e >= 0.10 and p >= 0.65 and pr["sd"] <= 0.8 else "mid"), None
+                    level="strong" if e >= 0.10 and p >= 0.65 and pr["sd"] <= 0.8 else ("mid" if e >= 0.05 else "light")), None
     # --- один вариант (если коридор не прошёл) ---
+    if not ALLOW_SINGLE:
+        return None, "Коридор невыгоден: цена трёх вариантов выше нашей оценки (лучшее преимущество %+d п.п.)" % round(((best_c[0] if best_c else 0)) * 100)
     top2 = sorted(pms, reverse=True)[:2]
     best = None
     for b, pm in zip(bks, pms):
