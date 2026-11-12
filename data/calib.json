@@ -548,6 +548,23 @@
     "cma_grapes_global": 14.6,
     "ens": 15.3
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 15.95,
+   "sd": 0.52,
+   "a": 18.0,
+   "m": {
+    "ecmwf_ifs025": 16.6,
+    "ecmwf_aifs025_single": 15.7,
+    "icon_seamless": 16.6,
+    "gfs_seamless": 15.5,
+    "meteofrance_seamless": 15.8,
+    "gem_seamless": 15.0,
+    "jma_seamless": 15.8,
+    "cma_grapes_global": 15.2,
+    "ens": 16.2
+   }
   }
  ],
  "milan": [
@@ -566,6 +583,23 @@
     "jma_seamless": 11.8,
     "cma_grapes_global": 11.3,
     "ens": 12.8
+   }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 11.29,
+   "sd": 0.35,
+   "a": 12.0,
+   "m": {
+    "ecmwf_ifs025": 11.1,
+    "ecmwf_aifs025_single": 11.6,
+    "icon_seamless": 11.6,
+    "gfs_seamless": 10.8,
+    "meteofrance_seamless": 11.9,
+    "gem_seamless": 11.5,
+    "jma_seamless": 10.9,
+    "cma_grapes_global": 11.2,
+    "ens": 11.0
    }
   }
  ],
