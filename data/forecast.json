@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T03:55+00:00",
+ "updated": "2026-11-12T04:59+00:00",
  "models": [
   {
    "key": "ecmwf_ifs025",
@@ -36,6 +36,12 @@
    "name": "Météo-France",
    "sub": "ARPEGE, AROME",
    "w": 0.9
+  },
+  {
+   "key": "gem_seamless",
+   "name": "GEM",
+   "sub": "Канада, ECCC",
+   "w": 0.8
   },
   {
    "key": "jma_seamless",
@@ -169,6 +175,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    25.9,
+    24.1,
+    18.7,
+    16.4,
+    12.2,
+    10.6,
+    13.1
+   ],
    "jma_seamless": [
     23.6,
     22.2,
@@ -270,6 +285,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    29.1,
+    29.6,
+    28.2,
+    26.7,
+    23.9,
+    28.0
+   ],
    "jma_seamless": [
     null,
     27.4,
@@ -353,6 +377,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    33.3,
+    32.6,
+    34.1,
+    33.3,
+    32.7,
+    32.4
+   ],
    "jma_seamless": [
     null,
     29.5,
@@ -402,8 +435,8 @@
    ],
    "icon_seamless": [
     null,
-    8.2,
-    7.6,
+    8.4,
+    7.5,
     9.2,
     12.7,
     9.6,
@@ -420,8 +453,8 @@
    ],
    "ukmo_seamless": [
     null,
-    8.2,
-    6.9,
+    8.5,
+    7.0,
     9.0,
     10.7,
     10.6,
@@ -435,6 +468,15 @@
     12.3,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    7.1,
+    6.0,
+    9.9,
+    12.6,
+    11.2,
+    13.6
    ],
    "jma_seamless": [
     null,
@@ -456,8 +498,8 @@
    ],
    "ukmo_uk_deterministic_2km": [
     null,
-    8.2,
-    6.9,
+    8.5,
+    7.0,
     null,
     null,
     null,
@@ -495,7 +537,7 @@
    "icon_seamless": [
     null,
     10.7,
-    9.8,
+    9.7,
     9.2,
     12.6,
     11.5,
@@ -513,7 +555,7 @@
    "ukmo_seamless": [
     null,
     12.3,
-    9.1,
+    9.2,
     8.7,
     11.7,
     11.1,
@@ -527,6 +569,15 @@
     12.2,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    10.0,
+    9.2,
+    7.9,
+    12.1,
+    13.3,
+    15.6
    ],
    "jma_seamless": [
     null,
@@ -620,6 +671,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    24.8,
+    26.3,
+    26.1,
+    25.3,
+    26.0,
+    26.1
+   ],
    "jma_seamless": [
     null,
     25.0,
@@ -703,6 +763,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    6.2,
+    4.0,
+    3.8,
+    6.8,
+    6.4,
+    7.5
+   ],
    "jma_seamless": [
     null,
     5.8,
@@ -752,8 +821,8 @@
    ],
    "icon_seamless": [
     null,
-    9.9,
     10.0,
+    9.7,
     8.0,
     11.4,
     10.5,
@@ -771,7 +840,7 @@
    "ukmo_seamless": [
     null,
     9.9,
-    9.0,
+    9.3,
     8.0,
     8.8,
     10.8,
@@ -785,6 +854,15 @@
     11.4,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    9.0,
+    9.6,
+    7.6,
+    11.3,
+    10.2,
+    12.9
    ],
    "jma_seamless": [
     null,
@@ -835,8 +913,8 @@
    ],
    "icon_seamless": [
     null,
-    13.5,
-    6.3,
+    13.0,
+    6.1,
     5.7,
     8.4,
     8.4,
@@ -862,12 +940,21 @@
    ],
    "meteofrance_seamless": [
     null,
-    11.5,
+    11.6,
     6.8,
     6.5,
     7.9,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    12.6,
+    8.4,
+    3.9,
+    7.4,
+    11.0,
+    11.3
    ],
    "jma_seamless": [
     null,
@@ -952,6 +1039,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    14.7,
+    13.6,
+    15.2,
+    14.1,
+    13.7,
+    14.3
+   ],
    "jma_seamless": [
     null,
     17.0,
@@ -1035,8 +1131,17 @@
     null,
     null
    ],
-   "jma_seamless": [
+   "gem_seamless": [
+    17.3,
     15.8,
+    9.6,
+    5.8,
+    8.4,
+    9.0,
+    10.2
+   ],
+   "jma_seamless": [
+    null,
     14.2,
     8.8,
     7.5,
@@ -1045,7 +1150,7 @@
     8.3
    ],
    "cma_grapes_global": [
-    15.0,
+    null,
     13.9,
     7.4,
     7.7,
@@ -1054,7 +1159,7 @@
     null
    ],
    "gfs_hrrr": [
-    17.9,
+    null,
     14.6,
     null,
     null,
@@ -1063,7 +1168,7 @@
     null
    ],
    "ncep_nbm_conus": [
-    16.3,
+    null,
     14.9,
     10.1,
     7.8,
@@ -1136,6 +1241,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    26.5,
+    26.5,
+    28.4,
+    26.9,
+    25.1,
+    27.1
+   ],
    "jma_seamless": [
     null,
     27.2,
@@ -1185,8 +1299,8 @@
    ],
    "icon_seamless": [
     null,
-    12.0,
-    17.7,
+    11.9,
+    17.6,
     11.4,
     10.5,
     8.2,
@@ -1203,8 +1317,8 @@
    ],
    "ukmo_seamless": [
     null,
-    11.7,
-    14.5,
+    11.6,
+    14.4,
     11.3,
     8.2,
     10.8,
@@ -1218,6 +1332,15 @@
     10.0,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    11.5,
+    14.7,
+    9.7,
+    7.2,
+    8.0,
+    8.1
    ],
    "jma_seamless": [
     null,
@@ -1302,6 +1425,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    2.7,
+    3.1,
+    4.5,
+    3.4,
+    1.6,
+    1.6
+   ],
    "jma_seamless": [
     null,
     -0.2,
@@ -1384,6 +1516,15 @@
     null,
     null,
     null
+   ],
+   "gem_seamless": [
+    21.8,
+    21.3,
+    16.2,
+    16.9,
+    17.7,
+    14.3,
+    14.7
    ],
    "jma_seamless": [
     19.3,
@@ -1486,8 +1627,17 @@
     null,
     null
    ],
+   "gem_seamless": [
+    29.0,
+    29.8,
+    26.4,
+    21.3,
+    25.8,
+    26.1,
+    26.5
+   ],
    "jma_seamless": [
-    27.9,
+    null,
     27.0,
     25.3,
     20.7,
@@ -1496,7 +1646,7 @@
     26.6
    ],
    "cma_grapes_global": [
-    27.9,
+    null,
     27.9,
     25.9,
     20.9,
@@ -1505,7 +1655,7 @@
     null
    ],
    "gfs_hrrr": [
-    29.1,
+    null,
     29.4,
     null,
     null,
@@ -1514,7 +1664,7 @@
     null
    ],
    "ncep_nbm_conus": [
-    28.4,
+    null,
     28.0,
     24.9,
     21.1,
@@ -1586,6 +1736,15 @@
     13.2,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    15.0,
+    14.7,
+    14.4,
+    12.8,
+    14.6,
+    17.6
    ],
    "jma_seamless": [
     null,
@@ -1669,6 +1828,15 @@
     null,
     null,
     null
+   ],
+   "gem_seamless": [
+    29.5,
+    25.4,
+    21.4,
+    20.2,
+    19.3,
+    17.6,
+    17.2
    ],
    "jma_seamless": [
     24.6,
@@ -1771,6 +1939,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    21.7,
+    21.7,
+    24.3,
+    18.1,
+    24.4,
+    18.0,
+    12.4
+   ],
    "jma_seamless": [
     22.1,
     23.2,
@@ -1872,6 +2049,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    31.8,
+    31.3,
+    31.5,
+    26.9,
+    27.4,
+    26.7
+   ],
    "jma_seamless": [
     null,
     29.8,
@@ -1955,6 +2141,15 @@
     null,
     null
    ],
+   "gem_seamless": [
+    null,
+    17.9,
+    20.9,
+    20.8,
+    20.4,
+    18.9,
+    14.5
+   ],
    "jma_seamless": [
     null,
     17.5,
@@ -2037,6 +2232,15 @@
     4.3,
     null,
     null
+   ],
+   "gem_seamless": [
+    null,
+    8.2,
+    5.9,
+    6.5,
+    5.6,
+    8.3,
+    13.0
    ],
    "jma_seamless": [
     null,
