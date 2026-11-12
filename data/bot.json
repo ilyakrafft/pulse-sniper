@@ -598,6 +598,40 @@
     "25°C",
     "26°C",
     "27°C"
+   ],
+   "done": true,
+   "hit": false
+  },
+  "helsinki|2026-11-12": {
+   "city": "helsinki",
+   "date": "2026-11-12",
+   "label": "5°C",
+   "pm": 0.552,
+   "price": 0.372,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "4°C",
+    "5°C",
+    "6°C"
+   ]
+  },
+  "london|2026-11-14": {
+   "city": "london",
+   "date": "2026-11-14",
+   "label": "8°C",
+   "pm": 0.477,
+   "price": 0.4,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "7°C",
+    "8°C",
+    "9°C"
    ]
   }
  },
@@ -806,6 +840,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.135
+  },
+  {
+   "date": "2026-11-12",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.39
   }
  ],
  "last_summary": "2026-W45",

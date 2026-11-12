@@ -278,6 +278,23 @@
     "cma_grapes_global": 22.0,
     "ens": 24.8
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 27.68,
+   "sd": 0.94,
+   "a": 29.0,
+   "m": {
+    "ecmwf_ifs025": 28.3,
+    "ecmwf_aifs025_single": 26.7,
+    "icon_seamless": 26.8,
+    "gfs_seamless": 28.8,
+    "meteofrance_seamless": 27.2,
+    "gem_seamless": 29.1,
+    "jma_seamless": 27.7,
+    "cma_grapes_global": 25.4,
+    "ens": 28.0
+   }
   }
  ],
  "tokyo": [

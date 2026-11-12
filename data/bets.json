@@ -107,5 +107,22 @@
    "30°C",
    "31°C"
   ]
+ },
+ {
+  "date": "2026-11-12",
+  "city": "shenzhen",
+  "label": "26°C",
+  "win": "29°C",
+  "hit": false,
+  "price": 0.39,
+  "pm": 0.467,
+  "edge": 0.077,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ]
  }
 ]

@@ -597,7 +597,7 @@
    }
   ],
   "first": "2026-11-12T03:55+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T08:00+00:00",
   "kind": "corr",
   "label": "26°C",
@@ -631,7 +631,9 @@
   "edge": 0.077,
   "level": "mid",
   "key": "shenzhen|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-12-2026",
+  "win": "29°C",
+  "hit": false
  },
  {
   "city": "jeddah",
@@ -736,5 +738,213 @@
   "level": "mid",
   "key": "jeddah|2026-11-12",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-jeddah-on-november-12-2026"
+ },
+ {
+  "city": "helsinki",
+  "date": "2026-11-12",
+  "mu": 6.14,
+  "sigma": 0.67,
+  "sd": 0.33,
+  "n": 9,
+  "st": "EFHK",
+  "liq": 48872.57,
+  "v24": 12963.6,
+  "dist": [
+   {
+    "l": "1°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "2°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "3°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "4°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "5°C",
+    "m": 0.13,
+    "p": 0.001
+   },
+   {
+    "l": "6°C",
+    "m": 0.558,
+    "p": 0.345
+   },
+   {
+    "l": "7°C",
+    "m": 0.289,
+    "p": 0.65
+   },
+   {
+    "l": "8°C",
+    "m": 0.022,
+    "p": 0.008
+   },
+   {
+    "l": "9°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "10°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "11°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-12T08:38+00:00",
+  "status": "open",
+  "until": "2026-11-12T14:00+00:00",
+  "kind": "corr",
+  "label": "5°C",
+  "labels": [
+   "4°C",
+   "5°C",
+   "6°C"
+  ],
+  "lo": 3.5,
+  "hi": 6.5,
+  "legs": [
+   {
+    "l": "4°C",
+    "price": 0.001,
+    "pm": 0.0
+   },
+   {
+    "l": "5°C",
+    "price": 0.001,
+    "pm": 0.13
+   },
+   {
+    "l": "6°C",
+    "price": 0.37,
+    "pm": 0.558
+   }
+  ],
+  "price": 0.372,
+  "pm": 0.552,
+  "pm_model": 0.689,
+  "edge": 0.18,
+  "level": "mid",
+  "key": "helsinki|2026-11-12",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-helsinki-on-november-12-2026"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-14",
+  "mu": 8.8,
+  "sigma": 1.64,
+  "sd": 0.66,
+  "n": 9,
+  "st": "EGLC",
+  "liq": 46234.88,
+  "v24": 89.61,
+  "dist": [
+   {
+    "l": "3°C и ниже",
+    "m": 0.001,
+    "p": 0.021
+   },
+   {
+    "l": "4°C",
+    "m": 0.004,
+    "p": 0.021
+   },
+   {
+    "l": "5°C",
+    "m": 0.018,
+    "p": 0.04
+   },
+   {
+    "l": "6°C",
+    "m": 0.058,
+    "p": 0.03
+   },
+   {
+    "l": "7°C",
+    "m": 0.134,
+    "p": 0.04
+   },
+   {
+    "l": "8°C",
+    "m": 0.214,
+    "p": 0.055
+   },
+   {
+    "l": "9°C",
+    "m": 0.238,
+    "p": 0.22
+   },
+   {
+    "l": "10°C",
+    "m": 0.185,
+    "p": 0.425
+   },
+   {
+    "l": "11°C",
+    "m": 0.1,
+    "p": 0.255
+   },
+   {
+    "l": "12°C",
+    "m": 0.038,
+    "p": 0.021
+   },
+   {
+    "l": "13°C и выше",
+    "m": 0.012,
+    "p": 0.017
+   }
+  ],
+  "first": "2026-11-12T08:38+00:00",
+  "status": "open",
+  "until": "2026-11-14T16:00+00:00",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ],
+  "lo": 6.5,
+  "hi": 9.5,
+  "legs": [
+   {
+    "l": "7°C",
+    "price": 0.08,
+    "pm": 0.134
+   },
+   {
+    "l": "8°C",
+    "price": 0.08,
+    "pm": 0.214
+   },
+   {
+    "l": "9°C",
+    "price": 0.24,
+    "pm": 0.238
+   }
+  ],
+  "price": 0.4,
+  "pm": 0.477,
+  "pm_model": 0.585,
+  "edge": 0.077,
+  "level": "mid",
+  "key": "london|2026-11-14",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-14-2026"
  }
 ]
