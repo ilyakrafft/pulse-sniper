@@ -749,6 +749,24 @@
     "ncep_nbm_conus": 28.6,
     "ens": 27.8
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 27.81,
+   "sd": 1.0,
+   "a": 30.28,
+   "m": {
+    "ecmwf_ifs025": 27.2,
+    "ecmwf_aifs025_single": 27.2,
+    "icon_seamless": 29.2,
+    "gfs_seamless": 26.0,
+    "meteofrance_seamless": 28.6,
+    "gem_seamless": 29.7,
+    "jma_seamless": 27.4,
+    "cma_grapes_global": 26.9,
+    "ncep_nbm_conus": 27.8,
+    "ens": 27.9
+   }
   }
  ],
  "houston": [

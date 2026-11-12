@@ -2094,5 +2094,25 @@
    "cma_grapes_global": 8.1,
    "ens": 7.04
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "miami",
+  "k": 28,
+  "p": 0.647,
+  "actual": 30,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 27.2,
+   "ecmwf_aifs025_single": 27.2,
+   "icon_seamless": 29.2,
+   "gfs_seamless": 26.0,
+   "meteofrance_seamless": 28.6,
+   "gem_seamless": 29.7,
+   "jma_seamless": 27.4,
+   "cma_grapes_global": 26.9,
+   "ncep_nbm_conus": 27.8,
+   "ens": 27.91
+  }
  }
 ]
