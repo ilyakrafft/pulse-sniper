@@ -73,6 +73,24 @@
     "ncep_nbm_conus": 26.3,
     "ens": 25.3
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 23.92,
+   "sd": 1.01,
+   "a": 25.83,
+   "m": {
+    "ecmwf_ifs025": 23.0,
+    "ecmwf_aifs025_single": 24.2,
+    "icon_seamless": 25.0,
+    "gfs_seamless": 25.5,
+    "meteofrance_seamless": 23.2,
+    "gem_seamless": 24.1,
+    "jma_seamless": 22.1,
+    "cma_grapes_global": 21.5,
+    "ncep_nbm_conus": 24.6,
+    "ens": 23.8
+   }
   }
  ],
  "la": [
@@ -786,6 +804,24 @@
     "cma_grapes_global": 23.3,
     "ncep_nbm_conus": 23.5,
     "ens": 23.8
+   }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 23.49,
+   "sd": 1.18,
+   "a": 26.94,
+   "m": {
+    "ecmwf_ifs025": 23.5,
+    "ecmwf_aifs025_single": 24.6,
+    "icon_seamless": 24.5,
+    "gfs_seamless": 25.1,
+    "meteofrance_seamless": 21.7,
+    "gem_seamless": 21.8,
+    "jma_seamless": 23.3,
+    "cma_grapes_global": 23.5,
+    "ncep_nbm_conus": 21.9,
+    "ens": 24.1
    }
   }
  ]

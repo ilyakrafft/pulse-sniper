@@ -493,7 +493,7 @@
    }
   ],
   "first": "2026-11-12T03:55+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T22:00+00:00",
   "kind": "corr",
   "label": "74–75°F",
@@ -527,7 +527,9 @@
   "edge": 0.273,
   "level": "mid",
   "key": "dallas|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-12-2026",
+  "win": "78–79°F",
+  "hit": false
  },
  {
   "city": "shenzhen",
