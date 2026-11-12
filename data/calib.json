@@ -170,6 +170,23 @@
     "cma_grapes_global": 29.3,
     "ens": 30.8
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 30.77,
+   "sd": 0.66,
+   "a": 32.0,
+   "m": {
+    "ecmwf_ifs025": 29.8,
+    "ecmwf_aifs025_single": 30.7,
+    "icon_seamless": 31.7,
+    "gfs_seamless": 30.8,
+    "meteofrance_seamless": 30.5,
+    "gem_seamless": 31.8,
+    "jma_seamless": 29.8,
+    "cma_grapes_global": 31.5,
+    "ens": 30.8
+   }
   }
  ],
  "chongqing": [
@@ -225,6 +242,23 @@
     "cma_grapes_global": 22.2,
     "ens": 23.8
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 26.18,
+   "sd": 0.64,
+   "a": 27.0,
+   "m": {
+    "ecmwf_ifs025": 27.1,
+    "ecmwf_aifs025_single": 26.0,
+    "icon_seamless": 25.8,
+    "gfs_seamless": 25.2,
+    "meteofrance_seamless": 25.6,
+    "gem_seamless": 26.5,
+    "jma_seamless": 27.4,
+    "cma_grapes_global": 25.6,
+    "ens": 26.3
+   }
   }
  ],
  "shenzhen": [
@@ -262,6 +296,23 @@
     "jma_seamless": 13.8,
     "cma_grapes_global": 12.9,
     "ens": 13.7
+   }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 16.79,
+   "sd": 1.18,
+   "a": 19.0,
+   "m": {
+    "ecmwf_ifs025": 16.4,
+    "ecmwf_aifs025_single": 17.0,
+    "icon_seamless": 16.0,
+    "gfs_seamless": 18.8,
+    "meteofrance_seamless": 14.2,
+    "gem_seamless": 17.9,
+    "jma_seamless": 17.5,
+    "cma_grapes_global": 17.1,
+    "ens": 16.8
    }
   }
  ],

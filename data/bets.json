@@ -90,5 +90,22 @@
    "14°C",
    "15°C"
   ]
+ },
+ {
+  "date": "2026-11-12",
+  "city": "singapore",
+  "label": "30°C",
+  "win": "32°C",
+  "hit": false,
+  "price": 0.382,
+  "pm": 0.48,
+  "edge": 0.098,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "29°C",
+   "30°C",
+   "31°C"
+  ]
  }
 ]

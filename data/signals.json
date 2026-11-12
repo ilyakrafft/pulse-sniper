@@ -387,7 +387,7 @@
    }
   ],
   "first": "2026-11-12T03:16+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T08:00+00:00",
   "kind": "corr",
   "label": "30°C",
@@ -421,7 +421,9 @@
   "edge": 0.098,
   "level": "mid",
   "key": "singapore|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-singapore-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-singapore-on-november-12-2026",
+  "win": "32°C",
+  "hit": false
  },
  {
   "city": "dallas",
