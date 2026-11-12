@@ -517,7 +517,8 @@ def evaluate(m, fc, calib, obs, now):
         pm = sum(pms[j:j + 3])
         p = MODEL_SHARE * pm + (1 - MODEL_SHARE) * mid
         e = p - cost
-        if best_c is None or e > best_c[0]:
+        # выбираем коридор с наибольшей вероятностью (центр у прогноза), а не самый дешёвый: дешёвые окна по краям выигрывают редко
+        if best_c is None or p > best_c[5]:
             best_c = (e, j, w, cost, pm, p)
     if best_c and best_c[3] <= MAX_CORR_COST and best_c[5] >= MIN_CORR_P and best_c[0] >= MIN_CORR_EDGE:
         e, j, w, cost, pm, p = best_c
