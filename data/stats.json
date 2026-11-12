@@ -2075,5 +2075,24 @@
    "ncep_nbm_conus": 14.7,
    "ens": 14.92
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "warsaw",
+  "k": 7,
+  "p": 0.59,
+  "actual": 8,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 6.8,
+   "ecmwf_aifs025_single": 6.6,
+   "icon_seamless": 7.0,
+   "gfs_seamless": 6.8,
+   "meteofrance_seamless": 3.1,
+   "gem_seamless": 8.0,
+   "jma_seamless": 7.8,
+   "cma_grapes_global": 8.1,
+   "ens": 7.04
+  }
  }
 ]

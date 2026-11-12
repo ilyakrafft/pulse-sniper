@@ -1,15 +1,4 @@
 {
- "warsaw|2026-11-12": {
-  "ecmwf_ifs025": 6.8,
-  "ecmwf_aifs025_single": 6.6,
-  "icon_seamless": 7.0,
-  "gfs_seamless": 6.8,
-  "meteofrance_seamless": 3.1,
-  "gem_seamless": 8.0,
-  "jma_seamless": 7.8,
-  "cma_grapes_global": 8.1,
-  "ens": 7.04
- },
  "miami|2026-11-12": {
   "ecmwf_ifs025": 27.2,
   "ecmwf_aifs025_single": 27.2,
