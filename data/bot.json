@@ -531,6 +531,38 @@
    ],
    "done": true,
    "hit": false
+  },
+  "london|2026-11-13": {
+   "city": "london",
+   "date": "2026-11-13",
+   "label": "6°C",
+   "pm": 0.457,
+   "price": 0.188,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "5°C",
+    "6°C",
+    "7°C"
+   ]
+  },
+  "chongqing|2026-11-12": {
+   "city": "chongqing",
+   "date": "2026-11-12",
+   "label": "14°C",
+   "pm": 0.531,
+   "price": 0.432,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "13°C",
+    "14°C",
+    "15°C"
+   ]
   }
  },
  "free_week": {},
