@@ -123,6 +123,24 @@
     "ncep_nbm_conus": 26.9,
     "ens": 28.4
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 24.11,
+   "sd": 1.62,
+   "a": 23.61,
+   "m": {
+    "ecmwf_ifs025": 26.8,
+    "ecmwf_aifs025_single": 23.5,
+    "icon_seamless": 24.5,
+    "gfs_seamless": 23.0,
+    "meteofrance_seamless": 21.7,
+    "gem_seamless": 25.2,
+    "jma_seamless": 20.7,
+    "cma_grapes_global": 22.8,
+    "ncep_nbm_conus": 24.4,
+    "ens": 25.0
+   }
   }
  ],
  "paris": [
@@ -204,6 +222,24 @@
     "cma_grapes_global": 22.1,
     "ncep_nbm_conus": 23.3,
     "ens": 22.0
+   }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 20.16,
+   "sd": 1.03,
+   "a": 21.39,
+   "m": {
+    "ecmwf_ifs025": 20.4,
+    "ecmwf_aifs025_single": 19.3,
+    "icon_seamless": 21.4,
+    "gfs_seamless": 20.7,
+    "meteofrance_seamless": 18.1,
+    "gem_seamless": 21.1,
+    "jma_seamless": 18.2,
+    "cma_grapes_global": 20.5,
+    "ncep_nbm_conus": 21.0,
+    "ens": 20.1
    }
   }
  ],

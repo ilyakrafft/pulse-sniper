@@ -2154,5 +2154,45 @@
    "ncep_nbm_conus": 21.9,
    "ens": 24.07
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "la",
+  "k": 24,
+  "p": 0.536,
+  "actual": 24,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 26.8,
+   "ecmwf_aifs025_single": 23.5,
+   "icon_seamless": 24.5,
+   "gfs_seamless": 23.0,
+   "meteofrance_seamless": 21.7,
+   "gem_seamless": 25.2,
+   "jma_seamless": 20.7,
+   "cma_grapes_global": 22.8,
+   "ncep_nbm_conus": 24.4,
+   "ens": 25.03
+  }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "sf",
+  "k": 20,
+  "p": 0.644,
+  "actual": 21,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 20.4,
+   "ecmwf_aifs025_single": 19.3,
+   "icon_seamless": 21.4,
+   "gfs_seamless": 20.7,
+   "meteofrance_seamless": 18.1,
+   "gem_seamless": 21.1,
+   "jma_seamless": 18.2,
+   "cma_grapes_global": 20.5,
+   "ncep_nbm_conus": 21.0,
+   "ens": 20.13
+  }
  }
 ]
