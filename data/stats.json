@@ -2055,5 +2055,25 @@
    "cma_grapes_global": 11.2,
    "ens": 11.02
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "nyc",
+  "k": 15,
+  "p": 0.711,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 15.1,
+   "ecmwf_aifs025_single": 13.9,
+   "icon_seamless": 15.5,
+   "gfs_seamless": 14.7,
+   "meteofrance_seamless": 13.6,
+   "gem_seamless": 15.8,
+   "jma_seamless": 14.6,
+   "cma_grapes_global": 14.4,
+   "ncep_nbm_conus": 14.7,
+   "ens": 14.92
+  }
  }
 ]

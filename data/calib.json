@@ -23,6 +23,24 @@
     "ncep_nbm_conus": 16.2,
     "ens": 15.2
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 14.75,
+   "sd": 0.62,
+   "a": 15.83,
+   "m": {
+    "ecmwf_ifs025": 15.1,
+    "ecmwf_aifs025_single": 13.9,
+    "icon_seamless": 15.5,
+    "gfs_seamless": 14.7,
+    "meteofrance_seamless": 13.6,
+    "gem_seamless": 15.8,
+    "jma_seamless": 14.6,
+    "cma_grapes_global": 14.4,
+    "ncep_nbm_conus": 14.7,
+    "ens": 14.9
+   }
   }
  ],
  "dallas": [
