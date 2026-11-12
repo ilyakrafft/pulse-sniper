@@ -124,5 +124,39 @@
    "26°C",
    "27°C"
   ]
+ },
+ {
+  "date": "2026-11-12",
+  "city": "jeddah",
+  "label": "31°C",
+  "win": "34°C",
+  "hit": false,
+  "price": 0.283,
+  "pm": 0.487,
+  "edge": 0.204,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "30°C",
+   "31°C",
+   "32°C"
+  ]
+ },
+ {
+  "date": "2026-11-12",
+  "city": "helsinki",
+  "label": "5°C",
+  "win": "7°C",
+  "hit": false,
+  "price": 0.372,
+  "pm": 0.552,
+  "edge": 0.18,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "4°C",
+   "5°C",
+   "6°C"
+  ]
  }
 ]

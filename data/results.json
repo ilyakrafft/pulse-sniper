@@ -178,5 +178,17 @@
  "shenzhen|2026-11-12": {
   "win": "29°C",
   "actual": 29
+ },
+ "helsinki|2026-11-12": {
+  "win": "7°C",
+  "actual": 7
+ },
+ "jeddah|2026-11-12": {
+  "win": "34°C",
+  "actual": 34
+ },
+ "telaviv|2026-11-12": {
+  "win": "25°C",
+  "actual": 25
  }
 }

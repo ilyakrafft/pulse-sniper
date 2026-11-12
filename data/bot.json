@@ -450,7 +450,9 @@
    "price": 0.071,
    "to": [
     "12b3338af259"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "london|2026-11-10": {
    "city": "london",
@@ -616,7 +618,9 @@
     "4°C",
     "5°C",
     "6°C"
-   ]
+   ],
+   "done": true,
+   "hit": false
   },
   "london|2026-11-14": {
    "city": "london",
@@ -846,6 +850,18 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.39
+  },
+  {
+   "date": "2026-11-12",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.071
+  },
+  {
+   "date": "2026-11-12",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.372
   }
  ],
  "last_summary": "2026-W45",

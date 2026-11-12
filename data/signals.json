@@ -703,7 +703,7 @@
    }
   ],
   "first": "2026-11-12T06:02+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T13:00+00:00",
   "kind": "corr",
   "label": "31°C",
@@ -737,7 +737,9 @@
   "edge": 0.204,
   "level": "mid",
   "key": "jeddah|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-jeddah-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-jeddah-on-november-12-2026",
+  "win": "34°C",
+  "hit": false
  },
  {
   "city": "helsinki",
@@ -807,7 +809,7 @@
    }
   ],
   "first": "2026-11-12T08:38+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T14:00+00:00",
   "kind": "corr",
   "label": "5°C",
@@ -841,7 +843,9 @@
   "edge": 0.18,
   "level": "mid",
   "key": "helsinki|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-helsinki-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-helsinki-on-november-12-2026",
+  "win": "7°C",
+  "hit": false
  },
  {
   "city": "london",
