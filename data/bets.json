@@ -73,5 +73,22 @@
   "labels": [
    "9°C"
   ]
+ },
+ {
+  "date": "2026-11-12",
+  "city": "chongqing",
+  "label": "14°C",
+  "win": "16°C",
+  "hit": false,
+  "price": 0.432,
+  "pm": 0.531,
+  "edge": 0.099,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ]
  }
 ]

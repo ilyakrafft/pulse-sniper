@@ -281,7 +281,7 @@
    }
   ],
   "first": "2026-11-12T03:16+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-12T08:00+00:00",
   "kind": "corr",
   "label": "14°C",
@@ -315,7 +315,9 @@
   "edge": 0.099,
   "level": "mid",
   "key": "chongqing|2026-11-12",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-12-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-12-2026",
+  "win": "16°C",
+  "hit": false
  },
  {
   "city": "singapore",
@@ -628,5 +630,109 @@
   "level": "mid",
   "key": "shenzhen|2026-11-12",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-12-2026"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-12",
+  "mu": 32.06,
+  "sigma": 1.11,
+  "sd": 0.97,
+  "n": 9,
+  "st": "OEJN",
+  "liq": 10858.81,
+  "v24": 6231.82,
+  "dist": [
+   {
+    "l": "28°C и ниже",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "29°C",
+    "m": 0.01,
+    "p": 0.001
+   },
+   {
+    "l": "30°C",
+    "m": 0.07,
+    "p": 0.006
+   },
+   {
+    "l": "31°C",
+    "m": 0.228,
+    "p": 0.028
+   },
+   {
+    "l": "32°C",
+    "m": 0.348,
+    "p": 0.215
+   },
+   {
+    "l": "33°C",
+    "m": 0.248,
+    "p": 0.55
+   },
+   {
+    "l": "34°C",
+    "m": 0.082,
+    "p": 0.231
+   },
+   {
+    "l": "35°C",
+    "m": 0.013,
+    "p": 0.018
+   },
+   {
+    "l": "36°C",
+    "m": 0.001,
+    "p": 0.002
+   },
+   {
+    "l": "37°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "38°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-12T06:02+00:00",
+  "status": "open",
+  "until": "2026-11-12T13:00+00:00",
+  "kind": "corr",
+  "label": "31°C",
+  "labels": [
+   "30°C",
+   "31°C",
+   "32°C"
+  ],
+  "lo": 29.5,
+  "hi": 32.5,
+  "legs": [
+   {
+    "l": "30°C",
+    "price": 0.01,
+    "pm": 0.07
+   },
+   {
+    "l": "31°C",
+    "price": 0.033,
+    "pm": 0.228
+   },
+   {
+    "l": "32°C",
+    "price": 0.24,
+    "pm": 0.348
+   }
+  ],
+  "price": 0.283,
+  "pm": 0.487,
+  "pm_model": 0.645,
+  "edge": 0.204,
+  "level": "mid",
+  "key": "jeddah|2026-11-12",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-jeddah-on-november-12-2026"
  }
 ]

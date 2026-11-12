@@ -1768,5 +1768,24 @@
    "ncep_nbm_conus": 23.3,
    "ens": 21.99
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "chongqing",
+  "k": 15,
+  "p": 0.687,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 15.5,
+   "ecmwf_aifs025_single": 15.9,
+   "icon_seamless": 14.3,
+   "gfs_seamless": 14.5,
+   "meteofrance_seamless": 15.6,
+   "gem_seamless": 14.7,
+   "jma_seamless": 17.1,
+   "cma_grapes_global": 14.0,
+   "ens": 14.61
+  }
  }
 ]

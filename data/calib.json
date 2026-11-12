@@ -189,6 +189,23 @@
     "cma_grapes_global": 16.6,
     "ens": 16.7
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 15.11,
+   "sd": 0.8,
+   "a": 16.0,
+   "m": {
+    "ecmwf_ifs025": 15.5,
+    "ecmwf_aifs025_single": 15.9,
+    "icon_seamless": 14.3,
+    "gfs_seamless": 14.5,
+    "meteofrance_seamless": 15.6,
+    "gem_seamless": 14.7,
+    "jma_seamless": 17.1,
+    "cma_grapes_global": 14.0,
+    "ens": 14.6
+   }
   }
  ],
  "hongkong": [
