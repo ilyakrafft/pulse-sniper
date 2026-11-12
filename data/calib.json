@@ -119,6 +119,24 @@
     "meteofrance_arome_france_hd": 14.0,
     "ens": 14.6
    }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 10.31,
+   "sd": 0.53,
+   "a": 12.0,
+   "m": {
+    "ecmwf_ifs025": 10.0,
+    "ecmwf_aifs025_single": 9.8,
+    "icon_seamless": 10.7,
+    "gfs_seamless": 10.2,
+    "meteofrance_seamless": 10.5,
+    "gem_seamless": 9.6,
+    "jma_seamless": 11.6,
+    "cma_grapes_global": 9.3,
+    "meteofrance_arome_france_hd": 10.9,
+    "ens": 10.3
+   }
   }
  ],
  "sf": [
@@ -385,6 +403,23 @@
     "jma_seamless": 1.2,
     "cma_grapes_global": 0.4,
     "ens": 3.3
+   }
+  },
+  {
+   "d": "2026-11-12",
+   "mu": 1.56,
+   "sd": 0.84,
+   "a": 2.0,
+   "m": {
+    "ecmwf_ifs025": 2.4,
+    "ecmwf_aifs025_single": 1.6,
+    "icon_seamless": 1.5,
+    "gfs_seamless": 1.0,
+    "meteofrance_seamless": 0.9,
+    "gem_seamless": 2.7,
+    "jma_seamless": 0.1,
+    "cma_grapes_global": -0.6,
+    "ens": 2.1
    }
   }
  ],

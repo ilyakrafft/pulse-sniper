@@ -1920,5 +1920,44 @@
    "cma_grapes_global": 23.0,
    "ens": 24.19
   }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "moscow",
+  "k": 2,
+  "p": 0.66,
+  "actual": 2,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 2.4,
+   "ecmwf_aifs025_single": 1.6,
+   "icon_seamless": 1.5,
+   "gfs_seamless": 1.0,
+   "meteofrance_seamless": 0.9,
+   "gem_seamless": 2.7,
+   "jma_seamless": 0.1,
+   "cma_grapes_global": -0.6,
+   "ens": 2.14
+  }
+ },
+ {
+  "date": "2026-11-12",
+  "city": "paris",
+  "k": 10,
+  "p": 0.718,
+  "actual": 12,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 10.0,
+   "ecmwf_aifs025_single": 9.8,
+   "icon_seamless": 10.7,
+   "gfs_seamless": 10.2,
+   "meteofrance_seamless": 10.5,
+   "gem_seamless": 9.6,
+   "jma_seamless": 11.6,
+   "cma_grapes_global": 9.3,
+   "meteofrance_arome_france_hd": 10.9,
+   "ens": 10.33
+  }
  }
 ]
