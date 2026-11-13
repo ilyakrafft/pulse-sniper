@@ -2238,5 +2238,20 @@
    "ncep_nbm_conus": 25.8,
    "ens": 25.69
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "sf",
+  "k": 16,
+  "p": 0.722,
+  "actual": 18,
+  "hit": false,
+  "v": {
+   "gfs_seamless": 15.6,
+   "ukmo_seamless": 16.9,
+   "gfs_hrrr": 15.6,
+   "ncep_nbm_conus": 16.1,
+   "ens": 16.76
+  }
  }
 ]

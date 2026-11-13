@@ -1100,6 +1100,19 @@
     "ncep_nbm_conus": 21.0,
     "ens": 20.1
    }
+  },
+  {
+   "d": "2026-11-13",
+   "mu": 16.22,
+   "sd": 0.55,
+   "a": 18.06,
+   "m": {
+    "gfs_seamless": 15.6,
+    "ukmo_seamless": 16.9,
+    "gfs_hrrr": 15.6,
+    "ncep_nbm_conus": 16.1,
+    "ens": 16.8
+   }
   }
  ],
  "singapore": [
