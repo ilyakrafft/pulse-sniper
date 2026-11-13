@@ -15,6 +15,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -753,7 +755,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function accessBanner() {
     if (state.member) return '<div class="card access member rise"><div><span class="kick">Доступ открыт</span><h2>Все сигналы без ограничений</h2><p>Сигналы появляются здесь сразу, как только модели расходятся с ценой рынка. Проверку регистрации выполняет бот.</p></div><div class="acts"><button class="btn ghost" type="button" data-act="guest">Выйти из режима участника</button></div></div>';
     var n = daysToMonday();
-    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ получают рефералы владельца сервиса на Pulse Market: оставьте заявку в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + refUrl() + '" target="_blank" rel="noopener">Pulse Market по реф-ссылке ↗</a></div></div>';
+    return '<div class="card access rise"><div><span class="kick">Бесплатный режим</span><h2>Один сигнал в неделю</h2><p>Следующий бесплатный сигнал придёт в бот через ' + n + ' ' + plural(n, "день", "дня", "дней") + '. Полный доступ без ограничений открыт партнёрам сервиса: зарегистрируйтесь на Pulse Market и активируйте доступ в кабинете.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button><a class="btn ghost" data-act="ref" href="' + refUrl() + '" target="_blank" rel="noopener">Открыть Pulse Market ↗</a></div></div>';
   }
   function explain(l) {
     var m = /^(-?\d+)[–-](-?\d+)°F$/.exec(l);
@@ -900,7 +902,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var rows = state.stats.filter(function (r) { return r.age <= cut; }), sn = rows.length, sh = rows.filter(function (r) { return r.hit; }).length;
     var ref = "";
     var demo = state.statsSource === "demo" && !bn ? '<div class="demo rise"><b>ДЕМО</b><span>Реальный отчёт появится, когда закроются рынки, по которым бот выдал сигналы.</span></div>' : "";
-    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны сразу.</p></div><button class="btn" type="button" data-act="login">Открыть кабинет</button></div>';
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Станьте партнёром сервиса, и новые сигналы будут приходить сразу.</p></div><button class="btn" type="button" data-act="login">Открыть кабинет</button></div>';
     var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>20</i><i class="mid">21</i><i>22</i></div><p>Каждая строка это один сигнал из бота и приложения. Если вы поставили «Да» на его варианты, итог рынка решает всё: внутри вариантов значит «Сыграл», иначе «Не сыграл».</p></div></div>';
     var hero = bn ? '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Сигналы сыграли</span><strong data-count="' + bh + '">' + bh + '</strong><em> из ' + bn + '</em><div class="chips2"><span class="rtag win">✓ Сыграли ' + bh + '</span><span class="rtag lose">✕ Не сыграли ' + bm + '</span></div></div></div>' :
       '<div class="card rep-hero rise" style="--i:0"><div class="rh-t"><span class="kick">Сигналы</span><strong>0</strong><em> закрыто</em><div class="betsempty" style="margin-top:8px">Первые итоги появятся, когда закроются рынки, по которым уже выданы сигналы.</div></div></div>';
@@ -992,7 +994,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
         : '<div class="betsempty">Счёт по точным вариантам начат недавно. Первые итоги появятся, когда закроются рынки, по которым бот уже прислал сигналы.</div>') + '</div>';
     var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>+30</i><i class="mid">+31</i><i>+32</i></div><p><b>Коридор</b> это три соседних градуса вокруг нашего прогноза. Мы называем его заранее.</p></div><div class="how-row"><div class="how-c"><i class="fact">+31°</i></div><p><b>Факт</b> это максимум дня, с которым рынок закрылся. Если он внутри коридора, мы <b>попали</b>.</p></div></div>';
     var demo = state.statsSource === "demo" ? '<div class="demo rise"><b>ДЕМО</b><span>Это пример отчёта с придуманными результатами. Реальная статистика появится, когда бот начнёт сохранять итоги закрытых рынков.</span></div>' : "";
-    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Оставьте заявку в кабинете, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
+    var cta = state.member ? "" : '<div class="card access rise" style="margin-top:14px"><div><span class="kick">Хотите видеть сигналы сразу</span><h2>Откройте полный доступ</h2><p>Станьте партнёром сервиса, и новые сигналы будут доступны в любое время, а не раз в неделю.</p></div><div class="acts"><button class="btn shine" type="button" data-act="login">Получить доступ</button></div></div>';
     el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Проверка прогноза: попал ли максимум дня в наш коридор из трёх градусов. Цены рынка здесь не учитываются.</p></div>' + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' +
       '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Попали в коридор</span><strong data-count="' + hits + '">' + hits + '</strong><em> из ' + n + '</em><div class="chips2"><span class="rtag win">✓ Попали ' + hits + '</span><span class="rtag lose">✕ Мимо ' + miss + '</span></div></div></div>' + how +
@@ -1159,7 +1161,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
         '<div class="pfform"><label class="field"><span>Почта</span><input id="acMail" type="email" inputmode="email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="name@gmail.com" value="' + esc(acc.mail || "") + '"></label><div class="authmsg" role="alert">' + esc(acc.msg) + '</div><button class="btn" type="button" data-acc="send"' + (acc.busy ? " disabled" : "") + '>' + (acc.busy ? "Проверяю…" : "Проверить почту") + '</button></div></li>';
     }
     if (st === "pending" && acc.msg) step2 = step2.replace('</li>', '<div class="authmsg" role="alert">' + esc(acc.msg) + '</div></li>');
-    return '<div class="view-head"><h2>Кабинет</h2><p>Доступ для рефералов Pulse Market.</p></div><div class="card auth rise"><ol class="steps">' + step1 + step2 + '</ol>' +
+    return '<div class="view-head"><h2>Кабинет</h2><p>Доступ для партнёров сервиса.</p></div><div class="card auth rise"><ol class="steps">' + step1 + step2 + '</ol>' +
       (ready ? '' : '<p class="note">Проверка пока не подключена, форма заработает после настройки.</p>') + '</div>' + notifyCard() +
       '<p class="note">Пароль не нужен. Почта не сохраняется, хранится только её отпечаток. На другом устройстве достаточно снова ввести ту же почту.</p>';
   }
