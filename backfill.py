@@ -52,16 +52,22 @@ def fetch_forecasts(today):
 
 def fetch_actuals(offs, today):
     """{город: {дата: максимум по станции}} за последние дни (только полные сутки)."""
-    ids = ",".join(c[4] for c in C.CITIES if c[4])
-    rows = None
-    for hours in (360, 240, 168):
-        try:
-            rows = C.get("%s?ids=%s&format=json&hours=%d" % (C.METAR, ids, hours))
-            if isinstance(rows, list) and rows:
-                print("METAR за", hours, "ч:", len(rows), "записей")
-                break
-        except Exception as e:  # noqa: BLE001
-            print("METAR", hours, "ч не загрузился:", type(e).__name__)
+    rows = []
+    for c in C.CITIES:  # по одной станции: общий запрос обрезается (около 400 записей на всех)
+        if not c[4]:
+            continue
+        got = None
+        for hours in (336, 240):
+            try:
+                got = C.get("%s?ids=%s&format=json&hours=%d" % (C.METAR, c[4], hours))
+                if isinstance(got, list) and got:
+                    break
+            except Exception as e:  # noqa: BLE001
+                print("METAR", c[4], hours, "ч не загрузился:", type(e).__name__, getattr(e, "code", ""))
+        if isinstance(got, list):
+            rows += got
+            print("METAR", c[4], len(got), "записей")
+        time.sleep(1)
     by_icao = {c[4]: c[0] for c in C.CITIES if c[4]}
     days = {}
     for r in rows if isinstance(rows, list) else []:
