@@ -612,7 +612,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
         return { l: L.l, price0: L.price, price: bk ? (bk.ask || bk.p) : L.price, mid: bk ? bk.p : L.price, pm: L.pm };
       });
       out.push({ id: r.city + "@" + r.date, c: r.city, m: m, d: d, f: f, best: { b: b, pm: r.pm, e: r.edge }, level: r.level, sd: r.sd, first: r.first, price0: r.price,
-        kind: r.kind || "single", labels: r.labels || [r.label], legs: legs, dist: r.dist || [], st: r.st, liq: r.liq, v24: r.v24 });
+        live: r.live || null, kind: r.kind || "single", labels: r.labels || [r.label], legs: legs, dist: r.dist || [], st: r.st, liq: r.liq, v24: r.v24 });
     });
     out.sort(function (a, b) { return b.best.e - a.best.e; });
     return out;
@@ -771,7 +771,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }
   function rangeLabel(ls) {
     if (ls.some(function (x) { return /и ниже|и выше/.test(x); })) return ls.join(" · ");
-    var a = ls[0].match(/-?\d+(?:[.,]\d+)?/), nums = ls[ls.length - 1].match(/-?\d+(?:[.,]\d+)?/g), unit = (ls[ls.length - 1].match(/°[CF]/) || [""])[0];
+    var fix = function (x) { return x.replace(/(\d)-(\d)/g, "$1 $2"); };
+    var a = fix(ls[0]).match(/-?\d+(?:[.,]\d+)?/), nums = fix(ls[ls.length - 1]).match(/-?\d+(?:[.,]\d+)?/g), unit = (ls[ls.length - 1].match(/°[CF]/) || [""])[0];
     return a && nums ? a[0] + "–" + nums[nums.length - 1] + unit : ls.join(" · ");
   }
   function money0(n) { return "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
@@ -820,9 +821,21 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<table class="ctab"><thead><tr><th>Исход</th><th>Цена</th><th>Ставка</th><th>Выплата</th></tr></thead><tbody>' + rows + '</tbody></table>' +
       '<div class="csum"><div><small>Вложите</small><b data-in>—</b></div><div class="w"><small>Попали, вернётся</small><b data-win>—</b><em data-prof></em></div><div class="l"><small>Мимо</small><b data-loss>—</b></div></div>' +
       '<p class="be">Выгодно, если шанс попасть выше <b>' + pc(cost) + '%</b>. Наша оценка: <b>' + pc(s.best.pm) + '%</b>.</p></div>' +
-      distChart(s) + note +
+      liveBox(s) + distChart(s) + note +
       '<details class="how2"><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>Найдите три строки из таблицы.</li><li>В каждой выберите «Да» (Yes) и введите сумму из колонки «Ставка».</li></ol></details>' +
       '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+  }
+  function liveBox(s) {
+    var L = s.live; if (!L) return "";
+    var age = (Date.now() - new Date(L.t).getTime()) / 3600000; if (!(age < 4)) return "";
+    var cost = s.legs.reduce(function (a, x) { return a + x.price0; }, 0) || s.price0 || 0;
+    var info = (L.temp != null ? 'Станция сейчас <b>' + L.temp + '°</b>, максимум дня <b>' + L.max + '°</b>. ' : "");
+    var head, tx, cl;
+    if (L.state === "sell") { var pr = cost ? Math.round((L.val / cost - 1) * 100) : 0; cl = "sell"; head = "💰 Можно продавать"; tx = "Коридор уже стоит " + pc(L.val) + "% от выплаты, вы покупали по " + pc(cost) + "%. Продав три позиции сейчас, зафиксируете около +" + pr + "%. Можно и держать до итога."; }
+    else if (L.state === "weak") { cl = "weak"; head = "⚠️ Сигнал ослаб"; tx = "Шанс попасть упал с " + pc(s.best.pm) + "% до " + pc(L.pm) + "%. Коридор сейчас стоит " + pc(L.val) + "% от выплаты. Можно закрыть или держать до итога."; }
+    else { cl = "hold"; head = "Следим за станцией"; tx = "Шанс попасть сейчас " + pc(L.pm) + "%, коридор стоит " + pc(L.val) + "%."; }
+    var tm = ""; try { tm = new Intl.DateTimeFormat("ru", { hour: "2-digit", minute: "2-digit" }).format(new Date(L.t)); } catch (e) {}
+    return '<div class="livebox ' + cl + '"><div class="lv-h"><b>' + head + '</b><small>обновлено ' + tm + '</small></div><p>' + info + tx + '</p><div class="lv-bar"><em style="--w:' + pc(L.pm) + '%"></em></div></div>';
   }
   function skipsBox() {
     var it = (state.skips || []).filter(function (x) { return !state.sigs.some(function (s) { return s.c === x.c && s.m.date === x.date; }); });
@@ -1829,6 +1842,15 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .ac-l{display:flex;gap:11px;align-items:center;min-width:0}.ac-l b{display:block;font-size:14px}.ac-l small{display:block;color:var(--muted);font-size:12px}
 .ac-dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--muted)}.autoctl.on .ac-dot{background:var(--warn)}.ac-dot.run{background:var(--good);animation:pulse 1.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+
+.livebox{display:grid;gap:6px;padding:11px 13px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.livebox p{margin:0;font-size:13px;color:var(--muted);line-height:1.45}.livebox p b{color:var(--fg)}
+.lv-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.lv-h b{font-size:14px}.lv-h small{color:var(--muted);font-size:11px}
+.lv-bar{height:5px;border-radius:3px;background:color-mix(in srgb,var(--muted) 18%,transparent);overflow:hidden}.lv-bar em{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--g1),var(--g2));animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;transform-origin:left}
+.livebox.sell{border-color:color-mix(in srgb,var(--good) 55%,var(--line));background:color-mix(in srgb,var(--good) 10%,var(--surface));animation:pulse2 2.4s infinite}.livebox.sell .lv-h b{color:var(--good)}
+.livebox.weak{border-color:color-mix(in srgb,var(--bad) 55%,var(--line));background:color-mix(in srgb,var(--bad) 9%,var(--surface))}.livebox.weak .lv-h b{color:var(--bad)}
+@keyframes pulse2{50%{box-shadow:0 0 22px -6px var(--good)}}
+@keyframes grow{from{transform:scaleX(0)}}
 </style>
 <script>
 /* Звук приложения. Всё синтезируется прямо в телефоне: ни файлов, ни авторских прав.

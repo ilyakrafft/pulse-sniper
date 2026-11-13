@@ -188,6 +188,34 @@ def outcome_text(rec, win, hit):
     return t
 
 
+def rng(labels):
+    import re
+    if len(labels) > 1 and not any("ниже" in x or "выше" in x for x in labels):
+        a = re.findall(r"(?<![\d.,])-?\d+(?:[.,]\d+)?", labels[0]); b = re.findall(r"(?<![\d.,])-?\d+(?:[.,]\d+)?", labels[-1])
+        u = re.findall(r"°[CF]", labels[-1])
+        if a and b:
+            return "%s–%s%s" % (a[0], b[-1], u[0] if u else "")
+    return ", ".join(labels)
+
+
+def alert_text(rec, live, kind):
+    d = dt.date.fromisoformat(rec["date"])
+    name = esc(NAMES.get(rec["city"], rec["city"]))
+    ours = rng(rec.get("labels") or [rec["label"]])
+    cost, val = rec.get("price") or 0, live.get("val") or 0
+    st = ""
+    if live.get("temp") is not None:
+        st = "Станция сейчас %s°, максимум дня %s°.\n" % (live["temp"], live.get("max"))
+    if kind == "sell":
+        prof = round((val / cost - 1) * 100) if cost else 0
+        return ("💰 <b>Можно продавать</b> · %s · %s\n\nКоридор <b>%s</b> уже стоит %d%% от выплаты (вы покупали по %d%%).\n%s"
+                "Можно продать три позиции сейчас и зафиксировать около %+d%% к вложенному, либо держать до итога дня.\n\n"
+                "Это подсказка, а не гарантия: цена на бирже может чуть отличаться." % (name, dlabel(d), esc(ours), round(val * 100), round(cost * 100), st, prof))
+    return ("⚠️ <b>Сигнал ослаб</b> · %s · %s\n\nШанс попасть в коридор <b>%s</b> упал с %d%% до %d%%.\n%s"
+            "Можно закрыть коридор сейчас по ≈%d%% от выплаты или держать до итога. Решаете вы." % (
+                name, dlabel(d), esc(ours), round((rec.get("pm") or 0) * 100), round((live.get("pm") or 0) * 100), st, round(val * 100)))
+
+
 def week_text(rows, open_n):
     n = len(rows)
     hits = sum(1 for r in rows if r["hit"])
@@ -379,6 +407,24 @@ def run(now=None):
                 st["free_week"][h] = wk
         st["sent"][s["key"]] = rec
         print("сигнал", s["key"], "получателей:", len(rec["to"]))
+
+    # оповещения по открытым сигналам: «можно продать» и «ослаб»
+    try:
+        live_by = {r["key"]: r for r in collect.load("signals.json", []) if r.get("live")}
+        for key, rec in st["sent"].items():
+            r = live_by.get(key)
+            if not r or rec.get("done") or r.get("status") != "open":
+                continue
+            sent_al = rec.setdefault("alerts", {})
+            for kind in ("sell", "weak"):
+                if kind in (r.get("alerts") or {}) and kind not in sent_al and r["live"].get("state") == kind:
+                    for h in rec["to"]:
+                        if h in everyone:
+                            send(everyone[h], alert_text(rec, r["live"], kind))
+                    sent_al[kind] = r["live"]["t"]
+                    print("оповещение", kind, key)
+    except Exception as e:  # noqa: BLE001
+        print("оповещения:", type(e).__name__, e)
 
     # итоги
     results = collect.load("results.json", {})

@@ -39,17 +39,36 @@ MODELS = [
     ("jma_seamless", 0.6, "JMA", "Япония, GSM, MSM", None),
     ("kma_seamless", 0.5, "KMA", "Корея, GDPS", None),
     ("cma_grapes_global", 0.4, "CMA GRAPES", "Китай", None),
+    ("ecmwf_ifs", 1.2, "ECMWF IFS HRES", "9 км, высокое разрешение", None),
+    ("gfs_graphcast025", 0.8, "GraphCast", "ИИ-модель Google DeepMind", None),
+    ("icon_global", 0.6, "ICON Global", "Германия, 11 км", None),
+    ("gfs_global", 0.6, "GFS Global", "США, 13 км", None),
+    ("gem_global", 0.5, "GEM Global", "Канада, 15 км", None),
+    ("ukmo_global_deterministic_10km", 0.7, "UKMO Global", "Великобритания, 10 км", None),
+    ("meteofrance_arpege_world", 0.6, "ARPEGE World", "Франция, глобальная", None),
+    ("jma_gsm", 0.4, "JMA GSM", "Япония, глобальная", None),
+    ("kma_gdps", 0.4, "KMA GDPS", "Корея, глобальная", None),
     ("bom_access_global", 0.4, "BoM ACCESS", "Австралия", None),
     ("gfs_hrrr", 1.3, "NOAA HRRR", "США, 3 км", US),
     ("ncep_nbm_conus", 1.2, "NOAA NBM", "США, сводный", US),
     ("icon_d2", 1.3, "ICON-D2", "Европа, 2 км", EU),
     ("knmi_harmonie_arome_europe", 1.0, "HARMONIE-AROME", "Европа, 2,5 км", EU),
+    ("icon_eu", 1.1, "ICON-EU", "Европа, 7 км", EU),
+    ("meteofrance_arpege_europe", 0.9, "ARPEGE Europe", "Европа, 11 км", EU),
+    ("dmi_harmonie_arome_europe", 1.0, "DMI HARMONIE", "Северная Европа, 2 км", ["helsinki", "amsterdam", "london", "paris", "munich", "warsaw"]),
+    ("metno_nordic", 1.1, "MET Norway", "Скандинавия, 1 км", ["helsinki"]),
+    ("knmi_harmonie_arome_netherlands", 1.2, "KNMI HARMONIE", "Нидерланды, 2 км", ["amsterdam"]),
+    ("meteofrance_arome_france", 1.1, "AROME France", "Франция, 1,3 км", ["paris"]),
+    ("italia_meteo_arpae_icon_2i", 1.1, "ICON-2I", "Италия, 2 км", ["milan"]),
+    ("jma_msm", 1.2, "JMA MSM", "Япония, 5 км", ["tokyo"]),
+    ("gem_hrdps_continental", 1.1, "GEM HRDPS", "Северная Америка, 2,5 км", ["nyc"]),
+    ("gem_regional", 0.8, "GEM Regional", "Северная Америка, 10 км", US),
     ("meteofrance_arome_france_hd", 1.2, "AROME HD", "Франция, 1,5 км", ["paris"]),
     ("ukmo_uk_deterministic_2km", 1.2, "UKMO UKV", "Великобритания, 2 км", ["london"]),
 ]
 MODEL_W = {m[0]: m[1] for m in MODELS}
 MODEL_W["ens"] = 1.6
-ENS_MODELS = ["ecmwf_ifs025", "gfs025", "icon_seamless", "gem_global"]  # ансамбли: ECMWF ENS, GEFS, ICON-EPS, GEPS
+ENS_MODELS = ["ecmwf_ifs025", "ecmwf_aifs025", "gfs025", "icon_seamless", "gem_global", "ukmo_global_ensemble_20km"]  # ансамбли: ECMWF ENS и AIFS ENS, GEFS, ICON-EPS, GEPS, UKMO MOGREPS
 ENS_URL = "https://ensemble-api.open-meteo.com/v1/ensemble"
 OLD_KEYS = ["ecmwf_ifs025", "icon_seamless", "gfs_seamless", "gem_seamless"]  # порядок старого формата forecasts.json
 # id, slug в адресе события, широта и долгота СТАНЦИИ (аэропорта, по которому закрывается рынок), код ICAO
@@ -339,7 +358,7 @@ def collect_forecast_all(now):
             got += 1
         if got:
             used.append({"key": key, "name": name, "sub": sub, "w": w})
-        time.sleep(1)
+        time.sleep(3)  # лимит Open-Meteo: 600 запросов-точек в минуту
     if len(used) < MIN_MODELS:
         return None
     alld = sorted({t for per in maps.values() for mp in per.values() for t in mp})
@@ -431,6 +450,25 @@ def local_now(now, fc, city):
 
 
 # ---------- наблюдения на станциях (METAR): максимум дня, уже достигнутый ----------
+OBS_X = {}  # подробности наблюдений: максимум, последняя температура, местный час
+
+
+def intraday(mu, sigma, x, hour):
+    """Поправка прогноза максимума по фактическим данным станции. Возвращает (mu, sigma, floor).
+    К вечеру остаётся всё меньше шансов подняться выше уже достигнутого максимума, а когда станция остывает после пика, максимум считается пройденным."""
+    mx, last = x["max"], x.get("last")
+    rest = clamp((17 - hour) / 6.0, 0.0, 1.0)  # доля возможного роста: 1 до 11 ч, 0 после 17 ч
+    gap = mu - mx
+    if gap > 0 and hour >= 11:
+        mu = mx + gap * rest
+    peak_past = hour >= 14 and last is not None and last <= mx - 1
+    if peak_past:
+        mu, rest = mx + 0.2, 0.0
+    mu = max(mu, mx)
+    sigma = max(0.45, sigma * (0.35 + 0.65 * rest))
+    return mu, sigma, mx - 1.0
+
+
 def fetch_obs(markets, fc, now):
     need = {}
     for m in markets:
@@ -447,6 +485,8 @@ def fetch_obs(markets, fc, now):
         return {}
     by_icao = {v: k for k, v in ICAO.items() if v}
     out = {}
+    series = {}
+    OBS_X.clear()
     for r in rows if isinstance(rows, list) else []:
         city = by_icao.get(r.get("icaoId"))
         t, ts = r.get("temp"), r.get("obsTime")
@@ -455,7 +495,64 @@ def fetch_obs(markets, fc, now):
         ldt = dt.datetime.fromtimestamp(ts, dt.timezone.utc) + dt.timedelta(seconds=(fc.get("offsets") or {}).get(city, 0))
         if ldt.date().isoformat() == need[city]:
             out[city] = max(out.get(city, -99), t)
+            series.setdefault(city, []).append((ts, t, ldt.hour + ldt.minute / 60.0))
+    for city, arr in series.items():
+        arr.sort()
+        ts, t, hr = arr[-1]
+        old = [x for x in arr if x[0] <= ts - 90 * 60]
+        OBS_X[city] = {"max": out[city], "last": t, "hour": hr, "prev": old[-1][1] if old else None, "n": len(arr),
+                       "ts": dt.datetime.fromtimestamp(ts, dt.timezone.utc).isoformat(timespec="minutes")}
     return out
+
+
+# ---------- слежение за открытыми сигналами: поправка по станции, «ослаб», «можно продать» ----------
+SELL_VALUE = 0.85      # коридор стоит столько от выплаты $1: можно продать и зафиксировать прибыль
+WEAK_RATIO = 0.6       # шанс упал до этой доли от прежнего
+
+
+def live_update(sigs, markets, fc, calib, obs, now):
+    by = {(m["c"], m["date"]): m for m in markets}
+    for s in sigs:
+        if s.get("status") != "open" or s.get("kind") != "corr":
+            continue
+        m = by.get((s["city"], s["date"]))
+        if not m:
+            continue
+        ln = local_now(now, fc, s["city"])
+        if ln.date().isoformat() != s["date"] or s["city"] not in obs:
+            continue
+        x = OBS_X.get(s["city"])
+        vals = (fc.get("cities") or {}).get(s["city"])
+        dates = fc.get("dates") or []
+        if not x or not vals or s["date"] not in dates:
+            continue
+        i = dates.index(s["date"])
+        pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, 0, calib_of(calib, s["city"]), None, model_weights(calib, s["city"]))
+        if not pr:
+            continue
+        hour = ln.hour + ln.minute / 60.0
+        mu, sigma, floor = intraday(pr["mu"], pr["sigma"], x, hour)
+        pm = 0.0
+        val = 0.0
+        for lab in s.get("labels") or []:
+            b = next((b for b in m["b"] if b["l"] == lab), None)
+            if not b:
+                continue
+            pm += bucket_prob(b["lo"], b["hi"], mu, sigma, floor)
+            val += b["p"]
+        cost = s.get("price") or 0
+        state = "hold"
+        if val >= SELL_VALUE and val > cost * 1.05:
+            state = "sell"
+        elif pm <= (s.get("pm") or 0) * WEAK_RATIO and pm < cost - 0.05:
+            state = "weak"
+        live = {"t": now.isoformat(timespec="minutes"), "pm": round(pm, 3), "val": round(val, 3), "state": state,
+                "temp": x.get("last"), "max": x.get("max"), "hour": round(hour, 1)}
+        s["live"] = live
+        al = s.setdefault("alerts", {})
+        if state in ("sell", "weak") and state not in al:
+            al[state] = live["t"]
+    return sigs
 
 
 # ---------- сигналы ----------
@@ -493,10 +590,8 @@ def evaluate(m, fc, calib, obs, now):
     mu, sigma = pr["mu"], pr["sigma"]
     if lead == 0 and icao:
         if m["c"] in obs:
-            floor = obs[m["c"]] - 1.0
-            f = clamp((17 - (ln.hour + ln.minute / 60.0)) / 10.0, 0.3, 1.0)
-            sigma = max(0.5, sigma * f)
-            mu = max(mu, obs[m["c"]])
+            x = OBS_X.get(m["c"]) or {"max": obs[m["c"]], "last": None}
+            mu, sigma, floor = intraday(mu, sigma, x, ln.hour + ln.minute / 60.0)
             pr = dict(pr, mu=mu, sigma=sigma)
         elif ln.hour >= 12:
             return None, "Нет свежих данных станции на сегодня"
@@ -645,7 +740,7 @@ def main():
     fc = load("forecast.json", {})
     try:
         upd = dt.datetime.fromisoformat(fc.get("updated", "2000-01-01T00:00+00:00"))
-        if (now - upd).total_seconds() > 50 * 60:
+        if (now - upd).total_seconds() > 110 * 60:
             new = collect_forecast_all(now)
             if new:
                 fc = new
@@ -656,7 +751,7 @@ def main():
     try:
         ens = load("ens.json", {})
         upd = dt.datetime.fromisoformat(ens.get("updated", "2000-01-01T00:00+00:00"))
-        if (now - upd).total_seconds() > 170 * 60:
+        if (now - upd).total_seconds() > 200 * 60:
             new = collect_ens(now)
             if new:
                 ens = new
@@ -681,14 +776,18 @@ def main():
         stats = resolve(forecasts, stats, results, watch, calib, today)
     except Exception as e:  # noqa: BLE001
         print("итоги не посчитались:", e)
+    OBS_LAST = {}
     try:
         skips = []
         if markets and fc.get("cities"):
-            sigs, skips = build_signals(markets, fc, calib, fetch_obs(markets, fc, now), now, sigs)
+            OBS_LAST = fetch_obs(markets, fc, now)
+            sigs, skips = build_signals(markets, fc, calib, OBS_LAST, now, sigs)
             save("skips.json", {"updated": now.isoformat(timespec="minutes"), "items": skips})
             bad = sorted({"%s %s≠%s" % (m["c"], m["st"], ICAO.get(m["c"])) for m in markets if m.get("st") and ICAO.get(m["c"]) and m["st"] != ICAO[m["c"]]})
             if bad:
                 print("ВНИМАНИЕ, станция рынка не совпадает с нашей:", ", ".join(bad))
+        if markets and fc.get("cities"):
+            sigs = live_update(sigs, markets, fc, calib, OBS_LAST, now)
         sigs = settle_signals(sigs, results)
         cut = (today - dt.timedelta(days=30)).isoformat()
         sigs = [s for s in sigs if s["date"] >= cut]
