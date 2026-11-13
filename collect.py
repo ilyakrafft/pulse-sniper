@@ -39,14 +39,14 @@ MODELS = [
     ("jma_seamless", 0.6, "JMA", "Япония, GSM, MSM", None),
     ("kma_seamless", 0.5, "KMA", "Корея, GDPS", None),
     ("cma_grapes_global", 0.4, "CMA GRAPES", "Китай", None),
-    ("ecmwf_ifs", 1.2, "ECMWF IFS HRES", "9 км, высокое разрешение", None),
+    ("ecmwf_ifs", 0.6, "ECMWF IFS HRES", "9 км, высокое разрешение", None),
     ("gfs_graphcast025", 0.8, "GraphCast", "ИИ-модель Google DeepMind", None),
-    ("icon_global", 0.6, "ICON Global", "Германия, 11 км", None),
-    ("gfs_global", 0.6, "GFS Global", "США, 13 км", None),
-    ("gem_global", 0.5, "GEM Global", "Канада, 15 км", None),
-    ("ukmo_global_deterministic_10km", 0.7, "UKMO Global", "Великобритания, 10 км", None),
+    ("icon_global", 0.2, "ICON Global", "Германия, 11 км", None),
+    ("gfs_global", 0.15, "GFS Global", "США, 13 км", None),
+    ("gem_global", 0.15, "GEM Global", "Канада, 15 км", None),
+    ("ukmo_global_deterministic_10km", 0.15, "UKMO Global", "Великобритания, 10 км", None),
     ("meteofrance_arpege_world", 0.6, "ARPEGE World", "Франция, глобальная", None),
-    ("jma_gsm", 0.4, "JMA GSM", "Япония, глобальная", None),
+    ("jma_gsm", 0.15, "JMA GSM", "Япония, глобальная", None),
     ("kma_gdps", 0.4, "KMA GDPS", "Корея, глобальная", None),
     ("bom_access_global", 0.4, "BoM ACCESS", "Австралия", None),
     ("gfs_hrrr", 1.3, "NOAA HRRR", "США, 3 км", US),
@@ -266,8 +266,14 @@ def calib_of(calib, city):
         return pooled_bias(calib), None, n
     errs = [r["a"] - r["mu"] for r in rows]
     bias = sum(errs) / n
-    rmse = math.sqrt(sum((e - bias) ** 2 for e in errs) / n)
-    return clamp(bias * n / (n + 6), -1.5, 1.5), rmse, n
+    # уверенность (sigma) учим только по настоящим дням: архивные строки (bf) точнее реальных прогнозов «за сутки»
+    real = [r["a"] - r["mu"] for r in rows if not r.get("bf")]
+    nr = len(real)
+    rmse = None
+    if nr >= 5:
+        rb = sum(real) / nr
+        rmse = math.sqrt(sum((e - rb) ** 2 for e in real) / nr)
+    return clamp(bias * n / (n + 6), -1.5, 1.5), rmse, nr
 
 
 def model_weights(calib, city):
