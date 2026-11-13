@@ -352,10 +352,22 @@ def collect_forecast_all(now):
         lat = ",".join(str(c[2]) for c in cs)
         lon = ",".join(str(c[3]) for c in cs)
         url = "%s?latitude=%s&longitude=%s&daily=temperature_2m_max&models=%s&forecast_days=7&timezone=auto" % (METEO, lat, lon, key)
-        try:
-            data = get(url)
-        except Exception as e:  # noqa: BLE001
-            print("модель", key, "не загрузилась:", type(e).__name__)
+        data, err = None, None
+        for attempt in range(2):  # одна повторная попытка: сбой часто разовый
+            try:
+                data = get(url)
+                break
+            except Exception as e:  # noqa: BLE001
+                err = e
+                time.sleep(6)
+        if data is None:
+            e = err
+            why = ""
+            try:
+                why = (e.read().decode("utf-8", "ignore")[:160] if hasattr(e, "read") else str(getattr(e, "reason", e))[:160])
+            except Exception:  # noqa: BLE001
+                why = str(e)[:160]
+            print("модель", key, "не загрузилась:", type(e).__name__, getattr(e, "code", ""), why)
             continue
         data = data if isinstance(data, list) else [data]
         got = 0
