@@ -177,7 +177,7 @@
    }
   ],
   "first": "2026-11-12T03:16+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-13T16:00+00:00",
   "kind": "corr",
   "label": "6°C",
@@ -213,15 +213,17 @@
   "key": "london|2026-11-13",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-13-2026",
   "live": {
-   "t": "2026-11-13T14:19+00:00",
-   "pm": 0.179,
+   "t": "2026-11-13T15:20+00:00",
+   "pm": 0.173,
    "val": 0.003,
    "state": "hold",
    "temp": 8,
    "max": 8,
-   "hour": 14.3
+   "hour": 15.3
   },
-  "alerts": {}
+  "alerts": {},
+  "win": "8°C",
+  "hit": false
  },
  {
   "city": "chongqing",

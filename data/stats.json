@@ -2209,5 +2209,19 @@
    "ncep_nbm_conus": 10.2,
    "ens": 9.57
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "london",
+  "k": 7,
+  "p": 0.752,
+  "actual": 8,
+  "hit": true,
+  "v": {
+   "gfs_seamless": 7.7,
+   "ukmo_seamless": 7.2,
+   "ukmo_uk_deterministic_2km": 7.2,
+   "ens": 6.88
+  }
  }
 ]

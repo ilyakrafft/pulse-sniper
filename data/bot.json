@@ -553,7 +553,9 @@
     "6°C",
     "7°C"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": false
   },
   "chongqing|2026-11-12": {
    "city": "chongqing",
@@ -929,6 +931,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.224
+  },
+  {
+   "date": "2026-11-13",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.188
   }
  ],
  "last_summary": "2026-W45",
