@@ -250,5 +250,21 @@
  "singapore|2026-11-13": {
   "win": "32°C",
   "actual": 32
+ },
+ "hongkong|2026-11-13": {
+  "win": "26°C",
+  "actual": 26
+ },
+ "nyc|2026-11-13": {
+  "win": "48–49°F",
+  "actual": 9
+ },
+ "shenzhen|2026-11-13": {
+  "win": "27°C",
+  "actual": 27
+ },
+ "tokyo|2026-11-13": {
+  "win": "18°C",
+  "actual": 18
  }
 }

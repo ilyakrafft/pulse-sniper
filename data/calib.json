@@ -41,6 +41,19 @@
     "ncep_nbm_conus": 14.7,
     "ens": 14.9
    }
+  },
+  {
+   "d": "2026-11-13",
+   "mu": 9.34,
+   "sd": 0.54,
+   "a": 9.17,
+   "m": {
+    "gfs_seamless": 9.1,
+    "ukmo_seamless": 8.5,
+    "gfs_hrrr": 9.1,
+    "ncep_nbm_conus": 10.2,
+    "ens": 9.6
+   }
   }
  ],
  "dallas": [

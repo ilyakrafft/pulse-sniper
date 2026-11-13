@@ -2194,5 +2194,20 @@
    "ncep_nbm_conus": 21.0,
    "ens": 20.13
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "nyc",
+  "k": 9,
+  "p": 0.714,
+  "actual": 9,
+  "hit": true,
+  "v": {
+   "gfs_seamless": 9.1,
+   "ukmo_seamless": 8.5,
+   "gfs_hrrr": 9.1,
+   "ncep_nbm_conus": 10.2,
+   "ens": 9.57
+  }
  }
 ]

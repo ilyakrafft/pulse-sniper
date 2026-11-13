@@ -675,7 +675,9 @@
     "17°C",
     "18°C"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": true
   }
  },
  "free_week": {},
@@ -913,6 +915,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.2
+  },
+  {
+   "date": "2026-11-13",
+   "week": "2026-W46",
+   "hit": true,
+   "price": 0.295
   }
  ],
  "last_summary": "2026-W45",
