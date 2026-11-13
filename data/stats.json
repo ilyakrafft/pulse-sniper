@@ -2223,5 +2223,20 @@
    "ukmo_uk_deterministic_2km": 7.2,
    "ens": 6.88
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "miami",
+  "k": 26,
+  "p": 0.662,
+  "actual": 27,
+  "hit": true,
+  "v": {
+   "gfs_seamless": 27.5,
+   "ukmo_seamless": 26.0,
+   "gfs_hrrr": 27.5,
+   "ncep_nbm_conus": 25.8,
+   "ens": 25.69
+  }
  }
 ]

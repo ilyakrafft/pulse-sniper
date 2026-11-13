@@ -9,13 +9,6 @@
   "ukmo_seamless": 5.9,
   "ens": 5.7
  },
- "miami|2026-11-13": {
-  "gfs_seamless": 27.5,
-  "ukmo_seamless": 26.0,
-  "gfs_hrrr": 27.5,
-  "ncep_nbm_conus": 25.8,
-  "ens": 25.69
- },
  "dallas|2026-11-13": {
   "gfs_seamless": 19.5,
   "ukmo_seamless": 18.1,

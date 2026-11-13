@@ -3582,6 +3582,19 @@
     "ncep_nbm_conus": 27.8,
     "ens": 27.9
    }
+  },
+  {
+   "d": "2026-11-13",
+   "mu": 26.44,
+   "sd": 0.83,
+   "a": 26.94,
+   "m": {
+    "gfs_seamless": 27.5,
+    "ukmo_seamless": 26.0,
+    "gfs_hrrr": 27.5,
+    "ncep_nbm_conus": 25.8,
+    "ens": 25.7
+   }
   }
  ],
  "houston": [
