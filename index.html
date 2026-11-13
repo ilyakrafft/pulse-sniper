@@ -21,6 +21,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -2081,19 +2083,36 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   later();
 })();
 </script>
+<style>
+#thm { cursor: pointer; font: inherit; color: inherit; padding: 6px 8px; display: inline-flex; align-items: center; }
+#thm .trk { position: relative; width: 46px; height: 24px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); transition: background .35s, border-color .35s; display: block; }
+#thm .trk b { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, var(--g1), var(--g2)); box-shadow: 0 2px 8px -2px var(--g1); transition: transform .4s cubic-bezier(.3,1.5,.5,1); display: grid; place-items: center; font-size: 11px; line-height: 1; }
+#thm[aria-pressed="true"] .trk b { transform: translateX(22px); }
+#thm[aria-pressed="true"] .trk { background: color-mix(in srgb, var(--g1) 22%, var(--surface-2)); }
+</style>
 <script>
 (function () {
   var de = document.documentElement;
   function get() { try { return localStorage.getItem("izo.theme") === "light" ? "light" : "dark"; } catch (e) { return "dark"; } }
+  function paint(t) {
+    var on = t === "light";
+    Array.prototype.forEach.call(document.querySelectorAll("[data-thm]"), function (b) { b.setAttribute("aria-pressed", on ? "true" : "false"); var k = b.querySelector("b"); if (k) k.textContent = on ? "\u2600" : "\u263E"; });
+    try { var tg = window.Telegram && window.Telegram.WebApp, c = on ? "#f4f4f6" : "#09090c"; if (tg) { tg.setHeaderColor && tg.setHeaderColor(c); tg.setBackgroundColor && tg.setBackgroundColor(c); } } catch (er) {}
+  }
   de.setAttribute("data-theme", get());
+  var pills = document.querySelector(".pills");
+  if (pills && !document.getElementById("thm")) {
+    var b = document.createElement("button"); b.type = "button"; b.id = "thm"; b.className = "pill"; b.setAttribute("role", "switch"); b.setAttribute("data-thm", "1");
+    b.setAttribute("aria-label", "Тема: тёмная или светлая"); b.innerHTML = '<span class="trk"><b></b></span>';
+    var sn = document.getElementById("snd"); if (sn && sn.parentNode === pills) pills.insertBefore(b, sn.nextSibling); else pills.appendChild(b);
+  }
+  paint(get());
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("[data-thm]"); if (!b) return;
     var t = de.getAttribute("data-theme") === "light" ? "dark" : "light";
     de.setAttribute("data-theme", t); try { localStorage.setItem("izo.theme", t); } catch (er) {}
-    b.setAttribute("aria-pressed", t === "light" ? "true" : "false");
-    try { var tg = window.Telegram && window.Telegram.WebApp; if (tg) { tg.setHeaderColor && tg.setHeaderColor(t === "light" ? "#f4f4f6" : "#09090c"); tg.setBackgroundColor && tg.setBackgroundColor(t === "light" ? "#f4f4f6" : "#09090c"); } } catch (er) {}
+    paint(t); if (window.__snd) window.__snd.sfx(t === "light" ? "on" : "off");
   });
-  try { var tg = window.Telegram && window.Telegram.WebApp; if (tg && get() === "dark") { tg.setHeaderColor && tg.setHeaderColor("#09090c"); tg.setBackgroundColor && tg.setBackgroundColor("#09090c"); } } catch (er) {}
 })();
 </script>
 
