@@ -1149,8 +1149,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     Promise.all([fetch(base + "/value?user=" + a).then(okJson), fetch(base + "/positions?user=" + a + "&sizeThreshold=0.01&limit=50").then(okJson)]).then(function (r) {
       var v = r[0]; pf.value = Array.isArray(v) && v[0] && isFinite(+v[0].value) ? +v[0].value : 0;
       pf.pos = (Array.isArray(r[1]) ? r[1] : []).sort(function (x, y) { return (+y.currentValue || 0) - (+x.currentValue || 0); });
-      pf.at = new Date(); pf.loading = false; renderCabinet();
-    }).catch(function () { pf.loading = false; pf.err = "Не удалось получить данные. Проверьте, что вставлен адрес PROXY, и повторите."; renderCabinet(); });
+      pf.at = new Date(); pf.loading = false; renderCabinet(); if (window.__snd) window.__snd.sfx("ok");
+    }).catch(function () { pf.loading = false; pf.err = "Не удалось получить данные. Проверьте, что вставлен адрес PROXY, и повторите."; renderCabinet(); if (window.__snd) window.__snd.sfx("err"); });
   }
   function maybeLoadPf() { var pf = state.pf; if (state.member && ADDR_RE.test(pf.addr) && !pf.loading && (!pf.at || Date.now() - pf.at > 60000)) loadPortfolio(); }
   function pfCard() {
@@ -1168,6 +1168,16 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       body += '<p class="note" style="margin-top:10px">Обновлено в ' + new Intl.DateTimeFormat("ru", { hour: "2-digit", minute: "2-digit" }).format(pf.at) + '. Свободные деньги на счёте (кэш) здесь не видны, их показывает сам сайт Pulse Market.</p>';
     }
     return '<div class="card rise" style="--i:2"><h3>Мой портфель</h3><p class="sub">Вставьте публичный адрес PROXY: его видно в кошельке Pulse Market рядом с пометкой PROXY. По адресу можно только смотреть позиции, тратить с него нельзя. Адрес хранится на этом устройстве.</p>' + form + body + '</div>';
+  }
+
+  function settingsCard() {
+    var st = window.__snd ? window.__snd.state() : { mus: true, sfx: true, vol: 0.7 };
+    var sw = function (k, label, hint, on) { return '<div class="setrow"><div><b>' + label + '</b><small>' + hint + '</small></div><button type="button" class="swt" role="switch" data-snd="' + k + '" aria-pressed="' + on + '" aria-label="' + label + '"><i></i></button></div>'; };
+    return '<div class="card rise" style="--i:3"><h3>Настройки</h3><p class="sub">Хранятся только на этом устройстве.</p>' +
+      sw("mus", "Ambient-музыка", "Спокойный фон: мягкие пэды и редкие колокольчики", st.mus) + sw("sfx", "Звуки интерфейса", "Нажатия, переключения, успех и ошибки", st.sfx) +
+      '<div class="setrow vol"><div><b>Громкость</b><small>Музыка и звуки вместе</small></div><input type="range" min="0" max="100" step="1" value="' + Math.round(st.vol * 100) + '" data-snd="vol" aria-label="Громкость"></div>' +
+      '<div class="cols" style="margin-top:12px"><button class="btn ghost sm" type="button" data-snd="ok">Проверить звук</button></div>' +
+      '<p class="note" style="margin-top:12px">Pulse Market не даёт открытых ключей для чтения кабинета, поэтому ключи не нужны. Портфель показывается по публичному адресу PROXY (карточка «Мой портфель» выше): по нему можно только смотреть, управлять деньгами нельзя.</p></div>';
   }
 
   function renderCabinet() {
@@ -1195,8 +1205,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<div style="margin-top:14px"><button class="btn ghost sm" type="button" data-vreset="1">' + (state.resetArm ? "Нажмите ещё раз, чтобы сбросить" : "Сбросить виртуальный счёт") + '</button></div></div>' +
       '<div class="card rise" style="--i:4"><h3>Ставки</h3>' + (rows || '<div class="empty">Пока пусто. Включите «Авто, виртуально», и сильные сигналы появятся здесь.</div>') + '</div>';
     var api = '<div class="card rise" style="--i:5"><h3>Подключение API Pulse Market</h3><p class="sub">Сейчас недоступно: у Pulse Market пока нет открытого API для торговли. Когда он появится, ключ можно будет ввести здесь. Он будет жить только в памяти вкладки, не записываться на устройство и не уходить никуда, кроме самой биржи.</p><label class="field"><span>API-ключ</span><input type="password" disabled autocomplete="off" placeholder="Станет доступно позже"></label></div>';
-    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + notifyCard() + partnerCard() + pm + pfCard() + mode + virt + api + '</div>' +
+    el.innerHTML = '<div class="view-head"><h2>Кабинет</h2><p>Профиль, Pulse Market и виртуальная торговля.</p></div><div class="stack">' + prof + notifyCard() + partnerCard() + pm + pfCard() + settingsCard() + mode + virt + api + '</div>' +
       '<p class="note">Это не финансовая рекомендация. Торговля на рынках предсказаний связана с риском потери вложенных средств.</p>';
+    if (window.__snd) window.__snd.ui();
   }
   $("v-cabinet").addEventListener("click", function (e) {
     var ac = e.target.closest("[data-acc]");
@@ -1762,83 +1773,142 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .snd-btn{cursor:pointer;font:inherit;color:var(--g1);padding:6px 9px}.snd-btn .x{display:none}.snd-btn.off{color:var(--muted)}.snd-btn.off .x{display:inline}.snd-btn.off .w1,.snd-btn.off .w2{display:none}
 .snd-btn[aria-pressed="true"] .w1{animation:wv 1.8s ease-in-out infinite}.snd-btn[aria-pressed="true"] .w2{animation:wv 1.8s .3s ease-in-out infinite}
 @keyframes wv{50%{opacity:.25}}
+
+.setrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}.setrow b{display:block;font-size:14px}.setrow small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.swt{flex:none;position:relative;width:48px;height:28px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--muted) 20%,transparent);cursor:pointer;transition:background .25s}.swt i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--fg);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}.swt[aria-pressed="true"]{background:linear-gradient(115deg,var(--g1),var(--g2));border-color:transparent}.swt[aria-pressed="true"] i{transform:translateX(20px);background:var(--accent-ink)}
+.setrow.vol input[type=range]{width:46%;accent-color:var(--g2)}
 </style>
 <script>
-/* Спокойное пианино: ноты синтезируются прямо в телефоне, файлов и авторских прав нет. Кнопка рядом со «Стратегией» включает и выключает. */
+/* Звук приложения. Всё синтезируется прямо в телефоне: ни файлов, ни авторских прав.
+   Две отдельные шины: «музыка» (ambient) и «эффекты» (нажатия, переключения, успех, ошибка). */
 (function () {
-  var KEY = "izo.snd", AC = null, master, bus, on = false, timer = null, nextT = 0, step = 0, bar = 0, wanted;
-  var BPM = 62, Q = 60 / BPM / 2;
-  var CH = [{ r: 45, n: [57, 60, 64, 69] }, { r: 41, n: [53, 57, 60, 65] }, { r: 48, n: [55, 60, 64, 67] }, { r: 43, n: [55, 59, 62, 67] }];
-  var ARP = [0, 1, 2, 3, 2, 1, 2, 3], MEL = [76, 79, 81, 79, 76, 74, 72, 74];
+  var K_MUS = "izo.snd", K_SFX = "izo.sfx", K_VOL = "izo.vol";
+  var AC = null, master, musBus, sfxBus, wetBus, on = false, timer = null, nextT = 0, bar = 0, wanted, lastSfx = {};
+  var S = { mus: true, sfx: true, vol: 0.7 };
   function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lw(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  S.mus = ls(K_MUS) !== "0"; S.sfx = ls(K_SFX) !== "0"; var sv = parseFloat(ls(K_VOL)); if (sv >= 0 && sv <= 1) S.vol = sv;
   function hz(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+  /* ---------- движок ---------- */
   function build() {
     var C = window.AudioContext || window.webkitAudioContext; if (!C) return false;
-    AC = new C(); master = AC.createGain(); master.gain.value = 0;
-    var comp = AC.createDynamicsCompressor(); master.connect(comp); comp.connect(AC.destination);
-    bus = AC.createGain(); bus.connect(master);
-    var n = Math.floor(AC.sampleRate * 3), buf = AC.createBuffer(2, n, AC.sampleRate);
-    for (var c = 0; c < 2; c++) { var d = buf.getChannelData(c); for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2.8); }
-    var cv = AC.createConvolver(); cv.buffer = buf; var wet = AC.createGain(); wet.gain.value = 0.5; bus.connect(cv); cv.connect(wet); wet.connect(master);
+    AC = new C(); master = AC.createGain(); master.gain.value = S.vol;
+    var comp = AC.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 3; master.connect(comp); comp.connect(AC.destination);
+    musBus = AC.createGain(); musBus.gain.value = 0; musBus.connect(master);
+    sfxBus = AC.createGain(); sfxBus.gain.value = 1; sfxBus.connect(master);
+    var n = Math.floor(AC.sampleRate * 4), buf = AC.createBuffer(2, n, AC.sampleRate);
+    for (var c = 0; c < 2; c++) { var d = buf.getChannelData(c), lp = 0; for (var i = 0; i < n; i++) { var w = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 3); lp += (w - lp) * 0.35; d[i] = lp; } }
+    var cv = AC.createConvolver(); cv.buffer = buf; wetBus = AC.createGain(); wetBus.gain.value = 0.55; cv.connect(wetBus); wetBus.connect(master);
+    musBus.connect(cv);
+    var sw = AC.createGain(); sw.gain.value = 0.25; sfxBus.connect(sw); sw.connect(cv);
     return true;
   }
-  function note(m, t, vel, dur) {
-    var f = hz(m), g = AC.createGain(), lp = AC.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = Math.min(5200, f * 7); lp.Q.value = 0.3;
-    g.connect(lp); lp.connect(bus);
-    g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(vel, t + 0.008); g.gain.exponentialRampToValueAtTime(vel * 0.35, t + 0.35); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    [[1, 1], [2, 0.32], [3, 0.12], [4, 0.05]].forEach(function (h) {
-      var o = AC.createOscillator(), hg = AC.createGain(); o.type = "sine"; o.frequency.value = f * h[0]; if (h[0] === 1) o.detune.value = (Math.random() - 0.5) * 6;
-      hg.gain.value = h[1]; o.connect(hg); hg.connect(g); o.start(t); o.stop(t + dur + 0.05);
-    });
+  function g(t, peak, att, dur, dest) {
+    var x = AC.createGain(); x.gain.setValueAtTime(0.0001, t); x.gain.linearRampToValueAtTime(peak, t + att); x.gain.exponentialRampToValueAtTime(0.0001, t + dur); x.connect(dest); return x;
+  }
+  function tone(type, f, t, dur, peak, att, dest, f2, detune) {
+    var o = AC.createOscillator(), x = g(t, peak, att, dur, dest); o.type = type; o.frequency.setValueAtTime(f, t);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur * 0.8); if (detune) o.detune.value = detune; o.connect(x); o.start(t); o.stop(t + dur + 0.05);
+  }
+  /* ---------- музыка: ambient ---------- */
+  var CH = [[57, 64, 67, 71, 76], [53, 60, 64, 69, 72], [48, 55, 64, 67, 71], [55, 62, 66, 69, 74]]; /* Am9, Fmaj9, Cmaj9, Gadd6 */
+  var BASS = [33, 29, 36, 31], SPARK = [76, 79, 81, 83, 86, 88], BAR = 8;
+  function pad(m, t, dur) {
+    var f = hz(m), lp = AC.createBiquadFilter(); lp.type = "lowpass"; lp.Q.value = 0.4; lp.frequency.setValueAtTime(500, t); lp.frequency.linearRampToValueAtTime(1500, t + dur * 0.5); lp.frequency.linearRampToValueAtTime(600, t + dur);
+    var x = g(t, 0.022, dur * 0.4, dur, musBus); lp.connect(x);
+    [-9, 0, 8].forEach(function (dt) { var o = AC.createOscillator(); o.type = dt === 0 ? "triangle" : "sine"; o.frequency.value = f; o.detune.value = dt; o.connect(lp); o.start(t); o.stop(t + dur + 0.1); });
+  }
+  function bell(m, t) {
+    var f = hz(m), x = g(t, 0.05, 0.006, 3.2, musBus);
+    [[1, 1], [2, 0.3], [3, 0.1], [4.1, 0.05]].forEach(function (h) { var o = AC.createOscillator(), hg = AC.createGain(); o.type = "sine"; o.frequency.value = f * h[0]; hg.gain.value = h[1]; o.connect(hg); hg.connect(x); o.start(t); o.stop(t + 3.3); });
   }
   function tick() {
     if (!AC || !on) return;
-    while (nextT < AC.currentTime + 0.6) {
-      var ch = CH[bar % 4], s = step % 8, t = nextT;
-      if (s === 0) { note(ch.r, t, 0.16, 4.2); note(ch.r + 12, t + 0.02, 0.06, 3); }
-      note(ch.n[ARP[s]] + 12, t, s % 4 === 0 ? 0.075 : 0.05, 2.2);
-      if (s === 0 || s === 3 || s === 6) { if (Math.random() < 0.7) note(MEL[(bar * 3 + (s >> 1)) % 8] - (bar % 4 === 1 ? 2 : 0), t + 0.01, 0.06, 2.6); }
-      nextT += Q; step++; if (step % 8 === 0) bar++;
+    while (nextT < AC.currentTime + 2) {
+      var t = nextT, ch = CH[bar % 4], len = BAR;
+      ch.forEach(function (m, i) { pad(m, t + i * 0.35, len + 3); });
+      tone("sine", hz(BASS[bar % 4]), t, len + 2, 0.09, 2.5, musBus);
+      var k = 3 + Math.floor(Math.random() * 3);
+      for (var i = 0; i < k; i++) bell(SPARK[Math.floor(Math.random() * SPARK.length)] - (bar % 4 === 1 ? 2 : 0) , t + 1 + Math.random() * (len - 2));
+      nextT += len; bar++;
     }
+  }
+  /* ---------- эффекты интерфейса ---------- */
+  var SFX = {
+    tap: function (t) { tone("sine", 620, t, 0.07, 0.11, 0.003, sfxBus, 420); tone("triangle", 1240, t, 0.04, 0.03, 0.002, sfxBus); },
+    tick: function (t) { tone("sine", 900, t, 0.045, 0.08, 0.002, sfxBus, 700); },
+    nav: function (t) { tone("sine", 392, t, 0.16, 0.09, 0.005, sfxBus); tone("sine", 587, t + 0.06, 0.22, 0.08, 0.005, sfxBus); },
+    open: function (t) { tone("sine", 330, t, 0.12, 0.07, 0.004, sfxBus, 520); },
+    on: function (t) { tone("sine", 523, t, 0.12, 0.09, 0.004, sfxBus); tone("sine", 784, t + 0.07, 0.2, 0.09, 0.004, sfxBus); },
+    off: function (t) { tone("sine", 659, t, 0.1, 0.08, 0.004, sfxBus); tone("sine", 440, t + 0.07, 0.18, 0.07, 0.004, sfxBus); },
+    ok: function (t) { [523, 659, 784, 1047].forEach(function (f, i) { tone("sine", f, t + i * 0.07, 0.5, 0.08, 0.005, sfxBus); }); },
+    err: function (t) { tone("triangle", 220, t, 0.18, 0.1, 0.005, sfxBus, 180); tone("triangle", 196, t + 0.12, 0.26, 0.09, 0.005, sfxBus, 150); },
+    swoosh: function (t) {
+      var n = Math.floor(AC.sampleRate * 0.5), b = AC.createBuffer(1, n, AC.sampleRate), d = b.getChannelData(0); for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+      var s = AC.createBufferSource(); s.buffer = b; var f = AC.createBiquadFilter(); f.type = "bandpass"; f.Q.value = 1.1; f.frequency.setValueAtTime(400, t); f.frequency.exponentialRampToValueAtTime(3200, t + 0.35);
+      var x = g(t, 0.06, 0.12, 0.45, sfxBus); s.connect(f); f.connect(x); s.start(t); s.stop(t + 0.5);
+    }
+  };
+  function sfx(name) {
+    if (!S.sfx || !AC || AC.state !== "running") return; var now = AC.currentTime;
+    if (lastSfx[name] && now - lastSfx[name] < 0.04) return; lastSfx[name] = now;
+    var fn = SFX[name]; if (fn) { try { fn(now + 0.005); } catch (e) {} }
+  }
+  /* ---------- включение и состояние ---------- */
+  function ensure() { if (!AC && !build()) return false; try { if (AC.state === "suspended") AC.resume(); } catch (e) {} return true; }
+  function musicOn() {
+    if (!ensure()) return; on = true; var n = AC.currentTime; musBus.gain.cancelScheduledValues(n); musBus.gain.setTargetAtTime(1, n, 1.6);
+    if (!timer) { nextT = n + 0.2; timer = setInterval(tick, 400); tick(); }
+  }
+  function musicOff() {
+    on = false; if (!AC) return; musBus.gain.cancelScheduledValues(AC.currentTime); musBus.gain.setTargetAtTime(0, AC.currentTime, 0.5);
+    setTimeout(function () { if (!on && timer) { clearInterval(timer); timer = null; } }, 2500);
   }
   function ui() {
     var b = document.getElementById("snd"); if (!b) return;
-    b.setAttribute("aria-pressed", on ? "true" : "false"); b.classList.toggle("off", !on);
-    b.setAttribute("aria-label", on ? "Выключить музыку" : "Включить музыку");
+    var any = S.mus || S.sfx; b.setAttribute("aria-pressed", S.mus ? "true" : "false"); b.classList.toggle("off", !S.mus);
+    b.setAttribute("aria-label", S.mus ? "Выключить музыку" : "Включить музыку");
+    document.querySelectorAll("[data-snd]").forEach(function (el) { var k = el.getAttribute("data-snd"); if (k === "mus" || k === "sfx") el.setAttribute("aria-pressed", S[k] ? "true" : "false"); if (k === "vol") el.value = Math.round(S.vol * 100); });
   }
-  function start() {
-    if (!AC && !build()) return;
-    on = true; try { AC.resume(); } catch (e) {}
-    var n = AC.currentTime; master.gain.cancelScheduledValues(n); master.gain.setTargetAtTime(0.7, n, 1.2);
-    nextT = n + 0.15; if (!timer) timer = setInterval(tick, 120); lw(KEY, "1"); ui();
-  }
-  function stop() {
-    on = false; lw(KEY, "0"); ui(); if (!AC) return;
-    master.gain.cancelScheduledValues(AC.currentTime); master.gain.setTargetAtTime(0, AC.currentTime, 0.3);
-    setTimeout(function () { if (!on) { clearInterval(timer); timer = null; try { AC.suspend(); } catch (e) {} } }, 1400);
-  }
-  function chime() { if (!on || !AC) return; [72, 76, 79, 84].forEach(function (m, i) { note(m, AC.currentTime + i * 0.12, 0.08, 2); }); }
+  function setMus(v, quiet) { S.mus = v; lw(K_MUS, v ? "1" : "0"); if (v) { musicOn(); } else musicOff(); ui(); if (!quiet) sfx(v ? "on" : "off"); }
+  function setSfx(v) { S.sfx = v; lw(K_SFX, v ? "1" : "0"); ui(); if (v) { ensure(); setTimeout(function () { sfx("on"); }, 30); } }
+  function setVol(v) { S.vol = Math.max(0, Math.min(1, v)); lw(K_VOL, String(S.vol)); if (master) master.gain.setTargetAtTime(S.vol, AC.currentTime, 0.05); }
+  /* ---------- кнопка рядом со «Стратегией» ---------- */
   var pills = document.querySelector(".pills");
   if (pills) {
     var b = document.createElement("button"); b.type = "button"; b.id = "snd"; b.className = "pill snd-btn";
     b.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path class="w1" d="M15.5 8.5a5 5 0 010 7"/><path class="w2" d="M18.5 5.5a9 9 0 010 13"/><path class="x" d="M16 9l5 6M21 9l-5 6"/></svg>';
     var sp = document.getElementById("stratPill"); if (sp && sp.parentNode === pills) pills.insertBefore(b, sp.nextSibling); else pills.appendChild(b);
-    b.addEventListener("click", function (e) { e.stopPropagation(); if (on) stop(); else start(); });
   }
-  wanted = ls(KEY) !== "0";
-  ui();
-  /* автозапуск: браузер разрешает звук только после первого касания, поэтому мелодия начнётся с первого касания экрана */
-  if (wanted) { try { start(); } catch (e) {} }
-  var go = function (e) {
-    if (e.target.closest && e.target.closest("#snd")) { wanted = false; return; }
-    if (wanted && AC && AC.state === "suspended" && on) { try { AC.resume(); } catch (x) {} }
-    else if (wanted && !on) { start(); }
-    if (wanted && AC && AC.state === "running") { wanted = false; }
-  };
-  ["pointerdown", "touchend", "click"].forEach(function (ev) { document.addEventListener(ev, go, { passive: true }); });
-  document.addEventListener("visibilitychange", function () { if (!AC || !on) return; if (document.hidden) { try { AC.suspend(); } catch (e) {} } else { try { AC.resume(); } catch (e) {} nextT = AC.currentTime + 0.1; } });
-  window.__snd = { chime: chime, state: function () { return { on: on, ctx: AC && AC.state }; } };
+  /* ---------- автозапуск: браузер разрешает звук после первого касания ---------- */
+  wanted = S.mus; ui();
+  if (wanted) { try { ensure(); musicOn(); } catch (e) {} }
+  var SEL = "#snd, [data-snd]";
+  function route(e) {
+    var t = e.target; if (!t || !t.closest) return;
+    if (wanted && AC && AC.state !== "running") { try { AC.resume(); } catch (x) {} }
+    if (wanted && AC && AC.state === "running") wanted = false;
+    if (t.closest("#snd")) return;
+    var sn = t.closest("[data-snd]"); if (sn) return;
+    if (!ensure()) return;
+    if (t.closest(".dock button, .dock a")) { sfx("nav"); return; }
+    if (t.closest("summary")) { sfx("open"); return; }
+    if (t.closest("input[type=checkbox], [data-amt], [data-samtq], [data-p], [data-rt], [data-mode], .day, .chip, .seg button")) { sfx("tick"); return; }
+    if (t.closest("#stratPill, .pill")) { sfx("nav"); return; }
+    if (t.closest("button, .btn, a[href], [data-act], [data-acc], [data-pt], [data-pf], [data-pm]")) sfx("tap");
+  }
+  document.addEventListener("pointerdown", route, { passive: true });
+  document.addEventListener("touchend", function () { if (wanted && AC && AC.state !== "running") { try { AC.resume(); } catch (x) {} } }, { passive: true });
+  document.addEventListener("click", function (e) {
+    var t = e.target; if (!t || !t.closest) return;
+    if (t.closest("#snd")) { e.stopPropagation(); ensure(); setMus(!S.mus); return; }
+    var sn = t.closest("[data-snd]"); if (!sn) return; var k = sn.getAttribute("data-snd");
+    if (k === "mus") { ensure(); setMus(!S.mus); } else if (k === "sfx") setSfx(!S.sfx); else if (k === "ok") { ensure(); setTimeout(function () { sfx("ok"); }, 30); }
+  });
+  document.addEventListener("input", function (e) { var t = e.target; if (t && t.getAttribute && t.getAttribute("data-snd") === "vol") { setVol((+t.value || 0) / 100); } });
+  document.addEventListener("change", function (e) { var t = e.target; if (t && t.getAttribute && t.getAttribute("data-snd") === "vol") { ensure(); sfx("tick"); } });
+  document.addEventListener("visibilitychange", function () { if (!AC) return; if (document.hidden) { try { AC.suspend(); } catch (e) {} } else if (S.mus || S.sfx) { try { AC.resume(); } catch (e) {} if (on) nextT = Math.max(nextT, AC.currentTime + 0.1); } });
+  window.__snd = { sfx: sfx, chime: function () { sfx("ok"); }, state: function () { return { on: on, mus: S.mus, sfx: S.sfx, vol: S.vol, ctx: AC && AC.state }; }, ui: ui };
 })();
 </script>
 
