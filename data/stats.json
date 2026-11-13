@@ -2253,5 +2253,20 @@
    "ncep_nbm_conus": 16.1,
    "ens": 16.76
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "houston",
+  "k": 25,
+  "p": 0.536,
+  "actual": 27,
+  "hit": false,
+  "v": {
+   "gfs_seamless": 26.5,
+   "ukmo_seamless": 23.6,
+   "gfs_hrrr": 26.5,
+   "ncep_nbm_conus": 22.9,
+   "ens": 23.49
+  }
  }
 ]
