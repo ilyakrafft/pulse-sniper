@@ -366,6 +366,23 @@ def collect_forecast_all(now):
             except Exception as e:  # noqa: BLE001
                 err = e
                 time.sleep(6)
+        if data is None and len(cs) > 1 and getattr(err, "code", None) == 400:
+            # «нет данных для точки»: одна из точек вне зоны модели. Запрашиваем города по одному и берём те, что подошли.
+            data = []
+            keep = []
+            for c1 in cs:
+                u1 = "%s?latitude=%s&longitude=%s&daily=temperature_2m_max&models=%s&forecast_days=7&timezone=auto" % (METEO, c1[2], c1[3], key)
+                try:
+                    data.append(get(u1))
+                    keep.append(c1)
+                except Exception:  # noqa: BLE001
+                    pass
+                time.sleep(1)
+            cs = keep
+            if not data:
+                data = None
+            else:
+                print("модель", key, "доступна для", ", ".join(c[0] for c in cs))
         if data is None:
             e = err
             why = ""
