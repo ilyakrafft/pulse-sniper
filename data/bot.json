@@ -658,7 +658,9 @@
     "9°C",
     "10°C"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": false
   },
   "tokyo|2026-11-13": {
    "city": "tokyo",
@@ -921,6 +923,12 @@
    "week": "2026-W46",
    "hit": true,
    "price": 0.295
+  },
+  {
+   "date": "2026-11-13",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.224
   }
  ],
  "last_summary": "2026-W45",

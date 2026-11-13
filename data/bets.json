@@ -192,5 +192,22 @@
    "17°C",
    "18°C"
   ]
+ },
+ {
+  "date": "2026-11-13",
+  "city": "paris",
+  "label": "9°C",
+  "win": "11°C",
+  "hit": false,
+  "price": 0.224,
+  "pm": 0.495,
+  "edge": 0.271,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "8°C",
+   "9°C",
+   "10°C"
+  ]
  }
 ]

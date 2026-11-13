@@ -4,20 +4,10 @@
   "ukmo_seamless": 4.6,
   "ens": 4.42
  },
- "paris|2026-11-13": {
-  "gfs_seamless": 10.1,
-  "ukmo_seamless": 9.6,
-  "ens": 9.71
- },
  "munich|2026-11-13": {
   "gfs_seamless": 6.4,
   "ukmo_seamless": 5.6,
   "ens": 6.01
- },
- "madrid|2026-11-13": {
-  "gfs_seamless": 15.2,
-  "ukmo_seamless": 14.9,
-  "ens": 15.54
  },
  "warsaw|2026-11-13": {
   "gfs_seamless": 6.2,
