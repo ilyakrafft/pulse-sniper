@@ -19,6 +19,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -1207,6 +1209,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     return '<div class="card rise" style="--i:3"><h3>Настройки</h3><p class="sub">Хранятся только на этом устройстве.</p>' +
       sw("mus", "Ambient-музыка", "Спокойный фон: мягкие пэды и редкие колокольчики", st.mus) + sw("sfx", "Звуки интерфейса", "Нажатия, переключения, успех и ошибки", st.sfx) +
       '<div class="setrow vol"><div><b>Громкость</b><small>Музыка и звуки вместе</small></div><input type="range" min="0" max="100" step="1" value="' + Math.round(st.vol * 100) + '" data-snd="vol" aria-label="Громкость"></div>' +
+      '<div class="setrow"><div><b>Светлая тема</b><small>По умолчанию приложение тёмное</small></div><button type="button" class="swt" role="switch" data-thm="1" aria-pressed="' + (document.documentElement.getAttribute("data-theme") === "light") + '"></button></div>' +
       '<div class="cols" style="margin-top:12px"><button class="btn ghost sm" type="button" data-snd="ok">Проверить звук</button></div>' +
       '<p class="note" style="margin-top:12px">Pulse Market не даёт открытых ключей для чтения кабинета, поэтому ключи не нужны. Портфель показывается по публичному адресу PROXY (карточка «Мой портфель» выше): по нему можно только смотреть, управлять деньгами нельзя.</p></div>';
   }
@@ -2076,6 +2079,21 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   new MutationObserver(later).observe(root, { childList: true, subtree: true });
   window.addEventListener("hashchange", later);
   later();
+})();
+</script>
+<script>
+(function () {
+  var de = document.documentElement;
+  function get() { try { return localStorage.getItem("izo.theme") === "light" ? "light" : "dark"; } catch (e) { return "dark"; } }
+  de.setAttribute("data-theme", get());
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-thm]"); if (!b) return;
+    var t = de.getAttribute("data-theme") === "light" ? "dark" : "light";
+    de.setAttribute("data-theme", t); try { localStorage.setItem("izo.theme", t); } catch (er) {}
+    b.setAttribute("aria-pressed", t === "light" ? "true" : "false");
+    try { var tg = window.Telegram && window.Telegram.WebApp; if (tg) { tg.setHeaderColor && tg.setHeaderColor(t === "light" ? "#f4f4f6" : "#09090c"); tg.setBackgroundColor && tg.setBackgroundColor(t === "light" ? "#f4f4f6" : "#09090c"); } } catch (er) {}
+  });
+  try { var tg = window.Telegram && window.Telegram.WebApp; if (tg && get() === "dark") { tg.setHeaderColor && tg.setHeaderColor("#09090c"); tg.setBackgroundColor && tg.setBackgroundColor("#09090c"); } } catch (er) {}
 })();
 </script>
 
