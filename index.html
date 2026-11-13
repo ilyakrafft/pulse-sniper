@@ -17,6 +17,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -1992,6 +1994,88 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   document.addEventListener("change", function (e) { var t = e.target; if (t && t.getAttribute && t.getAttribute("data-snd") === "vol") { ensure(); sfx("tick"); } });
   document.addEventListener("visibilitychange", function () { if (!AC) return; if (document.hidden) { try { AC.suspend(); } catch (e) {} } else if (S.mus || S.sfx) { try { AC.resume(); } catch (e) {} if (on) nextT = Math.max(nextT, AC.currentTime + 0.1); } });
   window.__snd = { sfx: sfx, chime: function () { sfx("ok"); }, state: function () { return { on: on, mus: S.mus, sfx: S.sfx, vol: S.vol, ctx: AC && AC.state }; }, ui: ui };
+})();
+</script>
+<style>
+/* ===== Движение 2: плавающие огни, полоса прокрутки, появление при прокрутке, нажатие ===== */
+@keyframes orbA { 0% { transform: translate(-10vw, -6vh) scale(1); } 100% { transform: translate(22vw, 14vh) scale(1.25); } }
+@keyframes orbB { 0% { transform: translate(14vw, 20vh) scale(1.1); } 100% { transform: translate(-18vw, -8vh) scale(.9); } }
+@keyframes orbC { 0% { transform: translate(0, 10vh) scale(.9); } 100% { transform: translate(10vw, -16vh) scale(1.3); } }
+@keyframes shimmerBar { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+@keyframes tickPop { 0% { transform: scale(1); } 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
+.orbs { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.orbs i { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; filter: blur(70px); opacity: .17; will-change: transform; }
+.orbs i:nth-child(1) { left: -12vmax; top: -10vmax; background: radial-gradient(circle, var(--g1), transparent 68%); animation: orbA 22s ease-in-out infinite alternate; }
+.orbs i:nth-child(2) { right: -16vmax; top: 24vh; background: radial-gradient(circle, var(--g2), transparent 68%); animation: orbB 28s ease-in-out infinite alternate; }
+.orbs i:nth-child(3) { left: 10vw; bottom: -22vmax; background: radial-gradient(circle, color-mix(in srgb, var(--g1) 55%, #6a5cff), transparent 68%); animation: orbC 32s ease-in-out infinite alternate; opacity: .12; }
+:root:not([data-theme="dark"]) .orbs i { opacity: .1; }
+#scrollbar { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 30; transform-origin: 0 50%; transform: scaleX(var(--sc, 0)); pointer-events: none;
+  background: linear-gradient(90deg, var(--g1), var(--g2)); box-shadow: 0 0 12px var(--g1); }
+.rv { opacity: 0; transform: translateY(22px) scale(.985); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: var(--rd, 0ms); }
+.rv.rv-in { opacity: 1; transform: none; }
+.btn:active, .chip:active, .dock button:active, .mcard:active { transform: scale(.96); transition: transform .12s; }
+.btn:not(.ghost):not(.sm)::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.28) 50%, transparent 65%); transform: translateX(-100%); animation: shimmerBar 4.2s ease-in-out 1.2s infinite; }
+.dock { backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
+.tile strong, .bigscore { transition: color .3s; }
+.cu-done { animation: tickPop .45s ease-out; }
+.pill, .pills > * { transition: transform .25s cubic-bezier(.2,1.4,.4,1), box-shadow .25s; }
+@media (hover: hover) { .pills > *:hover { transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .orbs, #scrollbar { display: none; } .rv { opacity: 1; transform: none; transition: none; } .btn::after { display: none; } }
+</style>
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+<div id="scrollbar" aria-hidden="true"></div>
+<script>
+(function () {
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still) return;
+  /* полоса прокрутки сверху */
+  var sb = document.getElementById("scrollbar"), tk = false;
+  function sc() { tk = false; var h = document.documentElement.scrollHeight - window.innerHeight; sb.style.setProperty("--sc", h > 20 ? Math.min(1, Math.max(0, window.scrollY / h)).toFixed(3) : 0); }
+  window.addEventListener("scroll", function () { if (!tk) { tk = true; requestAnimationFrame(sc); } }, { passive: true });
+  /* появление карточек при прокрутке */
+  var io = null;
+  if ("IntersectionObserver" in window) io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("rv-in"); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+  /* счётчики: числа плавно набираются от нуля */
+  var CU = ".tile strong, .bigscore, .big strong, .gauge text";
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  function countUp(el) {
+    if (el.getAttribute("data-cu") || el.children.length) return;
+    el.setAttribute("data-cu", "1");
+    var tn = el.firstChild; if (!tn || tn.nodeType !== 3) return;
+    var m = /^(\s*[+−\-]?)(\d+(?:[.,]\d+)?)(.*)$/.exec(tn.nodeValue);
+    if (!m) return;
+    var raw = m[2], dec = /[.,](\d+)$/.exec(raw), d = dec ? dec[1].length : 0, sep = raw.indexOf(",") >= 0 ? "," : ".";
+    var to = parseFloat(raw.replace(",", ".")); if (!isFinite(to) || to === 0 || to > 100000) return;
+    var t0 = performance.now(), dur = 900, final = tn.nodeValue;
+    (function step(now) {
+      var k = Math.min(1, (now - t0) / dur), v = (to * ease(k)).toFixed(d);
+      if (sep === ",") v = v.replace(".", ",");
+      tn.nodeValue = k >= 1 ? final : m[1] + v + m[3];
+      if (k < 1) requestAnimationFrame(step); else el.classList.add("cu-done");
+    })(t0);
+  }
+  /* что делаем после каждой перерисовки */
+  var busy = false;
+  function dress() {
+    busy = false;
+    var vh = window.innerHeight;
+    Array.prototype.forEach.call(document.querySelectorAll(".view:not([hidden]) .card, .view:not([hidden]) .tile, .view:not([hidden]) .mcard"), function (c, i) {
+      if (c.getAttribute("data-rv")) return;
+      c.setAttribute("data-rv", "1");
+      var r = c.getBoundingClientRect();
+      if (r.top > vh * 0.92 && io) { c.classList.add("rv"); c.style.setProperty("--rd", "0ms"); io.observe(c); }
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".view:not([hidden]) " + CU.split(",").join(", .view:not([hidden]) ")), function (el) {
+      var r = el.getBoundingClientRect(); if (r.top < vh && r.bottom > 0) countUp(el);
+    });
+  }
+  function later() { if (!busy) { busy = true; setTimeout(dress, 60); } }
+  var root = document.querySelector("main") || document.body;
+  new MutationObserver(later).observe(root, { childList: true, subtree: true });
+  window.addEventListener("hashchange", later);
+  later();
 })();
 </script>
 
