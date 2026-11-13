@@ -243,12 +243,27 @@ def consensus(vals, wmap=None):
     return mu, sdm, len(pairs)
 
 
+def pooled_bias(calib):
+    """Общая поправка по всем городам, пока по своему городу данных мало (меньше 5 дней).
+    Берём средние ошибки по дням (а не по сигналам), чтобы один тёплый день не перевесил всё; поправка осторожная."""
+    by = {}
+    for rows in calib.values():
+        for r in rows[-14:]:
+            if "a" in r and "mu" in r:
+                by.setdefault(r["d"], []).append(r["a"] - r["mu"])
+    days = [sum(v) / len(v) for v in by.values() if len(v) >= 5]
+    nd = len(days)
+    if nd < 2:
+        return 0.0
+    return clamp(sum(days) / nd * nd / (nd + 4.0), -1.0, 1.0)
+
+
 def calib_of(calib, city):
     """Поправка и реальная ошибка по истории закрытых дней этого города."""
     rows = (calib.get(city) or [])[-40:]
     n = len(rows)
     if n < 5:
-        return 0.0, None, n
+        return pooled_bias(calib), None, n
     errs = [r["a"] - r["mu"] for r in rows]
     bias = sum(errs) / n
     rmse = math.sqrt(sum((e - bias) ** 2 for e in errs) / n)
