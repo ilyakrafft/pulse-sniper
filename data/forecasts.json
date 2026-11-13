@@ -1,11 +1,4 @@
 {
- "la|2026-11-13": {
-  "gfs_seamless": 21.1,
-  "ukmo_seamless": 19.9,
-  "gfs_hrrr": 21.1,
-  "ncep_nbm_conus": 19.9,
-  "ens": 20.12
- },
  "tokyo|2026-11-14": {
   "ecmwf_ifs025": 18.2,
   "ecmwf_aifs025_single": 19.4,

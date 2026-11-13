@@ -2283,5 +2283,20 @@
    "ncep_nbm_conus": 20.3,
    "ens": 18.99
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "la",
+  "k": 20,
+  "p": 0.707,
+  "actual": 20,
+  "hit": true,
+  "v": {
+   "gfs_seamless": 21.1,
+   "ukmo_seamless": 19.9,
+   "gfs_hrrr": 21.1,
+   "ncep_nbm_conus": 19.9,
+   "ens": 20.12
+  }
  }
 ]
