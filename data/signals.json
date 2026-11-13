@@ -211,7 +211,17 @@
   "edge": 0.269,
   "level": "mid",
   "key": "london|2026-11-13",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-13-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-13-2026",
+  "live": {
+   "t": "2026-11-13T03:22+00:00",
+   "pm": 0.626,
+   "val": 0.188,
+   "state": "hold",
+   "temp": 3,
+   "max": 4,
+   "hour": 3.4
+  },
+  "alerts": {}
  },
  {
   "city": "chongqing",
@@ -1055,7 +1065,17 @@
   "edge": 0.271,
   "level": "mid",
   "key": "paris|2026-11-13",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-13-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-13-2026",
+  "live": {
+   "t": "2026-11-13T03:22+00:00",
+   "pm": 0.734,
+   "val": 0.283,
+   "state": "hold",
+   "temp": 4,
+   "max": 5,
+   "hour": 4.4
+  },
+  "alerts": {}
  },
  {
   "city": "tokyo",
@@ -1159,6 +1179,16 @@
   "edge": 0.169,
   "level": "mid",
   "key": "tokyo|2026-11-13",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-13-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-13-2026",
+  "live": {
+   "t": "2026-11-13T03:22+00:00",
+   "pm": 0.695,
+   "val": 0.441,
+   "state": "hold",
+   "temp": 16,
+   "max": 16,
+   "hour": 12.4
+  },
+  "alerts": {}
  }
 ]
