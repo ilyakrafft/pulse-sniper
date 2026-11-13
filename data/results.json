@@ -278,5 +278,9 @@
  "helsinki|2026-11-13": {
   "win": "5°C",
   "actual": 5
+ },
+ "telaviv|2026-11-13": {
+  "win": "29°C",
+  "actual": 29
  }
 }
