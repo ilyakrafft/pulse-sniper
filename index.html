@@ -23,6 +23,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -1014,8 +1016,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function renderReport() {
     var el = $("v-report"), tab = state.repTab === "models" ? "models" : "signals";
     if (tab === "models") renderReportModels(); else renderReportSignals();
-    var bar = '<div class="seg reptabs" role="tablist" aria-label="Вид отчёта"><button type="button" data-rt="signals" aria-pressed="' + (tab === "signals") + '">Мои сигналы</button><button type="button" data-rt="models" aria-pressed="' + (tab === "models") + '">Прогноз по коридору</button></div>';
+    var bar = '<div class="seg reptabs" role="tablist" aria-label="Вид отчёта"><button type="button" data-rt="signals" aria-pressed="' + (tab === "signals") + '">Мои сигналы</button><button type="button" data-rt="models" aria-pressed="' + (tab === "models") + '">Тест моделей</button></div>';
     el.insertAdjacentHTML("afterbegin", bar);
+    if (tab === "models") el.querySelector(".reptabs").insertAdjacentHTML("afterend", '<div class="card rise" style="--i:0;border-color:rgba(255,176,32,.4)"><h3>Это не сигналы и не ставки</h3><p class="muted" style="margin:6px 0 0;line-height:1.5">Здесь проверяется только точность прогноза моделей: коридор строится вокруг самого свежего прогноза уже в день события. Сигнал же выдаётся заранее и по цене рынка, поэтому результаты могут не совпадать. Реальные итоги ставок смотрите во вкладке «Мои сигналы».</p></div>');
   }
 
   /* ---------- личный кабинет и виртуальный счёт ---------- */

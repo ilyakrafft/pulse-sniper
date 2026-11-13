@@ -594,7 +594,7 @@ def live_update(sigs, markets, fc, calib, obs, now):
         state = "hold"
         if val >= SELL_VALUE and val > cost * 1.05:
             state = "sell"
-        elif pm <= (s.get("pm") or 0) * WEAK_RATIO and pm < cost - 0.05:
+        elif pm <= (s.get("pm") or 0) * WEAK_RATIO and pm < cost:
             state = "weak"
         live = {"t": now.isoformat(timespec="minutes"), "pm": round(pm, 3), "val": round(val, 3), "state": state,
                 "temp": x.get("last"), "max": x.get("max"), "hour": round(hour, 1)}
