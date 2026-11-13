@@ -213,7 +213,7 @@
   "key": "london|2026-11-13",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-13-2026",
   "live": {
-   "t": "2026-11-13T03:22+00:00",
+   "t": "2026-11-13T03:25+00:00",
    "pm": 0.626,
    "val": 0.188,
    "state": "hold",
@@ -1067,7 +1067,7 @@
   "key": "paris|2026-11-13",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-paris-on-november-13-2026",
   "live": {
-   "t": "2026-11-13T03:22+00:00",
+   "t": "2026-11-13T03:25+00:00",
    "pm": 0.734,
    "val": 0.283,
    "state": "hold",
@@ -1181,8 +1181,8 @@
   "key": "tokyo|2026-11-13",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-13-2026",
   "live": {
-   "t": "2026-11-13T03:22+00:00",
-   "pm": 0.695,
+   "t": "2026-11-13T03:25+00:00",
+   "pm": 0.701,
    "val": 0.441,
    "state": "hold",
    "temp": 16,
