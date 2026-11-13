@@ -13,6 +13,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -367,9 +369,9 @@ input:disabled, .seg button:disabled { opacity: .45; cursor: not-allowed; }
 .pfform { display: grid; gap: 12px; }
 .pmframe { display: block; width: 100%; height: 520px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); margin-bottom: 10px; }
 input[type="email"] { font: inherit; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
-</style>
+
 <style>body{margin:0}</style>
-<body>
+<body></style>
 
 <div class="bgfx" aria-hidden="true"><i></i><i></i></div>
 <div class="intro" aria-hidden="true"><i class="cl h"></i><i class="cl v"></i><i class="rg"></i></div>
@@ -1335,6 +1337,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       if (tg && tg.openLink) { e.preventDefault(); tg.openLink(refUrl()); }
     } else if (act === "login") {
       setView("cabinet");
+    } else if (act === "guest") {
+      try { localStorage.removeItem("izo.token"); localStorage.removeItem("izo.ok"); localStorage.removeItem("izo.mail"); } catch (er) {}
+      state.acc.status = "none"; state.acc.mask = ""; state.acc.msg = ""; state.member = false;
+      if (window.__snd) window.__snd.sfx("off");
+      renderAll();
     }
   });
 
