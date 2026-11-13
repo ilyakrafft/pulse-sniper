@@ -482,6 +482,19 @@
     "ncep_nbm_conus": 24.6,
     "ens": 23.8
    }
+  },
+  {
+   "d": "2026-11-13",
+   "mu": 19.29,
+   "sd": 0.69,
+   "a": 20.28,
+   "m": {
+    "gfs_seamless": 19.5,
+    "ukmo_seamless": 18.1,
+    "gfs_hrrr": 19.5,
+    "ncep_nbm_conus": 20.3,
+    "ens": 19.0
+   }
   }
  ],
  "la": [

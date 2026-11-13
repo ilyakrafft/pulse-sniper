@@ -2268,5 +2268,20 @@
    "ncep_nbm_conus": 22.9,
    "ens": 23.49
   }
+ },
+ {
+  "date": "2026-11-13",
+  "city": "dallas",
+  "k": 19,
+  "p": 0.697,
+  "actual": 20,
+  "hit": true,
+  "v": {
+   "gfs_seamless": 19.5,
+   "ukmo_seamless": 18.1,
+   "gfs_hrrr": 19.5,
+   "ncep_nbm_conus": 20.3,
+   "ens": 18.99
+  }
  }
 ]
