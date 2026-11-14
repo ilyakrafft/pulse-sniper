@@ -47,6 +47,15 @@ def build(bets, today):
     for lv, rows in group(bets, lambda b: b.get("level", "mid")).items():
         ln, lh, lp = stat(rows)
         out["levels"].append({"level": lv, "n": ln, "hit": lh, "pct": lp})
+    tests = [t for t in collect.load("test_signals.json", []) if t.get("status") == "done"]
+    if tests:
+        def grp(rows):
+            k = sum(1 for t in rows if t.get("hit"))
+            c = sum(t.get("price") or 0 for t in rows)
+            return {"n": len(rows), "hit": k, "pct": pct(k, len(rows)), "exp": round(100 * sum(t.get("pm") or 0 for t in rows) / len(rows)) if rows else 0,
+                    "roi": round(100 * (k - c) / c) if c else 0}
+        out["test"] = {"all": grp(tests), "cheap": grp([t for t in tests if (t.get("price") or 0) < 0.8]),
+                       "mid": grp([t for t in tests if 0.8 <= (t.get("price") or 0) <= 1.0]), "dear": grp([t for t in tests if (t.get("price") or 0) > 1.0])}
     out["cities"].sort(key=lambda x: (-x["pct"], -x["n"]))
     tn = out["total"]["n"]
     tips = out["tips"]
@@ -85,6 +94,13 @@ def text(o):
     lv = [x for x in o["levels"] if x["n"]]
     if lv:
         s += "\n<b>По уровням:</b> " + ", ".join("%s %d%% (%d)" % (names.get(x["level"], x["level"]), x["pct"], x["n"]) for x in lv) + "\n"
+    ts = o.get("test")
+    if ts and ts["all"]["n"] >= 8:
+        s += "\n<b>Широкий тест</b> (не для ставок): %d закрыто, сыграло %d%%, мы ждали %d%%\n" % (ts["all"]["n"], ts["all"]["pct"], ts["all"]["exp"])
+        for k, nm in (("cheap", "дешёвые до 80¢"), ("mid", "80–100¢"), ("dear", "дороже 100¢")):
+            g = ts[k]
+            if g["n"]:
+                s += "• %s: %d из %d (%d%%), прибыль на вложенное %+d%%\n" % (nm, g["hit"], g["n"], g["pct"], g["roi"])
     s += "\n<b>Что видно</b>\n" + "\n".join("• " + html.escape(x) for x in o["tips"])
     s += "\n\nПерешлите это сообщение в чат с Claude, и я предложу точные правки."
     return s

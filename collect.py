@@ -105,6 +105,9 @@ LAST_NEW_HOUR = 14   # на сегодняшний рынок новые сиг�
 MAX_CORR_COST = 0.97   # сумма цен трёх вариантов: чтобы осталась запас на комиссию
 MIN_CORR_P = 0.50     # шанс попасть в коридор
 MIN_CORR_EDGE = 0.0  # шанс минус стоимость коридора
+TEST_MIN_P = 0.40       # режим «тест»: мягкий отбор для сбора статистики (в бот не уходит)
+TEST_MAX_COST = 1.15
+TEST_MAX_SD = 2.0
 ALLOW_SINGLE = False   # одиночные ставки отключены: они проигрывают чаще коридора
 UNTIL_HOUR = 16      # после 16:00 по времени города сигнал в приложении и в боте больше не показывается
 BASE_SIGMA, LEAD_SIGMA = 1.0, 0.25   # типичная ошибка суточного максимума на станции, °C
@@ -616,7 +619,7 @@ def buy_price(b):
     return a if isinstance(a, (int, float)) and 0 < a < 1 else b["p"]
 
 
-def evaluate(m, fc, calib, obs, now):
+def evaluate(m, fc, calib, obs, now, strict=True):
     """Один рынок -> (сигнал или None, причина отказа по-русски)."""
     vals = (fc.get("cities") or {}).get(m["c"])
     if not vals:
@@ -637,7 +640,7 @@ def evaluate(m, fc, calib, obs, now):
     pr = predict({k: arr[i] for k, arr in vals.items() if i < len(arr)}, lead, calib_of(calib, m["c"]), es, model_weights(calib, m["c"]))
     if not pr:
         return None, "Мало моделей дали прогноз"
-    if pr["sd"] > MAX_SD:
+    if pr["sd"] > (MAX_SD if strict else TEST_MAX_SD):
         return None, "Модели расходятся (разброс %.1f°), уверенного прогноза нет" % pr["sd"]
     if lead == 0 and ln.hour >= LAST_NEW_HOUR:
         return None, "День уже прошёл пик, рынок почти решён"
@@ -670,7 +673,9 @@ def evaluate(m, fc, calib, obs, now):
         # выбираем коридор с наибольшей вероятностью (центр у прогноза), а не самый дешёвый: дешёвые окна по краям выигрывают редко
         if best_c is None or p > best_c[5]:
             best_c = (e, j, w, cost, pm, p)
-    if best_c and best_c[3] <= MAX_CORR_COST and best_c[5] >= MIN_CORR_P and best_c[0] >= MIN_CORR_EDGE:
+    ok_c = best_c and ((best_c[3] <= MAX_CORR_COST and best_c[5] >= MIN_CORR_P and best_c[0] >= MIN_CORR_EDGE) if strict
+                       else (best_c[3] <= TEST_MAX_COST and best_c[5] >= TEST_MIN_P))
+    if ok_c:
         e, j, w, cost, pm, p = best_c
         return dict(base, kind="corr", label=w[1]["l"], labels=[b["l"] for b in w], lo=w[0]["lo"], hi=w[2]["hi"],
                     legs=[{"l": b["l"], "price": buy_price(b), "pm": round(x, 3)} for b, x in zip(w, pms[j:j + 3])],
@@ -695,6 +700,25 @@ def evaluate(m, fc, calib, obs, now):
                     price=price, pm=round(p, 3), pm_model=round(pm, 3), edge=round(e, 3),
                     level="strong" if e >= 0.10 and pr["sd"] <= 0.8 and p >= 0.4 else "mid"), None
     return None, "Цена рынка уже учла прогноз: выгоды нет (лучшее преимущество %+d п.п.)" % round(((best_c[0] if best_c else 0)) * 100)
+
+
+def test_pass(markets, fc, calib, obs, now, sigs, tests):
+    """Режим «тест»: тот же прогноз, но мягкие пороги. Нужен только для анализа, в бот и в основной отчёт не попадает."""
+    have = {s["key"] for s in sigs} | {t["key"] for t in tests}
+    n = 0
+    for m in markets:
+        key = "%s|%s" % (m["c"], m["date"])
+        if key in have:
+            continue
+        sig, _ = evaluate(m, fc, calib, obs, now, strict=False)
+        if sig and sig.get("kind") == "corr":
+            sig["key"] = key
+            sig["tier"] = "test"
+            for k in ("dist", "until", "legs", "st", "liq", "v24"):
+                sig.pop(k, None)
+            tests.append(sig)
+            n += 1
+    return tests, n
 
 
 PAUSED = {}
@@ -851,11 +875,18 @@ def main():
     except Exception as e:  # noqa: BLE001
         print("итоги не посчитались:", e)
     OBS_LAST = {}
+    tests = load("test_signals.json", [])
     try:
         skips = []
         if markets and fc.get("cities"):
             OBS_LAST = fetch_obs(markets, fc, now)
             sigs, skips = build_signals(markets, fc, calib, OBS_LAST, now, sigs)
+            try:
+                tests, tn = test_pass(markets, fc, calib, OBS_LAST, now, sigs, tests)
+                if tn:
+                    print("тестовых сигналов добавлено:", tn)
+            except Exception as e:  # noqa: BLE001
+                print("тестовый режим не отработал:", type(e).__name__, e)
             save("skips.json", {"updated": now.isoformat(timespec="minutes"), "items": skips})
             bad = sorted({"%s %s≠%s" % (m["c"], m["st"], ICAO.get(m["c"])) for m in markets if m.get("st") and ICAO.get(m["c"]) and m["st"] != ICAO[m["c"]]})
             if bad:
@@ -863,6 +894,8 @@ def main():
         if markets and fc.get("cities"):
             sigs = live_update(sigs, markets, fc, calib, OBS_LAST, now)
         sigs = settle_signals(sigs, results)
+        tests = settle_signals(tests, results)
+        tests = [t for t in tests if t["date"] >= (today - dt.timedelta(days=45)).isoformat()]
         cut = (today - dt.timedelta(days=30)).isoformat()
         sigs = [s for s in sigs if s["date"] >= cut]
         save("bets.json", bets_from(sigs, load("bets.json", [])))
@@ -870,6 +903,7 @@ def main():
     except Exception as e:  # noqa: BLE001
         print("сигналы не посчитались:", type(e).__name__, e)
     save("signals.json", sigs)
+    save("test_signals.json", tests)
     save("forecasts.json", forecasts)
     save("stats.json", stats)
     save("results.json", results)

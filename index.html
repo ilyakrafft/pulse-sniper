@@ -33,6 +33,14 @@
 
 
 
+
+
+
+
+
+
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -564,7 +572,11 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x)); }
   function cdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
   function cityById(id) { return CITIES.filter(function (c) { return c.id === id; })[0]; }
-  function marketOf(cityId) { return MARKETS.filter(function (m) { return m.c === cityId; })[0]; }
+  function marketOf(cityId) {
+    var m = MARKETS.filter(function (x) { return x.c === cityId; })[0];
+    if (!m) { var base = MARKETS[0] || {}; m = { c: cityId, date: base.date || "", vol: "—", b: [bC(14, .30), bC(15, .40), bC(16, .30)], fake: true }; }  /* города без рынка (новые или ещё не загруженные) не должны ронять приложение */
+    return m;
+  }
   function mdate(m) { var p = m.date.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
   function today0() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
   function dayOf(m) { return Math.round((mdate(m) - today0()) / 864e5); }
@@ -1041,10 +1053,28 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     runCounts(el);
   }
 
+  function renderReportWide() {
+    var el = $("v-report"), all = state.wide || [], done = all.filter(function (t) { return t.status === "done"; });
+    var n = done.length, h = done.filter(function (t) { return t.hit; }).length, sp = 0, sc = 0, sw = 0;
+    done.forEach(function (t) { sp += t.pm || 0; sc += t.price || 0; sw += t.hit ? 1 : 0; });
+    var roi = sc ? (sw - sc) / sc : 0;
+    function bucket(name, f) { var d = done.filter(f), k = d.filter(function (t) { return t.hit; }).length, pm = d.length ? d.reduce(function (a, t) { return a + (t.pm || 0); }, 0) / d.length : 0;
+      return '<div class="wrow"><span>' + name + '</span><b>' + (d.length ? k + " из " + d.length : "нет данных") + '</b><i>' + (d.length ? "ждали " + Math.round(pm * 100) + "%, вышло " + Math.round(k / d.length * 100) + "%" : "") + '</i></div>'; }
+    var rows = all.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }).slice(0, 40).map(function (t) {
+      var st = t.status === "done" ? (t.hit ? '<span class="tag twin">сыграл</span>' : '<span class="tag tlose">не сыграл</span>') : '<span class="tag">идёт</span>';
+      var nm = (CITIES.filter(function (c) { return c.id === t.city; })[0] || {}).name || t.city;
+      return '<div class="wline"><div><b>' + esc(nm) + '</b> · ' + t.date.slice(8) + '.' + t.date.slice(5, 7) + '<br><small>' + esc(rangeLabel(t.labels || [t.label])) + ' · наш шанс ' + Math.round((t.pm || 0) * 100) + '% · цена ' + Math.round((t.price || 0) * 100) + '¢</small></div>' + st + '</div>'; }).join("");
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Широкий тест: мягкие правила, чтобы быстро собрать статистику. Это не ставки.</p></div>' +
+      '<div class="card rise" style="--i:0;border-color:rgba(255,176,32,.4)"><h3>Только для проверки системы</h3><p class="muted" style="margin:6px 0 0;line-height:1.5;font-size:13.5px">Сюда попадают коридоры, которые основной отбор не пропустил, например из-за высокой цены. В бот они не приходят. По ним мы проверяем, насколько наш шанс совпадает с тем, что случается, и где можно смягчить правила.</p></div>' +
+      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong>' + n + '</strong></div><div class="tile rise" style="--i:1"><small>Сыграло</small><strong>' + (n ? Math.round(h / n * 100) + "%" : "0%") + '</strong></div><div class="tile rise" style="--i:1"><small>Мы ждали</small><strong>' + (n ? Math.round(sp / n * 100) + "%" : "0%") + '</strong></div></div>' +
+      '<div class="card rise" style="--i:2"><h3>Где мы права</h3><p class="muted" style="margin:4px 0 8px;font-size:13px">Сравниваем наш шанс с тем, что случилось, по цене коридора.</p>' +
+      bucket("Дешёвые (до 80¢)", function (t) { return (t.price || 0) < 0.8; }) + bucket("Средние (80–100¢)", function (t) { return (t.price || 0) >= 0.8 && (t.price || 0) <= 1; }) + bucket("Дорогие (выше 100¢)", function (t) { return (t.price || 0) > 1; }) + '</div>' +
+      '<div class="card rise" style="--i:3"><h3>Последние тестовые коридоры</h3>' + (rows || '<p class="muted">Пока нет данных. Они появятся после ближайшего сбора.</p>') + '</div>';
+  }
   function renderReport() {
-    var el = $("v-report"), tab = state.repTab === "models" ? "models" : "signals";
-    if (tab === "models") renderReportModels(); else renderReportSignals();
-    var bar = '<div class="seg reptabs" role="tablist" aria-label="Вид отчёта"><button type="button" data-rt="signals" aria-pressed="' + (tab === "signals") + '">Мои сигналы</button><button type="button" data-rt="models" aria-pressed="' + (tab === "models") + '">Тест моделей</button></div>';
+    var el = $("v-report"), tab = state.repTab === "models" ? "models" : state.repTab === "wide" ? "wide" : "signals";
+    if (tab === "models") renderReportModels(); else if (tab === "wide") renderReportWide(); else renderReportSignals();
+    var bar = '<div class="seg reptabs" role="tablist" aria-label="Вид отчёта"><button type="button" data-rt="signals" aria-pressed="' + (tab === "signals") + '">Мои сигналы</button><button type="button" data-rt="models" aria-pressed="' + (tab === "models") + '">Модели</button><button type="button" data-rt="wide" aria-pressed="' + (tab === "wide") + '">Тест</button></div>';
     el.insertAdjacentHTML("afterbegin", bar);
     if (tab === "models") el.querySelector(".reptabs").insertAdjacentHTML("afterend", '<div class="card rise" style="--i:0;border-color:rgba(255,176,32,.4)"><h3>Это не сигналы и не ставки</h3><p class="muted" style="margin:6px 0 0;line-height:1.5">Здесь проверяется только точность прогноза моделей: коридор строится вокруг самого свежего прогноза уже в день события. Сигнал же выдаётся заранее и по цене рынка, поэтому результаты могут не совпадать. Реальные итоги ставок смотрите во вкладке «Мои сигналы».</p></div>');
   }
@@ -1594,6 +1624,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }).catch(function () {});
   } catch (e) {}
   try {
+    fetch("data/test_signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.wide = Array.isArray(j) ? j : []; if (state.view === "report") renderReport(); }).catch(function () {});
     fetch("data/tuning.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.tune = j || null; if (window.__tunePill) window.__tunePill(); renderAll(); }).catch(function () {});
     fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.sigFile = Array.isArray(j) ? j : []; renderAll();
@@ -2175,5 +2206,13 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }).catch(function () {});
 })();
 </script>
+<style>
+.wrow{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line);font-size:13.5px}
+.wrow i{flex-basis:100%;font-style:normal;color:var(--muted,inherit);font-size:12px}
+.wline{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:13.5px}
+.wline small{color:var(--muted,inherit);font-size:12px}
+.tag{font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.tag.twin{color:#3fb97a;border-color:#3fb97a66}.tag.tlose{color:#e5534b;border-color:#e5534b66}
+</style>
 
 </body></html>
