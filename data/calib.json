@@ -2147,6 +2147,31 @@
     "cma_grapes_global": -0.6,
     "ens": 2.1
    }
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 4.71,
+   "sd": 0.81,
+   "a": 5.0,
+   "m": {
+    "ecmwf_ifs025": 4.6,
+    "ecmwf_aifs025_single": 4.7,
+    "icon_seamless": 5.2,
+    "gfs_seamless": 5.5,
+    "ukmo_seamless": 5.2,
+    "meteofrance_seamless": 3.9,
+    "gem_seamless": 4.9,
+    "jma_seamless": 4.4,
+    "cma_grapes_global": 1.1,
+    "ecmwf_ifs": 4.4,
+    "icon_global": 5.2,
+    "gfs_global": 5.5,
+    "gem_global": 4.9,
+    "ukmo_global_deterministic_10km": 5.2,
+    "meteofrance_arpege_world": 4.1,
+    "jma_gsm": 4.4,
+    "ens": 5.2
+   }
   }
  ],
  "jeddah": [
