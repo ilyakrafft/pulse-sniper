@@ -1597,7 +1597,7 @@
   "sd": 1.22,
   "n": 19,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -1613,7 +1613,9 @@
   "edge": -0.179,
   "level": "light",
   "key": "denver|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "52–53°F",
+  "hit": true
  },
  {
   "city": "denver",
@@ -1861,7 +1863,7 @@
   "sd": 0.58,
   "n": 19,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -1877,7 +1879,9 @@
   "edge": -0.133,
   "level": "light",
   "key": "seattle|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "60–61°F",
+  "hit": false
  },
  {
   "city": "seattle",
