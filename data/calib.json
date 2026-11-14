@@ -1524,6 +1524,31 @@
     "cma_grapes_global": 14.0,
     "ens": 14.6
    }
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 19.26,
+   "sd": 0.74,
+   "a": 22.0,
+   "m": {
+    "ecmwf_ifs025": 19.8,
+    "ecmwf_aifs025_single": 18.9,
+    "icon_seamless": 18.8,
+    "gfs_seamless": 19.7,
+    "ukmo_seamless": 18.7,
+    "meteofrance_seamless": 19.9,
+    "gem_seamless": 18.1,
+    "jma_seamless": 21.0,
+    "cma_grapes_global": 17.9,
+    "ecmwf_ifs": 19.7,
+    "icon_global": 18.8,
+    "gfs_global": 19.7,
+    "gem_global": 18.1,
+    "ukmo_global_deterministic_10km": 18.7,
+    "meteofrance_arpege_world": 19.9,
+    "jma_gsm": 21.0,
+    "ens": 19.0
+   }
   }
  ],
  "hongkong": [
