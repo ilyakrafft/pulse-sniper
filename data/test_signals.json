@@ -2018,5 +2018,31 @@
   "level": "light",
   "key": "seattle|2026-11-16",
   "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-16",
+  "mu": 8.13,
+  "sigma": 2.49,
+  "sd": 1.98,
+  "n": 19,
+  "first": "2026-11-14T16:41+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "9°C",
+  "labels": [
+   "8°C",
+   "9°C",
+   "10°C"
+  ],
+  "lo": 7.5,
+  "hi": 10.5,
+  "price": 0.78,
+  "pm": 0.542,
+  "pm_model": 0.43,
+  "edge": -0.238,
+  "level": "light",
+  "key": "london|2026-11-16",
+  "tier": "test"
  }
 ]
