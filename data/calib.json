@@ -896,6 +896,38 @@
     "ecmwf_ifs": 9.6
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 9.34,
+   "sd": 0.57,
+   "a": 11.0,
+   "m": {
+    "ecmwf_ifs025": 9.0,
+    "ecmwf_aifs025_single": 8.4,
+    "icon_seamless": 9.3,
+    "gfs_seamless": 10.3,
+    "ukmo_seamless": 9.7,
+    "meteofrance_seamless": 9.9,
+    "gem_seamless": 8.6,
+    "jma_seamless": 9.2,
+    "cma_grapes_global": 8.2,
+    "ecmwf_ifs": 9.0,
+    "icon_global": 9.5,
+    "gfs_global": 10.3,
+    "gem_global": 8.5,
+    "ukmo_global_deterministic_10km": 9.3,
+    "meteofrance_arpege_world": 9.2,
+    "jma_gsm": 9.2,
+    "icon_d2": 9.3,
+    "knmi_harmonie_arome_europe": 8.8,
+    "icon_eu": 9.4,
+    "meteofrance_arpege_europe": 9.2,
+    "dmi_harmonie_arome_europe": 10.4,
+    "meteofrance_arome_france": 9.9,
+    "meteofrance_arome_france_hd": 9.9,
+    "ens": 9.0
+   }
   }
  ],
  "sf": [
@@ -3548,6 +3580,35 @@
     "ecmwf_ifs": 5.2
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 5.75,
+   "sd": 1.06,
+   "a": 6.0,
+   "m": {
+    "ecmwf_ifs025": 6.0,
+    "ecmwf_aifs025_single": 6.6,
+    "icon_seamless": 6.2,
+    "gfs_seamless": 6.9,
+    "ukmo_seamless": 6.6,
+    "meteofrance_seamless": 3.9,
+    "gem_seamless": 6.6,
+    "jma_seamless": 6.8,
+    "cma_grapes_global": 5.9,
+    "ecmwf_ifs": 5.9,
+    "icon_global": 6.2,
+    "gfs_global": 6.9,
+    "gem_global": 6.7,
+    "ukmo_global_deterministic_10km": 6.6,
+    "meteofrance_arpege_world": 4.0,
+    "jma_gsm": 6.8,
+    "knmi_harmonie_arome_europe": 4.4,
+    "icon_eu": 6.2,
+    "meteofrance_arpege_europe": 3.9,
+    "dmi_harmonie_arome_europe": 4.2,
+    "ens": 6.2
+   }
   }
  ],
  "amsterdam": [
@@ -3710,6 +3771,37 @@
     "ecmwf_ifs": 9.2
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 8.03,
+   "sd": 0.7,
+   "a": 8.0,
+   "m": {
+    "ecmwf_ifs025": 7.4,
+    "ecmwf_aifs025_single": 7.5,
+    "icon_seamless": 7.8,
+    "gfs_seamless": 8.9,
+    "ukmo_seamless": 8.8,
+    "meteofrance_seamless": 8.3,
+    "gem_seamless": 8.1,
+    "jma_seamless": 8.6,
+    "cma_grapes_global": 7.6,
+    "ecmwf_ifs": 7.3,
+    "icon_global": 8.0,
+    "gfs_global": 8.9,
+    "gem_global": 8.1,
+    "ukmo_global_deterministic_10km": 8.3,
+    "meteofrance_arpege_world": 6.6,
+    "jma_gsm": 8.6,
+    "icon_d2": 7.8,
+    "knmi_harmonie_arome_europe": 8.6,
+    "icon_eu": 7.9,
+    "meteofrance_arpege_europe": 6.7,
+    "dmi_harmonie_arome_europe": 8.8,
+    "knmi_harmonie_arome_netherlands": 9.3,
+    "ens": 7.7
+   }
   }
  ],
  "london": [

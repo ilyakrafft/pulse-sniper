@@ -386,5 +386,17 @@
  "jeddah|2026-11-14": {
   "win": "35°C",
   "actual": 35
+ },
+ "amsterdam|2026-11-14": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "paris|2026-11-14": {
+  "win": "11°C",
+  "actual": 11
+ },
+ "warsaw|2026-11-14": {
+  "win": "6°C",
+  "actual": 6
  }
 }

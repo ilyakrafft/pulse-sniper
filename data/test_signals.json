@@ -189,7 +189,7 @@
   "sd": 0.68,
   "n": 24,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -205,7 +205,9 @@
   "edge": -0.254,
   "level": "light",
   "key": "paris|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -427,7 +429,7 @@
   "sd": 0.7,
   "n": 23,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -443,7 +445,9 @@
   "edge": -0.157,
   "level": "light",
   "key": "amsterdam|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "amsterdam",
@@ -1261,7 +1265,7 @@
   "sd": 0.74,
   "n": 21,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "6°C",
   "labels": [
@@ -1277,7 +1281,9 @@
   "edge": -0.121,
   "level": "light",
   "key": "warsaw|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "6°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -1903,6 +1909,58 @@
   "edge": -0.337,
   "level": "light",
   "key": "jeddah|2026-11-16",
+  "tier": "test"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-16",
+  "mu": 25.84,
+  "sigma": 1.63,
+  "sd": 0.65,
+  "n": 17,
+  "first": "2026-11-14T13:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "26°C",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ],
+  "lo": 24.5,
+  "hi": 27.5,
+  "price": 1.08,
+  "pm": 0.75,
+  "pm_model": 0.639,
+  "edge": -0.33,
+  "level": "light",
+  "key": "hongkong|2026-11-16",
+  "tier": "test"
+ },
+ {
+  "city": "sf",
+  "date": "2026-11-16",
+  "mu": 15.76,
+  "sigma": 1.65,
+  "sd": 0.69,
+  "n": 19,
+  "first": "2026-11-14T13:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "60–61°F",
+  "labels": [
+   "58–59°F",
+   "60–61°F",
+   "62–63°F"
+  ],
+  "lo": 14.167,
+  "hi": 17.5,
+  "price": 0.98,
+  "pm": 0.764,
+  "pm_model": 0.686,
+  "edge": -0.216,
+  "level": "light",
+  "key": "sf|2026-11-16",
   "tier": "test"
  }
 ]
