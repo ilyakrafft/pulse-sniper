@@ -29,6 +29,10 @@
 
 
 
+
+
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -496,7 +500,15 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     { id: "houston", name: "Хьюстон", slug: "houston", country: "США", lat: 29.76, lon: -95.37 },
     { id: "singapore", name: "Сингапур", slug: "singapore", country: "Сингапур", lat: 1.35, lon: 103.82 },
     { id: "tokyo", name: "Токио", slug: "tokyo", country: "Япония", lat: 35.68, lon: 139.69 },
-    { id: "warsaw", name: "Варшава", slug: "warsaw", country: "Польша", lat: 52.23, lon: 21.01 }
+    { id: "warsaw", name: "Варшава", slug: "warsaw", country: "Польша", lat: 52.23, lon: 21.01 },
+    { id: "busan", name: "Пусан", slug: "busan", country: "Южная Корея", lat: 35.18, lon: 129.08 },
+    { id: "chengdu", name: "Чэнду", slug: "chengdu", country: "Китай", lat: 30.57, lon: 104.07 },
+    { id: "wuhan", name: "Ухань", slug: "wuhan", country: "Китай", lat: 30.59, lon: 114.31 },
+    { id: "denver", name: "Денвер", slug: "denver", country: "США", lat: 39.74, lon: -104.99 },
+    { id: "chicago", name: "Чикаго", slug: "chicago", country: "США", lat: 41.88, lon: -87.63 },
+    { id: "lucknow", name: "Лакхнау", slug: "lucknow", country: "Индия", lat: 26.85, lon: 80.95 },
+    { id: "atlanta", name: "Атланта", slug: "atlanta", country: "США", lat: 33.75, lon: -84.39 },
+    { id: "seattle", name: "Сиэтл", slug: "seattle", country: "США", lat: 47.61, lon: -122.33 }
   ];
   /* Снимок рынков максимальной температуры с pulsemarket.trade/ru/markets/weather. Показаны два самых вероятных варианта. */
   var MARKETS = [
@@ -1562,7 +1574,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
         var m = ms.map(function (md) { var a = per[md.key] || []; return ds.map(function (d) { var v = a[pos[key(d)]]; return v == null ? NaN : v; }); });
         if (m.filter(function (a) { return a.some(isFinite); }).length >= 3) { data[c.id] = m; ok++; }
       });
-      if (ok < CITIES.length * 0.7) throw new Error("incomplete");
+      if (ok < CITIES.length * 0.5) throw new Error("incomplete");
       CITIES.forEach(function (c) { if (!data[c.id]) data[c.id] = ms.map(function () { return new Array(DAYS).fill(NaN); }); });
       MODELS.length = 0; ms.forEach(function (m) { MODELS.push({ key: m.key, name: m.name || m.key, sub: m.sub || "", w: +m.w || 0.5, noise: 1 }); });
       state.dates = ds; state.data = data; state.source = "live"; state.updated = upd; renderAll();

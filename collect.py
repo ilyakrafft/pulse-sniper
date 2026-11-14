@@ -25,7 +25,7 @@ MONTHS = ["january", "february", "march", "april", "may", "june", "july",
 # Модели Open-Meteo (бесплатно, без ключа). «seamless» уже включает региональные модели:
 # ICON-EU/D2, GFS+HRRR, UKMO UKV, Météo-France AROME/ARPEGE, JMA MSM, KMA LDPS.
 # key, вес, название, подпись
-US = ["dallas", "nyc", "sf", "miami", "la", "houston"]
+US = ["dallas", "nyc", "sf", "miami", "la", "houston", "denver", "chicago", "atlanta", "seattle"]
 EU = ["london", "paris", "amsterdam", "munich", "milan", "madrid", "helsinki", "warsaw"]
 # key, вес, название, подпись, города (None = все). Региональные модели точнее на 1–2 дня и запрашиваются только для своих городов.
 MODELS = [
@@ -84,6 +84,11 @@ CITIES = [
     ("madrid", "madrid", 40.498, -3.568, "LEMD"), ("la", "los-angeles", 33.942, -118.408, "KLAX"),
     ("houston", "houston", 29.645, -95.279, "KHOU"), ("singapore", "singapore", 1.364, 103.991, "WSSS"),
     ("tokyo", "tokyo", 35.549, 139.780, "RJTT"), ("warsaw", "warsaw", 52.166, 20.967, "EPWA"),
+    # новые рынки Pulse Market (ноябрь 2026). Станцию проверяет сам движок по правилам рынка: если код не совпадёт, сигнала не будет и в логе появится «не рискуем».
+    ("busan", "busan", 35.180, 128.938, "RKPK"), ("chengdu", "chengdu", 30.578, 103.947, "ZUUU"),
+    ("wuhan", "wuhan", 30.784, 114.208, "ZHHH"), ("denver", "denver", 39.702, -104.752, "KBKF"),
+    ("chicago", "chicago", 41.979, -87.905, "KORD"), ("lucknow", "lucknow", 26.761, 80.889, "VILK"),
+    ("atlanta", "atlanta", 33.641, -84.428, "KATL"), ("seattle", "seattle", 47.450, -122.309, "KSEA"),
 ]
 ICAO = {c[0]: c[4] for c in CITIES}
 
