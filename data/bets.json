@@ -226,5 +226,22 @@
    "6°C",
    "7°C"
   ]
+ },
+ {
+  "date": "2026-11-14",
+  "city": "london",
+  "label": "8°C",
+  "win": "10°C",
+  "hit": false,
+  "price": 0.4,
+  "pm": 0.477,
+  "edge": 0.077,
+  "level": "mid",
+  "kind": "corr",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ]
  }
 ]

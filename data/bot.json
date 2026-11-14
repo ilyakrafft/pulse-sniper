@@ -646,7 +646,9 @@
    ],
    "alerts": {
     "weak": "2026-11-14T12:49+00:00"
-   }
+   },
+   "done": true,
+   "hit": false
   },
   "paris|2026-11-13": {
    "city": "paris",
@@ -940,6 +942,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.188
+  },
+  {
+   "date": "2026-11-14",
+   "week": "2026-W46",
+   "hit": false,
+   "price": 0.4
   }
  ],
  "last_summary": "2026-W45",
