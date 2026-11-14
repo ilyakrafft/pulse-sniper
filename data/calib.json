@@ -1895,6 +1895,32 @@
     "cma_grapes_global": 17.1,
     "ens": 16.8
    }
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 18.43,
+   "sd": 0.93,
+   "a": 19.0,
+   "m": {
+    "ecmwf_ifs025": 18.2,
+    "ecmwf_aifs025_single": 19.4,
+    "icon_seamless": 19.0,
+    "gfs_seamless": 20.2,
+    "ukmo_seamless": 18.0,
+    "meteofrance_seamless": 16.6,
+    "gem_seamless": 18.7,
+    "jma_seamless": 18.5,
+    "cma_grapes_global": 17.3,
+    "ecmwf_ifs": 18.2,
+    "icon_global": 19.0,
+    "gfs_global": 20.2,
+    "gem_global": 18.7,
+    "ukmo_global_deterministic_10km": 18.0,
+    "meteofrance_arpege_world": 16.6,
+    "jma_gsm": 19.8,
+    "jma_msm": 18.5,
+    "ens": 18.2
+   }
   }
  ],
  "helsinki": [
