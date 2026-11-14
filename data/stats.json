@@ -2353,5 +2353,32 @@
    "jma_msm": 18.5,
    "ens": 18.22
   }
+ },
+ {
+  "date": "2026-11-14",
+  "city": "hongkong",
+  "k": 25,
+  "p": 0.629,
+  "actual": 25,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 26.7,
+   "ecmwf_aifs025_single": 25.1,
+   "icon_seamless": 26.3,
+   "gfs_seamless": 25.7,
+   "ukmo_seamless": 26.1,
+   "meteofrance_seamless": 24.5,
+   "gem_seamless": 24.3,
+   "jma_seamless": 23.1,
+   "cma_grapes_global": 26.1,
+   "ecmwf_ifs": 26.8,
+   "icon_global": 26.3,
+   "gfs_global": 25.7,
+   "gem_global": 24.3,
+   "ukmo_global_deterministic_10km": 26.1,
+   "meteofrance_arpege_world": 24.5,
+   "jma_gsm": 23.1,
+   "ens": 25.71
+  }
  }
 ]
