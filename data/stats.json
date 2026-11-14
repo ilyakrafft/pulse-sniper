@@ -2742,5 +2742,34 @@
    "dmi_harmonie_arome_europe": 6.9,
    "ens": 5.94
   }
+ },
+ {
+  "date": "2026-11-14",
+  "city": "madrid",
+  "k": 14,
+  "p": 0.72,
+  "actual": 14,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 15.0,
+   "ecmwf_aifs025_single": 13.7,
+   "icon_seamless": 14.6,
+   "gfs_seamless": 14.9,
+   "ukmo_seamless": 13.2,
+   "meteofrance_seamless": 14.3,
+   "gem_seamless": 13.9,
+   "jma_seamless": 13.9,
+   "cma_grapes_global": 14.4,
+   "ecmwf_ifs": 15.0,
+   "icon_global": 14.2,
+   "gfs_global": 14.9,
+   "gem_global": 13.9,
+   "ukmo_global_deterministic_10km": 13.2,
+   "meteofrance_arpege_world": 13.7,
+   "jma_gsm": 13.9,
+   "icon_eu": 14.6,
+   "meteofrance_arpege_europe": 13.6,
+   "ens": 14.41
+  }
  }
 ]
