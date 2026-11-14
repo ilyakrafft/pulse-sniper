@@ -2380,5 +2380,32 @@
    "jma_gsm": 23.1,
    "ens": 25.71
   }
+ },
+ {
+  "date": "2026-11-14",
+  "city": "singapore",
+  "k": 30,
+  "p": 0.674,
+  "actual": 31,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 29.8,
+   "ecmwf_aifs025_single": 29.3,
+   "icon_seamless": 31.7,
+   "gfs_seamless": 30.8,
+   "ukmo_seamless": 30.9,
+   "meteofrance_seamless": 29.2,
+   "gem_seamless": 30.6,
+   "jma_seamless": 28.6,
+   "cma_grapes_global": 29.6,
+   "ecmwf_ifs": 29.6,
+   "icon_global": 31.7,
+   "gfs_global": 30.8,
+   "gem_global": 30.6,
+   "ukmo_global_deterministic_10km": 30.9,
+   "meteofrance_arpege_world": 29.2,
+   "jma_gsm": 28.6,
+   "ens": 29.72
+  }
  }
 ]
