@@ -963,7 +963,17 @@
   "edge": 0.077,
   "level": "mid",
   "key": "london|2026-11-14",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-14-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-14-2026",
+  "live": {
+   "t": "2026-11-14T01:42+00:00",
+   "pm": 0.599,
+   "val": 0.264,
+   "state": "hold",
+   "temp": 2,
+   "max": 3,
+   "hour": 1.7
+  },
+  "alerts": {}
  },
  {
   "city": "paris",
