@@ -2520,5 +2520,32 @@
    "jma_gsm": 27.4,
    "ens": 27.43
   }
+ },
+ {
+  "date": "2026-11-14",
+  "city": "jeddah",
+  "k": 33,
+  "p": 0.577,
+  "actual": 35,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 34.1,
+   "ecmwf_aifs025_single": 33.6,
+   "icon_seamless": 34.1,
+   "gfs_seamless": 32.6,
+   "ukmo_seamless": 34.1,
+   "meteofrance_seamless": 33.9,
+   "gem_seamless": 32.5,
+   "jma_seamless": 28.7,
+   "cma_grapes_global": 32.8,
+   "ecmwf_ifs": 33.6,
+   "icon_global": 34.1,
+   "gfs_global": 32.6,
+   "gem_global": 32.5,
+   "ukmo_global_deterministic_10km": 34.1,
+   "meteofrance_arpege_world": 35.2,
+   "jma_gsm": 28.7,
+   "ens": 32.97
+  }
  }
 ]

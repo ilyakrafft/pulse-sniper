@@ -1339,7 +1339,7 @@
   "sd": 1.66,
   "n": 17,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "36°C",
   "labels": [
@@ -1355,7 +1355,9 @@
   "edge": -0.186,
   "level": "light",
   "key": "jeddah|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "35°C",
+  "hit": true
  },
  {
   "city": "la",
@@ -1875,6 +1877,32 @@
   "edge": -0.215,
   "level": "light",
   "key": "seattle|2026-11-15",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-16",
+  "mu": 35.06,
+  "sigma": 1.9,
+  "sd": 1.16,
+  "n": 17,
+  "first": "2026-11-14T11:40+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "35°C",
+  "labels": [
+   "34°C",
+   "35°C",
+   "36°C"
+  ],
+  "lo": 33.5,
+  "hi": 36.5,
+  "price": 1.02,
+  "pm": 0.683,
+  "pm_model": 0.571,
+  "edge": -0.337,
+  "level": "light",
+  "key": "jeddah|2026-11-16",
   "tier": "test"
  }
 ]

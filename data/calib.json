@@ -2706,6 +2706,31 @@
     "ecmwf_ifs": 33.4
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-14",
+   "mu": 33.26,
+   "sd": 1.37,
+   "a": 35.0,
+   "m": {
+    "ecmwf_ifs025": 34.1,
+    "ecmwf_aifs025_single": 33.6,
+    "icon_seamless": 34.1,
+    "gfs_seamless": 32.6,
+    "ukmo_seamless": 34.1,
+    "meteofrance_seamless": 33.9,
+    "gem_seamless": 32.5,
+    "jma_seamless": 28.7,
+    "cma_grapes_global": 32.8,
+    "ecmwf_ifs": 33.6,
+    "icon_global": 34.1,
+    "gfs_global": 32.6,
+    "gem_global": 32.5,
+    "ukmo_global_deterministic_10km": 34.1,
+    "meteofrance_arpege_world": 35.2,
+    "jma_gsm": 28.7,
+    "ens": 33.0
+   }
   }
  ],
  "munich": [
