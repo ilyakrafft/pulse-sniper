@@ -965,13 +965,13 @@
   "key": "london|2026-11-14",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-14-2026",
   "live": {
-   "t": "2026-11-14T03:52+00:00",
+   "t": "2026-11-14T04:53+00:00",
    "pm": 0.616,
-   "val": 0.359,
+   "val": 0.399,
    "state": "hold",
    "temp": 2,
    "max": 3,
-   "hour": 3.9
+   "hour": 4.9
   },
   "alerts": {}
  },
