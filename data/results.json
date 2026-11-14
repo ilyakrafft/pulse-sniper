@@ -354,5 +354,25 @@
  "chongqing|2026-11-14": {
   "win": "22°C",
   "actual": 22
+ },
+ "busan|2026-11-14": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "chengdu|2026-11-14": {
+  "win": "18°C",
+  "actual": 18
+ },
+ "lucknow|2026-11-14": {
+  "win": "29°C",
+  "actual": 29
+ },
+ "shenzhen|2026-11-14": {
+  "win": "24°C",
+  "actual": 24
+ },
+ "wuhan|2026-11-14": {
+  "win": "16°C",
+  "actual": 16
  }
 }

@@ -2434,5 +2434,32 @@
    "jma_gsm": 21.0,
    "ens": 18.98
   }
+ },
+ {
+  "date": "2026-11-14",
+  "city": "shenzhen",
+  "k": 25,
+  "p": 0.581,
+  "actual": 24,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 26.3,
+   "ecmwf_aifs025_single": 24.5,
+   "icon_seamless": 25.6,
+   "gfs_seamless": 26.2,
+   "ukmo_seamless": 24.9,
+   "meteofrance_seamless": 22.1,
+   "gem_seamless": 24.0,
+   "jma_seamless": 23.3,
+   "cma_grapes_global": 24.8,
+   "ecmwf_ifs": 26.7,
+   "icon_global": 25.6,
+   "gfs_global": 26.2,
+   "gem_global": 24.0,
+   "ukmo_global_deterministic_10km": 24.9,
+   "meteofrance_arpege_world": 22.1,
+   "jma_gsm": 23.3,
+   "ens": 25.38
+  }
  }
 ]
