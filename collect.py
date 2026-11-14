@@ -692,6 +692,21 @@ def evaluate(m, fc, calib, obs, now):
     return None, "Цена рынка уже учла прогноз: выгоды нет (лучшее преимущество %+d п.п.)" % round(((best_c[0] if best_c else 0)) * 100)
 
 
+PAUSED = {}
+
+
+def apply_tuning():
+    """Читает data/tuning.json (его пишет tune.py по реальным результатам) и осторожно меняет правила отбора."""
+    global MIN_CORR_P, MAX_PER_DAY, PAUSED
+    tn = load("tuning.json", {}) or {}
+    pr = tn.get("params") or {}
+    if tn.get("status") == "active":
+        MIN_CORR_P = clamp(float(pr.get("min_corr_p", MIN_CORR_P)), 0.45, 0.60)
+        MAX_PER_DAY = int(clamp(int(pr.get("max_per_day", MAX_PER_DAY)), 3, 5))
+    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    PAUSED = {c: u for c, u in (tn.get("paused") or {}).items() if u >= today}
+
+
 def build_signals(markets, fc, calib, obs, now, sigs):
     """Единые правила. Новый сигнал фиксируется один раз: цена и вероятность остаются теми, что были в момент выдачи."""
     have = {s["key"] for s in sigs}
@@ -702,6 +717,9 @@ def build_signals(markets, fc, calib, obs, now, sigs):
     for m in markets:
         key = "%s|%s" % (m["c"], m["date"])
         if key in have:
+            continue
+        if m["c"] in PAUSED:
+            skips.append({"c": m["c"], "date": m["date"], "r": "Город временно на паузе: слабые результаты последних сигналов (до %s)." % PAUSED[m["c"]]})
             continue
         sig, why = evaluate(m, fc, calib, obs, now)
         if sig:
@@ -781,6 +799,7 @@ def resolve(forecasts, stats, results, watch, calib, today):
 def main():
     now = dt.datetime.now(dt.timezone.utc)
     today = now.date()
+    apply_tuning()
     forecasts = load("forecasts.json", {})
     stats = load("stats.json", [])
     results = load("results.json", {})

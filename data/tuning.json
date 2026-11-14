@@ -1,0 +1,13 @@
+{
+ "version": 0,
+ "updated": "2026-11-14",
+ "status": "learning",
+ "closed": 14,
+ "need": 30,
+ "params": {
+  "min_corr_p": 0.5,
+  "max_per_day": 4
+ },
+ "paused": {},
+ "log": []
+}

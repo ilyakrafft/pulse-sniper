@@ -25,6 +25,10 @@
 
 
 
+
+
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -883,6 +887,18 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   }
 
   /* ---------- раздел «Отчёт» ---------- */
+  function tuneCard() {
+    var t = state.tune; if (!t) return "";
+    var n = t.closed || 0, need = t.need || 30, pct = Math.min(100, Math.round(n / need * 100)), on = t.status === "active";
+    var nm = function (c) { var f = CITIES.filter(function (x) { return x.id === c; })[0]; return f ? f.name : c; };
+    var pr = t.params || {}, ps = Object.keys(t.paused || {});
+    var log = (t.log || []).slice(-3).reverse().map(function (x) { return '<li>' + esc(x.t) + '</li>'; }).join("");
+    return '<div class="card rise tunec" style="--i:0"><h3>' + (on ? "Система сама настраивается" : "Система копит данные для самонастройки") + '</h3>' +
+      '<p class="muted" style="margin:6px 0 10px;line-height:1.5;font-size:13.5px">' + (on ? "Раз в неделю она смотрит на реальные итоги сигналов и осторожно меняет правила: строгость отбора и паузу для слабых городов." : "Когда закроется " + need + " сигналов, система начнёт сама подстраивать правила под реальные результаты. Сейчас закрыто " + n + ".") + '</p>' +
+      '<div class="tunebar"><i style="width:' + pct + '%"></i></div><div class="muted" style="font-size:12px;margin-top:6px">' + n + ' из ' + need + ' сигналов' + (on ? ' · порог шанса ' + Math.round((pr.min_corr_p || 0.5) * 100) + '%, до ' + (pr.max_per_day || 4) + ' сигналов в день' : '') + '</div>' +
+      (ps.length ? '<div class="muted" style="font-size:12px;margin-top:6px">На паузе: ' + ps.map(nm).join(", ") + '</div>' : '') +
+      (log ? '<ul class="tunelog">' + log + '</ul>' : '') + '</div>';
+  }
   function renderReportSignals() {
     var el = $("v-report"), cut = state.period;
     var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
@@ -914,7 +930,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var how = '<div class="card how rise" style="--i:2"><h3>Как читать отчёт</h3><div class="how-row"><div class="how-c"><i>20</i><i class="mid">21</i><i>22</i></div><p>Каждая строка это один сигнал из бота и приложения. Если вы поставили «Да» на его варианты, итог рынка решает всё: внутри вариантов значит «Сыграл», иначе «Не сыграл».</p></div></div>';
     var hero = bn ? '<div class="card rep-hero rise" style="--i:0">' + gauge(acc, 150) + '<div class="rh-t"><span class="kick">Сигналы сыграли</span><strong data-count="' + bh + '">' + bh + '</strong><em> из ' + bn + '</em><div class="chips2"><span class="rtag win">✓ Сыграли ' + bh + '</span><span class="rtag lose">✕ Не сыграли ' + bm + '</span></div></div></div>' :
       '<div class="card rep-hero rise" style="--i:0"><div class="rh-t"><span class="kick">Сигналы</span><strong>0</strong><em> закрыто</em><div class="betsempty" style="margin-top:8px">Первые итоги появятся, когда закроются рынки, по которым уже выданы сигналы.</div></div></div>';
-    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов, которые вы видели в боте и приложении. Один счёт, без пересчётов.</p></div>' + demo +
+    el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов, которые вы видели в боте и приложении. Один счёт, без пересчётов.</p></div>' + tuneCard() + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' + hero +
       '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + bn + '">' + bn + '</strong></div><div class="tile rise" style="--i:2"><small>Коридоров</small><strong data-count="' + corrN + '">' + corrN + '</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + how +
       (dots ? '<div class="card rise" style="--i:3"><h3>Последние сигналы</h3><p class="sub">Каждая точка это один закрытый сигнал: зелёная сыграл, красная нет.</p><div class="dots">' + dots + '</div></div>' : "") +
@@ -1566,6 +1582,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     }).catch(function () {});
   } catch (e) {}
   try {
+    fetch("data/tuning.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.tune = j || null; if (window.__tunePill) window.__tunePill(); renderAll(); }).catch(function () {});
     fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.sigFile = Array.isArray(j) ? j : []; renderAll();
     }).catch(function () {});
@@ -2116,6 +2133,34 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     de.setAttribute("data-theme", t); try { localStorage.setItem("izo.theme", t); } catch (er) {}
     paint(t); if (window.__snd) window.__snd.sfx(t === "light" ? "on" : "off");
   });
+})();
+</script>
+<style>
+.tunebar{height:8px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+.tunebar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--g1),var(--g2));box-shadow:0 0 10px var(--g1);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.tunelog{margin:10px 0 0;padding-left:18px;font-size:12.5px;line-height:1.5;color:var(--muted,inherit)}
+@keyframes updPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,140,60,.55)}50%{box-shadow:0 0 0 7px rgba(255,140,60,0)}}
+#updPill{cursor:pointer;font:inherit;color:inherit;display:none;align-items:center;gap:6px;border-color:var(--g1)}
+#updPill.on{display:inline-flex;animation:updPulse 1.8s ease-in-out infinite}
+</style>
+<script>
+(function () {
+  var pills = document.querySelector(".pills"); if (!pills) return;
+  var b = document.createElement("button"); b.type = "button"; b.id = "updPill"; b.className = "pill"; b.textContent = "\u2728 Система обновлена";
+  var th = document.getElementById("thm"); if (th && th.parentNode === pills) pills.insertBefore(b, th.nextSibling); else pills.appendChild(b);
+  function seen() { try { return parseInt(localStorage.getItem("izo.tv") || "0", 10) || 0; } catch (e) { return 0; } }
+  window.__tunePill = function () {
+    try { var st = window.__state; } catch (e) {}
+  };
+  fetch("data/tuning.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j || !j.version || j.version <= seen()) return;
+    b.classList.add("on");
+    b.addEventListener("click", function () {
+      try { localStorage.setItem("izo.tv", String(j.version)); } catch (e) {}
+      b.classList.remove("on");
+      var d = document.querySelector('.dock [data-v="report"]'); if (d) d.click();
+    });
+  }).catch(function () {});
 })();
 </script>
 
