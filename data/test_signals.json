@@ -987,7 +987,7 @@
   "sd": 0.94,
   "n": 19,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "78–79°F",
   "labels": [
@@ -1003,7 +1003,9 @@
   "edge": -0.208,
   "level": "light",
   "key": "miami|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "78–79°F",
+  "hit": true
  },
  {
   "city": "miami",

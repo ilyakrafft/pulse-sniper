@@ -4906,6 +4906,34 @@
     "gem_regional": 21.2,
     "ens": 21.5
    }
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 25.22,
+   "sd": 0.5,
+   "a": 25.83,
+   "m": {
+    "ecmwf_ifs025": 25.0,
+    "ecmwf_aifs025_single": 25.3,
+    "icon_seamless": 24.4,
+    "gfs_seamless": 25.6,
+    "ukmo_seamless": 24.7,
+    "meteofrance_seamless": 25.4,
+    "gem_seamless": 25.7,
+    "jma_seamless": 25.3,
+    "cma_grapes_global": 23.7,
+    "ecmwf_ifs": 25.0,
+    "icon_global": 24.4,
+    "gfs_global": 25.4,
+    "gem_global": 26.4,
+    "ukmo_global_deterministic_10km": 24.7,
+    "meteofrance_arpege_world": 25.4,
+    "jma_gsm": 25.3,
+    "gfs_hrrr": 25.6,
+    "ncep_nbm_conus": 25.9,
+    "gem_regional": 25.7,
+    "ens": 25.0
+   }
   }
  ],
  "houston": [
