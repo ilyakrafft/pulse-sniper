@@ -3747,6 +3747,33 @@
     "meteofrance_arpege_europe": 13.6,
     "ens": 14.4
    }
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 13.47,
+   "sd": 0.43,
+   "a": 14.0,
+   "m": {
+    "ecmwf_ifs025": 14.3,
+    "ecmwf_aifs025_single": 13.4,
+    "icon_seamless": 13.5,
+    "gfs_seamless": 13.5,
+    "ukmo_seamless": 13.6,
+    "meteofrance_seamless": 13.4,
+    "gem_seamless": 12.9,
+    "jma_seamless": 13.6,
+    "cma_grapes_global": 12.9,
+    "ecmwf_ifs": 14.4,
+    "icon_global": 13.4,
+    "gfs_global": 13.5,
+    "gem_global": 12.9,
+    "ukmo_global_deterministic_10km": 13.6,
+    "meteofrance_arpege_world": 12.8,
+    "jma_gsm": 13.6,
+    "icon_eu": 13.5,
+    "meteofrance_arpege_europe": 12.8,
+    "ens": 13.4
+   }
   }
  ],
  "milan": [
