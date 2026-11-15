@@ -87,7 +87,7 @@
   "sd": 1.23,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "27°C",
   "labels": [
@@ -103,7 +103,9 @@
   "edge": -0.252,
   "level": "light",
   "key": "shenzhen|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -699,7 +701,7 @@
   "sd": 0.97,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "27°C",
   "labels": [
@@ -715,7 +717,9 @@
   "edge": -0.23,
   "level": "light",
   "key": "hongkong|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "25°C",
+  "hit": false
  },
  {
   "city": "milan",
@@ -2649,6 +2653,84 @@
   "edge": -0.212,
   "level": "light",
   "key": "atlanta|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-17",
+  "mu": 1.29,
+  "sigma": 1.76,
+  "sd": 0.92,
+  "n": 17,
+  "first": "2026-11-15T09:21+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "2°C",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ],
+  "lo": 0.5,
+  "hi": 3.5,
+  "price": 1.13,
+  "pm": 0.721,
+  "pm_model": 0.568,
+  "edge": -0.409,
+  "level": "light",
+  "key": "moscow|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "busan",
+  "date": "2026-11-17",
+  "mu": 17.81,
+  "sigma": 1.81,
+  "sd": 1.01,
+  "n": 17,
+  "first": "2026-11-15T09:21+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "price": 1.13,
+  "pm": 0.713,
+  "pm_model": 0.591,
+  "edge": -0.417,
+  "level": "light",
+  "key": "busan|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-17",
+  "mu": 12.14,
+  "sigma": 1.74,
+  "sd": 0.89,
+  "n": 19,
+  "first": "2026-11-15T09:21+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "price": 0.853,
+  "pm": 0.683,
+  "pm_model": 0.651,
+  "edge": -0.17,
+  "level": "light",
+  "key": "chicago|2026-11-17",
   "tier": "test"
  }
 ]
