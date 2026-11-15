@@ -225,7 +225,7 @@
   "sd": 0.76,
   "n": 24,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "13°C",
   "labels": [
@@ -241,7 +241,9 @@
   "edge": -0.275,
   "level": "light",
   "key": "paris|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -765,7 +767,7 @@
   "sd": 0.93,
   "n": 22,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -781,7 +783,9 @@
   "edge": -0.22,
   "level": "light",
   "key": "milan|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": false
  },
  {
   "city": "milan",
@@ -1923,7 +1927,7 @@
   "sd": 0.89,
   "n": 18,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "54–55°F",
   "labels": [
@@ -1939,7 +1943,9 @@
   "edge": -0.215,
   "level": "light",
   "key": "seattle|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "jeddah",
@@ -2849,6 +2855,32 @@
   "edge": -0.12,
   "level": "light",
   "key": "la|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "amsterdam",
+  "date": "2026-11-17",
+  "mu": 12.04,
+  "sigma": 2.49,
+  "sd": 1.99,
+  "n": 21,
+  "first": "2026-11-15T14:22+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "12°C",
+  "labels": [
+   "11°C",
+   "12°C",
+   "13°C"
+  ],
+  "lo": 10.5,
+  "hi": 13.5,
+  "price": 0.84,
+  "pm": 0.598,
+  "pm_model": 0.452,
+  "edge": -0.242,
+  "level": "light",
+  "key": "amsterdam|2026-11-17",
   "tier": "test"
  }
 ]
