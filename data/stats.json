@@ -2980,5 +2980,32 @@
    "jma_msm": 15.5,
    "ens": 15.46
   }
+ },
+ {
+  "date": "2026-11-15",
+  "city": "chongqing",
+  "k": 16,
+  "p": 0.715,
+  "actual": 17,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 17.0,
+   "ecmwf_aifs025_single": 16.5,
+   "icon_seamless": 16.2,
+   "gfs_seamless": 16.5,
+   "ukmo_seamless": 16.3,
+   "meteofrance_seamless": 16.6,
+   "gem_seamless": 17.2,
+   "jma_seamless": 15.5,
+   "cma_grapes_global": 15.0,
+   "ecmwf_ifs": 16.6,
+   "icon_global": 16.2,
+   "gfs_global": 16.5,
+   "gem_global": 17.2,
+   "ukmo_global_deterministic_10km": 16.3,
+   "meteofrance_arpege_world": 16.6,
+   "jma_gsm": 15.5,
+   "ens": 16.13
+  }
  }
 ]

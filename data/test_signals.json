@@ -565,7 +565,7 @@
   "sd": 0.93,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "17°C",
   "labels": [
@@ -581,7 +581,9 @@
   "edge": -0.171,
   "level": "light",
   "key": "chongqing|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "17°C",
+  "hit": true
  },
  {
   "city": "chongqing",
