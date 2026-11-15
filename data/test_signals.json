@@ -883,7 +883,7 @@
   "sd": 0.55,
   "n": 20,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "64–65°F",
   "labels": [
@@ -899,7 +899,9 @@
   "edge": -0.127,
   "level": "light",
   "key": "sf|2026-11-14",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "sf",
