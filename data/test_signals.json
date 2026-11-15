@@ -171,7 +171,7 @@
   "sd": 1.28,
   "n": 23,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "12°C",
   "labels": [
@@ -187,7 +187,9 @@
   "edge": -0.241,
   "level": "light",
   "key": "london|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -2033,7 +2035,7 @@
   "sd": 1.83,
   "n": 16,
   "first": "2026-11-14T14:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -2049,7 +2051,9 @@
   "edge": -0.163,
   "level": "light",
   "key": "munich|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "seattle",
