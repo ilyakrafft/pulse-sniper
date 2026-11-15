@@ -143,7 +143,7 @@
   "sd": 1.59,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "35°C",
   "labels": [
@@ -159,7 +159,9 @@
   "edge": -0.287,
   "level": "light",
   "key": "jeddah|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "35°C",
+  "hit": true
  },
  {
   "city": "london",
@@ -385,7 +387,7 @@
   "sd": 0.48,
   "n": 22,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -401,7 +403,9 @@
   "edge": -0.178,
   "level": "light",
   "key": "helsinki|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "helsinki",
@@ -841,7 +845,7 @@
   "sd": 0.74,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "3°C",
   "labels": [
@@ -857,7 +861,9 @@
   "edge": -0.159,
   "level": "light",
   "key": "moscow|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "4°C",
+  "hit": true
  },
  {
   "city": "moscow",
@@ -2763,6 +2769,32 @@
   "edge": -0.201,
   "level": "light",
   "key": "houston|2026-11-15",
+  "tier": "test"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-17",
+  "mu": 26.46,
+  "sigma": 1.81,
+  "sd": 1.01,
+  "n": 17,
+  "first": "2026-11-15T11:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "27°C",
+  "labels": [
+   "26°C",
+   "27°C",
+   "28°C"
+  ],
+  "lo": 25.5,
+  "hi": 28.5,
+  "price": 1.06,
+  "pm": 0.688,
+  "pm_model": 0.573,
+  "edge": -0.372,
+  "level": "light",
+  "key": "hongkong|2026-11-17",
   "tier": "test"
  }
 ]

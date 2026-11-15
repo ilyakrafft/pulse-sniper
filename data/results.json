@@ -498,5 +498,17 @@
  "telaviv|2026-11-15": {
   "win": "27°C",
   "actual": 27
+ },
+ "helsinki|2026-11-15": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "jeddah|2026-11-15": {
+  "win": "35°C",
+  "actual": 35
+ },
+ "moscow|2026-11-15": {
+  "win": "4°C",
+  "actual": 4
  }
 }
