@@ -722,6 +722,35 @@ def test_pass(markets, fc, calib, obs, now, sigs, tests):
     return tests, n
 
 
+LOCK_HOUR = 16.5       # после этого местного времени максимум дня обычно уже достигнут
+LOCK_MAX_PRICE = 0.985
+
+
+def lock_pass(markets, fc, now, locks):
+    """Тест «фиксация пика»: поздно днём станция уже показала максимум, а рынок ещё не оценил его на 100%.
+    Не использует прогноз вообще: только факт со станции и цену рынка. В бот не уходит, нужен для проверки идеи."""
+    have = {x["key"] for x in locks}
+    n = 0
+    for m in markets:
+        x = OBS_X.get(m["c"])
+        key = "%s|%s" % (m["c"], m["date"])
+        if not x or key in have or local_now(now, fc, m["c"]).date().isoformat() != m["date"]:
+            continue
+        hr, mx, last = x.get("hour") or 0, x["max"], x.get("last")
+        if hr < LOCK_HOUR or last is None or not (last <= mx - 1 or hr >= 18):
+            continue  # пик ещё мог не пройти
+        for b in m["b"]:
+            if b["lo"] <= mx < b["hi"] or b["lo"] <= mx <= b["hi"] and b is m["b"][-1]:
+                price = buy_price(b)
+                if price < LOCK_MAX_PRICE:
+                    locks.append({"key": key, "city": m["c"], "date": m["date"], "first": now.isoformat(timespec="minutes"), "status": "open",
+                                  "kind": "single", "label": b["l"], "labels": [b["l"]], "price": round(price, 3), "pm": 0.93,
+                                  "station_max": mx, "station_hour": round(hr, 1), "tier": "lock"})
+                    n += 1
+                break
+    return locks, n
+
+
 PAUSED = {}
 
 
@@ -877,11 +906,18 @@ def main():
         print("итоги не посчитались:", e)
     OBS_LAST = {}
     tests = load("test_signals.json", [])
+    locks = load("lock_signals.json", [])
     try:
         skips = []
         if markets and fc.get("cities"):
             OBS_LAST = fetch_obs(markets, fc, now)
             sigs, skips = build_signals(markets, fc, calib, OBS_LAST, now, sigs)
+            try:
+                locks, ln = lock_pass(markets, fc, now, locks)
+                if ln:
+                    print("«фиксаций пика» добавлено:", ln)
+            except Exception as e:  # noqa: BLE001
+                print("фиксация пика не отработала:", type(e).__name__, e)
             try:
                 tests, tn = test_pass(markets, fc, calib, OBS_LAST, now, sigs, tests)
                 if tn:
@@ -896,6 +932,7 @@ def main():
             sigs = live_update(sigs, markets, fc, calib, OBS_LAST, now)
         sigs = settle_signals(sigs, results)
         tests = settle_signals(tests, results)
+        locks = [x for x in settle_signals(locks, results) if x["date"] >= (today - dt.timedelta(days=45)).isoformat()]
         tests = [t for t in tests if t["date"] >= (today - dt.timedelta(days=45)).isoformat()]
         cut = (today - dt.timedelta(days=30)).isoformat()
         sigs = [s for s in sigs if s["date"] >= cut]
@@ -905,6 +942,7 @@ def main():
         print("сигналы не посчитались:", type(e).__name__, e)
     save("signals.json", sigs)
     save("test_signals.json", tests)
+    save("lock_signals.json", locks)
     save("forecasts.json", forecasts)
     save("stats.json", stats)
     save("results.json", results)

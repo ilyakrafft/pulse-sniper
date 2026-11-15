@@ -94,6 +94,11 @@ def text(o):
     lv = [x for x in o["levels"] if x["n"]]
     if lv:
         s += "\n<b>По уровням:</b> " + ", ".join("%s %d%% (%d)" % (names.get(x["level"], x["level"]), x["pct"], x["n"]) for x in lv) + "\n"
+    lk = [x for x in collect.load("lock_signals.json", []) if x.get("status") == "done"]
+    if len(lk) >= 5:
+        k = sum(1 for x in lk if x.get("hit"))
+        c = sum(x.get("price") or 0 for x in lk)
+        s += "\n<b>Фиксация пика</b> (тест): %d закрыто, сыграло %d%%, прибыль на вложенное %+d%%\n" % (len(lk), round(100 * k / len(lk)), round(100 * (k - c) / c) if c else 0)
     ts = o.get("test")
     if ts and ts["all"]["n"] >= 8:
         s += "\n<b>Широкий тест</b> (не для ставок): %d закрыто, сыграло %d%%, мы ждали %d%%\n" % (ts["all"]["n"], ts["all"]["pct"], ts["all"]["exp"])

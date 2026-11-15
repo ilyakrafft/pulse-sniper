@@ -41,6 +41,8 @@
 
 
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -1053,6 +1055,14 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     runCounts(el);
   }
 
+  function lockCard() {
+    var all = state.lock || [], done = all.filter(function (t) { return t.status === "done"; }), h = done.filter(function (t) { return t.hit; }).length;
+    var c = done.reduce(function (a, t) { return a + (t.price || 0); }, 0), roi = c ? Math.round((h - c) / c * 100) : 0;
+    return '<div class="card rise" style="--i:2"><h3>Фиксация пика</h3><p class="muted" style="margin:4px 0 8px;font-size:13px;line-height:1.5">Идея: вечером станция уже показала максимум дня, а рынок ещё не оценил этот вариант на 100%. Прогноз тут не нужен, только факт со станции. Проверяем, правда ли так бывает.</p>' +
+      '<div class="wrow"><span>Закрыто</span><b>' + done.length + '</b></div><div class="wrow"><span>Сыграло</span><b>' + (done.length ? h + " из " + done.length + " (" + Math.round(h / done.length * 100) + "%)" : "нет данных") + '</b></div>' +
+      '<div class="wrow"><span>Прибыль на вложенное</span><b>' + (done.length ? (roi > 0 ? "+" : "") + roi + "%" : "—") + '</b></div>' +
+      '<div class="wrow"><span>Идёт сейчас</span><b>' + (all.length - done.length) + '</b></div></div>';
+  }
   function renderReportWide() {
     var el = $("v-report"), all = state.wide || [], done = all.filter(function (t) { return t.status === "done"; });
     var n = done.length, h = done.filter(function (t) { return t.hit; }).length, sp = 0, sc = 0, sw = 0;
@@ -1069,6 +1079,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong>' + n + '</strong></div><div class="tile rise" style="--i:1"><small>Сыграло</small><strong>' + (n ? Math.round(h / n * 100) + "%" : "0%") + '</strong></div><div class="tile rise" style="--i:1"><small>Мы ждали</small><strong>' + (n ? Math.round(sp / n * 100) + "%" : "0%") + '</strong></div></div>' +
       '<div class="card rise" style="--i:2"><h3>Где мы права</h3><p class="muted" style="margin:4px 0 8px;font-size:13px">Сравниваем наш шанс с тем, что случилось, по цене коридора.</p>' +
       bucket("Дешёвые (до 80¢)", function (t) { return (t.price || 0) < 0.8; }) + bucket("Средние (80–100¢)", function (t) { return (t.price || 0) >= 0.8 && (t.price || 0) <= 1; }) + bucket("Дорогие (выше 100¢)", function (t) { return (t.price || 0) > 1; }) + '</div>' +
+      lockCard() +
       '<div class="card rise" style="--i:3"><h3>Последние тестовые коридоры</h3>' + (rows || '<p class="muted">Пока нет данных. Они появятся после ближайшего сбора.</p>') + '</div>';
   }
   function renderReport() {
@@ -1625,6 +1636,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   } catch (e) {}
   try {
     fetch("data/test_signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.wide = Array.isArray(j) ? j : []; if (state.view === "report") renderReport(); }).catch(function () {});
+    fetch("data/lock_signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.lock = Array.isArray(j) ? j : []; if (state.view === "report") renderReport(); }).catch(function () {});
     fetch("data/tuning.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.tune = j || null; if (window.__tunePill) window.__tunePill(); renderAll(); }).catch(function () {});
     fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.sigFile = Array.isArray(j) ? j : []; renderAll();
