@@ -263,6 +263,35 @@
     "gem_regional": 7.4,
     "ens": 7.7
    }
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 9.28,
+   "sd": 0.94,
+   "a": 10.28,
+   "m": {
+    "ecmwf_ifs025": 9.3,
+    "ecmwf_aifs025_single": 10.1,
+    "icon_seamless": 9.8,
+    "gfs_seamless": 7.5,
+    "ukmo_seamless": 9.5,
+    "meteofrance_seamless": 8.2,
+    "gem_seamless": 9.9,
+    "jma_seamless": 9.2,
+    "cma_grapes_global": 8.7,
+    "ecmwf_ifs": 9.3,
+    "icon_global": 9.8,
+    "gfs_global": 10.2,
+    "gem_global": 9.3,
+    "ukmo_global_deterministic_10km": 9.5,
+    "meteofrance_arpege_world": 8.2,
+    "jma_gsm": 9.2,
+    "gfs_hrrr": 7.5,
+    "ncep_nbm_conus": 10.7,
+    "gem_hrdps_continental": 9.9,
+    "gem_regional": 10.2,
+    "ens": 9.5
+   }
   }
  ],
  "dallas": [
@@ -5228,6 +5257,34 @@
     "ncep_nbm_conus": 18.6,
     "gem_regional": 20.5,
     "ens": 18.7
+   }
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 18.11,
+   "sd": 1.87,
+   "a": 18.06,
+   "m": {
+    "ecmwf_ifs025": 18.2,
+    "ecmwf_aifs025_single": 15.9,
+    "icon_seamless": 21.4,
+    "gfs_seamless": 17.2,
+    "ukmo_seamless": 16.1,
+    "meteofrance_seamless": 15.5,
+    "gem_seamless": 20.0,
+    "jma_seamless": 20.9,
+    "cma_grapes_global": 15.4,
+    "ecmwf_ifs": 18.7,
+    "icon_global": 21.4,
+    "gfs_global": 18.9,
+    "gem_global": 18.5,
+    "ukmo_global_deterministic_10km": 16.1,
+    "meteofrance_arpege_world": 15.5,
+    "jma_gsm": 20.9,
+    "gfs_hrrr": 17.2,
+    "ncep_nbm_conus": 19.1,
+    "gem_regional": 20.0,
+    "ens": 18.6
    }
   }
  ],

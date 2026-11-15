@@ -661,7 +661,7 @@
   "sd": 0.79,
   "n": 19,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -677,7 +677,9 @@
   "edge": -0.236,
   "level": "light",
   "key": "nyc|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "50–51°F",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -2769,7 +2771,7 @@
   "sd": 1.75,
   "n": 20,
   "first": "2026-11-15T10:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "62–63°F",
   "labels": [
@@ -2785,7 +2787,9 @@
   "edge": -0.201,
   "level": "light",
   "key": "houston|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "64–65°F",
+  "hit": true
  },
  {
   "city": "hongkong",
