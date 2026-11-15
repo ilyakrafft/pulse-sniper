@@ -486,5 +486,17 @@
  "shenzhen|2026-11-15": {
   "win": "27°C",
   "actual": 27
+ },
+ "dallas|2026-11-15": {
+  "win": "52–53°F",
+  "actual": 11
+ },
+ "lucknow|2026-11-15": {
+  "win": "29°C",
+  "actual": 29
+ },
+ "telaviv|2026-11-15": {
+  "win": "27°C",
+  "actual": 27
  }
 }
