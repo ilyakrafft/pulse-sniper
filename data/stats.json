@@ -2952,5 +2952,33 @@
    "gem_regional": 16.9,
    "ens": 17.3
   }
+ },
+ {
+  "date": "2026-11-15",
+  "city": "tokyo",
+  "k": 16,
+  "p": 0.624,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 14.4,
+   "ecmwf_aifs025_single": 14.0,
+   "icon_seamless": 16.0,
+   "gfs_seamless": 17.6,
+   "ukmo_seamless": 15.4,
+   "meteofrance_seamless": 15.4,
+   "gem_seamless": 17.6,
+   "jma_seamless": 15.5,
+   "cma_grapes_global": 17.8,
+   "ecmwf_ifs": 15.3,
+   "icon_global": 16.0,
+   "gfs_global": 17.6,
+   "gem_global": 17.6,
+   "ukmo_global_deterministic_10km": 15.4,
+   "meteofrance_arpege_world": 15.4,
+   "jma_gsm": 16.9,
+   "jma_msm": 15.5,
+   "ens": 15.46
+  }
  }
 ]
