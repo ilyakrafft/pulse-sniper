@@ -898,6 +898,34 @@
     "gem_regional": 20.4,
     "ens": 20.9
    }
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 21.35,
+   "sd": 0.56,
+   "a": 22.5,
+   "m": {
+    "ecmwf_ifs025": 21.2,
+    "ecmwf_aifs025_single": 21.6,
+    "icon_seamless": 22.3,
+    "gfs_seamless": 21.3,
+    "ukmo_seamless": 21.1,
+    "meteofrance_seamless": 20.7,
+    "gem_seamless": 22.4,
+    "jma_seamless": 20.6,
+    "cma_grapes_global": 20.7,
+    "ecmwf_ifs": 20.6,
+    "icon_global": 22.3,
+    "gfs_global": 21.4,
+    "gem_global": 21.4,
+    "ukmo_global_deterministic_10km": 21.1,
+    "meteofrance_arpege_world": 20.7,
+    "jma_gsm": 20.6,
+    "gfs_hrrr": 21.3,
+    "ncep_nbm_conus": 21.1,
+    "gem_regional": 22.4,
+    "ens": 21.3
+   }
   }
  ],
  "paris": [
@@ -6523,6 +6551,34 @@
     "ecmwf_ifs": 6.4
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 8.68,
+   "sd": 0.82,
+   "a": 11.39,
+   "m": {
+    "ecmwf_ifs025": 8.4,
+    "ecmwf_aifs025_single": 7.9,
+    "icon_seamless": 9.1,
+    "gfs_seamless": 9.5,
+    "ukmo_seamless": 7.2,
+    "meteofrance_seamless": 9.3,
+    "gem_seamless": 9.4,
+    "jma_seamless": 7.2,
+    "cma_grapes_global": 6.6,
+    "ecmwf_ifs": 9.0,
+    "icon_global": 9.1,
+    "gfs_global": 9.2,
+    "gem_global": 9.1,
+    "ukmo_global_deterministic_10km": 7.2,
+    "meteofrance_arpege_world": 9.3,
+    "jma_gsm": 7.2,
+    "gfs_hrrr": 9.5,
+    "ncep_nbm_conus": 9.2,
+    "gem_regional": 9.1,
+    "ens": 8.5
+   }
   }
  ],
  "lucknow": [
@@ -6930,6 +6986,34 @@
     "ecmwf_ifs": 10.0
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-15",
+   "mu": 12.46,
+   "sd": 1.02,
+   "a": 12.5,
+   "m": {
+    "ecmwf_ifs025": 11.7,
+    "ecmwf_aifs025_single": 12.7,
+    "icon_seamless": 12.9,
+    "gfs_seamless": 13.4,
+    "ukmo_seamless": 10.1,
+    "meteofrance_seamless": 12.5,
+    "gem_seamless": 12.3,
+    "jma_seamless": 12.0,
+    "cma_grapes_global": 11.0,
+    "ecmwf_ifs": 11.8,
+    "icon_global": 12.9,
+    "gfs_global": 14.0,
+    "gem_global": 11.9,
+    "ukmo_global_deterministic_10km": 10.1,
+    "meteofrance_arpege_world": 12.5,
+    "jma_gsm": 12.0,
+    "gfs_hrrr": 13.4,
+    "ncep_nbm_conus": 14.4,
+    "gem_regional": 12.3,
+    "ens": 12.3
+   }
   }
  ],
  "seattle": [
