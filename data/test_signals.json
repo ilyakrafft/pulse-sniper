@@ -2384,5 +2384,57 @@
   "level": "light",
   "key": "lucknow|2026-11-17",
   "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-17",
+  "mu": 13.4,
+  "sigma": 2.12,
+  "sd": 1.5,
+  "n": 19,
+  "first": "2026-11-15T07:00+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "14°C",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ],
+  "lo": 12.5,
+  "hi": 15.5,
+  "price": 1.07,
+  "pm": 0.67,
+  "pm_model": 0.503,
+  "edge": -0.4,
+  "level": "light",
+  "key": "london|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "singapore",
+  "date": "2026-11-17",
+  "mu": 30.2,
+  "sigma": 2.1,
+  "sd": 1.47,
+  "n": 17,
+  "first": "2026-11-15T07:00+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "30°C",
+  "labels": [
+   "29°C",
+   "30°C",
+   "31°C"
+  ],
+  "lo": 28.5,
+  "hi": 31.5,
+  "price": 0.879,
+  "pm": 0.619,
+  "pm_model": 0.523,
+  "edge": -0.26,
+  "level": "light",
+  "key": "singapore|2026-11-17",
+  "tier": "test"
  }
 ]
