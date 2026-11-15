@@ -30,22 +30,22 @@ EU = ["london", "paris", "amsterdam", "munich", "milan", "madrid", "helsinki", "
 # key, вес, название, подпись, города (None = все). Региональные модели точнее на 1–2 дня и запрашиваются только для своих городов.
 MODELS = [
     ("ecmwf_ifs025", 1.3, "ECMWF IFS", "Европейский центр", None),
-    ("ecmwf_aifs025_single", 1.2, "ECMWF AIFS", "ИИ-модель ECMWF", None),
-    ("icon_seamless", 1.1, "ICON", "Германия, DWD", None),
+    ("ecmwf_aifs025_single", 0.7, "ECMWF AIFS", "ИИ-модель ECMWF", None),
+    ("icon_seamless", 1.4, "ICON", "Германия, DWD", None),
     ("gfs_seamless", 1.0, "GFS", "США, NOAA", None),
     ("ukmo_seamless", 1.0, "UKMO", "Великобритания, Met Office", None),
-    ("meteofrance_seamless", 0.9, "Météo-France", "ARPEGE, AROME", None),
+    ("meteofrance_seamless", 0.4, "Météo-France", "ARPEGE, AROME", None),
     ("gem_seamless", 0.8, "GEM", "Канада, ECCC", None),
-    ("jma_seamless", 0.6, "JMA", "Япония, GSM, MSM", None),
+    ("jma_seamless", 0.3, "JMA", "Япония, GSM, MSM", None),
     ("kma_seamless", 0.5, "KMA", "Корея, GDPS", None),
-    ("cma_grapes_global", 0.4, "CMA GRAPES", "Китай", None),
+    ("cma_grapes_global", 0.25, "CMA GRAPES", "Китай", None),
     ("ecmwf_ifs", 0.6, "ECMWF IFS HRES", "9 км, высокое разрешение", None),
     ("gfs_graphcast025", 0.8, "GraphCast", "ИИ-модель Google DeepMind", None),
     ("icon_global", 0.2, "ICON Global", "Германия, 11 км", None),
     ("gfs_global", 0.15, "GFS Global", "США, 13 км", None),
     ("gem_global", 0.15, "GEM Global", "Канада, 15 км", None),
     ("ukmo_global_deterministic_10km", 0.15, "UKMO Global", "Великобритания, 10 км", None),
-    ("meteofrance_arpege_world", 0.6, "ARPEGE World", "Франция, глобальная", None),
+    ("meteofrance_arpege_world", 0.3, "ARPEGE World", "Франция, глобальная", None),
     ("jma_gsm", 0.15, "JMA GSM", "Япония, глобальная", None),
     ("kma_gdps", 0.4, "KMA GDPS", "Корея, глобальная", None),
     ("bom_access_global", 0.4, "BoM ACCESS", "Австралия", None),
@@ -54,7 +54,7 @@ MODELS = [
     ("icon_d2", 1.3, "ICON-D2", "Европа, 2 км", EU),
     ("knmi_harmonie_arome_europe", 1.0, "HARMONIE-AROME", "Европа, 2,5 км", EU),
     ("icon_eu", 1.1, "ICON-EU", "Европа, 7 км", EU),
-    ("meteofrance_arpege_europe", 0.9, "ARPEGE Europe", "Европа, 11 км", EU),
+    ("meteofrance_arpege_europe", 0.4, "ARPEGE Europe", "Европа, 11 км", EU),
     ("dmi_harmonie_arome_europe", 1.0, "DMI HARMONIE", "Северная Европа, 2 км", ["helsinki", "amsterdam", "london", "paris", "munich", "warsaw"]),
     ("metno_nordic", 1.1, "MET Norway", "Скандинавия, 1 км", ["helsinki"]),
     ("knmi_harmonie_arome_netherlands", 1.2, "KNMI HARMONIE", "Нидерланды, 2 км", ["amsterdam"]),
@@ -263,7 +263,7 @@ def pooled_bias(calib):
     nd = len(days)
     if nd < 2:
         return 0.0
-    return clamp(sum(days) / nd * nd / (nd + 4.0), -1.0, 1.0)
+    return clamp(sum(days) / nd * nd / (nd + 2.0), -1.0, 1.0)
 
 
 def calib_of(calib, city):
@@ -281,7 +281,8 @@ def calib_of(calib, city):
     if nr >= 5:
         rb = sum(real) / nr
         rmse = math.sqrt(sum((e - rb) ** 2 for e in real) / nr)
-    return clamp(bias * n / (n + 6), -1.5, 1.5), rmse, nr
+    pb = pooled_bias(calib)  # общая поправка по всем городам: модели стабильно холодные, 8 дней из 8
+    return clamp(pb + (bias - pb) * n / (n + 4.0), -1.5, 1.5), rmse, nr
 
 
 def model_weights(calib, city):
