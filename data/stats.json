@@ -3339,5 +3339,36 @@
    "jma_gsm": 2.5,
    "ens": 3.41
   }
+ },
+ {
+  "date": "2026-11-15",
+  "city": "warsaw",
+  "k": 6,
+  "p": 0.694,
+  "actual": 7,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 6.0,
+   "ecmwf_aifs025_single": 7.0,
+   "icon_seamless": 5.5,
+   "gfs_seamless": 6.8,
+   "ukmo_seamless": 6.1,
+   "meteofrance_seamless": 4.4,
+   "gem_seamless": 6.5,
+   "jma_seamless": 6.0,
+   "cma_grapes_global": 5.2,
+   "ecmwf_ifs": 6.1,
+   "icon_global": 5.4,
+   "gfs_global": 6.8,
+   "gem_global": 6.2,
+   "ukmo_global_deterministic_10km": 6.1,
+   "meteofrance_arpege_world": 4.4,
+   "jma_gsm": 6.0,
+   "knmi_harmonie_arome_europe": 5.8,
+   "icon_eu": 5.5,
+   "meteofrance_arpege_europe": 4.4,
+   "dmi_harmonie_arome_europe": 6.1,
+   "ens": 6.17
+  }
  }
 ]
