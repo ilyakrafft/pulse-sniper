@@ -473,7 +473,7 @@
   "sd": 0.7,
   "n": 23,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -489,7 +489,9 @@
   "edge": -0.212,
   "level": "light",
   "key": "amsterdam|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "amsterdam",
@@ -935,7 +937,7 @@
   "sd": 0.88,
   "n": 19,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "62–63°F",
   "labels": [
@@ -951,7 +953,9 @@
   "edge": -0.153,
   "level": "light",
   "key": "sf|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "64–65°F",
+  "hit": true
  },
  {
   "city": "miami",
@@ -1669,7 +1673,7 @@
   "sd": 1.09,
   "n": 18,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -1685,7 +1689,9 @@
   "edge": -0.149,
   "level": "light",
   "key": "denver|2026-11-15",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "chicago",
