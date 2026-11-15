@@ -1,0 +1,127 @@
+{
+ "date": "2026-11-15",
+ "week": {
+  "n": 15,
+  "hit": 2,
+  "pct": 13
+ },
+ "prev": {
+  "n": 0,
+  "hit": 0,
+  "pct": 0
+ },
+ "total": {
+  "n": 15,
+  "hit": 2,
+  "pct": 13
+ },
+ "cities": [
+  {
+   "city": "telaviv",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "tokyo",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "london",
+   "n": 3,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "dallas",
+   "n": 2,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "paris",
+   "n": 2,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "shenzhen",
+   "n": 2,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "chongqing",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "singapore",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "jeddah",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
+  },
+  {
+   "city": "helsinki",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
+  }
+ ],
+ "levels": [
+  {
+   "level": "mid",
+   "n": 14,
+   "hit": 2,
+   "pct": 14
+  },
+  {
+   "level": "strong",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
+  }
+ ],
+ "tips": [
+  "Данных пока мало (15 закрытых сигналов). Пороги не меняем: нужно хотя бы 30–40."
+ ],
+ "test": {
+  "all": {
+   "n": 41,
+   "hit": 38,
+   "pct": 93,
+   "exp": 80,
+   "roi": -5
+  },
+  "cheap": {
+   "n": 1,
+   "hit": 1,
+   "pct": 100,
+   "exp": 59,
+   "roi": 33
+  },
+  "mid": {
+   "n": 20,
+   "hit": 18,
+   "pct": 90,
+   "exp": 74,
+   "roi": -4
+  },
+  "dear": {
+   "n": 20,
+   "hit": 19,
+   "pct": 95,
+   "exp": 86,
+   "roi": -8
+  }
+ }
+}
