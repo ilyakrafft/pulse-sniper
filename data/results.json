@@ -462,5 +462,9 @@
  "chongqing|2026-11-15": {
   "win": "17°C",
   "actual": 17
+ },
+ "singapore|2026-11-15": {
+  "win": "30°C",
+  "actual": 30
  }
 }
