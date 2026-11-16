@@ -55,5 +55,24 @@
   "tier": "lock",
   "win": "7°C",
   "hit": false
+ },
+ {
+  "key": "singapore|2026-11-16",
+  "city": "singapore",
+  "date": "2026-11-16",
+  "first": "2026-11-16T15:36+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "30°C",
+  "labels": [
+   "30°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 30,
+  "station_hour": 23.5,
+  "tier": "lock",
+  "win": "31°C",
+  "hit": false
  }
 ]
