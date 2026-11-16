@@ -1295,7 +1295,7 @@
   "sd": 1.01,
   "n": 18,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -1311,7 +1311,9 @@
   "edge": -0.275,
   "level": "light",
   "key": "tokyo|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "20°C",
+  "hit": true
  },
  {
   "city": "warsaw",
