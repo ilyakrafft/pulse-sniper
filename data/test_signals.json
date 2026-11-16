@@ -63,7 +63,7 @@
   "sd": 1.67,
   "n": 19,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -79,7 +79,9 @@
   "edge": -0.269,
   "level": "light",
   "key": "dallas|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": false
  },
  {
   "city": "shenzhen",
@@ -1487,7 +1489,7 @@
   "sd": 1.93,
   "n": 19,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -1503,7 +1505,9 @@
   "edge": -0.264,
   "level": "light",
   "key": "houston|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "64–65°F",
+  "hit": false
  },
  {
   "city": "busan",
@@ -1793,7 +1797,7 @@
   "sd": 1.02,
   "n": 18,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -1809,7 +1813,9 @@
   "edge": -0.333,
   "level": "light",
   "key": "chicago|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "52–53°F",
+  "hit": true
  },
  {
   "city": "lucknow",
@@ -2699,7 +2705,7 @@
   "sd": 1.63,
   "n": 19,
   "first": "2026-11-15T08:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "62–63°F",
   "labels": [
@@ -2715,7 +2721,9 @@
   "edge": -0.442,
   "level": "light",
   "key": "denver|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "atlanta",
