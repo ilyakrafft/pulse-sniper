@@ -1567,7 +1567,7 @@
   "sd": 0.52,
   "n": 16,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "15°C",
   "labels": [
@@ -1583,7 +1583,9 @@
   "edge": -0.183,
   "level": "light",
   "key": "chengdu|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "wuhan",
@@ -2003,7 +2005,7 @@
   "sd": 0.65,
   "n": 17,
   "first": "2026-11-14T13:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -2019,7 +2021,9 @@
   "edge": -0.33,
   "level": "light",
   "key": "hongkong|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "sf",
@@ -2907,6 +2911,84 @@
   "edge": -0.242,
   "level": "light",
   "key": "amsterdam|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-18",
+  "mu": 12.92,
+  "sigma": 1.69,
+  "sd": 1.15,
+  "n": 19,
+  "first": "2026-11-16T05:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "13°C",
+  "labels": [
+   "12°C",
+   "13°C",
+   "14°C"
+  ],
+  "lo": 11.5,
+  "hi": 14.5,
+  "price": 1.05,
+  "pm": 0.705,
+  "pm_model": 0.625,
+  "edge": -0.345,
+  "level": "light",
+  "key": "london|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "chongqing",
+  "date": "2026-11-18",
+  "mu": 13.4,
+  "sigma": 2.0,
+  "sd": 1.33,
+  "n": 17,
+  "first": "2026-11-16T05:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "13°C",
+  "labels": [
+   "12°C",
+   "13°C",
+   "14°C"
+  ],
+  "lo": 11.5,
+  "hi": 14.5,
+  "price": 0.92,
+  "pm": 0.616,
+  "pm_model": 0.537,
+  "edge": -0.304,
+  "level": "light",
+  "key": "chongqing|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-18",
+  "mu": 14.62,
+  "sigma": 2.49,
+  "sd": 1.99,
+  "n": 20,
+  "first": "2026-11-16T05:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "15°C",
+  "labels": [
+   "14°C",
+   "15°C",
+   "16°C"
+  ],
+  "lo": 13.5,
+  "hi": 16.5,
+  "price": 1.07,
+  "pm": 0.571,
+  "pm_model": 0.448,
+  "edge": -0.499,
+  "level": "light",
+  "key": "milan|2026-11-18",
   "tier": "test"
  }
 ]
