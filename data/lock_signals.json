@@ -188,5 +188,24 @@
   "tier": "lock",
   "win": "10°C",
   "hit": false
+ },
+ {
+  "key": "munich|2026-11-16",
+  "city": "munich",
+  "date": "2026-11-16",
+  "first": "2026-11-16T22:49+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "10°C",
+  "labels": [
+   "10°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 10,
+  "station_hour": 23.3,
+  "tier": "lock",
+  "win": "12°C",
+  "hit": false
  }
 ]
