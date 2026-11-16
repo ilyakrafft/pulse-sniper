@@ -561,7 +561,7 @@
   "sd": 0.99,
   "n": 19,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -577,7 +577,9 @@
   "edge": -0.311,
   "level": "light",
   "key": "munich|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -1829,7 +1831,7 @@
   "sd": 0.84,
   "n": 16,
   "first": "2026-11-14T10:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "29°C",
   "labels": [
@@ -1845,7 +1847,9 @@
   "edge": -0.266,
   "level": "light",
   "key": "lucknow|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "29°C",
+  "hit": true
  },
  {
   "city": "atlanta",
@@ -1993,7 +1997,7 @@
   "sd": 1.16,
   "n": 17,
   "first": "2026-11-14T11:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "35°C",
   "labels": [
@@ -2009,7 +2013,9 @@
   "edge": -0.337,
   "level": "light",
   "key": "jeddah|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "34°C",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -3549,6 +3555,84 @@
   "edge": -0.358,
   "level": "light",
   "key": "atlanta|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-18",
+  "mu": 34.33,
+  "sigma": 1.93,
+  "sd": 1.41,
+  "n": 17,
+  "first": "2026-11-16T10:41+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 1.15,
+  "pm": 0.714,
+  "pm_model": 0.556,
+  "edge": -0.436,
+  "level": "light",
+  "key": "jeddah|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-18",
+  "mu": 10.63,
+  "sigma": 1.89,
+  "sd": 1.14,
+  "n": 19,
+  "first": "2026-11-16T10:41+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "11°C",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ],
+  "lo": 9.5,
+  "hi": 12.5,
+  "price": 0.99,
+  "pm": 0.689,
+  "pm_model": 0.565,
+  "edge": -0.301,
+  "level": "light",
+  "key": "warsaw|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-17",
+  "mu": 10.46,
+  "sigma": 1.51,
+  "sd": 0.85,
+  "n": 19,
+  "first": "2026-11-16T10:41+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 1.05,
+  "pm": 0.814,
+  "pm_model": 0.726,
+  "edge": -0.236,
+  "level": "light",
+  "key": "seattle|2026-11-17",
   "tier": "test"
  }
 ]
