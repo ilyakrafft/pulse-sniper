@@ -112,5 +112,24 @@
   "tier": "lock",
   "win": "6°C",
   "hit": false
+ },
+ {
+  "key": "jeddah|2026-11-16",
+  "city": "jeddah",
+  "date": "2026-11-16",
+  "first": "2026-11-16T19:57+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "32°C",
+  "labels": [
+   "32°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 32,
+  "station_hour": 23.0,
+  "tier": "lock",
+  "win": "34°C",
+  "hit": false
  }
 ]
