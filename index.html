@@ -865,7 +865,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<p class="be">Выгодно, если шанс попасть выше <b>' + pc(cost) + '%</b>. Наша оценка: <b>' + pc(s.best.pm) + '%</b>.</p></div>' +
       liveBox(s) + distChart(s) + note +
       '<details class="how2"><summary>Как поставить на Pulse Market</summary><ol><li>Нажмите «Открыть рынок» внизу карточки.</li><li>Найдите три строки из таблицы.</li><li>В каждой выберите «Да» (Yes) и введите сумму из колонки «Ставка».</li></ol></details>' +
-      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+      '<div class="sig-foot"><span class="edge"' + (s.best.e < 0 ? ' style="color:var(--warn,#e8a33d)"' : '') + '>' + (s.best.e < 0 ? 'запаса нет ' + pc(s.best.e) : '+' + pc(s.best.e)) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
   }
   function liveBox(s) {
     var L = s.live; if (!L) return "";
@@ -901,7 +901,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     return '<article class="card sig tilt rise" style="--i:' + i + '">' + top + (free ? '<div>' + free + '</div>' : "") + chipsRow(s) +
       '<div class="pickrow"><div class="pick">Наш вариант <strong>' + s.best.b.l + '</strong></div>' + gauge(s.best.pm, i * 80 + 200) + '</div>' + todoBox(s.best.b, fmtDate(mdate(s.m))) + sigNote(s) + distChart(s) +
       '<div class="vs"><div class="vrow"><span>Наша оценка</span><div class="vbar"><em style="--w:' + pc(s.best.pm) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.pm) + '%</b></div><div class="vrow mkt"><span>Рынок</span><div class="vbar"><em style="--w:' + pc(s.best.b.p) + '%;--i:' + i + '"></em></div><b>' + pc(s.best.b.p) + '%</b></div></div>' +
-      '<div class="sig-foot"><span class="edge">+' + pc(s.best.e) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
+      '<div class="sig-foot"><span class="edge"' + (s.best.e < 0 ? ' style="color:var(--warn,#e8a33d)"' : '') + '>' + (s.best.e < 0 ? 'запаса нет ' + pc(s.best.e) : '+' + pc(s.best.e)) + ' п.п.</span><span>разброс моделей ' + t1(s.sd != null ? s.sd : s.f.range) + '°</span><a href="' + SITE + slugOf(s.m) + '" target="_blank" rel="noopener">Открыть рынок ↗</a></div></article>';
   }
   function renderSignals() {
     var el = $("v-signals"), sigs = state.sigs;
