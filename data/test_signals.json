@@ -339,7 +339,7 @@
   "sd": 1.07,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -355,7 +355,9 @@
   "edge": -0.288,
   "level": "light",
   "key": "telaviv|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "24°C",
+  "hit": true
  },
  {
   "city": "helsinki",
@@ -893,7 +895,7 @@
   "sd": 0.93,
   "n": 17,
   "first": "2026-11-14T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "4°C",
   "labels": [
@@ -909,7 +911,9 @@
   "edge": -0.315,
   "level": "light",
   "key": "moscow|2026-11-16",
-  "tier": "test"
+  "tier": "test",
+  "win": "5°C",
+  "hit": true
  },
  {
   "city": "sf",
@@ -3633,6 +3637,32 @@
   "edge": -0.236,
   "level": "light",
   "key": "seattle|2026-11-17",
+  "tier": "test"
+ },
+ {
+  "city": "houston",
+  "date": "2026-11-18",
+  "mu": 21.99,
+  "sigma": 2.15,
+  "sd": 1.58,
+  "n": 19,
+  "first": "2026-11-16T12:08+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "72–73°F",
+  "labels": [
+   "70–71°F",
+   "72–73°F",
+   "74–75°F"
+  ],
+  "lo": 20.833,
+  "hi": 24.167,
+  "price": 1.04,
+  "pm": 0.662,
+  "pm_model": 0.548,
+  "edge": -0.378,
+  "level": "light",
+  "key": "houston|2026-11-18",
   "tier": "test"
  }
 ]
