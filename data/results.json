@@ -586,5 +586,33 @@
  "hongkong|2026-11-16": {
   "win": "27°C",
   "actual": 27
+ },
+ "amsterdam|2026-11-16": {
+  "win": "10°C",
+  "actual": 10
+ },
+ "busan|2026-11-16": {
+  "win": "18°C",
+  "actual": 18
+ },
+ "chongqing|2026-11-16": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "helsinki|2026-11-16": {
+  "win": "6°C",
+  "actual": 6
+ },
+ "shenzhen|2026-11-16": {
+  "win": "27°C",
+  "actual": 27
+ },
+ "singapore|2026-11-16": {
+  "win": "31°C",
+  "actual": 31
+ },
+ "wuhan|2026-11-16": {
+  "win": "17°C",
+  "actual": 17
  }
 }
