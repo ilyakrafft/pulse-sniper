@@ -131,5 +131,24 @@
   "tier": "lock",
   "win": "34°C",
   "hit": false
+ },
+ {
+  "key": "moscow|2026-11-16",
+  "city": "moscow",
+  "date": "2026-11-16",
+  "first": "2026-11-16T20:51+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "4°C",
+  "labels": [
+   "4°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 4,
+  "station_hour": 23.5,
+  "tier": "lock",
+  "win": "5°C",
+  "hit": false
  }
 ]
