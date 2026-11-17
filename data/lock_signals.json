@@ -283,5 +283,24 @@
   "tier": "lock",
   "win": "3°C",
   "hit": false
+ },
+ {
+  "key": "chengdu|2026-11-17",
+  "city": "chengdu",
+  "date": "2026-11-17",
+  "first": "2026-11-17T15:27+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "18°C",
+  "labels": [
+   "18°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 18,
+  "station_hour": 23.0,
+  "tier": "lock",
+  "win": "19°C",
+  "hit": false
  }
 ]

@@ -2983,7 +2983,7 @@
   "sd": 1.99,
   "n": 21,
   "first": "2026-11-15T14:22+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "12°C",
   "labels": [
@@ -2999,7 +2999,9 @@
   "edge": -0.242,
   "level": "light",
   "key": "amsterdam|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "london",

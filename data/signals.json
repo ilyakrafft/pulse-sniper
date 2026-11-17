@@ -1969,13 +1969,13 @@
   "key": "miami|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T14:24+00:00",
-   "pm": 0.917,
-   "val": 0.955,
+   "t": "2026-11-17T15:27+00:00",
+   "pm": 0.913,
+   "val": 0.911,
    "state": "hold",
-   "temp": 25,
-   "max": 25,
-   "hour": 9.4
+   "temp": 26.1,
+   "max": 26.1,
+   "hour": 10.4
   },
   "alerts": {}
  }
