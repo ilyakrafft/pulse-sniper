@@ -3106,6 +3106,34 @@
     "metno_nordic": 6.6,
     "ens": 6.5
    }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 6.21,
+   "sd": 0.41,
+   "a": 6.0,
+   "m": {
+    "icon_seamless": 6.3,
+    "gfs_seamless": 5.6,
+    "ukmo_seamless": 6.3,
+    "meteofrance_seamless": 5.7,
+    "gem_seamless": 6.8,
+    "jma_seamless": 6.4,
+    "cma_grapes_global": 4.6,
+    "ecmwf_ifs": 6.7,
+    "icon_global": 6.3,
+    "gfs_global": 5.6,
+    "gem_global": 7.1,
+    "ukmo_global_deterministic_10km": 6.3,
+    "meteofrance_arpege_world": 5.9,
+    "jma_gsm": 6.4,
+    "knmi_harmonie_arome_europe": 6.2,
+    "icon_eu": 6.3,
+    "meteofrance_arpege_europe": 5.7,
+    "dmi_harmonie_arome_europe": 6.4,
+    "metno_nordic": 5.9,
+    "ens": 6.5
+   }
   }
  ],
  "moscow": [
@@ -5478,6 +5506,35 @@
     "dmi_harmonie_arome_europe": 8.5,
     "ukmo_uk_deterministic_2km": 8.0,
     "ens": 7.7
+   }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 13.41,
+   "sd": 0.53,
+   "a": 14.0,
+   "m": {
+    "icon_seamless": 13.8,
+    "gfs_seamless": 13.7,
+    "ukmo_seamless": 12.7,
+    "meteofrance_seamless": 15.0,
+    "gem_seamless": 13.7,
+    "jma_seamless": 13.2,
+    "cma_grapes_global": 12.4,
+    "ecmwf_ifs": 12.9,
+    "icon_global": 13.7,
+    "gfs_global": 13.7,
+    "gem_global": 13.7,
+    "ukmo_global_deterministic_10km": 13.1,
+    "meteofrance_arpege_world": 12.6,
+    "jma_gsm": 13.2,
+    "icon_d2": 13.8,
+    "knmi_harmonie_arome_europe": 13.7,
+    "icon_eu": 13.7,
+    "meteofrance_arpege_europe": 12.7,
+    "dmi_harmonie_arome_europe": 13.8,
+    "ukmo_uk_deterministic_2km": 12.7,
+    "ens": 13.1
    }
   }
  ],
