@@ -1319,13 +1319,13 @@
   "key": "milan|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T04:32+00:00",
+   "t": "2026-11-17T05:36+00:00",
    "pm": 0.757,
-   "val": 0.76,
+   "val": 0.79,
    "state": "hold",
    "temp": 4,
    "max": 6,
-   "hour": 5.5
+   "hour": 6.6
   },
   "alerts": {}
  },
@@ -1536,5 +1536,109 @@
   "level": "light",
   "key": "munich|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-18-2026"
+ },
+ {
+  "city": "tokyo",
+  "date": "2026-11-19",
+  "mu": 18.21,
+  "sigma": 1.54,
+  "sd": 0.95,
+  "n": 18,
+  "st": "RJTT",
+  "liq": 26596.34,
+  "v24": null,
+  "dist": [
+   {
+    "l": "12°C и ниже",
+    "m": 0.0,
+    "p": 0.19
+   },
+   {
+    "l": "13°C",
+    "m": 0.001,
+    "p": 0.295
+   },
+   {
+    "l": "14°C",
+    "m": 0.007,
+    "p": 0.295
+   },
+   {
+    "l": "15°C",
+    "m": 0.031,
+    "p": 0.27
+   },
+   {
+    "l": "16°C",
+    "m": 0.094,
+    "p": 0.05
+   },
+   {
+    "l": "17°C",
+    "m": 0.189,
+    "p": 0.18
+   },
+   {
+    "l": "18°C",
+    "m": 0.252,
+    "p": 0.16
+   },
+   {
+    "l": "19°C",
+    "m": 0.224,
+    "p": 0.17
+   },
+   {
+    "l": "20°C",
+    "m": 0.133,
+    "p": 0.14
+   },
+   {
+    "l": "21°C",
+    "m": 0.052,
+    "p": 0.2
+   },
+   {
+    "l": "22°C и выше",
+    "m": 0.016,
+    "p": 0.25
+   }
+  ],
+  "first": "2026-11-17T05:36+00:00",
+  "status": "open",
+  "until": "2026-11-19T07:00+00:00",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "legs": [
+   {
+    "l": "17°C",
+    "price": 0.28,
+    "pm": 0.189
+   },
+   {
+    "l": "18°C",
+    "price": 0.21,
+    "pm": 0.252
+   },
+   {
+    "l": "19°C",
+    "price": 0.2,
+    "pm": 0.224
+   }
+  ],
+  "price": 0.69,
+  "pm": 0.603,
+  "pm_model": 0.665,
+  "edge": -0.087,
+  "level": "light",
+  "key": "tokyo|2026-11-19",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026"
  }
 ]

@@ -2533,7 +2533,7 @@
   "sd": 1.47,
   "n": 17,
   "first": "2026-11-15T07:00+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "30°C",
   "labels": [
@@ -2549,7 +2549,9 @@
   "edge": -0.26,
   "level": "light",
   "key": "singapore|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "31°C",
+  "hit": true
  },
  {
   "city": "dallas",
@@ -2797,7 +2799,7 @@
   "sd": 1.01,
   "n": 17,
   "first": "2026-11-15T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "18°C",
   "labels": [
@@ -2813,7 +2815,9 @@
   "edge": -0.417,
   "level": "light",
   "key": "busan|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "18°C",
+  "hit": true
  },
  {
   "city": "chicago",
@@ -2877,7 +2881,7 @@
   "sd": 1.01,
   "n": 17,
   "first": "2026-11-15T11:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "27°C",
   "labels": [
@@ -2893,7 +2897,9 @@
   "edge": -0.372,
   "level": "light",
   "key": "hongkong|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "sf",
@@ -3777,6 +3783,84 @@
   "edge": -0.378,
   "level": "light",
   "key": "seattle|2026-11-18",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-19",
+  "mu": 10.58,
+  "sigma": 1.58,
+  "sd": 1.03,
+  "n": 19,
+  "first": "2026-11-17T05:36+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "10°C",
+  "labels": [
+   "9°C",
+   "10°C",
+   "11°C"
+  ],
+  "lo": 8.5,
+  "hi": 11.5,
+  "price": 0.96,
+  "pm": 0.675,
+  "pm_model": 0.626,
+  "edge": -0.285,
+  "level": "light",
+  "key": "london|2026-11-19",
+  "tier": "test"
+ },
+ {
+  "city": "paris",
+  "date": "2026-11-19",
+  "mu": 12.92,
+  "sigma": 1.68,
+  "sd": 0.76,
+  "n": 19,
+  "first": "2026-11-17T05:36+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "13°C",
+  "labels": [
+   "12°C",
+   "13°C",
+   "14°C"
+  ],
+  "lo": 11.5,
+  "hi": 14.5,
+  "price": 1.13,
+  "pm": 0.73,
+  "pm_model": 0.627,
+  "edge": -0.4,
+  "level": "light",
+  "key": "paris|2026-11-19",
+  "tier": "test"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-19",
+  "mu": 13.8,
+  "sigma": 1.85,
+  "sd": 1.08,
+  "n": 17,
+  "first": "2026-11-17T05:36+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "14°C",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ],
+  "lo": 12.5,
+  "hi": 15.5,
+  "price": 0.64,
+  "pm": 0.546,
+  "pm_model": 0.581,
+  "edge": -0.094,
+  "level": "light",
+  "key": "wuhan|2026-11-19",
   "tier": "test"
  }
 ]

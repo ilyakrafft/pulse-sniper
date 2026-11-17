@@ -706,5 +706,17 @@
  "wuhan|2026-11-17": {
   "win": "14°C",
   "actual": 14
+ },
+ "busan|2026-11-17": {
+  "win": "18°C",
+  "actual": 18
+ },
+ "hongkong|2026-11-17": {
+  "win": "27°C",
+  "actual": 27
+ },
+ "singapore|2026-11-17": {
+  "win": "31°C",
+  "actual": 31
  }
 }
