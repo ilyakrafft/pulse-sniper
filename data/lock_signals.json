@@ -302,5 +302,24 @@
   "tier": "lock",
   "win": "19°C",
   "hit": false
+ },
+ {
+  "key": "madrid|2026-11-17",
+  "city": "madrid",
+  "date": "2026-11-17",
+  "first": "2026-11-17T17:39+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "16°C",
+  "labels": [
+   "16°C"
+  ],
+  "price": 0.96,
+  "pm": 0.93,
+  "station_max": 16,
+  "station_hour": 18.5,
+  "tier": "lock",
+  "win": "16°C",
+  "hit": true
  }
 ]

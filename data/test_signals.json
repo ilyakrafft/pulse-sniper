@@ -2689,7 +2689,7 @@
   "sd": 1.22,
   "n": 19,
   "first": "2026-11-15T08:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -2705,7 +2705,9 @@
   "edge": -0.302,
   "level": "light",
   "key": "madrid|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "houston",
