@@ -4942,5 +4942,30 @@
    "jma_gsm": 27.0,
    "ens": 28.23
   }
+ },
+ {
+  "date": "2026-11-17",
+  "city": "lucknow",
+  "k": 27,
+  "p": 0.724,
+  "actual": 28,
+  "hit": true,
+  "v": {
+   "icon_seamless": 27.1,
+   "gfs_seamless": 27.9,
+   "ukmo_seamless": 27.4,
+   "meteofrance_seamless": 26.9,
+   "gem_seamless": 27.9,
+   "jma_seamless": 27.7,
+   "cma_grapes_global": 25.6,
+   "ecmwf_ifs": 26.8,
+   "icon_global": 27.1,
+   "gfs_global": 27.9,
+   "gem_global": 27.9,
+   "ukmo_global_deterministic_10km": 27.4,
+   "meteofrance_arpege_world": 26.9,
+   "jma_gsm": 27.7,
+   "ens": 27.32
+  }
  }
 ]

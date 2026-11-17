@@ -7811,6 +7811,29 @@
     "jma_gsm": 29.3,
     "ens": 28.5
    }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 27.33,
+   "sd": 0.47,
+   "a": 28.0,
+   "m": {
+    "icon_seamless": 27.1,
+    "gfs_seamless": 27.9,
+    "ukmo_seamless": 27.4,
+    "meteofrance_seamless": 26.9,
+    "gem_seamless": 27.9,
+    "jma_seamless": 27.7,
+    "cma_grapes_global": 25.6,
+    "ecmwf_ifs": 26.8,
+    "icon_global": 27.1,
+    "gfs_global": 27.9,
+    "gem_global": 27.9,
+    "ukmo_global_deterministic_10km": 27.4,
+    "meteofrance_arpege_world": 26.9,
+    "jma_gsm": 27.7,
+    "ens": 27.3
+   }
   }
  ],
  "atlanta": [
