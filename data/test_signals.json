@@ -2373,7 +2373,7 @@
   "sd": 1.08,
   "n": 18,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "15°C",
   "labels": [
@@ -2389,7 +2389,9 @@
   "edge": -0.255,
   "level": "light",
   "key": "tokyo|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -2765,7 +2767,7 @@
   "sd": 0.92,
   "n": 17,
   "first": "2026-11-15T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -2781,7 +2783,9 @@
   "edge": -0.409,
   "level": "light",
   "key": "moscow|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "3°C",
+  "hit": true
  },
  {
   "city": "busan",
