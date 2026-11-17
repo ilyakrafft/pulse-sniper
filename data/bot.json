@@ -808,7 +808,9 @@
     "60–61°F",
     "62–63°F"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": true
   },
   "dallas|2026-11-18": {
    "city": "dallas",
@@ -1114,6 +1116,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.99
+  },
+  {
+   "date": "2026-11-17",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.867
   }
  ],
  "last_summary": "2026-W46",

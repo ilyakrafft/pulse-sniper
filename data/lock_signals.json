@@ -340,5 +340,24 @@
   "tier": "lock",
   "win": "33°C",
   "hit": false
+ },
+ {
+  "key": "milan|2026-11-17",
+  "city": "milan",
+  "date": "2026-11-17",
+  "first": "2026-11-17T20:57+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "8°C",
+  "labels": [
+   "8°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 8,
+  "station_hour": 21.8,
+  "tier": "lock",
+  "win": "9°C",
+  "hit": false
  }
 ]

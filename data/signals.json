@@ -1437,13 +1437,13 @@
   "key": "wuhan|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
   "live": {
-   "t": "2026-11-17T20:05+00:00",
-   "pm": 0.782,
-   "val": 0.732,
+   "t": "2026-11-17T20:57+00:00",
+   "pm": 0.776,
+   "val": 0.786,
    "state": "hold",
    "temp": 11,
    "max": 11,
-   "hour": 4.1
+   "hour": 5.0
   },
   "alerts": {}
  },
@@ -2059,7 +2059,7 @@
    }
   ],
   "first": "2026-11-17T17:39+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-17T21:00+00:00",
   "kind": "corr",
   "label": "60–61°F",
@@ -2095,15 +2095,19 @@
   "key": "atlanta|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T20:05+00:00",
-   "pm": 0.683,
-   "val": 0.897,
-   "state": "hold",
+   "t": "2026-11-17T20:57+00:00",
+   "pm": 0.704,
+   "val": 0.983,
+   "state": "sell",
    "temp": 17.2,
    "max": 17.2,
-   "hour": 15.1
+   "hour": 15.9
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-17T20:57+00:00"
+  },
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "dallas",

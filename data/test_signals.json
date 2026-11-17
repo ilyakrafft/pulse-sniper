@@ -2583,7 +2583,7 @@
   "sd": 1.31,
   "n": 19,
   "first": "2026-11-15T08:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "64–65°F",
   "labels": [
@@ -2599,7 +2599,9 @@
   "edge": -0.293,
   "level": "light",
   "key": "dallas|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "66–67°F",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -2637,7 +2639,7 @@
   "sd": 1.45,
   "n": 19,
   "first": "2026-11-15T08:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -2653,7 +2655,9 @@
   "edge": -0.399,
   "level": "light",
   "key": "nyc|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "58–59°F",
+  "hit": true
  },
  {
   "city": "miami",
@@ -2773,7 +2777,7 @@
   "sd": 0.93,
   "n": 19,
   "first": "2026-11-15T08:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "60–61°F",
   "labels": [
@@ -2789,7 +2793,9 @@
   "edge": -0.212,
   "level": "light",
   "key": "atlanta|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "moscow",
