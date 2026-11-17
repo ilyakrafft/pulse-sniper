@@ -705,7 +705,9 @@
    ],
    "alerts": {
     "sell": "2026-11-17T11:52+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "wuhan|2026-11-18": {
    "city": "wuhan",
@@ -1031,6 +1033,12 @@
    "week": "2026-W46",
    "hit": false,
    "price": 0.4
+  },
+  {
+   "date": "2026-11-17",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.86
   }
  ],
  "last_summary": "2026-W46",

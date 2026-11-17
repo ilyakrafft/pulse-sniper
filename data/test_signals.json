@@ -2191,7 +2191,7 @@
   "sd": 1.41,
   "n": 17,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "34°C",
   "labels": [
@@ -2207,7 +2207,9 @@
   "edge": -0.428,
   "level": "light",
   "key": "jeddah|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "33°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -2353,7 +2355,7 @@
   "sd": 1.7,
   "n": 20,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -2369,7 +2371,9 @@
   "edge": -0.368,
   "level": "light",
   "key": "milan|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -4421,6 +4425,58 @@
   "edge": -0.255,
   "level": "light",
   "key": "chicago|2026-11-19",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-19",
+  "mu": 17.97,
+  "sigma": 1.82,
+  "sd": 1.16,
+  "n": 19,
+  "first": "2026-11-17T13:06+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "64–65°F",
+  "labels": [
+   "62–63°F",
+   "64–65°F",
+   "66–67°F"
+  ],
+  "lo": 16.389,
+  "hi": 19.722,
+  "price": 1.12,
+  "pm": 0.71,
+  "pm_model": 0.64,
+  "edge": -0.41,
+  "level": "light",
+  "key": "la|2026-11-19",
+  "tier": "test"
+ },
+ {
+  "city": "houston",
+  "date": "2026-11-19",
+  "mu": 24.32,
+  "sigma": 1.7,
+  "sd": 0.92,
+  "n": 19,
+  "first": "2026-11-17T13:06+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "74–75°F",
+  "labels": [
+   "72–73°F",
+   "74–75°F",
+   "76–77°F"
+  ],
+  "lo": 21.944,
+  "hi": 25.278,
+  "price": 1.143,
+  "pm": 0.755,
+  "pm_model": 0.632,
+  "edge": -0.388,
+  "level": "light",
+  "key": "houston|2026-11-19",
   "tier": "test"
  }
 ]

@@ -260,5 +260,22 @@
    "2°C",
    "3°C"
   ]
+ },
+ {
+  "date": "2026-11-17",
+  "city": "milan",
+  "label": "10°C",
+  "win": "9°C",
+  "hit": true,
+  "price": 0.86,
+  "pm": 0.762,
+  "edge": -0.098,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "9°C",
+   "10°C",
+   "11°C"
+  ]
  }
 ]
