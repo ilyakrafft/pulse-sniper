@@ -687,6 +687,23 @@
    "alerts": {},
    "done": true,
    "hit": true
+  },
+  "milan|2026-11-17": {
+   "city": "milan",
+   "date": "2026-11-17",
+   "label": "10°C",
+   "pm": 0.762,
+   "price": 0.86,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "9°C",
+    "10°C",
+    "11°C"
+   ],
+   "alerts": {}
   }
  },
  "free_week": {},

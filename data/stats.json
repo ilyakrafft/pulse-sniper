@@ -4767,5 +4767,30 @@
    "jma_msm": 14.2,
    "ens": 14.21
   }
+ },
+ {
+  "date": "2026-11-17",
+  "city": "wuhan",
+  "k": 14,
+  "p": 0.704,
+  "actual": 14,
+  "hit": true,
+  "v": {
+   "icon_seamless": 13.3,
+   "gfs_seamless": 14.0,
+   "ukmo_seamless": 13.8,
+   "meteofrance_seamless": 13.1,
+   "gem_seamless": 13.8,
+   "jma_seamless": 16.4,
+   "cma_grapes_global": 13.8,
+   "ecmwf_ifs": 14.5,
+   "icon_global": 13.3,
+   "gfs_global": 14.0,
+   "gem_global": 13.8,
+   "ukmo_global_deterministic_10km": 13.8,
+   "meteofrance_arpege_world": 13.1,
+   "jma_gsm": 16.4,
+   "ens": 13.98
+  }
  }
 ]
