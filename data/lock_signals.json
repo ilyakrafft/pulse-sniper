@@ -207,5 +207,24 @@
   "tier": "lock",
   "win": "12°C",
   "hit": false
+ },
+ {
+  "key": "tokyo|2026-11-17",
+  "city": "tokyo",
+  "date": "2026-11-17",
+  "first": "2026-11-17T08:23+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "14°C",
+  "labels": [
+   "14°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 14,
+  "station_hour": 17.0,
+  "tier": "lock",
+  "win": "16°C",
+  "hit": false
  }
 ]
