@@ -1437,13 +1437,13 @@
   "key": "wuhan|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
   "live": {
-   "t": "2026-11-17T19:00+00:00",
+   "t": "2026-11-17T20:05+00:00",
    "pm": 0.782,
-   "val": 0.721,
+   "val": 0.732,
    "state": "hold",
    "temp": 11,
    "max": 11,
-   "hour": 3.0
+   "hour": 4.1
   },
   "alerts": {}
  },
@@ -2095,13 +2095,13 @@
   "key": "atlanta|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T19:00+00:00",
-   "pm": 0.861,
-   "val": 0.907,
+   "t": "2026-11-17T20:05+00:00",
+   "pm": 0.683,
+   "val": 0.897,
    "state": "hold",
-   "temp": 16.7,
-   "max": 16.7,
-   "hour": 14.0
+   "temp": 17.2,
+   "max": 17.2,
+   "hour": 15.1
   },
   "alerts": {}
  },
@@ -2208,5 +2208,109 @@
   "level": "light",
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-18",
+  "mu": 14.6,
+  "sigma": 1.56,
+  "sd": 0.94,
+  "n": 16,
+  "st": "KORD",
+  "liq": 18111.86,
+  "v24": 4661.85,
+  "dist": [
+   {
+    "l": "49°F и ниже",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "50–51°F",
+    "m": 0.007,
+    "p": 0.001
+   },
+   {
+    "l": "52–53°F",
+    "m": 0.037,
+    "p": 0.002
+   },
+   {
+    "l": "54–55°F",
+    "m": 0.117,
+    "p": 0.007
+   },
+   {
+    "l": "56–57°F",
+    "m": 0.229,
+    "p": 0.011
+   },
+   {
+    "l": "58–59°F",
+    "m": 0.277,
+    "p": 0.175
+   },
+   {
+    "l": "60–61°F",
+    "m": 0.206,
+    "p": 0.655
+   },
+   {
+    "l": "62–63°F",
+    "m": 0.094,
+    "p": 0.171
+   },
+   {
+    "l": "64–65°F",
+    "m": 0.027,
+    "p": 0.013
+   },
+   {
+    "l": "66–67°F",
+    "m": 0.005,
+    "p": 0.001
+   },
+   {
+    "l": "68°F и выше",
+    "m": 0.001,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-17T20:05+00:00",
+  "status": "open",
+  "until": "2026-11-18T22:00+00:00",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "legs": [
+   {
+    "l": "56–57°F",
+    "price": 0.017,
+    "pm": 0.229
+   },
+   {
+    "l": "58–59°F",
+    "price": 0.18,
+    "pm": 0.277
+   },
+   {
+    "l": "60–61°F",
+    "price": 0.66,
+    "pm": 0.206
+   }
+  ],
+  "price": 0.857,
+  "pm": 0.764,
+  "pm_model": 0.712,
+  "edge": -0.093,
+  "level": "light",
+  "key": "chicago|2026-11-18",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026"
  }
 ]

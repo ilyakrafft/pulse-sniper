@@ -2855,7 +2855,7 @@
   "sd": 0.89,
   "n": 19,
   "first": "2026-11-15T09:21+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "54–55°F",
   "labels": [
@@ -2871,7 +2871,9 @@
   "edge": -0.17,
   "level": "light",
   "key": "chicago|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "houston",

@@ -1424,26 +1424,6 @@
   "ncep_nbm_conus": 14.1,
   "ens": 14.61
  },
- "chicago|2026-11-17": {
-  "icon_seamless": 12.3,
-  "gfs_seamless": 13.3,
-  "ukmo_seamless": 10.8,
-  "meteofrance_seamless": 12.4,
-  "gem_seamless": 12.4,
-  "jma_seamless": 12.2,
-  "cma_grapes_global": 11.0,
-  "ecmwf_ifs": 11.5,
-  "icon_global": 12.3,
-  "gfs_global": 12.9,
-  "gem_global": 11.7,
-  "ukmo_global_deterministic_10km": 10.8,
-  "meteofrance_arpege_world": 12.4,
-  "jma_gsm": 12.2,
-  "gfs_hrrr": 13.3,
-  "ncep_nbm_conus": 12.5,
-  "gem_regional": 12.1,
-  "ens": 11.92
- },
  "chicago|2026-11-18": {
   "ukmo_seamless": 12.9,
   "meteofrance_seamless": 13.3,
