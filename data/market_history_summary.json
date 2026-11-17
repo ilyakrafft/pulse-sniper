@@ -1,0 +1,356 @@
+{
+ "dallas": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KDAL"
+  ],
+  "code": "KDAL",
+  "mean_diff_vs_era5": 0.35,
+  "era5_in_winner_bin": 32,
+  "compared": 89,
+  "winner_c_avg": 31.4
+ },
+ "shenzhen": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "ZGSZ"
+  ],
+  "code": "ZGSZ",
+  "mean_diff_vs_era5": -0.73,
+  "era5_in_winner_bin": 18,
+  "compared": 90,
+  "winner_c_avg": 30.6
+ },
+ "jeddah": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "OEJN"
+  ],
+  "code": "OEJN",
+  "mean_diff_vs_era5": -0.56,
+  "era5_in_winner_bin": 27,
+  "compared": 90,
+  "winner_c_avg": 36.1
+ },
+ "london": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "EGLC"
+  ],
+  "code": "EGLC",
+  "mean_diff_vs_era5": 0.7,
+  "era5_in_winner_bin": 32,
+  "compared": 90,
+  "winner_c_avg": 18.7
+ },
+ "paris": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "LFPB"
+  ],
+  "code": "LFPG",
+  "mean_diff_vs_era5": 1.28,
+  "era5_in_winner_bin": 9,
+  "compared": 90,
+  "winner_c_avg": 20.5
+ },
+ "telaviv": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [],
+  "code": "LLBG",
+  "mean_diff_vs_era5": -0.12,
+  "era5_in_winner_bin": 45,
+  "compared": 90,
+  "winner_c_avg": 29.6
+ },
+ "helsinki": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "EFHK"
+  ],
+  "code": "EFHK",
+  "mean_diff_vs_era5": 0.06,
+  "era5_in_winner_bin": 51,
+  "compared": 90,
+  "winner_c_avg": 13.3
+ },
+ "amsterdam": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "EHAM"
+  ],
+  "code": "EHAM",
+  "mean_diff_vs_era5": 0.56,
+  "era5_in_winner_bin": 36,
+  "compared": 90,
+  "winner_c_avg": 17.4
+ },
+ "munich": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "EDDM"
+  ],
+  "code": "EDDM",
+  "mean_diff_vs_era5": 0.95,
+  "era5_in_winner_bin": 24,
+  "compared": 90,
+  "winner_c_avg": 18.1
+ },
+ "chongqing": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "ZUCK"
+  ],
+  "code": "ZUCK",
+  "mean_diff_vs_era5": 0.06,
+  "era5_in_winner_bin": 28,
+  "compared": 90,
+  "winner_c_avg": 25.1
+ },
+ "nyc": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KLGA"
+  ],
+  "code": "KLGA",
+  "mean_diff_vs_era5": 0.29,
+  "era5_in_winner_bin": 44,
+  "compared": 89,
+  "winner_c_avg": 21.8
+ },
+ "hongkong": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [],
+  "code": null,
+  "mean_diff_vs_era5": 0.23,
+  "era5_in_winner_bin": 35,
+  "compared": 89,
+  "winner_c_avg": 30.1
+ },
+ "milan": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "LIMC"
+  ],
+  "code": "LIMC",
+  "mean_diff_vs_era5": 0.57,
+  "era5_in_winner_bin": 34,
+  "compared": 90,
+  "winner_c_avg": 22.1
+ },
+ "moscow": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [],
+  "code": "UUWW",
+  "mean_diff_vs_era5": 0.11,
+  "era5_in_winner_bin": 43,
+  "compared": 90,
+  "winner_c_avg": 14.0
+ },
+ "sf": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KSFO"
+  ],
+  "code": "KSFO",
+  "mean_diff_vs_era5": -0.82,
+  "era5_in_winner_bin": 28,
+  "compared": 89,
+  "winner_c_avg": 21.6
+ },
+ "miami": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KMIA"
+  ],
+  "code": "KMIA",
+  "mean_diff_vs_era5": null,
+  "era5_in_winner_bin": 0,
+  "compared": 0,
+  "winner_c_avg": 30.8
+ },
+ "madrid": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "LEMD"
+  ],
+  "code": "LEMD",
+  "mean_diff_vs_era5": 0.73,
+  "era5_in_winner_bin": 26,
+  "compared": 90,
+  "winner_c_avg": 26.1
+ },
+ "la": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KLAX"
+  ],
+  "code": "KLAX",
+  "mean_diff_vs_era5": 0.47,
+  "era5_in_winner_bin": 35,
+  "compared": 89,
+  "winner_c_avg": 26.7
+ },
+ "houston": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KHOU"
+  ],
+  "code": "KHOU",
+  "mean_diff_vs_era5": 0.81,
+  "era5_in_winner_bin": 25,
+  "compared": 89,
+  "winner_c_avg": 30.9
+ },
+ "singapore": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "WSSS"
+  ],
+  "code": "WSSS",
+  "mean_diff_vs_era5": 0.38,
+  "era5_in_winner_bin": 41,
+  "compared": 90,
+  "winner_c_avg": 32.2
+ },
+ "tokyo": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "RJTT"
+  ],
+  "code": "RJTT",
+  "mean_diff_vs_era5": 0.31,
+  "era5_in_winner_bin": 31,
+  "compared": 90,
+  "winner_c_avg": 24.3
+ },
+ "warsaw": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "EPWA"
+  ],
+  "code": "EPWA",
+  "mean_diff_vs_era5": 0.61,
+  "era5_in_winner_bin": 30,
+  "compared": 90,
+  "winner_c_avg": 16.4
+ },
+ "busan": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "RKPK"
+  ],
+  "code": "RKPK",
+  "mean_diff_vs_era5": 1.01,
+  "era5_in_winner_bin": 18,
+  "compared": 90,
+  "winner_c_avg": 25.1
+ },
+ "chengdu": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "ZUUU"
+  ],
+  "code": "ZUUU",
+  "mean_diff_vs_era5": 1.16,
+  "era5_in_winner_bin": 20,
+  "compared": 90,
+  "winner_c_avg": 25.2
+ },
+ "wuhan": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "ZHHH"
+  ],
+  "code": "ZHHH",
+  "mean_diff_vs_era5": 0.09,
+  "era5_in_winner_bin": 19,
+  "compared": 90,
+  "winner_c_avg": 25.6
+ },
+ "denver": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KBKF"
+  ],
+  "code": "KBKF",
+  "mean_diff_vs_era5": 0.56,
+  "era5_in_winner_bin": 30,
+  "compared": 89,
+  "winner_c_avg": 24.6
+ },
+ "chicago": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KORD"
+  ],
+  "code": "KORD",
+  "mean_diff_vs_era5": 0.6,
+  "era5_in_winner_bin": 36,
+  "compared": 89,
+  "winner_c_avg": 21.9
+ },
+ "lucknow": {
+  "days_found": 90,
+  "resolved": 90,
+  "stations": [
+   "VILK"
+  ],
+  "code": "VILK",
+  "mean_diff_vs_era5": 0.61,
+  "era5_in_winner_bin": 35,
+  "compared": 90,
+  "winner_c_avg": 31.0
+ },
+ "atlanta": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KATL"
+  ],
+  "code": "KATL",
+  "mean_diff_vs_era5": null,
+  "era5_in_winner_bin": 0,
+  "compared": 0,
+  "winner_c_avg": 27.1
+ },
+ "seattle": {
+  "days_found": 90,
+  "resolved": 89,
+  "stations": [
+   "KSEA"
+  ],
+  "code": "KSEA",
+  "mean_diff_vs_era5": 0.35,
+  "era5_in_winner_bin": 34,
+  "compared": 89,
+  "winner_c_avg": 18.5
+ }
+}
