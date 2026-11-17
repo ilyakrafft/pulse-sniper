@@ -397,5 +397,43 @@
   "tier": "lock",
   "win": "24°C",
   "hit": false
+ },
+ {
+  "key": "london|2026-11-17",
+  "city": "london",
+  "date": "2026-11-17",
+  "first": "2026-11-17T22:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "13°C",
+  "labels": [
+   "13°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 13,
+  "station_hour": 22.8,
+  "tier": "lock",
+  "win": "14°C",
+  "hit": false
+ },
+ {
+  "key": "warsaw|2026-11-17",
+  "city": "warsaw",
+  "date": "2026-11-17",
+  "first": "2026-11-17T22:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "6°C",
+  "labels": [
+   "6°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 6,
+  "station_hour": 23.5,
+  "tier": "lock",
+  "win": "8°C",
+  "hit": false
  }
 ]
