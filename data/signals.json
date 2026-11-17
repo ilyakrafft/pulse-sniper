@@ -1435,7 +1435,17 @@
   "edge": -0.012,
   "level": "light",
   "key": "wuhan|2026-11-18",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
+  "live": {
+   "t": "2026-11-17T16:35+00:00",
+   "pm": 0.801,
+   "val": 0.727,
+   "state": "hold",
+   "temp": 11,
+   "max": 11,
+   "hour": 0.6
+  },
+  "alerts": {}
  },
  {
   "city": "munich",
@@ -1969,13 +1979,13 @@
   "key": "miami|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T15:27+00:00",
-   "pm": 0.913,
-   "val": 0.911,
+   "t": "2026-11-17T16:35+00:00",
+   "pm": 0.571,
+   "val": 0.847,
    "state": "hold",
-   "temp": 26.1,
-   "max": 26.1,
-   "hour": 10.4
+   "temp": 27.2,
+   "max": 27.2,
+   "hour": 11.6
   },
   "alerts": {}
  }

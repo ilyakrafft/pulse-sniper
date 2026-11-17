@@ -5200,5 +5200,35 @@
    "knmi_harmonie_arome_netherlands": 12.6,
    "ens": 12.18
   }
+ },
+ {
+  "date": "2026-11-17",
+  "city": "munich",
+  "k": 13,
+  "p": 0.714,
+  "actual": 14,
+  "hit": true,
+  "v": {
+   "icon_seamless": 13.6,
+   "gfs_seamless": 12.5,
+   "ukmo_seamless": 12.9,
+   "meteofrance_seamless": 14.4,
+   "gem_seamless": 12.6,
+   "jma_seamless": 13.2,
+   "cma_grapes_global": 12.0,
+   "ecmwf_ifs": 11.6,
+   "icon_global": 13.2,
+   "gfs_global": 12.5,
+   "gem_global": 12.6,
+   "ukmo_global_deterministic_10km": 12.9,
+   "meteofrance_arpege_world": 13.2,
+   "jma_gsm": 13.2,
+   "icon_d2": 13.6,
+   "knmi_harmonie_arome_europe": 12.6,
+   "icon_eu": 13.1,
+   "meteofrance_arpege_europe": 12.8,
+   "dmi_harmonie_arome_europe": 12.6,
+   "ens": 12.03
+  }
  }
 ]
