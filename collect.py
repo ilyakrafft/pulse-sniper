@@ -75,7 +75,7 @@ OLD_KEYS = ["ecmwf_ifs025", "icon_seamless", "gfs_seamless", "gem_seamless"]  # 
 CITIES = [
     ("dallas", "dallas", 32.847, -96.852, "KDAL"), ("shenzhen", "shenzhen", 22.639, 113.811, "ZGSZ"),
     ("jeddah", "jeddah", 21.680, 39.157, "OEJN"), ("london", "london", 51.505, 0.055, "EGLC"),
-    ("paris", "paris", 49.010, 2.548, "LFPG"), ("telaviv", "tel-aviv", 32.011, 34.887, "LLBG"),
+    ("paris", "paris", 48.969, 2.441, "LFPB"), ("telaviv", "tel-aviv", 32.011, 34.887, "LLBG"),
     ("helsinki", "helsinki", 60.317, 24.963, "EFHK"), ("amsterdam", "amsterdam", 52.311, 4.768, "EHAM"),
     ("munich", "munich", 48.354, 11.786, "EDDM"), ("chongqing", "chongqing", 29.719, 106.642, "ZUCK"),
     ("nyc", "nyc", 40.777, -73.874, "KLGA"), ("hongkong", "hong-kong", 22.302, 114.174, None),
