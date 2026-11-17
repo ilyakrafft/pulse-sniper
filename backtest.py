@@ -114,6 +114,25 @@ def stat(rows):
     return {"n": n, "hit": round(sum(r["hit"] for r in rows) / n, 3), "roi": round(pnl / cost, 3), "avg_cost": round(cost / n, 3)}
 
 
+def sets_for(evs, spread):
+    """Строгое и текущее правило при заданном спреде (с поправкой смещения)."""
+    global SPREAD
+    SPREAD = spread
+    st, cu = [], []
+    for e in evs:
+        mu = e["mu"] + e["bias"]
+        sigma = max(1.1, math.sqrt(1.0 + (e["sd"] or 0) ** 2))
+        c = corridor(e["bins"], mu, sigma)
+        if not c:
+            continue
+        r = dict(c, edge=c["p"] - c["cost"])
+        if r["cost"] <= 0.97 and r["p"] >= 0.5 and r["edge"] >= 0:
+            st.append(r)
+        if r["cost"] <= 1.0 and r["p"] >= 0.55 and r["edge"] >= -0.10 and (e["sd"] or 0) <= 1.3:
+            cu.append(r)
+    return {"strict": stat(st), "current": stat(cu)}
+
+
 def main():
     today = dt.datetime.now(dt.timezone.utc).date()
     fc = forecasts(today)
@@ -185,6 +204,7 @@ def main():
         months.setdefault(r["d"][:7], []).append(r)
     summary["by_month_current_bias"] = {k: stat(v) for k, v in sorted(months.items())}
     summary["by_city_current_bias"] = {k: stat(v) for k, v in sorted(per_city.items())}
+    summary["spread_sensitivity"] = {str(sp): sets_for(evs, sp) for sp in (0.0, 0.01, 0.02, 0.03, 0.05, 0.08)}
     summary["events"] = len(evs)
     summary["updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes")
     print(json.dumps(summary, ensure_ascii=False, indent=1))
