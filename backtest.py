@@ -12,7 +12,7 @@ import collect as C
 
 DAYS = 180
 HIST = "https://historical-forecast-api.open-meteo.com/v1/forecast"
-CLOB = "https://clob.polymarket.com/prices-history?market=%s&interval=max&fidelity=60"
+CLOB = "https://clob.polymarket.com/prices-history?market=%s&interval=max&fidelity=%d"
 MODELS = ["ecmwf_ifs025", "icon_seamless", "gfs_seamless", "ukmo_seamless"]
 SPREAD = 0.01
 T0 = time.time()
@@ -43,16 +43,20 @@ def forecasts(today):
 
 
 def price_at(tok, ts):
-    for _ in range(2):
-        try:
-            h = (C.get(CLOB % tok).get("history")) or []
-            best = None
-            for x in h:
-                if x["t"] <= ts and ts - x["t"] <= 8 * 3600:
-                    best = x["p"]
+    for fid in (60, 720):  # у старых рынков сервис отдаёт цены только с шагом 12 часов
+        for _ in range(2):
+            try:
+                h = (C.get(CLOB % (tok, fid)).get("history")) or []
+                break
+            except Exception:  # noqa: BLE001
+                h = []
+                time.sleep(1)
+        best = None
+        for x in h:
+            if x["t"] <= ts and ts - x["t"] <= 13 * 3600:
+                best = x["p"]
+        if best is not None:
             return best
-        except Exception:  # noqa: BLE001
-            time.sleep(1)
     return None
 
 
