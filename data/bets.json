@@ -243,5 +243,22 @@
    "8°C",
    "9°C"
   ]
+ },
+ {
+  "date": "2026-11-17",
+  "city": "moscow",
+  "label": "2°C",
+  "win": "3°C",
+  "hit": true,
+  "price": 0.971,
+  "pm": 0.95,
+  "edge": -0.021,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ]
  }
 ]

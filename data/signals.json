@@ -1319,13 +1319,13 @@
   "key": "milan|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T09:36+00:00",
-   "pm": 0.708,
-   "val": 0.806,
+   "t": "2026-11-17T10:38+00:00",
+   "pm": 0.737,
+   "val": 0.778,
    "state": "hold",
    "temp": 8,
    "max": 8,
-   "hour": 10.6
+   "hour": 11.6
   },
   "alerts": {}
  },
@@ -1744,5 +1744,121 @@
   "level": "light",
   "key": "wuhan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-17",
+  "mu": 2.3,
+  "sigma": 0.72,
+  "sd": 0.49,
+  "n": 17,
+  "st": "UUWW",
+  "liq": 34667.83,
+  "v24": 24039.02,
+  "dist": [
+   {
+    "l": "-4°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-3°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-2°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-1°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "0°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "1°C",
+    "m": 0.101,
+    "p": 0.001
+   },
+   {
+    "l": "2°C",
+    "m": 0.492,
+    "p": 0.001
+   },
+   {
+    "l": "3°C",
+    "m": 0.356,
+    "p": 0.948
+   },
+   {
+    "l": "4°C",
+    "m": 0.049,
+    "p": 0.05
+   },
+   {
+    "l": "5°C",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "6°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-17T10:38+00:00",
+  "status": "done",
+  "until": "2026-11-17T13:00+00:00",
+  "kind": "corr",
+  "label": "2°C",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ],
+  "lo": 0.5,
+  "hi": 3.5,
+  "legs": [
+   {
+    "l": "1°C",
+    "price": 0.001,
+    "pm": 0.101
+   },
+   {
+    "l": "2°C",
+    "price": 0.001,
+    "pm": 0.492
+   },
+   {
+    "l": "3°C",
+    "price": 0.969,
+    "pm": 0.356
+   }
+  ],
+  "price": 0.971,
+  "pm": 0.95,
+  "pm_model": 0.949,
+  "edge": -0.021,
+  "level": "light",
+  "key": "moscow|2026-11-17",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-moscow-on-november-17-2026",
+  "live": {
+   "t": "2026-11-17T10:38+00:00",
+   "pm": 0.953,
+   "val": 0.95,
+   "state": "hold",
+   "temp": 2,
+   "max": 2,
+   "hour": 13.6
+  },
+  "alerts": {},
+  "win": "3°C",
+  "hit": true
  }
 ]

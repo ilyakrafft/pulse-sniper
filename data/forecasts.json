@@ -350,7 +350,7 @@
   "gfs_hrrr": 18.5,
   "ncep_nbm_conus": 22.2,
   "gem_regional": 19.2,
-  "ens": 19.07
+  "ens": 19.03
  },
  "shenzhen|2026-11-18": {
   "ecmwf_ifs025": 26.8,
@@ -369,7 +369,7 @@
   "ukmo_global_deterministic_10km": 25.7,
   "meteofrance_arpege_world": 26.5,
   "jma_gsm": 24.6,
-  "ens": 25.68
+  "ens": 25.78
  },
  "jeddah|2026-11-18": {
   "ecmwf_ifs025": 33.5,
@@ -388,7 +388,7 @@
   "ukmo_global_deterministic_10km": 33.6,
   "meteofrance_arpege_world": 34.1,
   "jma_gsm": 28.7,
-  "ens": 32.52
+  "ens": 32.43
  },
  "london|2026-11-18": {
   "ecmwf_ifs025": 12.5,
@@ -411,7 +411,7 @@
   "meteofrance_arpege_europe": 11.2,
   "dmi_harmonie_arome_europe": 12.4,
   "ukmo_uk_deterministic_2km": 12.0,
-  "ens": 11.96
+  "ens": 12.02
  },
  "paris|2026-11-18": {
   "ecmwf_ifs025": 13.9,
@@ -436,7 +436,7 @@
   "dmi_harmonie_arome_europe": 13.6,
   "meteofrance_arome_france": 13.7,
   "meteofrance_arome_france_hd": 13.8,
-  "ens": 13.23
+  "ens": 13.24
  },
  "telaviv|2026-11-18": {
   "ecmwf_ifs025": 24.1,
@@ -455,7 +455,7 @@
   "ukmo_global_deterministic_10km": 23.0,
   "meteofrance_arpege_world": 25.1,
   "jma_gsm": 23.4,
-  "ens": 24.03
+  "ens": 23.9
  },
  "helsinki|2026-11-18": {
   "ecmwf_ifs025": 5.8,
@@ -479,7 +479,7 @@
   "meteofrance_arpege_europe": 5.4,
   "dmi_harmonie_arome_europe": 6.2,
   "metno_nordic": 6.2,
-  "ens": 5.71
+  "ens": 5.72
  },
  "amsterdam|2026-11-18": {
   "ecmwf_ifs025": 10.0,
@@ -503,7 +503,7 @@
   "meteofrance_arpege_europe": 10.3,
   "dmi_harmonie_arome_europe": 11.1,
   "knmi_harmonie_arome_netherlands": 11.1,
-  "ens": 10.43
+  "ens": 10.38
  },
  "munich|2026-11-18": {
   "ecmwf_ifs025": 12.2,
@@ -526,7 +526,7 @@
   "icon_eu": 11.9,
   "meteofrance_arpege_europe": 10.9,
   "dmi_harmonie_arome_europe": 11.7,
-  "ens": 11.24
+  "ens": 11.38
  },
  "chongqing|2026-11-18": {
   "ecmwf_ifs025": 15.3,
@@ -545,7 +545,7 @@
   "ukmo_global_deterministic_10km": 14.0,
   "meteofrance_arpege_world": 15.3,
   "jma_gsm": 14.2,
-  "ens": 13.69
+  "ens": 14.04
  },
  "nyc|2026-11-18": {
   "ecmwf_ifs025": 14.8,
@@ -567,7 +567,7 @@
   "gfs_hrrr": 17.0,
   "ncep_nbm_conus": 16.1,
   "gem_regional": 17.1,
-  "ens": 15.0
+  "ens": 15.06
  },
  "hongkong|2026-11-18": {
   "ecmwf_ifs025": 28.4,
@@ -586,7 +586,7 @@
   "ukmo_global_deterministic_10km": 27.6,
   "meteofrance_arpege_world": 26.4,
   "jma_gsm": 24.4,
-  "ens": 26.49
+  "ens": 26.54
  },
  "milan|2026-11-18": {
   "ecmwf_ifs025": 15.5,
@@ -609,7 +609,7 @@
   "icon_eu": 16.1,
   "meteofrance_arpege_europe": 10.1,
   "italia_meteo_arpae_icon_2i": 14.4,
-  "ens": 13.78
+  "ens": 13.68
  },
  "moscow|2026-11-18": {
   "ecmwf_ifs025": 1.8,
@@ -628,7 +628,7 @@
   "ukmo_global_deterministic_10km": 0.2,
   "meteofrance_arpege_world": -0.3,
   "jma_gsm": 0.5,
-  "ens": 1.67
+  "ens": 1.55
  },
  "sf|2026-11-18": {
   "ecmwf_ifs025": 13.9,
@@ -649,7 +649,7 @@
   "jma_gsm": 15.3,
   "ncep_nbm_conus": 13.7,
   "gem_regional": 14.6,
-  "ens": 14.45
+  "ens": 14.43
  },
  "miami|2026-11-18": {
   "ecmwf_ifs025": 24.0,
@@ -671,7 +671,7 @@
   "gfs_hrrr": 24.8,
   "ncep_nbm_conus": 26.3,
   "gem_regional": 26.9,
-  "ens": 25.7
+  "ens": 25.44
  },
  "madrid|2026-11-18": {
   "ecmwf_ifs025": 18.4,
@@ -692,7 +692,7 @@
   "jma_gsm": 17.0,
   "icon_eu": 17.4,
   "meteofrance_arpege_europe": 16.2,
-  "ens": 17.52
+  "ens": 17.77
  },
  "la|2026-11-18": {
   "ecmwf_ifs025": 20.0,
@@ -713,7 +713,7 @@
   "jma_gsm": 17.6,
   "ncep_nbm_conus": 19.1,
   "gem_regional": 20.1,
-  "ens": 19.02
+  "ens": 19.03
  },
  "houston|2026-11-18": {
   "ecmwf_ifs025": 21.7,
@@ -735,7 +735,7 @@
   "gfs_hrrr": 21.6,
   "ncep_nbm_conus": 22.6,
   "gem_regional": 21.8,
-  "ens": 21.48
+  "ens": 21.64
  },
  "singapore|2026-11-18": {
   "ecmwf_ifs025": 29.8,
@@ -754,7 +754,7 @@
   "ukmo_global_deterministic_10km": 30.3,
   "meteofrance_arpege_world": 28.6,
   "jma_gsm": 28.7,
-  "ens": 29.49
+  "ens": 29.6
  },
  "tokyo|2026-11-18": {
   "ecmwf_ifs025": 19.2,
@@ -774,7 +774,7 @@
   "meteofrance_arpege_world": 18.4,
   "jma_gsm": 20.3,
   "jma_msm": 19.3,
-  "ens": 19.57
+  "ens": 19.31
  },
  "warsaw|2026-11-18": {
   "ecmwf_ifs025": 9.6,
@@ -797,7 +797,7 @@
   "icon_eu": 10.3,
   "meteofrance_arpege_europe": 7.8,
   "dmi_harmonie_arome_europe": 9.2,
-  "ens": 9.7
+  "ens": 10.0
  },
  "dallas|2026-11-19": {
   "ecmwf_ifs025": 21.4,
@@ -818,7 +818,7 @@
   "jma_gsm": 19.2,
   "ncep_nbm_conus": 23.8,
   "gem_regional": 22.3,
-  "ens": 20.83
+  "ens": 20.96
  },
  "shenzhen|2026-11-19": {
   "ecmwf_ifs025": 20.0,
@@ -837,7 +837,7 @@
   "ukmo_global_deterministic_10km": 20.8,
   "meteofrance_arpege_world": 19.3,
   "jma_gsm": 21.7,
-  "ens": 19.82
+  "ens": 20.32
  },
  "jeddah|2026-11-19": {
   "ecmwf_ifs025": 34.3,
@@ -856,7 +856,7 @@
   "ukmo_global_deterministic_10km": 33.9,
   "meteofrance_arpege_world": 33.5,
   "jma_gsm": 27.6,
-  "ens": 32.71
+  "ens": 32.64
  },
  "london|2026-11-19": {
   "ecmwf_ifs025": 9.4,
@@ -877,7 +877,7 @@
   "jma_gsm": 9.3,
   "icon_eu": 10.7,
   "meteofrance_arpege_europe": 9.7,
-  "ens": 9.89
+  "ens": 9.98
  },
  "paris|2026-11-19": {
   "ecmwf_ifs025": 13.3,
@@ -898,7 +898,7 @@
   "jma_gsm": 13.4,
   "icon_eu": 12.7,
   "meteofrance_arpege_europe": 12.5,
-  "ens": 12.12
+  "ens": 12.18
  },
  "telaviv|2026-11-19": {
   "ecmwf_ifs025": 25.2,
@@ -917,7 +917,7 @@
   "ukmo_global_deterministic_10km": 24.1,
   "meteofrance_arpege_world": 26.1,
   "jma_gsm": 24.7,
-  "ens": 25.15
+  "ens": 24.92
  },
  "helsinki|2026-11-19": {
   "ecmwf_ifs025": 4.8,
@@ -938,7 +938,7 @@
   "jma_gsm": 3.6,
   "icon_eu": 5.1,
   "meteofrance_arpege_europe": 4.7,
-  "ens": 4.59
+  "ens": 4.67
  },
  "amsterdam|2026-11-19": {
   "ecmwf_ifs025": 10.6,
@@ -959,7 +959,7 @@
   "jma_gsm": 10.6,
   "icon_eu": 11.0,
   "meteofrance_arpege_europe": 10.4,
-  "ens": 9.52
+  "ens": 9.62
  },
  "munich|2026-11-19": {
   "ecmwf_ifs025": 9.5,
@@ -980,7 +980,7 @@
   "jma_gsm": 10.3,
   "icon_eu": 9.9,
   "meteofrance_arpege_europe": 9.2,
-  "ens": 9.79
+  "ens": 9.72
  },
  "chongqing|2026-11-19": {
   "ecmwf_ifs025": 12.7,
@@ -999,7 +999,7 @@
   "ukmo_global_deterministic_10km": 14.2,
   "meteofrance_arpege_world": 14.8,
   "jma_gsm": 13.7,
-  "ens": 13.08
+  "ens": 13.26
  },
  "nyc|2026-11-19": {
   "ecmwf_ifs025": 15.2,
@@ -1020,7 +1020,7 @@
   "jma_gsm": 16.1,
   "ncep_nbm_conus": 16.6,
   "gem_regional": 17.5,
-  "ens": 15.68
+  "ens": 15.66
  },
  "hongkong|2026-11-19": {
   "ecmwf_ifs025": 19.9,
@@ -1039,7 +1039,7 @@
   "ukmo_global_deterministic_10km": 21.8,
   "meteofrance_arpege_world": 20.4,
   "jma_gsm": 21.5,
-  "ens": 20.49
+  "ens": 20.89
  },
  "milan|2026-11-19": {
   "ecmwf_ifs025": 13.7,
@@ -1061,7 +1061,7 @@
   "icon_eu": 13.4,
   "meteofrance_arpege_europe": 9.3,
   "italia_meteo_arpae_icon_2i": 15.3,
-  "ens": 12.36
+  "ens": 12.39
  },
  "moscow|2026-11-19": {
   "ecmwf_ifs025": 6.4,
@@ -1080,7 +1080,7 @@
   "ukmo_global_deterministic_10km": 4.2,
   "meteofrance_arpege_world": 0.7,
   "jma_gsm": 1.5,
-  "ens": 4.84
+  "ens": 5.2
  },
  "sf|2026-11-19": {
   "ecmwf_ifs025": 14.6,
@@ -1101,7 +1101,7 @@
   "jma_gsm": 13.3,
   "ncep_nbm_conus": 13.1,
   "gem_regional": 12.0,
-  "ens": 13.51
+  "ens": 13.71
  },
  "miami|2026-11-19": {
   "ecmwf_ifs025": 25.8,
@@ -1122,7 +1122,7 @@
   "jma_gsm": 24.5,
   "ncep_nbm_conus": 26.7,
   "gem_regional": 26.3,
-  "ens": 26.05
+  "ens": 25.96
  },
  "madrid|2026-11-19": {
   "ecmwf_ifs025": 15.2,
@@ -1143,7 +1143,7 @@
   "jma_gsm": 16.1,
   "icon_eu": 15.9,
   "meteofrance_arpege_europe": 15.3,
-  "ens": 15.57
+  "ens": 15.64
  },
  "la|2026-11-19": {
   "ecmwf_ifs025": 16.9,
@@ -1185,7 +1185,7 @@
   "jma_gsm": 20.8,
   "ncep_nbm_conus": 24.1,
   "gem_regional": 23.9,
-  "ens": 22.99
+  "ens": 23.07
  },
  "singapore|2026-11-19": {
   "ecmwf_ifs025": 28.0,
@@ -1204,7 +1204,7 @@
   "ukmo_global_deterministic_10km": 29.9,
   "meteofrance_arpege_world": 28.6,
   "jma_gsm": 28.6,
-  "ens": 28.99
+  "ens": 28.73
  },
  "tokyo|2026-11-19": {
   "ecmwf_ifs025": 18.1,
@@ -1224,7 +1224,7 @@
   "meteofrance_arpege_world": 16.4,
   "jma_gsm": 17.4,
   "jma_msm": 18.0,
-  "ens": 17.52
+  "ens": 17.6
  },
  "warsaw|2026-11-19": {
   "ecmwf_ifs025": 9.2,
@@ -1245,7 +1245,7 @@
   "jma_gsm": 11.2,
   "icon_eu": 11.2,
   "meteofrance_arpege_europe": 9.0,
-  "ens": 9.43
+  "ens": 9.54
  },
  "dallas|2026-11-20": {
   "ecmwf_ifs025": 22.1,
@@ -1265,7 +1265,7 @@
   "meteofrance_arpege_world": 20.8,
   "jma_gsm": 20.0,
   "ncep_nbm_conus": 24.5,
-  "ens": 21.72
+  "ens": 21.89
  },
  "shenzhen|2026-11-20": {
   "ecmwf_ifs025": 18.1,
@@ -1284,7 +1284,7 @@
   "ukmo_global_deterministic_10km": 19.8,
   "meteofrance_arpege_world": 16.7,
   "jma_gsm": 18.1,
-  "ens": 18.11
+  "ens": 18.09
  },
  "jeddah|2026-11-20": {
   "ecmwf_ifs025": 35.5,
@@ -1303,7 +1303,7 @@
   "ukmo_global_deterministic_10km": 34.8,
   "meteofrance_arpege_world": 34.4,
   "jma_gsm": 29.1,
-  "ens": 33.85
+  "ens": 33.8
  },
  "london|2026-11-20": {
   "ecmwf_ifs025": 8.8,
@@ -1324,7 +1324,7 @@
   "jma_gsm": 10.0,
   "icon_eu": 8.1,
   "meteofrance_arpege_europe": 8.5,
-  "ens": 8.96
+  "ens": 9.17
  },
  "paris|2026-11-20": {
   "ecmwf_ifs025": 12.9,
@@ -1345,7 +1345,7 @@
   "jma_gsm": 12.8,
   "icon_eu": 11.2,
   "meteofrance_arpege_europe": 11.7,
-  "ens": 11.45
+  "ens": 11.65
  },
  "telaviv|2026-11-20": {
   "ecmwf_ifs025": 26.1,
@@ -1364,7 +1364,7 @@
   "ukmo_global_deterministic_10km": 26.7,
   "meteofrance_arpege_world": 28.3,
   "jma_gsm": 25.6,
-  "ens": 26.66
+  "ens": 26.5
  },
  "helsinki|2026-11-20": {
   "ecmwf_ifs025": 4.7,
@@ -1385,7 +1385,7 @@
   "jma_gsm": 0.9,
   "icon_eu": 5.6,
   "meteofrance_arpege_europe": 6.0,
-  "ens": 3.93
+  "ens": 4.07
  },
  "amsterdam|2026-11-20": {
   "ecmwf_ifs025": 6.7,
@@ -1406,7 +1406,7 @@
   "jma_gsm": 7.2,
   "icon_eu": 8.8,
   "meteofrance_arpege_europe": 7.4,
-  "ens": 8.13
+  "ens": 8.03
  },
  "munich|2026-11-20": {
   "ecmwf_ifs025": 9.9,
@@ -1427,7 +1427,7 @@
   "jma_gsm": 9.6,
   "icon_eu": 11.6,
   "meteofrance_arpege_europe": 9.7,
-  "ens": 9.42
+  "ens": 9.33
  },
  "chongqing|2026-11-20": {
   "ecmwf_ifs025": 16.4,
@@ -1446,7 +1446,7 @@
   "ukmo_global_deterministic_10km": 15.7,
   "meteofrance_arpege_world": 17.0,
   "jma_gsm": 16.4,
-  "ens": 15.94
+  "ens": 16.0
  },
  "nyc|2026-11-20": {
   "ecmwf_ifs025": 16.6,
@@ -1466,7 +1466,7 @@
   "meteofrance_arpege_world": 13.7,
   "jma_gsm": 17.5,
   "ncep_nbm_conus": 17.7,
-  "ens": 16.97
+  "ens": 17.05
  },
  "hongkong|2026-11-20": {
   "ecmwf_ifs025": 19.2,
@@ -1485,7 +1485,7 @@
   "ukmo_global_deterministic_10km": 19.9,
   "meteofrance_arpege_world": 19.3,
   "jma_gsm": 17.9,
-  "ens": 18.79
+  "ens": 18.7
  },
  "milan|2026-11-20": {
   "ecmwf_ifs025": 15.6,
@@ -1506,7 +1506,7 @@
   "jma_gsm": 13.9,
   "icon_eu": 15.6,
   "meteofrance_arpege_europe": 6.1,
-  "ens": 13.21
+  "ens": 13.24
  },
  "moscow|2026-11-20": {
   "ecmwf_ifs025": 6.8,
@@ -1525,7 +1525,7 @@
   "ukmo_global_deterministic_10km": 5.6,
   "meteofrance_arpege_world": 3.1,
   "jma_gsm": 5.1,
-  "ens": 5.59
+  "ens": 5.65
  },
  "sf|2026-11-20": {
   "ecmwf_ifs025": 14.4,
@@ -1543,7 +1543,7 @@
   "ukmo_global_deterministic_10km": 15.0,
   "jma_gsm": 14.4,
   "ncep_nbm_conus": 13.6,
-  "ens": 14.36
+  "ens": 14.29
  },
  "miami|2026-11-20": {
   "ecmwf_ifs025": 27.8,
@@ -1563,7 +1563,7 @@
   "meteofrance_arpege_world": 25.2,
   "jma_gsm": 25.8,
   "ncep_nbm_conus": 27.8,
-  "ens": 26.71
+  "ens": 26.8
  },
  "madrid|2026-11-20": {
   "ecmwf_ifs025": 14.0,
@@ -1584,7 +1584,7 @@
   "jma_gsm": 12.9,
   "icon_eu": 12.5,
   "meteofrance_arpege_europe": 11.7,
-  "ens": 13.27
+  "ens": 13.32
  },
  "la|2026-11-20": {
   "ecmwf_ifs025": 18.5,
@@ -1602,7 +1602,7 @@
   "ukmo_global_deterministic_10km": 18.5,
   "jma_gsm": 17.8,
   "ncep_nbm_conus": 17.7,
-  "ens": 18.12
+  "ens": 18.26
  },
  "houston|2026-11-20": {
   "ecmwf_ifs025": 22.3,
@@ -1622,7 +1622,7 @@
   "meteofrance_arpege_world": 22.3,
   "jma_gsm": 21.3,
   "ncep_nbm_conus": 24.7,
-  "ens": 23.44
+  "ens": 23.69
  },
  "singapore|2026-11-20": {
   "ecmwf_ifs025": 30.5,
@@ -1641,7 +1641,7 @@
   "ukmo_global_deterministic_10km": 31.4,
   "meteofrance_arpege_world": 28.8,
   "jma_gsm": 28.6,
-  "ens": 29.52
+  "ens": 29.46
  },
  "tokyo|2026-11-20": {
   "ecmwf_ifs025": 13.7,
@@ -1660,7 +1660,7 @@
   "ukmo_global_deterministic_10km": 14.1,
   "meteofrance_arpege_world": 15.8,
   "jma_gsm": 14.3,
-  "ens": 14.03
+  "ens": 13.83
  },
  "warsaw|2026-11-20": {
   "ecmwf_ifs025": 8.5,
@@ -1681,7 +1681,7 @@
   "jma_gsm": 9.1,
   "icon_eu": 7.7,
   "meteofrance_arpege_europe": 7.4,
-  "ens": 7.81
+  "ens": 7.85
  },
  "busan|2026-11-18": {
   "ecmwf_ifs025": 13.6,
@@ -1700,7 +1700,7 @@
   "ukmo_global_deterministic_10km": 14.4,
   "meteofrance_arpege_world": 14.1,
   "jma_gsm": 16.2,
-  "ens": 14.17
+  "ens": 14.12
  },
  "busan|2026-11-19": {
   "ecmwf_ifs025": 8.5,
@@ -1719,7 +1719,7 @@
   "ukmo_global_deterministic_10km": 8.5,
   "meteofrance_arpege_world": 10.1,
   "jma_gsm": 11.1,
-  "ens": 9.19
+  "ens": 9.05
  },
  "busan|2026-11-20": {
   "ecmwf_ifs025": 7.1,
@@ -1738,7 +1738,7 @@
   "ukmo_global_deterministic_10km": 5.9,
   "meteofrance_arpege_world": 9.5,
   "jma_gsm": 9.4,
-  "ens": 7.75
+  "ens": 7.56
  },
  "chengdu|2026-11-18": {
   "ecmwf_ifs025": 13.9,
@@ -1757,7 +1757,7 @@
   "ukmo_global_deterministic_10km": 15.3,
   "meteofrance_arpege_world": 16.2,
   "jma_gsm": 14.8,
-  "ens": 14.72
+  "ens": 14.87
  },
  "chengdu|2026-11-19": {
   "ecmwf_ifs025": 14.5,
@@ -1776,7 +1776,7 @@
   "ukmo_global_deterministic_10km": 16.2,
   "meteofrance_arpege_world": 17.3,
   "jma_gsm": 15.7,
-  "ens": 14.83
+  "ens": 14.89
  },
  "chengdu|2026-11-20": {
   "ecmwf_ifs025": 16.9,
@@ -1795,7 +1795,7 @@
   "ukmo_global_deterministic_10km": 17.0,
   "meteofrance_arpege_world": 19.1,
   "jma_gsm": 17.0,
-  "ens": 17.08
+  "ens": 17.07
  },
  "wuhan|2026-11-18": {
   "ecmwf_ifs025": 14.4,
@@ -1814,7 +1814,7 @@
   "ukmo_global_deterministic_10km": 14.0,
   "meteofrance_arpege_world": 13.3,
   "jma_gsm": 15.5,
-  "ens": 13.52
+  "ens": 13.61
  },
  "wuhan|2026-11-19": {
   "ecmwf_ifs025": 14.6,
@@ -1833,7 +1833,7 @@
   "ukmo_global_deterministic_10km": 14.1,
   "meteofrance_arpege_world": 13.2,
   "jma_gsm": 15.3,
-  "ens": 14.13
+  "ens": 14.11
  },
  "wuhan|2026-11-20": {
   "ecmwf_ifs025": 15.0,
@@ -1852,7 +1852,7 @@
   "ukmo_global_deterministic_10km": 14.4,
   "meteofrance_arpege_world": 13.7,
   "jma_gsm": 15.5,
-  "ens": 14.77
+  "ens": 14.76
  },
  "denver|2026-11-17": {
   "icon_seamless": 18.3,
@@ -1893,7 +1893,7 @@
   "jma_gsm": 11.7,
   "ncep_nbm_conus": 13.7,
   "gem_regional": 12.8,
-  "ens": 13.19
+  "ens": 12.86
  },
  "denver|2026-11-19": {
   "ecmwf_ifs025": 15.7,
@@ -1914,7 +1914,7 @@
   "jma_gsm": 15.1,
   "ncep_nbm_conus": 13.0,
   "gem_regional": 13.2,
-  "ens": 12.57
+  "ens": 12.62
  },
  "denver|2026-11-20": {
   "ecmwf_ifs025": 16.6,
@@ -1932,7 +1932,7 @@
   "ukmo_global_deterministic_10km": 14.7,
   "jma_gsm": 14.3,
   "ncep_nbm_conus": 14.1,
-  "ens": 14.31
+  "ens": 14.46
  },
  "chicago|2026-11-17": {
   "icon_seamless": 12.3,
@@ -1974,7 +1974,7 @@
   "gfs_hrrr": 14.8,
   "ncep_nbm_conus": 15.1,
   "gem_regional": 13.0,
-  "ens": 14.09
+  "ens": 14.2
  },
  "chicago|2026-11-19": {
   "ecmwf_ifs025": 15.6,
@@ -1995,7 +1995,7 @@
   "jma_gsm": 16.9,
   "ncep_nbm_conus": 17.8,
   "gem_regional": 16.1,
-  "ens": 16.32
+  "ens": 16.36
  },
  "chicago|2026-11-20": {
   "ecmwf_ifs025": 16.5,
@@ -2015,7 +2015,7 @@
   "meteofrance_arpege_world": 13.8,
   "jma_gsm": 18.2,
   "ncep_nbm_conus": 17.9,
-  "ens": 16.97
+  "ens": 17.0
  },
  "lucknow|2026-11-18": {
   "ecmwf_ifs025": 26.2,
@@ -2053,7 +2053,7 @@
   "ukmo_global_deterministic_10km": 26.1,
   "meteofrance_arpege_world": 25.6,
   "jma_gsm": 27.4,
-  "ens": 26.24
+  "ens": 26.44
  },
  "lucknow|2026-11-20": {
   "ecmwf_ifs025": 26.3,
@@ -2072,7 +2072,7 @@
   "ukmo_global_deterministic_10km": 26.0,
   "meteofrance_arpege_world": 25.4,
   "jma_gsm": 27.5,
-  "ens": 26.38
+  "ens": 26.6
  },
  "atlanta|2026-11-17": {
   "icon_seamless": 16.0,
@@ -2114,7 +2114,7 @@
   "gfs_hrrr": 17.8,
   "ncep_nbm_conus": 18.9,
   "gem_regional": 17.0,
-  "ens": 17.7
+  "ens": 17.52
  },
  "atlanta|2026-11-19": {
   "ecmwf_ifs025": 18.1,
@@ -2135,7 +2135,7 @@
   "jma_gsm": 19.9,
   "ncep_nbm_conus": 19.0,
   "gem_regional": 20.0,
-  "ens": 18.06
+  "ens": 18.27
  },
  "atlanta|2026-11-20": {
   "ecmwf_ifs025": 20.3,
@@ -2155,7 +2155,7 @@
   "meteofrance_arpege_world": 18.8,
   "jma_gsm": 20.4,
   "ncep_nbm_conus": 19.9,
-  "ens": 18.68
+  "ens": 19.04
  },
  "seattle|2026-11-17": {
   "icon_seamless": 10.0,
@@ -2196,7 +2196,7 @@
   "jma_gsm": 8.2,
   "ncep_nbm_conus": 9.3,
   "gem_regional": 11.2,
-  "ens": 8.57
+  "ens": 8.51
  },
  "seattle|2026-11-19": {
   "ecmwf_ifs025": 9.4,
@@ -2217,7 +2217,7 @@
   "jma_gsm": 7.8,
   "ncep_nbm_conus": 9.1,
   "gem_regional": 9.8,
-  "ens": 8.67
+  "ens": 8.82
  },
  "seattle|2026-11-20": {
   "ecmwf_ifs025": 9.0,
@@ -2235,7 +2235,7 @@
   "ukmo_global_deterministic_10km": 9.3,
   "jma_gsm": 7.3,
   "ncep_nbm_conus": 7.7,
-  "ens": 7.8
+  "ens": 7.63
  },
  "dallas|2026-11-21": {
   "ecmwf_ifs025": 21.9,
@@ -2252,7 +2252,7 @@
   "ukmo_global_deterministic_10km": 22.0,
   "jma_gsm": 21.4,
   "ncep_nbm_conus": 24.7,
-  "ens": 22.1
+  "ens": 21.97
  },
  "shenzhen|2026-11-21": {
   "ecmwf_ifs025": 22.8,
@@ -2269,7 +2269,7 @@
   "gem_global": 19.8,
   "ukmo_global_deterministic_10km": 22.0,
   "jma_gsm": 22.7,
-  "ens": 20.82
+  "ens": 21.06
  },
  "jeddah|2026-11-21": {
   "ecmwf_ifs025": 35.0,
@@ -2285,7 +2285,7 @@
   "gem_global": 32.6,
   "ukmo_global_deterministic_10km": 33.0,
   "jma_gsm": 29.2,
-  "ens": 33.31
+  "ens": 33.35
  },
  "london|2026-11-21": {
   "ecmwf_ifs025": 8.7,
@@ -2302,7 +2302,7 @@
   "ukmo_global_deterministic_10km": 9.3,
   "jma_gsm": 7.5,
   "icon_eu": 7.5,
-  "ens": 9.52
+  "ens": 10.05
  },
  "paris|2026-11-21": {
   "ecmwf_ifs025": 10.8,
@@ -2319,7 +2319,7 @@
   "ukmo_global_deterministic_10km": 9.0,
   "jma_gsm": 10.4,
   "icon_eu": 8.7,
-  "ens": 10.26
+  "ens": 10.59
  },
  "telaviv|2026-11-21": {
   "ecmwf_ifs025": 27.3,
@@ -2335,7 +2335,7 @@
   "gem_global": 27.4,
   "ukmo_global_deterministic_10km": 26.1,
   "jma_gsm": 26.0,
-  "ens": 27.15
+  "ens": 26.97
  },
  "helsinki|2026-11-21": {
   "ecmwf_ifs025": 2.8,
@@ -2352,7 +2352,7 @@
   "ukmo_global_deterministic_10km": 1.8,
   "jma_gsm": 0.0,
   "icon_eu": 2.7,
-  "ens": 2.2
+  "ens": 2.3
  },
  "amsterdam|2026-11-21": {
   "ecmwf_ifs025": 8.6,
@@ -2369,7 +2369,7 @@
   "ukmo_global_deterministic_10km": 7.7,
   "jma_gsm": 9.6,
   "icon_eu": 9.2,
-  "ens": 8.75
+  "ens": 8.93
  },
  "munich|2026-11-21": {
   "ecmwf_ifs025": 7.8,
@@ -2386,7 +2386,7 @@
   "ukmo_global_deterministic_10km": 6.9,
   "jma_gsm": 7.5,
   "icon_eu": 6.0,
-  "ens": 7.25
+  "ens": 7.66
  },
  "chongqing|2026-11-21": {
   "ecmwf_ifs025": 17.5,
@@ -2403,7 +2403,7 @@
   "gem_global": 13.5,
   "ukmo_global_deterministic_10km": 16.4,
   "jma_gsm": 16.8,
-  "ens": 16.15
+  "ens": 16.43
  },
  "nyc|2026-11-21": {
   "ecmwf_ifs025": 16.0,
@@ -2420,7 +2420,7 @@
   "ukmo_global_deterministic_10km": 13.4,
   "jma_gsm": 14.4,
   "ncep_nbm_conus": 15.9,
-  "ens": 15.27
+  "ens": 15.37
  },
  "hongkong|2026-11-21": {
   "ecmwf_ifs025": 22.2,
@@ -2437,7 +2437,7 @@
   "gem_global": 21.4,
   "ukmo_global_deterministic_10km": 21.7,
   "jma_gsm": 22.5,
-  "ens": 21.03
+  "ens": 21.06
  },
  "milan|2026-11-21": {
   "ecmwf_ifs025": 15.2,
@@ -2454,7 +2454,7 @@
   "ukmo_global_deterministic_10km": 13.5,
   "jma_gsm": 14.7,
   "icon_eu": 16.6,
-  "ens": 14.03
+  "ens": 13.96
  },
  "moscow|2026-11-21": {
   "ecmwf_ifs025": 4.6,
@@ -2470,7 +2470,7 @@
   "gem_global": 2.7,
   "ukmo_global_deterministic_10km": 3.8,
   "jma_gsm": 3.7,
-  "ens": 4.25
+  "ens": 4.31
  },
  "sf|2026-11-21": {
   "ecmwf_ifs025": 15.6,
@@ -2487,7 +2487,7 @@
   "ukmo_global_deterministic_10km": 15.1,
   "jma_gsm": 14.7,
   "ncep_nbm_conus": 13.4,
-  "ens": 14.33
+  "ens": 14.42
  },
  "miami|2026-11-21": {
   "ecmwf_ifs025": 28.1,
@@ -2504,7 +2504,7 @@
   "ukmo_global_deterministic_10km": 29.4,
   "jma_gsm": 28.9,
   "ncep_nbm_conus": 28.0,
-  "ens": 27.21
+  "ens": 27.15
  },
  "madrid|2026-11-21": {
   "ecmwf_ifs025": 12.9,
@@ -2521,7 +2521,7 @@
   "ukmo_global_deterministic_10km": 13.0,
   "jma_gsm": 13.9,
   "icon_eu": 10.8,
-  "ens": 13.01
+  "ens": 13.5
  },
  "la|2026-11-21": {
   "ecmwf_ifs025": 18.7,
@@ -2538,7 +2538,7 @@
   "ukmo_global_deterministic_10km": 18.6,
   "jma_gsm": 18.7,
   "ncep_nbm_conus": 18.2,
-  "ens": 18.61
+  "ens": 18.57
  },
  "houston|2026-11-21": {
   "ecmwf_ifs025": 22.4,
@@ -2555,7 +2555,7 @@
   "ukmo_global_deterministic_10km": 23.0,
   "jma_gsm": 23.9,
   "ncep_nbm_conus": 25.4,
-  "ens": 24.21
+  "ens": 24.1
  },
  "singapore|2026-11-21": {
   "ecmwf_ifs025": 30.3,
@@ -2572,7 +2572,7 @@
   "gem_global": 32.3,
   "ukmo_global_deterministic_10km": 29.7,
   "jma_gsm": 29.1,
-  "ens": 29.91
+  "ens": 29.86
  },
  "tokyo|2026-11-21": {
   "ecmwf_ifs025": 13.2,
@@ -2589,7 +2589,7 @@
   "gem_global": 15.4,
   "ukmo_global_deterministic_10km": 13.9,
   "jma_gsm": 14.0,
-  "ens": 14.2
+  "ens": 14.0
  },
  "warsaw|2026-11-21": {
   "ecmwf_ifs025": 4.3,
@@ -2606,7 +2606,7 @@
   "ukmo_global_deterministic_10km": 4.8,
   "jma_gsm": 2.9,
   "icon_eu": 4.9,
-  "ens": 4.62
+  "ens": 4.64
  },
  "busan|2026-11-21": {
   "ecmwf_ifs025": 7.1,
@@ -2623,7 +2623,7 @@
   "gem_global": 6.6,
   "ukmo_global_deterministic_10km": 6.6,
   "jma_gsm": 9.3,
-  "ens": 7.78
+  "ens": 7.68
  },
  "chengdu|2026-11-21": {
   "ecmwf_ifs025": 16.8,
@@ -2640,7 +2640,7 @@
   "gem_global": 15.5,
   "ukmo_global_deterministic_10km": 16.3,
   "jma_gsm": 17.0,
-  "ens": 16.42
+  "ens": 16.51
  },
  "wuhan|2026-11-21": {
   "ecmwf_ifs025": 17.5,
@@ -2657,7 +2657,7 @@
   "gem_global": 14.9,
   "ukmo_global_deterministic_10km": 16.3,
   "jma_gsm": 17.8,
-  "ens": 16.55
+  "ens": 16.56
  },
  "denver|2026-11-21": {
   "ecmwf_ifs025": 6.0,
@@ -2674,7 +2674,7 @@
   "ukmo_global_deterministic_10km": 8.8,
   "jma_gsm": 6.1,
   "ncep_nbm_conus": 8.7,
-  "ens": 7.79
+  "ens": 7.66
  },
  "chicago|2026-11-21": {
   "ecmwf_ifs025": 14.4,
@@ -2691,7 +2691,7 @@
   "ukmo_global_deterministic_10km": 16.6,
   "jma_gsm": 18.7,
   "ncep_nbm_conus": 18.5,
-  "ens": 17.32
+  "ens": 17.4
  },
  "lucknow|2026-11-21": {
   "ecmwf_ifs025": 27.2,
@@ -2707,7 +2707,7 @@
   "gem_global": 28.9,
   "ukmo_global_deterministic_10km": 27.0,
   "jma_gsm": 27.5,
-  "ens": 26.1
+  "ens": 26.63
  },
  "atlanta|2026-11-21": {
   "ecmwf_ifs025": 17.4,
@@ -2724,7 +2724,7 @@
   "ukmo_global_deterministic_10km": 15.2,
   "jma_gsm": 16.5,
   "ncep_nbm_conus": 19.5,
-  "ens": 18.07
+  "ens": 18.02
  },
  "seattle|2026-11-21": {
   "ecmwf_ifs025": 8.9,
@@ -2741,7 +2741,7 @@
   "ukmo_global_deterministic_10km": 11.0,
   "jma_gsm": 8.1,
   "ncep_nbm_conus": 8.4,
-  "ens": 7.77
+  "ens": 8.12
  },
  "dallas|2026-11-22": {
   "ecmwf_ifs025": 16.3,
@@ -2758,7 +2758,7 @@
   "ukmo_global_deterministic_10km": 20.3,
   "jma_gsm": 15.6,
   "ncep_nbm_conus": 20.7,
-  "ens": 18.99
+  "ens": 19.1
  },
  "shenzhen|2026-11-22": {
   "ecmwf_ifs025": 24.1,
@@ -2774,7 +2774,7 @@
   "gem_global": 24.4,
   "ukmo_global_deterministic_10km": 22.3,
   "jma_gsm": 23.5,
-  "ens": 21.5
+  "ens": 22.18
  },
  "jeddah|2026-11-22": {
   "ecmwf_ifs025": 34.1,
@@ -2790,7 +2790,7 @@
   "gem_global": 31.8,
   "ukmo_global_deterministic_10km": 33.3,
   "jma_gsm": 28.9,
-  "ens": 32.59
+  "ens": 32.66
  },
  "london|2026-11-22": {
   "ecmwf_ifs025": 7.5,
@@ -2806,7 +2806,7 @@
   "gem_global": 10.1,
   "ukmo_global_deterministic_10km": 10.9,
   "jma_gsm": 7.7,
-  "ens": 9.79
+  "ens": 9.76
  },
  "paris|2026-11-22": {
   "ecmwf_ifs025": 10.1,
@@ -2822,7 +2822,7 @@
   "gem_global": 10.5,
   "ukmo_global_deterministic_10km": 12.1,
   "jma_gsm": 11.0,
-  "ens": 10.39
+  "ens": 10.79
  },
  "telaviv|2026-11-22": {
   "ecmwf_ifs025": 25.0,
@@ -2838,7 +2838,7 @@
   "gem_global": 25.2,
   "ukmo_global_deterministic_10km": 23.7,
   "jma_gsm": 22.7,
-  "ens": 24.33
+  "ens": 24.14
  },
  "helsinki|2026-11-22": {
   "ecmwf_ifs025": 1.1,
@@ -2854,7 +2854,7 @@
   "gem_global": 0.6,
   "ukmo_global_deterministic_10km": -0.1,
   "jma_gsm": 0.1,
-  "ens": 0.95
+  "ens": 1.0
  },
  "amsterdam|2026-11-22": {
   "ecmwf_ifs025": 4.9,
@@ -2870,7 +2870,7 @@
   "gem_global": 5.7,
   "ukmo_global_deterministic_10km": 5.3,
   "jma_gsm": 7.0,
-  "ens": 7.73
+  "ens": 7.58
  },
  "munich|2026-11-22": {
   "ecmwf_ifs025": 4.6,
@@ -2886,7 +2886,7 @@
   "gem_global": 5.8,
   "ukmo_global_deterministic_10km": 5.7,
   "jma_gsm": 4.4,
-  "ens": 6.25
+  "ens": 6.56
  },
  "chongqing|2026-11-22": {
   "ecmwf_ifs025": 15.8,
@@ -2902,7 +2902,7 @@
   "gem_global": 13.8,
   "ukmo_global_deterministic_10km": 15.7,
   "jma_gsm": 18.5,
-  "ens": 15.05
+  "ens": 15.21
  },
  "nyc|2026-11-22": {
   "ecmwf_ifs025": 16.4,
@@ -2919,7 +2919,7 @@
   "ukmo_global_deterministic_10km": 13.6,
   "jma_gsm": 14.5,
   "ncep_nbm_conus": 16.6,
-  "ens": 15.78
+  "ens": 15.19
  },
  "hongkong|2026-11-22": {
   "ecmwf_ifs025": 21.8,
@@ -2935,7 +2935,7 @@
   "gem_global": 22.1,
   "ukmo_global_deterministic_10km": 21.9,
   "jma_gsm": 23.3,
-  "ens": 21.66
+  "ens": 21.84
  },
  "milan|2026-11-22": {
   "ecmwf_ifs025": 10.0,
@@ -2951,7 +2951,7 @@
   "gem_global": 7.7,
   "ukmo_global_deterministic_10km": 9.3,
   "jma_gsm": 10.2,
-  "ens": 9.06
+  "ens": 9.36
  },
  "moscow|2026-11-22": {
   "ecmwf_ifs025": 0.3,
@@ -2967,7 +2967,7 @@
   "gem_global": 1.3,
   "ukmo_global_deterministic_10km": 1.8,
   "jma_gsm": 0.0,
-  "ens": 1.61
+  "ens": 1.56
  },
  "sf|2026-11-22": {
   "ecmwf_ifs025": 14.4,
@@ -3001,7 +3001,7 @@
   "ukmo_global_deterministic_10km": 28.1,
   "jma_gsm": 29.0,
   "ncep_nbm_conus": 28.1,
-  "ens": 27.32
+  "ens": 27.37
  },
  "madrid|2026-11-22": {
   "ecmwf_ifs025": 14.4,
@@ -3017,7 +3017,7 @@
   "gem_global": 14.5,
   "ukmo_global_deterministic_10km": 13.9,
   "jma_gsm": 15.2,
-  "ens": 14.12
+  "ens": 14.21
  },
  "la|2026-11-22": {
   "ecmwf_ifs025": 18.7,
@@ -3034,7 +3034,7 @@
   "ukmo_global_deterministic_10km": 19.1,
   "jma_gsm": 18.3,
   "ncep_nbm_conus": 17.3,
-  "ens": 18.07
+  "ens": 18.21
  },
  "houston|2026-11-22": {
   "ecmwf_ifs025": 23.2,
@@ -3051,7 +3051,7 @@
   "ukmo_global_deterministic_10km": 23.7,
   "jma_gsm": 21.1,
   "ncep_nbm_conus": 23.9,
-  "ens": 23.55
+  "ens": 23.75
  },
  "singapore|2026-11-22": {
   "ecmwf_ifs025": 30.3,
@@ -3067,7 +3067,7 @@
   "gem_global": 31.3,
   "ukmo_global_deterministic_10km": 31.0,
   "jma_gsm": 28.9,
-  "ens": 29.51
+  "ens": 29.7
  },
  "tokyo|2026-11-22": {
   "ecmwf_ifs025": 12.5,
@@ -3083,7 +3083,7 @@
   "gem_global": 13.4,
   "ukmo_global_deterministic_10km": 11.7,
   "jma_gsm": 12.7,
-  "ens": 12.74
+  "ens": 12.75
  },
  "warsaw|2026-11-22": {
   "ecmwf_ifs025": 3.2,
@@ -3099,7 +3099,7 @@
   "gem_global": 2.8,
   "ukmo_global_deterministic_10km": 3.6,
   "jma_gsm": 3.7,
-  "ens": 4.26
+  "ens": 4.32
  },
  "busan|2026-11-22": {
   "ecmwf_ifs025": 7.4,
@@ -3115,7 +3115,7 @@
   "gem_global": 6.8,
   "ukmo_global_deterministic_10km": 7.8,
   "jma_gsm": 10.7,
-  "ens": 8.84
+  "ens": 8.7
  },
  "chengdu|2026-11-22": {
   "ecmwf_ifs025": 16.9,
@@ -3131,7 +3131,7 @@
   "gem_global": 15.1,
   "ukmo_global_deterministic_10km": 16.3,
   "jma_gsm": 17.7,
-  "ens": 15.93
+  "ens": 16.1
  },
  "wuhan|2026-11-22": {
   "ecmwf_ifs025": 16.7,
@@ -3147,7 +3147,7 @@
   "gem_global": 16.6,
   "ukmo_global_deterministic_10km": 16.3,
   "jma_gsm": 20.2,
-  "ens": 16.3
+  "ens": 16.55
  },
  "denver|2026-11-22": {
   "ecmwf_ifs025": 7.0,
@@ -3164,7 +3164,7 @@
   "ukmo_global_deterministic_10km": 7.8,
   "jma_gsm": 9.9,
   "ncep_nbm_conus": 9.1,
-  "ens": 8.46
+  "ens": 8.43
  },
  "chicago|2026-11-22": {
   "ecmwf_ifs025": 13.5,
@@ -3181,7 +3181,7 @@
   "ukmo_global_deterministic_10km": 14.0,
   "jma_gsm": 15.1,
   "ncep_nbm_conus": 13.3,
-  "ens": 12.91
+  "ens": 13.4
  },
  "lucknow|2026-11-22": {
   "ecmwf_ifs025": 27.0,
@@ -3197,7 +3197,7 @@
   "gem_global": 28.7,
   "ukmo_global_deterministic_10km": 26.5,
   "jma_gsm": 26.4,
-  "ens": 25.65
+  "ens": 26.25
  },
  "atlanta|2026-11-22": {
   "ecmwf_ifs025": 21.9,
@@ -3214,7 +3214,7 @@
   "ukmo_global_deterministic_10km": 18.6,
   "jma_gsm": 18.3,
   "ncep_nbm_conus": 21.5,
-  "ens": 19.91
+  "ens": 19.87
  },
  "seattle|2026-11-22": {
   "ecmwf_ifs025": 9.4,
@@ -3231,7 +3231,7 @@
   "ukmo_global_deterministic_10km": 10.8,
   "jma_gsm": 8.2,
   "ncep_nbm_conus": 8.6,
-  "ens": 7.98
+  "ens": 8.39
  },
  "dallas|2026-11-23": {
   "ecmwf_ifs025": 16.1,
@@ -3246,7 +3246,7 @@
   "gem_global": 22.8,
   "jma_gsm": 14.6,
   "ncep_nbm_conus": 19.8,
-  "ens": 17.33
+  "ens": 16.71
  },
  "shenzhen|2026-11-23": {
   "ecmwf_ifs025": 24.8,
@@ -3262,7 +3262,7 @@
   "gem_global": 26.2,
   "ukmo_global_deterministic_10km": 26.7,
   "jma_gsm": 24.7,
-  "ens": 24.12
+  "ens": 24.36
  },
  "jeddah|2026-11-23": {
   "ecmwf_ifs025": 35.1,
@@ -3278,7 +3278,7 @@
   "gem_global": 32.9,
   "ukmo_global_deterministic_10km": 34.7,
   "jma_gsm": 28.7,
-  "ens": 32.71
+  "ens": 32.75
  },
  "london|2026-11-23": {
   "ecmwf_ifs025": 9.9,
@@ -3294,7 +3294,7 @@
   "gem_global": 11.8,
   "ukmo_global_deterministic_10km": 11.8,
   "jma_gsm": 11.3,
-  "ens": 10.0
+  "ens": 9.78
  },
  "paris|2026-11-23": {
   "ecmwf_ifs025": 11.6,
@@ -3310,7 +3310,7 @@
   "gem_global": 11.8,
   "ukmo_global_deterministic_10km": 11.7,
   "jma_gsm": 11.4,
-  "ens": 10.27
+  "ens": 10.39
  },
  "telaviv|2026-11-23": {
   "ecmwf_ifs025": 24.5,
@@ -3326,7 +3326,7 @@
   "gem_global": 23.4,
   "ukmo_global_deterministic_10km": 23.7,
   "jma_gsm": 20.7,
-  "ens": 23.3
+  "ens": 23.55
  },
  "helsinki|2026-11-23": {
   "ecmwf_ifs025": 0.3,
@@ -3342,7 +3342,7 @@
   "gem_global": 0.5,
   "ukmo_global_deterministic_10km": 0.4,
   "jma_gsm": -1.7,
-  "ens": 0.51
+  "ens": 0.52
  },
  "amsterdam|2026-11-23": {
   "ecmwf_ifs025": 2.4,
@@ -3358,7 +3358,7 @@
   "gem_global": 5.7,
   "ukmo_global_deterministic_10km": 5.5,
   "jma_gsm": 3.8,
-  "ens": 7.71
+  "ens": 7.28
  },
  "munich|2026-11-23": {
   "ecmwf_ifs025": 6.5,
@@ -3390,7 +3390,7 @@
   "gem_global": 13.3,
   "ukmo_global_deterministic_10km": 15.5,
   "jma_gsm": 15.0,
-  "ens": 14.33
+  "ens": 14.13
  },
  "nyc|2026-11-23": {
   "ecmwf_ifs025": 14.5,
@@ -3405,7 +3405,7 @@
   "gem_global": 14.0,
   "jma_gsm": 13.5,
   "ncep_nbm_conus": 14.1,
-  "ens": 14.38
+  "ens": 14.33
  },
  "hongkong|2026-11-23": {
   "ecmwf_ifs025": 24.1,
@@ -3421,7 +3421,7 @@
   "gem_global": 24.2,
   "ukmo_global_deterministic_10km": 25.0,
   "jma_gsm": 24.5,
-  "ens": 23.63
+  "ens": 23.79
  },
  "milan|2026-11-23": {
   "ecmwf_ifs025": 14.5,
@@ -3437,7 +3437,7 @@
   "gem_global": 11.6,
   "ukmo_global_deterministic_10km": 12.2,
   "jma_gsm": 12.8,
-  "ens": 12.33
+  "ens": 12.84
  },
  "moscow|2026-11-23": {
   "ecmwf_ifs025": 1.4,
@@ -3453,7 +3453,7 @@
   "gem_global": 0.5,
   "ukmo_global_deterministic_10km": 0.5,
   "jma_gsm": -0.9,
-  "ens": 0.48
+  "ens": 0.56
  },
  "sf|2026-11-23": {
   "ecmwf_ifs025": 14.5,
@@ -3467,7 +3467,8 @@
   "gfs_global": 14.3,
   "gem_global": 16.5,
   "jma_gsm": 16.3,
-  "ncep_nbm_conus": 14.0
+  "ncep_nbm_conus": 14.0,
+  "ens": 14.82
  },
  "miami|2026-11-23": {
   "ecmwf_ifs025": 25.6,
@@ -3482,7 +3483,7 @@
   "gem_global": 27.0,
   "jma_gsm": 25.6,
   "ncep_nbm_conus": 27.3,
-  "ens": 26.19
+  "ens": 26.12
  },
  "madrid|2026-11-23": {
   "ecmwf_ifs025": 12.6,
@@ -3498,7 +3499,7 @@
   "gem_global": 13.0,
   "ukmo_global_deterministic_10km": 11.8,
   "jma_gsm": 13.6,
-  "ens": 12.63
+  "ens": 12.48
  },
  "la|2026-11-23": {
   "ecmwf_ifs025": 17.9,
@@ -3512,7 +3513,8 @@
   "gfs_global": 17.6,
   "gem_global": 18.9,
   "jma_gsm": 18.4,
-  "ncep_nbm_conus": 18.4
+  "ncep_nbm_conus": 18.4,
+  "ens": 18.67
  },
  "houston|2026-11-23": {
   "ecmwf_ifs025": 21.1,
@@ -3527,7 +3529,7 @@
   "gem_global": 26.4,
   "jma_gsm": 19.0,
   "ncep_nbm_conus": 22.0,
-  "ens": 21.48
+  "ens": 21.37
  },
  "singapore|2026-11-23": {
   "ecmwf_ifs025": 30.5,
@@ -3543,7 +3545,7 @@
   "gem_global": 31.2,
   "ukmo_global_deterministic_10km": 27.9,
   "jma_gsm": 29.6,
-  "ens": 29.76
+  "ens": 29.75
  },
  "tokyo|2026-11-23": {
   "ecmwf_ifs025": 12.2,
@@ -3559,7 +3561,7 @@
   "gem_global": 13.0,
   "ukmo_global_deterministic_10km": 13.1,
   "jma_gsm": 15.9,
-  "ens": 13.16
+  "ens": 13.3
  },
  "warsaw|2026-11-23": {
   "ecmwf_ifs025": 2.3,
@@ -3575,7 +3577,7 @@
   "gem_global": 3.0,
   "ukmo_global_deterministic_10km": 3.8,
   "jma_gsm": 2.2,
-  "ens": 3.65
+  "ens": 3.47
  },
  "busan|2026-11-23": {
   "ecmwf_ifs025": 12.1,
@@ -3591,7 +3593,7 @@
   "gem_global": 14.9,
   "ukmo_global_deterministic_10km": 15.1,
   "jma_gsm": 17.6,
-  "ens": 13.32
+  "ens": 13.48
  },
  "chengdu|2026-11-23": {
   "ecmwf_ifs025": 18.6,
@@ -3607,7 +3609,7 @@
   "gem_global": 17.2,
   "ukmo_global_deterministic_10km": 19.0,
   "jma_gsm": 19.2,
-  "ens": 17.49
+  "ens": 17.45
  },
  "wuhan|2026-11-23": {
   "ecmwf_ifs025": 14.7,
@@ -3623,7 +3625,7 @@
   "gem_global": 16.8,
   "ukmo_global_deterministic_10km": 17.0,
   "jma_gsm": 17.5,
-  "ens": 15.45
+  "ens": 15.38
  },
  "denver|2026-11-23": {
   "ecmwf_ifs025": 6.4,
@@ -3637,7 +3639,8 @@
   "gfs_global": 7.2,
   "gem_global": 6.1,
   "jma_gsm": 8.9,
-  "ncep_nbm_conus": 7.6
+  "ncep_nbm_conus": 7.6,
+  "ens": 6.05
  },
  "chicago|2026-11-23": {
   "ecmwf_ifs025": 6.1,
@@ -3652,7 +3655,7 @@
   "gem_global": 8.1,
   "jma_gsm": 5.1,
   "ncep_nbm_conus": 6.5,
-  "ens": 6.05
+  "ens": 6.38
  },
  "lucknow|2026-11-23": {
   "ecmwf_ifs025": 25.2,
@@ -3668,7 +3671,7 @@
   "gem_global": 26.1,
   "ukmo_global_deterministic_10km": 23.5,
   "jma_gsm": 27.3,
-  "ens": 24.93
+  "ens": 25.25
  },
  "atlanta|2026-11-23": {
   "ecmwf_ifs025": 16.5,
@@ -3683,7 +3686,7 @@
   "gem_global": 22.8,
   "jma_gsm": 16.5,
   "ncep_nbm_conus": 20.0,
-  "ens": 18.83
+  "ens": 18.93
  },
  "seattle|2026-11-23": {
   "ecmwf_ifs025": 9.9,
@@ -3697,6 +3700,7 @@
   "gfs_global": 7.5,
   "gem_global": 9.1,
   "jma_gsm": 10.1,
-  "ncep_nbm_conus": 9.1
+  "ncep_nbm_conus": 9.1,
+  "ens": 8.66
  }
 }
