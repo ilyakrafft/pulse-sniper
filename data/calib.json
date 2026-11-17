@@ -1157,6 +1157,36 @@
     "ecmwf_ifs": 11.1
    },
    "bf": 1
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 15.89,
+   "sd": 0.6,
+   "a": 17.0,
+   "m": {
+    "icon_seamless": 16.6,
+    "gfs_seamless": 16.3,
+    "ukmo_seamless": 15.8,
+    "meteofrance_seamless": 16.1,
+    "gem_seamless": 14.5,
+    "jma_seamless": 16.6,
+    "cma_grapes_global": 14.4,
+    "ecmwf_ifs": 15.8,
+    "icon_global": 16.2,
+    "gfs_global": 16.3,
+    "gem_global": 14.3,
+    "ukmo_global_deterministic_10km": 15.7,
+    "meteofrance_arpege_world": 14.9,
+    "jma_gsm": 16.6,
+    "icon_d2": 16.6,
+    "knmi_harmonie_arome_europe": 15.3,
+    "icon_eu": 16.2,
+    "meteofrance_arpege_europe": 14.9,
+    "dmi_harmonie_arome_europe": 15.8,
+    "meteofrance_arome_france": 16.0,
+    "meteofrance_arome_france_hd": 16.1,
+    "ens": 15.7
+   }
   }
  ],
  "sf": [
@@ -4116,6 +4146,29 @@
     "jma_gsm": 24.1,
     "ens": 24.7
    }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 23.84,
+   "sd": 0.58,
+   "a": 24.0,
+   "m": {
+    "icon_seamless": 23.9,
+    "gfs_seamless": 23.3,
+    "ukmo_seamless": 23.8,
+    "meteofrance_seamless": 24.7,
+    "gem_seamless": 24.4,
+    "jma_seamless": 23.3,
+    "cma_grapes_global": 22.0,
+    "ecmwf_ifs": 24.2,
+    "icon_global": 23.7,
+    "gfs_global": 23.3,
+    "gem_global": 24.4,
+    "ukmo_global_deterministic_10km": 23.8,
+    "meteofrance_arpege_world": 25.5,
+    "jma_gsm": 23.3,
+    "ens": 23.7
+   }
   }
  ],
  "madrid": [
@@ -4841,6 +4894,33 @@
     "meteofrance_arpege_europe": 6.3,
     "dmi_harmonie_arome_europe": 6.7,
     "ens": 8.4
+   }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 7.34,
+   "sd": 0.74,
+   "a": 8.0,
+   "m": {
+    "icon_seamless": 8.1,
+    "gfs_seamless": 7.9,
+    "ukmo_seamless": 6.7,
+    "meteofrance_seamless": 5.7,
+    "gem_seamless": 7.4,
+    "jma_seamless": 7.9,
+    "cma_grapes_global": 6.2,
+    "ecmwf_ifs": 6.6,
+    "icon_global": 8.0,
+    "gfs_global": 7.9,
+    "gem_global": 7.2,
+    "ukmo_global_deterministic_10km": 6.7,
+    "meteofrance_arpege_world": 5.7,
+    "jma_gsm": 7.9,
+    "knmi_harmonie_arome_europe": 7.6,
+    "icon_eu": 8.1,
+    "meteofrance_arpege_europe": 5.7,
+    "dmi_harmonie_arome_europe": 7.8,
+    "ens": 7.1
    }
   }
  ],

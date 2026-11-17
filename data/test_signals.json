@@ -2217,7 +2217,7 @@
   "sd": 0.92,
   "n": 19,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -2233,7 +2233,9 @@
   "edge": -0.307,
   "level": "light",
   "key": "paris|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "17°C",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -2243,7 +2245,7 @@
   "sd": 0.87,
   "n": 17,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "24°C",
   "labels": [
@@ -2259,7 +2261,9 @@
   "edge": -0.332,
   "level": "light",
   "key": "telaviv|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "24°C",
+  "hit": true
  },
  {
   "city": "helsinki",
@@ -2403,7 +2407,7 @@
   "sd": 1.76,
   "n": 19,
   "first": "2026-11-15T05:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -2419,7 +2423,9 @@
   "edge": -0.311,
   "level": "light",
   "key": "warsaw|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "chengdu",
