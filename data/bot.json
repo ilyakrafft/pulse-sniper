@@ -789,7 +789,9 @@
     "78–79°F",
     "80–81°F"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": true
   },
   "atlanta|2026-11-17": {
    "city": "atlanta",
@@ -1090,6 +1092,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.86
+  },
+  {
+   "date": "2026-11-17",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.99
   }
  ],
  "last_summary": "2026-W46",

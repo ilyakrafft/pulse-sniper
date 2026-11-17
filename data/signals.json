@@ -1437,13 +1437,13 @@
   "key": "wuhan|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
   "live": {
-   "t": "2026-11-17T17:39+00:00",
-   "pm": 0.801,
-   "val": 0.743,
+   "t": "2026-11-17T19:00+00:00",
+   "pm": 0.782,
+   "val": 0.721,
    "state": "hold",
    "temp": 11,
    "max": 11,
-   "hour": 1.6
+   "hour": 3.0
   },
   "alerts": {}
  },
@@ -1943,7 +1943,7 @@
    }
   ],
   "first": "2026-11-17T14:24+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-17T21:00+00:00",
   "kind": "corr",
   "label": "78–79°F",
@@ -1979,15 +1979,17 @@
   "key": "miami|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T17:39+00:00",
-   "pm": 0.605,
-   "val": 0.942,
+   "t": "2026-11-17T19:00+00:00",
+   "pm": 0.586,
+   "val": 0.968,
    "state": "hold",
-   "temp": 26.7,
+   "temp": 26.1,
    "max": 27.2,
-   "hour": 12.7
+   "hour": 14.0
   },
-  "alerts": {}
+  "alerts": {},
+  "win": "80–81°F",
+  "hit": true
  },
  {
   "city": "atlanta",
@@ -2093,13 +2095,13 @@
   "key": "atlanta|2026-11-17",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-17-2026",
   "live": {
-   "t": "2026-11-17T17:39+00:00",
-   "pm": 0.936,
-   "val": 0.794,
+   "t": "2026-11-17T19:00+00:00",
+   "pm": 0.861,
+   "val": 0.907,
    "state": "hold",
-   "temp": 14.4,
-   "max": 14.4,
-   "hour": 12.7
+   "temp": 16.7,
+   "max": 16.7,
+   "hour": 14.0
   },
   "alerts": {}
  },

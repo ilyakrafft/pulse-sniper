@@ -5257,5 +5257,33 @@
    "meteofrance_arpege_europe": 14.2,
    "ens": 15.39
   }
+ },
+ {
+  "date": "2026-11-17",
+  "city": "miami",
+  "k": 25,
+  "p": 0.737,
+  "actual": 27,
+  "hit": false,
+  "v": {
+   "icon_seamless": 25.2,
+   "gfs_seamless": 25.9,
+   "ukmo_seamless": 25.4,
+   "meteofrance_seamless": 25.1,
+   "gem_seamless": 24.6,
+   "jma_seamless": 24.9,
+   "cma_grapes_global": 24.5,
+   "ecmwf_ifs": 25.2,
+   "icon_global": 25.2,
+   "gfs_global": 25.4,
+   "gem_global": 25.1,
+   "ukmo_global_deterministic_10km": 25.4,
+   "meteofrance_arpege_world": 25.1,
+   "jma_gsm": 24.9,
+   "gfs_hrrr": 25.9,
+   "ncep_nbm_conus": 25.0,
+   "gem_regional": 24.6,
+   "ens": 25.37
+  }
  }
 ]
