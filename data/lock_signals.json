@@ -359,5 +359,43 @@
   "tier": "lock",
   "win": "9°C",
   "hit": false
+ },
+ {
+  "key": "paris|2026-11-17",
+  "city": "paris",
+  "date": "2026-11-17",
+  "first": "2026-11-17T21:54+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "16°C",
+  "labels": [
+   "16°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 16,
+  "station_hour": 22.5,
+  "tier": "lock",
+  "win": "17°C",
+  "hit": false
+ },
+ {
+  "key": "telaviv|2026-11-17",
+  "city": "telaviv",
+  "date": "2026-11-17",
+  "first": "2026-11-17T21:54+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "23°C",
+  "labels": [
+   "23°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 23,
+  "station_hour": 23.8,
+  "tier": "lock",
+  "win": "24°C",
+  "hit": false
  }
 ]
