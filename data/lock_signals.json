@@ -623,5 +623,81 @@
   "tier": "lock",
   "win": "11°C",
   "hit": false
+ },
+ {
+  "key": "telaviv|2026-11-18",
+  "city": "telaviv",
+  "date": "2026-11-18",
+  "first": "2026-11-18T20:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "23°C",
+  "labels": [
+   "23°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 23,
+  "station_hour": 22.8,
+  "tier": "lock",
+  "win": "24°C",
+  "hit": false
+ },
+ {
+  "key": "amsterdam|2026-11-18",
+  "city": "amsterdam",
+  "date": "2026-11-18",
+  "first": "2026-11-18T20:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "10°C",
+  "labels": [
+   "10°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 10,
+  "station_hour": 21.4,
+  "tier": "lock",
+  "win": "11°C",
+  "hit": false
+ },
+ {
+  "key": "munich|2026-11-18",
+  "city": "munich",
+  "date": "2026-11-18",
+  "first": "2026-11-18T20:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "12°C",
+  "labels": [
+   "12°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 12,
+  "station_hour": 21.8,
+  "tier": "lock",
+  "win": "13°C",
+  "hit": false
+ },
+ {
+  "key": "madrid|2026-11-18",
+  "city": "madrid",
+  "date": "2026-11-18",
+  "first": "2026-11-18T20:55+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "17°C",
+  "labels": [
+   "17°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 17,
+  "station_hour": 21.5,
+  "tier": "lock",
+  "win": "18°C",
+  "hit": false
  }
 ]
