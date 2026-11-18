@@ -3969,6 +3969,31 @@
     "jma_gsm": 29.1,
     "ens": 33.1
    }
+  },
+  {
+   "d": "2026-11-18",
+   "mu": 32.67,
+   "sd": 1.07,
+   "a": 34.0,
+   "m": {
+    "ecmwf_ifs025": 33.7,
+    "ecmwf_aifs025_single": 32.4,
+    "icon_seamless": 33.0,
+    "gfs_seamless": 32.1,
+    "ukmo_seamless": 33.5,
+    "meteofrance_seamless": 32.4,
+    "gem_seamless": 32.3,
+    "jma_seamless": 28.4,
+    "cma_grapes_global": 31.5,
+    "ecmwf_ifs": 33.2,
+    "icon_global": 33.0,
+    "gfs_global": 32.1,
+    "gem_global": 32.3,
+    "ukmo_global_deterministic_10km": 33.5,
+    "meteofrance_arpege_world": 33.6,
+    "jma_gsm": 28.4,
+    "ens": 32.7
+   }
   }
  ],
  "munich": [
@@ -8543,6 +8568,31 @@
     "meteofrance_arpege_world": 26.9,
     "jma_gsm": 27.7,
     "ens": 27.3
+   }
+  },
+  {
+   "d": "2026-11-18",
+   "mu": 26.79,
+   "sd": 0.39,
+   "a": 27.0,
+   "m": {
+    "ecmwf_ifs025": 26.5,
+    "ecmwf_aifs025_single": 26.7,
+    "icon_seamless": 26.4,
+    "gfs_seamless": 27.5,
+    "ukmo_seamless": 27.0,
+    "meteofrance_seamless": 26.6,
+    "gem_seamless": 27.3,
+    "jma_seamless": 27.0,
+    "cma_grapes_global": 25.7,
+    "ecmwf_ifs": 26.5,
+    "icon_global": 26.4,
+    "gfs_global": 27.5,
+    "gem_global": 27.3,
+    "ukmo_global_deterministic_10km": 27.0,
+    "meteofrance_arpege_world": 26.6,
+    "jma_gsm": 27.0,
+    "ens": 26.8
    }
   }
  ],

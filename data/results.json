@@ -850,5 +850,13 @@
  "helsinki|2026-11-18": {
   "win": "6°C",
   "actual": 6
+ },
+ "jeddah|2026-11-18": {
+  "win": "34°C",
+  "actual": 34
+ },
+ "lucknow|2026-11-18": {
+  "win": "27°C",
+  "actual": 27
  }
 }
