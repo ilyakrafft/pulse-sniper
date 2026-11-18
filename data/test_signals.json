@@ -3787,7 +3787,7 @@
   "sd": 1.58,
   "n": 19,
   "first": "2026-11-16T12:08+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "72–73°F",
   "labels": [
@@ -3803,7 +3803,9 @@
   "edge": -0.378,
   "level": "light",
   "key": "houston|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "68–69°F",
+  "hit": false
  },
  {
   "city": "sf",
@@ -4259,7 +4261,7 @@
   "sd": 1.19,
   "n": 19,
   "first": "2026-11-17T08:23+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -4275,7 +4277,9 @@
   "edge": -0.311,
   "level": "light",
   "key": "denver|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "58–59°F",
+  "hit": true
  },
  {
   "city": "lucknow",
