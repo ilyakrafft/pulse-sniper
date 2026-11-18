@@ -435,5 +435,24 @@
   "tier": "lock",
   "win": "8°C",
   "hit": false
+ },
+ {
+  "key": "busan|2026-11-18",
+  "city": "busan",
+  "date": "2026-11-18",
+  "first": "2026-11-18T11:06+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "14°C",
+  "labels": [
+   "14°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 14,
+  "station_hour": 20.0,
+  "tier": "lock",
+  "win": "16°C",
+  "hit": false
  }
 ]

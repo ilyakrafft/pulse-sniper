@@ -3191,7 +3191,7 @@
   "sd": 1.03,
   "n": 14,
   "first": "2026-11-16T08:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -3207,7 +3207,9 @@
   "edge": -0.27,
   "level": "light",
   "key": "telaviv|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "24°C",
+  "hit": true
  },
  {
   "city": "helsinki",

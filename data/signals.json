@@ -1555,13 +1555,13 @@
   "key": "munich|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T10:03+00:00",
-   "pm": 0.61,
-   "val": 0.564,
+   "t": "2026-11-18T11:06+00:00",
+   "pm": 0.655,
+   "val": 0.731,
    "state": "hold",
    "temp": 13,
    "max": 13,
-   "hour": 11.1
+   "hour": 12.1
   },
   "alerts": {
    "sell": "2026-11-17T23:51+00:00"
@@ -2229,13 +2229,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T10:03+00:00",
-   "pm": 0.833,
-   "val": 0.71,
+   "t": "2026-11-18T11:06+00:00",
+   "pm": 0.761,
+   "val": 0.656,
    "state": "hold",
-   "temp": 10,
+   "temp": 7.8,
    "max": 10,
-   "hour": 4.0
+   "hour": 5.1
   },
   "alerts": {}
  },
@@ -2343,13 +2343,13 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T10:03+00:00",
-   "pm": 0.799,
-   "val": 0.738,
+   "t": "2026-11-18T11:06+00:00",
+   "pm": 0.77,
+   "val": 0.674,
    "state": "hold",
-   "temp": 6.1,
+   "temp": 5.6,
    "max": 6.1,
-   "hour": 4.0
+   "hour": 5.1
   },
   "alerts": {}
  },
