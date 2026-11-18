@@ -1519,7 +1519,7 @@
    }
   ],
   "first": "2026-11-17T03:24+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-18T15:00+00:00",
   "kind": "corr",
   "label": "12°C",
@@ -1555,17 +1555,19 @@
   "key": "munich|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T12:03+00:00",
-   "pm": 0.693,
-   "val": 0.949,
+   "t": "2026-11-18T13:15+00:00",
+   "pm": 0.747,
+   "val": 0.993,
    "state": "sell",
    "temp": 12,
    "max": 13,
-   "hour": 13.1
+   "hour": 14.2
   },
   "alerts": {
    "sell": "2026-11-17T23:51+00:00"
-  }
+  },
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -2229,13 +2231,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T12:03+00:00",
-   "pm": 0.761,
+   "t": "2026-11-18T13:15+00:00",
+   "pm": 0.749,
    "val": 0.684,
    "state": "hold",
-   "temp": 7.8,
+   "temp": 8.9,
    "max": 10,
-   "hour": 6.0
+   "hour": 7.2
   },
   "alerts": {}
  },
@@ -2343,13 +2345,13 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T12:03+00:00",
-   "pm": 0.77,
-   "val": 0.669,
+   "t": "2026-11-18T13:15+00:00",
+   "pm": 0.751,
+   "val": 0.689,
    "state": "hold",
-   "temp": 5,
+   "temp": 3.9,
    "max": 6.1,
-   "hour": 6.0
+   "hour": 7.2
   },
   "alerts": {}
  },
