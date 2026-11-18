@@ -8995,6 +8995,32 @@
     "gem_regional": 12.0,
     "ens": 9.9
    }
+  },
+  {
+   "d": "2026-11-17",
+   "mu": 9.74,
+   "sd": 0.36,
+   "a": 10.28,
+   "m": {
+    "icon_seamless": 10.0,
+    "gfs_seamless": 9.6,
+    "ukmo_seamless": 9.2,
+    "meteofrance_seamless": 10.0,
+    "gem_seamless": 10.2,
+    "jma_seamless": 9.5,
+    "cma_grapes_global": 9.1,
+    "ecmwf_ifs": 9.5,
+    "icon_global": 10.0,
+    "gfs_global": 9.7,
+    "gem_global": 10.4,
+    "ukmo_global_deterministic_10km": 9.2,
+    "meteofrance_arpege_world": 10.0,
+    "jma_gsm": 9.5,
+    "gfs_hrrr": 9.6,
+    "ncep_nbm_conus": 10.0,
+    "gem_regional": 10.4,
+    "ens": 9.4
+   }
   }
  ]
 }

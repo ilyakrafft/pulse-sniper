@@ -5510,5 +5510,33 @@
    "gem_regional": 14.3,
    "ens": 14.83
   }
+ },
+ {
+  "date": "2026-11-17",
+  "city": "seattle",
+  "k": 10,
+  "p": 0.741,
+  "actual": 10,
+  "hit": true,
+  "v": {
+   "icon_seamless": 10.0,
+   "gfs_seamless": 9.6,
+   "ukmo_seamless": 9.2,
+   "meteofrance_seamless": 10.0,
+   "gem_seamless": 10.2,
+   "jma_seamless": 9.5,
+   "cma_grapes_global": 9.1,
+   "ecmwf_ifs": 9.5,
+   "icon_global": 10.0,
+   "gfs_global": 9.7,
+   "gem_global": 10.4,
+   "ukmo_global_deterministic_10km": 9.2,
+   "meteofrance_arpege_world": 10.0,
+   "jma_gsm": 9.5,
+   "gfs_hrrr": 9.6,
+   "ncep_nbm_conus": 10.0,
+   "gem_regional": 10.4,
+   "ens": 9.4
+  }
  }
 ]

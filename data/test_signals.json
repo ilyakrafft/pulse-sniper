@@ -3709,7 +3709,7 @@
   "sd": 0.85,
   "n": 19,
   "first": "2026-11-16T10:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -3725,7 +3725,9 @@
   "edge": -0.236,
   "level": "light",
   "key": "seattle|2026-11-17",
-  "tier": "test"
+  "tier": "test",
+  "win": "50–51°F",
+  "hit": true
  },
  {
   "city": "houston",
