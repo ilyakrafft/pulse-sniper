@@ -1401,7 +1401,7 @@
    }
   ],
   "first": "2026-11-17T03:24+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-18T08:00+00:00",
   "kind": "corr",
   "label": "14°C",
@@ -1437,15 +1437,19 @@
   "key": "wuhan|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T05:39+00:00",
-   "pm": 0.715,
-   "val": 0.717,
-   "state": "hold",
+   "t": "2026-11-18T07:16+00:00",
+   "pm": 0.056,
+   "val": 0.003,
+   "state": "weak",
    "temp": 15,
-   "max": 15,
-   "hour": 13.7
+   "max": 16,
+   "hour": 15.3
   },
-  "alerts": {}
+  "alerts": {
+   "weak": "2026-11-18T07:16+00:00"
+  },
+  "win": "16°C",
+  "hit": false
  },
  {
   "city": "munich",
@@ -1551,13 +1555,13 @@
   "key": "munich|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T05:39+00:00",
-   "pm": 0.892,
-   "val": 0.65,
+   "t": "2026-11-18T07:16+00:00",
+   "pm": 0.89,
+   "val": 0.681,
    "state": "hold",
-   "temp": 11,
+   "temp": 10,
    "max": 12,
-   "hour": 6.7
+   "hour": 8.3
   },
   "alerts": {
    "sell": "2026-11-17T23:51+00:00"
@@ -2223,7 +2227,17 @@
   "edge": -0.092,
   "level": "light",
   "key": "dallas|2026-11-18",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
+  "live": {
+   "t": "2026-11-18T07:16+00:00",
+   "pm": 0.825,
+   "val": 0.81,
+   "state": "hold",
+   "temp": 8.9,
+   "max": 8.9,
+   "hour": 1.3
+  },
+  "alerts": {}
  },
  {
   "city": "chicago",
@@ -2327,7 +2341,17 @@
   "edge": -0.093,
   "level": "light",
   "key": "chicago|2026-11-18",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
+  "live": {
+   "t": "2026-11-18T07:16+00:00",
+   "pm": 0.783,
+   "val": 0.795,
+   "state": "hold",
+   "temp": 6.1,
+   "max": 6.1,
+   "hour": 1.3
+  },
+  "alerts": {}
  },
  {
   "city": "milan",

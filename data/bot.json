@@ -724,7 +724,9 @@
     "14°C",
     "15°C"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": false
   },
   "munich|2026-11-18": {
    "city": "munich",
@@ -829,7 +831,8 @@
     "66–67°F",
     "68–69°F",
     "70–71°F"
-   ]
+   ],
+   "alerts": {}
   },
   "chicago|2026-11-18": {
    "city": "chicago",
@@ -845,7 +848,8 @@
     "56–57°F",
     "58–59°F",
     "60–61°F"
-   ]
+   ],
+   "alerts": {}
   },
   "milan|2026-11-19": {
    "city": "milan",
@@ -1155,6 +1159,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.867
+  },
+  {
+   "date": "2026-11-18",
+   "week": "2026-W47",
+   "hit": false,
+   "price": 0.685
   }
  ],
  "last_summary": "2026-W46",
