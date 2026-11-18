@@ -585,5 +585,24 @@
   "tier": "lock",
   "win": "27°C",
   "hit": false
+ },
+ {
+  "key": "helsinki|2026-11-18",
+  "city": "helsinki",
+  "date": "2026-11-18",
+  "first": "2026-11-18T18:56+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "5°C",
+  "labels": [
+   "5°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 5,
+  "station_hour": 20.8,
+  "tier": "lock",
+  "win": "6°C",
+  "hit": false
  }
 ]
