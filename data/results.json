@@ -822,5 +822,21 @@
  "hongkong|2026-11-18": {
   "win": "27°C",
   "actual": 27
+ },
+ "chengdu|2026-11-18": {
+  "win": "18°C",
+  "actual": 18
+ },
+ "shenzhen|2026-11-18": {
+  "win": "28°C",
+  "actual": 28
+ },
+ "singapore|2026-11-18": {
+  "win": "32°C",
+  "actual": 32
+ },
+ "tokyo|2026-11-18": {
+  "win": "20°C",
+  "actual": 20
  }
 }
