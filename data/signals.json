@@ -1437,13 +1437,13 @@
   "key": "wuhan|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T02:33+00:00",
-   "pm": 0.834,
-   "val": 0.636,
+   "t": "2026-11-18T03:29+00:00",
+   "pm": 0.871,
+   "val": 0.651,
    "state": "hold",
-   "temp": 13,
-   "max": 13,
-   "hour": 10.6
+   "temp": 14,
+   "max": 14,
+   "hour": 11.5
   },
   "alerts": {}
  },
@@ -1551,13 +1551,13 @@
   "key": "munich|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T02:33+00:00",
-   "pm": 0.921,
-   "val": 0.774,
+   "t": "2026-11-18T03:29+00:00",
+   "pm": 0.925,
+   "val": 0.75,
    "state": "hold",
    "temp": 12,
    "max": 12,
-   "hour": 3.5
+   "hour": 4.5
   },
   "alerts": {
    "sell": "2026-11-17T23:51+00:00"
@@ -2432,5 +2432,109 @@
   "level": "light",
   "key": "milan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-19-2026"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-19",
+  "mu": 21.0,
+  "sigma": 1.67,
+  "sd": 1.25,
+  "n": 17,
+  "st": null,
+  "liq": 13206.77,
+  "v24": 4926.85,
+  "dist": [
+   {
+    "l": "15°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "16°C",
+    "m": 0.003,
+    "p": 0.006
+   },
+   {
+    "l": "17°C",
+    "m": 0.014,
+    "p": 0.003
+   },
+   {
+    "l": "18°C",
+    "m": 0.049,
+    "p": 0.013
+   },
+   {
+    "l": "19°C",
+    "m": 0.117,
+    "p": 0.037
+   },
+   {
+    "l": "20°C",
+    "m": 0.198,
+    "p": 0.11
+   },
+   {
+    "l": "21°C",
+    "m": 0.236,
+    "p": 0.245
+   },
+   {
+    "l": "22°C",
+    "m": 0.198,
+    "p": 0.32
+   },
+   {
+    "l": "23°C",
+    "m": 0.117,
+    "p": 0.225
+   },
+   {
+    "l": "24°C",
+    "m": 0.049,
+    "p": 0.074
+   },
+   {
+    "l": "25°C и выше",
+    "m": 0.018,
+    "p": 0.026
+   }
+  ],
+  "first": "2026-11-18T03:29+00:00",
+  "status": "open",
+  "until": "2026-11-19T08:00+00:00",
+  "kind": "corr",
+  "label": "21°C",
+  "labels": [
+   "20°C",
+   "21°C",
+   "22°C"
+  ],
+  "lo": 19.5,
+  "hi": 22.5,
+  "legs": [
+   {
+    "l": "20°C",
+    "price": 0.12,
+    "pm": 0.198
+   },
+   {
+    "l": "21°C",
+    "price": 0.26,
+    "pm": 0.236
+   },
+   {
+    "l": "22°C",
+    "price": 0.34,
+    "pm": 0.198
+   }
+  ],
+  "price": 0.72,
+  "pm": 0.649,
+  "pm_model": 0.632,
+  "edge": -0.071,
+  "level": "light",
+  "key": "hongkong|2026-11-19",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-19-2026"
  }
 ]

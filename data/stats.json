@@ -5538,5 +5538,32 @@
    "gem_regional": 10.4,
    "ens": 9.4
   }
+ },
+ {
+  "date": "2026-11-18",
+  "city": "busan",
+  "k": 15,
+  "p": 0.666,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 13.6,
+   "ecmwf_aifs025_single": 14.4,
+   "icon_seamless": 15.9,
+   "gfs_seamless": 15.2,
+   "ukmo_seamless": 14.5,
+   "meteofrance_seamless": 15.0,
+   "gem_seamless": 14.5,
+   "jma_seamless": 14.0,
+   "cma_grapes_global": 13.0,
+   "ecmwf_ifs": 13.3,
+   "icon_global": 15.9,
+   "gfs_global": 15.2,
+   "gem_global": 14.5,
+   "ukmo_global_deterministic_10km": 14.5,
+   "meteofrance_arpege_world": 15.0,
+   "jma_gsm": 16.9,
+   "ens": 14.42
+  }
  }
 ]
