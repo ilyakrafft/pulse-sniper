@@ -5178,6 +5178,36 @@
     "italia_meteo_arpae_icon_2i": 8.8,
     "ens": 9.4
    }
+  },
+  {
+   "d": "2026-11-18",
+   "mu": 13.02,
+   "sd": 1.39,
+   "a": 11.0,
+   "m": {
+    "ecmwf_ifs025": 15.0,
+    "ecmwf_aifs025_single": 12.5,
+    "icon_seamless": 13.4,
+    "gfs_seamless": 13.5,
+    "ukmo_seamless": 12.0,
+    "meteofrance_seamless": 9.9,
+    "gem_seamless": 11.5,
+    "jma_seamless": 15.4,
+    "cma_grapes_global": 11.4,
+    "ecmwf_ifs": 13.7,
+    "icon_global": 14.0,
+    "gfs_global": 13.5,
+    "gem_global": 11.5,
+    "ukmo_global_deterministic_10km": 12.5,
+    "meteofrance_arpege_world": 11.1,
+    "jma_gsm": 15.4,
+    "icon_d2": 13.4,
+    "knmi_harmonie_arome_europe": 10.3,
+    "icon_eu": 13.7,
+    "meteofrance_arpege_europe": 10.7,
+    "italia_meteo_arpae_icon_2i": 14.0,
+    "ens": 13.7
+   }
   }
  ],
  "warsaw": [

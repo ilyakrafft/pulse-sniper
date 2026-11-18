@@ -1671,7 +1671,17 @@
   "edge": -0.087,
   "level": "light",
   "key": "tokyo|2026-11-19",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026",
+  "live": {
+   "t": "2026-11-18T15:29+00:00",
+   "pm": 0.709,
+   "val": 0.396,
+   "state": "hold",
+   "temp": 16,
+   "max": 16,
+   "hour": 0.5
+  },
+  "alerts": {}
  },
  {
   "city": "wuhan",
@@ -2231,13 +2241,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T14:30+00:00",
-   "pm": 0.749,
-   "val": 0.796,
+   "t": "2026-11-18T15:29+00:00",
+   "pm": 0.778,
+   "val": 0.788,
    "state": "hold",
-   "temp": 10,
-   "max": 10,
-   "hour": 8.5
+   "temp": 12.2,
+   "max": 12.2,
+   "hour": 9.5
   },
   "alerts": {}
  },
@@ -2345,13 +2355,13 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T14:30+00:00",
-   "pm": 0.752,
-   "val": 0.703,
+   "t": "2026-11-18T15:29+00:00",
+   "pm": 0.756,
+   "val": 0.718,
    "state": "hold",
-   "temp": 5.6,
-   "max": 6.1,
-   "hour": 8.5
+   "temp": 9.4,
+   "max": 9.4,
+   "hour": 9.5
   },
   "alerts": {}
  },

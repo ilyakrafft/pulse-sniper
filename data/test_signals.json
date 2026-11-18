@@ -3087,7 +3087,7 @@
   "sd": 1.99,
   "n": 20,
   "first": "2026-11-16T05:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "15°C",
   "labels": [
@@ -3103,7 +3103,9 @@
   "edge": -0.499,
   "level": "light",
   "key": "milan|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": false
  },
  {
   "city": "dallas",
@@ -5297,6 +5299,58 @@
   "edge": -0.213,
   "level": "light",
   "key": "atlanta|2026-11-19",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-20",
+  "mu": 18.03,
+  "sigma": 1.91,
+  "sd": 1.35,
+  "n": 19,
+  "first": "2026-11-18T15:29+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "64–65°F",
+  "labels": [
+   "62–63°F",
+   "64–65°F",
+   "66–67°F"
+  ],
+  "lo": 16.389,
+  "hi": 19.722,
+  "price": 1.14,
+  "pm": 0.685,
+  "pm_model": 0.616,
+  "edge": -0.455,
+  "level": "light",
+  "key": "la|2026-11-20",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-19",
+  "mu": 13.29,
+  "sigma": 2.34,
+  "sd": 1.98,
+  "n": 20,
+  "first": "2026-11-18T15:29+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "price": 0.97,
+  "pm": 0.607,
+  "pm_model": 0.499,
+  "edge": -0.363,
+  "level": "light",
+  "key": "denver|2026-11-19",
   "tier": "test"
  }
 ]
