@@ -5728,5 +5728,64 @@
    "jma_gsm": 14.9,
    "ens": 13.8
   }
+ },
+ {
+  "date": "2026-11-18",
+  "city": "chongqing",
+  "k": 14,
+  "p": 0.602,
+  "actual": 17,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 15.3,
+   "ecmwf_aifs025_single": 16.0,
+   "icon_seamless": 15.0,
+   "gfs_seamless": 12.9,
+   "ukmo_seamless": 14.8,
+   "meteofrance_seamless": 14.7,
+   "gem_seamless": 11.9,
+   "jma_seamless": 15.7,
+   "cma_grapes_global": 12.8,
+   "ecmwf_ifs": 15.2,
+   "icon_global": 15.0,
+   "gfs_global": 12.9,
+   "gem_global": 11.9,
+   "ukmo_global_deterministic_10km": 14.8,
+   "meteofrance_arpege_world": 14.7,
+   "jma_gsm": 15.7,
+   "ens": 14.65
+  }
+ },
+ {
+  "date": "2026-11-18",
+  "city": "helsinki",
+  "k": 6,
+  "p": 0.73,
+  "actual": 6,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 5.8,
+   "ecmwf_aifs025_single": 5.3,
+   "icon_seamless": 5.4,
+   "gfs_seamless": 6.0,
+   "ukmo_seamless": 6.1,
+   "meteofrance_seamless": 5.7,
+   "gem_seamless": 5.6,
+   "jma_seamless": 5.2,
+   "cma_grapes_global": 3.2,
+   "ecmwf_ifs": 5.5,
+   "icon_global": 5.3,
+   "gfs_global": 6.0,
+   "gem_global": 5.8,
+   "ukmo_global_deterministic_10km": 6.1,
+   "meteofrance_arpege_world": 6.0,
+   "jma_gsm": 5.2,
+   "knmi_harmonie_arome_europe": 6.0,
+   "icon_eu": 5.4,
+   "meteofrance_arpege_europe": 5.7,
+   "dmi_harmonie_arome_europe": 6.0,
+   "metno_nordic": 6.1,
+   "ens": 5.63
+  }
  }
 ]

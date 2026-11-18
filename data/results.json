@@ -842,5 +842,13 @@
  "wuhan|2026-11-18": {
   "win": "16°C",
   "actual": 16
+ },
+ "chongqing|2026-11-18": {
+  "win": "17°C",
+  "actual": 17
+ },
+ "helsinki|2026-11-18": {
+  "win": "6°C",
+  "actual": 6
  }
 }
