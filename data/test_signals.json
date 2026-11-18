@@ -3317,7 +3317,7 @@
   "sd": 1.07,
   "n": 14,
   "first": "2026-11-16T08:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "27°C",
   "labels": [
@@ -3333,7 +3333,9 @@
   "edge": -0.178,
   "level": "light",
   "key": "hongkong|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "moscow",
