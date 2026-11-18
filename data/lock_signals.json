@@ -473,5 +473,24 @@
   "tier": "lock",
   "win": "32°C",
   "hit": false
+ },
+ {
+  "key": "shenzhen|2026-11-18",
+  "city": "shenzhen",
+  "date": "2026-11-18",
+  "first": "2026-11-18T14:30+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "27°C",
+  "labels": [
+   "27°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 27,
+  "station_hour": 22.0,
+  "tier": "lock",
+  "win": "28°C",
+  "hit": false
  }
 ]

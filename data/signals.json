@@ -2231,13 +2231,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T13:15+00:00",
+   "t": "2026-11-18T14:30+00:00",
    "pm": 0.749,
-   "val": 0.684,
+   "val": 0.796,
    "state": "hold",
-   "temp": 8.9,
+   "temp": 10,
    "max": 10,
-   "hour": 7.2
+   "hour": 8.5
   },
   "alerts": {}
  },
@@ -2345,13 +2345,13 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T13:15+00:00",
-   "pm": 0.751,
-   "val": 0.689,
+   "t": "2026-11-18T14:30+00:00",
+   "pm": 0.752,
+   "val": 0.703,
    "state": "hold",
-   "temp": 3.9,
+   "temp": 5.6,
    "max": 6.1,
-   "hour": 7.2
+   "hour": 8.5
   },
   "alerts": {}
  },
@@ -2666,5 +2666,109 @@
   "level": "light",
   "key": "hongkong|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-20-2026"
+ },
+ {
+  "city": "chengdu",
+  "date": "2026-11-20",
+  "mu": 17.81,
+  "sigma": 1.76,
+  "sd": 0.91,
+  "n": 17,
+  "st": "ZUUU",
+  "liq": 11482.62,
+  "v24": 1175.23,
+  "dist": [
+   {
+    "l": "12°C и ниже",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "13°C",
+    "m": 0.006,
+    "p": 0.001
+   },
+   {
+    "l": "14°C",
+    "m": 0.023,
+    "p": 0.009
+   },
+   {
+    "l": "15°C",
+    "m": 0.064,
+    "p": 0.049
+   },
+   {
+    "l": "16°C",
+    "m": 0.134,
+    "p": 0.04
+   },
+   {
+    "l": "17°C",
+    "m": 0.202,
+    "p": 0.09
+   },
+   {
+    "l": "18°C",
+    "m": 0.223,
+    "p": 0.23
+   },
+   {
+    "l": "19°C",
+    "m": 0.179,
+    "p": 0.375
+   },
+   {
+    "l": "20°C",
+    "m": 0.105,
+    "p": 0.21
+   },
+   {
+    "l": "21°C",
+    "m": 0.045,
+    "p": 0.043
+   },
+   {
+    "l": "22°C и выше",
+    "m": 0.018,
+    "p": 0.045
+   }
+  ],
+  "first": "2026-11-18T14:30+00:00",
+  "status": "open",
+  "until": "2026-11-20T08:00+00:00",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "legs": [
+   {
+    "l": "17°C",
+    "price": 0.11,
+    "pm": 0.202
+   },
+   {
+    "l": "18°C",
+    "price": 0.24,
+    "pm": 0.223
+   },
+   {
+    "l": "19°C",
+    "price": 0.39,
+    "pm": 0.179
+   }
+  ],
+  "price": 0.74,
+  "pm": 0.641,
+  "pm_model": 0.604,
+  "edge": -0.099,
+  "level": "light",
+  "key": "chengdu|2026-11-20",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026"
  }
 ]
