@@ -838,7 +838,9 @@
    ],
    "alerts": {
     "sell": "2026-11-18T20:55+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "chicago|2026-11-18": {
    "city": "chicago",
@@ -1235,6 +1237,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.857
+  },
+  {
+   "date": "2026-11-18",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.89
   }
  ],
  "last_summary": "2026-W46",

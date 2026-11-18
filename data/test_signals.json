@@ -3115,7 +3115,7 @@
   "sd": 1.52,
   "n": 16,
   "first": "2026-11-16T08:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "68–69°F",
   "labels": [
@@ -3131,7 +3131,9 @@
   "edge": -0.338,
   "level": "light",
   "key": "dallas|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "70–71°F",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -3365,7 +3367,7 @@
   "sd": 1.79,
   "n": 14,
   "first": "2026-11-16T08:43+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -3381,7 +3383,9 @@
   "edge": -0.433,
   "level": "light",
   "key": "moscow|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "0°C",
+  "hit": false
  },
  {
   "city": "miami",
@@ -3837,7 +3841,7 @@
   "sd": 1.0,
   "n": 19,
   "first": "2026-11-16T15:36+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "66–67°F",
   "labels": [
@@ -3853,7 +3857,9 @@
   "edge": -0.187,
   "level": "light",
   "key": "la|2026-11-18",
-  "tier": "test"
+  "tier": "test",
+  "win": "68–69°F",
+  "hit": true
  },
  {
   "city": "seattle",
@@ -5387,6 +5393,32 @@
   "edge": -0.314,
   "level": "light",
   "key": "seattle|2026-11-20",
+  "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-20",
+  "mu": 20.17,
+  "sigma": 2.37,
+  "sd": 1.84,
+  "n": 19,
+  "first": "2026-11-18T21:54+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "68–69°F",
+  "labels": [
+   "66–67°F",
+   "68–69°F",
+   "70–71°F"
+  ],
+  "lo": 18.611,
+  "hi": 21.944,
+  "price": 0.869,
+  "pm": 0.634,
+  "pm_model": 0.517,
+  "edge": -0.235,
+  "level": "light",
+  "key": "atlanta|2026-11-20",
   "tier": "test"
  }
 ]

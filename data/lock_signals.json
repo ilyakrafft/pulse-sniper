@@ -517,7 +517,7 @@
   "city": "moscow",
   "date": "2026-11-18",
   "first": "2026-11-18T15:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "single",
   "label": "0°C",
   "labels": [
@@ -527,7 +527,9 @@
   "pm": 0.93,
   "station_max": 0,
   "station_hour": 18.6,
-  "tier": "lock"
+  "tier": "lock",
+  "win": "0°C",
+  "hit": true
  },
  {
   "key": "wuhan|2026-11-18",
@@ -698,6 +700,25 @@
   "station_hour": 21.5,
   "tier": "lock",
   "win": "18°C",
+  "hit": false
+ },
+ {
+  "key": "paris|2026-11-18",
+  "city": "paris",
+  "date": "2026-11-18",
+  "first": "2026-11-18T21:54+00:00",
+  "status": "done",
+  "kind": "single",
+  "label": "15°C",
+  "labels": [
+   "15°C"
+  ],
+  "price": 0.001,
+  "pm": 0.93,
+  "station_max": 15,
+  "station_hour": 22.5,
+  "tier": "lock",
+  "win": "16°C",
   "hit": false
  }
 ]
