@@ -1673,13 +1673,13 @@
   "key": "tokyo|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026",
   "live": {
-   "t": "2026-11-18T18:56+00:00",
-   "pm": 0.682,
-   "val": 0.408,
+   "t": "2026-11-18T19:59+00:00",
+   "pm": 0.655,
+   "val": 0.42,
    "state": "hold",
-   "temp": 15,
+   "temp": 14,
    "max": 16,
-   "hour": 3.9
+   "hour": 5.0
   },
   "alerts": {}
  },
@@ -1787,13 +1787,13 @@
   "key": "wuhan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026",
   "live": {
-   "t": "2026-11-18T18:56+00:00",
-   "pm": 0.74,
-   "val": 0.467,
+   "t": "2026-11-18T19:59+00:00",
+   "pm": 0.764,
+   "val": 0.471,
    "state": "hold",
-   "temp": 5,
+   "temp": 4,
    "max": 8,
-   "hour": 2.9
+   "hour": 4.0
   },
   "alerts": {}
  },
@@ -2251,13 +2251,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T18:56+00:00",
-   "pm": 0.826,
-   "val": 0.873,
+   "t": "2026-11-18T19:59+00:00",
+   "pm": 0.808,
+   "val": 0.897,
    "state": "hold",
-   "temp": 20.6,
-   "max": 20.6,
-   "hour": 12.9
+   "temp": 21.1,
+   "max": 21.1,
+   "hour": 14.0
   },
   "alerts": {}
  },
@@ -2329,7 +2329,7 @@
    }
   ],
   "first": "2026-11-17T20:05+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-18T22:00+00:00",
   "kind": "corr",
   "label": "58–59°F",
@@ -2365,17 +2365,19 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T18:56+00:00",
-   "pm": 0.851,
-   "val": 0.926,
+   "t": "2026-11-18T19:59+00:00",
+   "pm": 0.783,
+   "val": 0.984,
    "state": "sell",
-   "temp": 15,
-   "max": 15,
-   "hour": 12.9
+   "temp": 15.6,
+   "max": 15.6,
+   "hour": 14.0
   },
   "alerts": {
    "sell": "2026-11-18T18:56+00:00"
-  }
+  },
+  "win": "60–61°F",
+  "hit": true
  },
  {
   "city": "milan",

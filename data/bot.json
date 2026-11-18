@@ -855,7 +855,9 @@
    ],
    "alerts": {
     "sell": "2026-11-18T18:56+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "milan|2026-11-19": {
    "city": "milan",
@@ -1225,6 +1227,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.804
+  },
+  {
+   "date": "2026-11-18",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.857
   }
  ],
  "last_summary": "2026-W46",
