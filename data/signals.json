@@ -1673,13 +1673,13 @@
   "key": "tokyo|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026",
   "live": {
-   "t": "2026-11-18T15:29+00:00",
+   "t": "2026-11-18T16:38+00:00",
    "pm": 0.709,
-   "val": 0.396,
+   "val": 0.436,
    "state": "hold",
-   "temp": 16,
+   "temp": 15,
    "max": 16,
-   "hour": 0.5
+   "hour": 1.6
   },
   "alerts": {}
  },
@@ -1785,7 +1785,17 @@
   "edge": -0.082,
   "level": "light",
   "key": "wuhan|2026-11-19",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026",
+  "live": {
+   "t": "2026-11-18T16:38+00:00",
+   "pm": 0.741,
+   "val": 0.457,
+   "state": "hold",
+   "temp": 8,
+   "max": 8,
+   "hour": 0.6
+  },
+  "alerts": {}
  },
  {
   "city": "moscow",
@@ -2241,13 +2251,13 @@
   "key": "dallas|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T15:29+00:00",
+   "t": "2026-11-18T16:38+00:00",
    "pm": 0.778,
-   "val": 0.788,
+   "val": 0.777,
    "state": "hold",
-   "temp": 12.2,
-   "max": 12.2,
-   "hour": 9.5
+   "temp": 15,
+   "max": 15,
+   "hour": 10.6
   },
   "alerts": {}
  },
@@ -2355,13 +2365,13 @@
   "key": "chicago|2026-11-18",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-18-2026",
   "live": {
-   "t": "2026-11-18T15:29+00:00",
+   "t": "2026-11-18T16:38+00:00",
    "pm": 0.756,
-   "val": 0.718,
+   "val": 0.727,
    "state": "hold",
-   "temp": 9.4,
-   "max": 9.4,
-   "hour": 9.5
+   "temp": 11.7,
+   "max": 11.7,
+   "hour": 10.6
   },
   "alerts": {}
  },
@@ -2780,5 +2790,109 @@
   "level": "light",
   "key": "chengdu|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-20",
+  "mu": 19.01,
+  "sigma": 1.53,
+  "sd": 1.08,
+  "n": 17,
+  "st": "ZGSZ",
+  "liq": 14425.29,
+  "v24": 2132.47,
+  "dist": [
+   {
+    "l": "14°C и ниже",
+    "m": 0.002,
+    "p": 0.002
+   },
+   {
+    "l": "15°C",
+    "m": 0.009,
+    "p": 0.006
+   },
+   {
+    "l": "16°C",
+    "m": 0.039,
+    "p": 0.015
+   },
+   {
+    "l": "17°C",
+    "m": 0.111,
+    "p": 0.05
+   },
+   {
+    "l": "18°C",
+    "m": 0.208,
+    "p": 0.105
+   },
+   {
+    "l": "19°C",
+    "m": 0.257,
+    "p": 0.27
+   },
+   {
+    "l": "20°C",
+    "m": 0.21,
+    "p": 0.345
+   },
+   {
+    "l": "21°C",
+    "m": 0.113,
+    "p": 0.2
+   },
+   {
+    "l": "22°C",
+    "m": 0.04,
+    "p": 0.054
+   },
+   {
+    "l": "23°C",
+    "m": 0.01,
+    "p": 0.013
+   },
+   {
+    "l": "24°C и выше",
+    "m": 0.002,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-18T16:38+00:00",
+  "status": "open",
+  "until": "2026-11-20T08:00+00:00",
+  "kind": "corr",
+  "label": "19°C",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ],
+  "lo": 17.5,
+  "hi": 20.5,
+  "legs": [
+   {
+    "l": "18°C",
+    "price": 0.12,
+    "pm": 0.208
+   },
+   {
+    "l": "19°C",
+    "price": 0.29,
+    "pm": 0.257
+   },
+   {
+    "l": "20°C",
+    "price": 0.37,
+    "pm": 0.21
+   }
+  ],
+  "price": 0.78,
+  "pm": 0.693,
+  "pm_model": 0.674,
+  "edge": -0.087,
+  "level": "light",
+  "key": "shenzhen|2026-11-20",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026"
  }
 ]

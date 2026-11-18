@@ -6092,5 +6092,35 @@
    "italia_meteo_arpae_icon_2i": 14.0,
    "ens": 13.7
   }
+ },
+ {
+  "date": "2026-11-18",
+  "city": "miami",
+  "k": 25,
+  "p": 0.72,
+  "actual": 25,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 25.1,
+   "ecmwf_aifs025_single": 24.6,
+   "icon_seamless": 25.0,
+   "gfs_seamless": 24.5,
+   "ukmo_seamless": 24.7,
+   "meteofrance_seamless": 25.2,
+   "gem_seamless": 26.4,
+   "jma_seamless": 25.5,
+   "cma_grapes_global": 23.6,
+   "ecmwf_ifs": 25.0,
+   "icon_global": 25.0,
+   "gfs_global": 25.5,
+   "gem_global": 25.0,
+   "ukmo_global_deterministic_10km": 24.7,
+   "meteofrance_arpege_world": 25.2,
+   "jma_gsm": 25.5,
+   "gfs_hrrr": 24.5,
+   "ncep_nbm_conus": 25.3,
+   "gem_regional": 26.4,
+   "ens": 25.42
+  }
  }
 ]
