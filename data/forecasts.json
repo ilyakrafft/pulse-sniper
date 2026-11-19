@@ -358,24 +358,6 @@
   "gem_regional": 24.0,
   "ens": 23.09
  },
- "singapore|2026-11-19": {
-  "ecmwf_aifs025_single": 29.1,
-  "icon_seamless": 28.0,
-  "gfs_seamless": 29.0,
-  "ukmo_seamless": 29.7,
-  "meteofrance_seamless": 28.3,
-  "gem_seamless": 27.6,
-  "jma_seamless": 27.8,
-  "cma_grapes_global": 29.9,
-  "ecmwf_ifs": 29.2,
-  "icon_global": 28.0,
-  "gfs_global": 29.0,
-  "gem_global": 27.6,
-  "ukmo_global_deterministic_10km": 29.7,
-  "meteofrance_arpege_world": 28.3,
-  "jma_gsm": 27.8,
-  "ens": 28.94
- },
  "dallas|2026-11-20": {
   "ecmwf_ifs025": 22.1,
   "ecmwf_aifs025_single": 22.6,
