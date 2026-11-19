@@ -27896,6 +27896,30 @@
     "jma_gsm": 14.9,
     "ens": 13.8
    }
+  },
+  {
+   "d": "2026-11-19",
+   "mu": 14.35,
+   "sd": 0.41,
+   "a": 15.0,
+   "m": {
+    "ecmwf_aifs025_single": 15.1,
+    "icon_seamless": 14.0,
+    "gfs_seamless": 14.0,
+    "ukmo_seamless": 14.2,
+    "meteofrance_seamless": 14.4,
+    "gem_seamless": 14.0,
+    "jma_seamless": 15.2,
+    "cma_grapes_global": 13.7,
+    "ecmwf_ifs": 14.9,
+    "icon_global": 14.0,
+    "gfs_global": 14.0,
+    "gem_global": 14.0,
+    "ukmo_global_deterministic_10km": 14.2,
+    "meteofrance_arpege_world": 14.4,
+    "jma_gsm": 15.2,
+    "ens": 14.6
+   }
   }
  ],
  "denver": [

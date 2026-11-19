@@ -3951,7 +3951,7 @@
   "sd": 1.08,
   "n": 17,
   "first": "2026-11-17T05:36+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -3967,7 +3967,9 @@
   "edge": -0.094,
   "level": "light",
   "key": "wuhan|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "helsinki",
@@ -5591,6 +5593,58 @@
   "edge": -0.191,
   "level": "light",
   "key": "wuhan|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-21",
+  "mu": 21.27,
+  "sigma": 1.71,
+  "sd": 1.19,
+  "n": 17,
+  "first": "2026-11-19T07:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "22°C",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ],
+  "lo": 20.5,
+  "hi": 23.5,
+  "price": 1.08,
+  "pm": 0.655,
+  "pm_model": 0.578,
+  "edge": -0.425,
+  "level": "light",
+  "key": "shenzhen|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "chengdu",
+  "date": "2026-11-21",
+  "mu": 17.57,
+  "sigma": 1.64,
+  "sd": 0.67,
+  "n": 17,
+  "first": "2026-11-19T07:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "price": 0.91,
+  "pm": 0.713,
+  "pm_model": 0.622,
+  "edge": -0.197,
+  "level": "light",
+  "key": "chengdu|2026-11-21",
   "tier": "test"
  }
 ]

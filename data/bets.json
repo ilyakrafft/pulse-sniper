@@ -413,5 +413,22 @@
    "18°C",
    "19°C"
   ]
+ },
+ {
+  "date": "2026-11-19",
+  "city": "wuhan",
+  "label": "14°C",
+  "win": "15°C",
+  "hit": true,
+  "price": 0.65,
+  "pm": 0.568,
+  "edge": -0.082,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ]
  }
 ]
