@@ -6924,5 +6924,34 @@
    "dmi_harmonie_arome_europe": 8.7,
    "ens": 9.22
   }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "miami",
+  "k": 26,
+  "p": 0.709,
+  "actual": 27,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 25.8,
+   "icon_seamless": 25.8,
+   "gfs_seamless": 25.3,
+   "ukmo_seamless": 25.3,
+   "meteofrance_seamless": 25.3,
+   "gem_seamless": 27.0,
+   "jma_seamless": 26.3,
+   "cma_grapes_global": 27.8,
+   "ecmwf_ifs": 26.0,
+   "icon_global": 25.8,
+   "gfs_global": 27.2,
+   "gem_global": 25.8,
+   "ukmo_global_deterministic_10km": 25.3,
+   "meteofrance_arpege_world": 25.3,
+   "jma_gsm": 26.3,
+   "gfs_hrrr": 25.3,
+   "ncep_nbm_conus": 26.8,
+   "gem_regional": 27.0,
+   "ens": 26.19
+  }
  }
 ]
