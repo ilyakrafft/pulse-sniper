@@ -4113,7 +4113,7 @@
   "sd": 1.46,
   "n": 17,
   "first": "2026-11-17T06:37+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -4129,7 +4129,9 @@
   "edge": -0.423,
   "level": "light",
   "key": "chengdu|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "dallas",
@@ -4325,7 +4327,7 @@
   "sd": 1.31,
   "n": 17,
   "first": "2026-11-17T09:36+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "21°C",
   "labels": [
@@ -4341,7 +4343,9 @@
   "edge": -0.39,
   "level": "light",
   "key": "shenzhen|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "20°C",
+  "hit": true
  },
  {
   "city": "jeddah",
@@ -4403,7 +4407,7 @@
   "sd": 1.38,
   "n": 17,
   "first": "2026-11-17T09:36+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -4419,7 +4423,9 @@
   "edge": -0.425,
   "level": "light",
   "key": "chongqing|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C",
+  "hit": false
  },
  {
   "city": "moscow",
@@ -5645,6 +5651,162 @@
   "edge": -0.197,
   "level": "light",
   "key": "chengdu|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-21",
+  "mu": 23.58,
+  "sigma": 1.79,
+  "sd": 1.39,
+  "n": 19,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "74–75°F",
+  "labels": [
+   "72–73°F",
+   "74–75°F",
+   "76–77°F"
+  ],
+  "lo": 21.944,
+  "hi": 25.278,
+  "price": 1.14,
+  "pm": 0.714,
+  "pm_model": 0.647,
+  "edge": -0.426,
+  "level": "light",
+  "key": "dallas|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "helsinki",
+  "date": "2026-11-21",
+  "mu": 3.14,
+  "sigma": 1.57,
+  "sd": 1.05,
+  "n": 19,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "3°C",
+  "labels": [
+   "2°C",
+   "3°C",
+   "4°C"
+  ],
+  "lo": 1.5,
+  "hi": 4.5,
+  "price": 1.107,
+  "pm": 0.737,
+  "pm_model": 0.657,
+  "edge": -0.37,
+  "level": "light",
+  "key": "helsinki|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "chongqing",
+  "date": "2026-11-21",
+  "mu": 18.02,
+  "sigma": 1.83,
+  "sd": 1.09,
+  "n": 17,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "price": 1.13,
+  "pm": 0.697,
+  "pm_model": 0.587,
+  "edge": -0.433,
+  "level": "light",
+  "key": "chongqing|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-21",
+  "mu": 14.88,
+  "sigma": 1.71,
+  "sd": 1.19,
+  "n": 20,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "16°C",
+  "labels": [
+   "15°C",
+   "16°C",
+   "17°C и выше"
+  ],
+  "lo": 14.5,
+  "hi": 90.0,
+  "price": 1.01,
+  "pm": 0.73,
+  "pm_model": 0.587,
+  "edge": -0.28,
+  "level": "light",
+  "key": "milan|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "busan",
+  "date": "2026-11-21",
+  "mu": 7.77,
+  "sigma": 1.58,
+  "sd": 0.94,
+  "n": 17,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ],
+  "lo": 6.5,
+  "hi": 9.5,
+  "price": 0.977,
+  "pm": 0.743,
+  "pm_model": 0.653,
+  "edge": -0.234,
+  "level": "light",
+  "key": "busan|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-20",
+  "mu": 16.12,
+  "sigma": 1.55,
+  "sd": 0.92,
+  "n": 19,
+  "first": "2026-11-19T08:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "60–61°F",
+  "labels": [
+   "58–59°F",
+   "60–61°F",
+   "62–63°F"
+  ],
+  "lo": 14.167,
+  "hi": 17.5,
+  "price": 0.8,
+  "pm": 0.685,
+  "pm_model": 0.709,
+  "edge": -0.115,
+  "level": "light",
+  "key": "denver|2026-11-20",
   "tier": "test"
  }
 ]
