@@ -1673,15 +1673,17 @@
   "key": "tokyo|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T01:10+00:00",
-   "pm": 0.512,
-   "val": 0.142,
-   "state": "hold",
-   "temp": 19,
-   "max": 19,
-   "hour": 10.2
+   "t": "2026-11-19T02:31+00:00",
+   "pm": 0.162,
+   "val": 0.003,
+   "state": "weak",
+   "temp": 20,
+   "max": 20,
+   "hour": 11.5
   },
-  "alerts": {}
+  "alerts": {
+   "weak": "2026-11-19T02:31+00:00"
+  }
  },
  {
   "city": "wuhan",
@@ -1787,13 +1789,13 @@
   "key": "wuhan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T01:10+00:00",
-   "pm": 0.784,
-   "val": 0.456,
+   "t": "2026-11-19T02:31+00:00",
+   "pm": 0.774,
+   "val": 0.524,
    "state": "hold",
-   "temp": 9,
-   "max": 9,
-   "hour": 9.2
+   "temp": 11,
+   "max": 11,
+   "hour": 10.5
   },
   "alerts": {}
  },
@@ -2487,13 +2489,13 @@
   "key": "milan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T01:10+00:00",
-   "pm": 0.759,
-   "val": 0.875,
+   "t": "2026-11-19T02:31+00:00",
+   "pm": 0.773,
+   "val": 0.855,
    "state": "sell",
-   "temp": 4,
-   "max": 4,
-   "hour": 2.2
+   "temp": 5,
+   "max": 5,
+   "hour": 3.5
   },
   "alerts": {
    "sell": "2026-11-18T23:51+00:00"
@@ -2916,5 +2918,109 @@
   "level": "light",
   "key": "shenzhen|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026"
+ },
+ {
+  "city": "chongqing",
+  "date": "2026-11-20",
+  "mu": 16.88,
+  "sigma": 1.55,
+  "sd": 0.99,
+  "n": 17,
+  "st": "ZUCK",
+  "liq": 16163.14,
+  "v24": 3138.11,
+  "dist": [
+   {
+    "l": "12°C и ниже",
+    "m": 0.002,
+    "p": 0.001
+   },
+   {
+    "l": "13°C",
+    "m": 0.012,
+    "p": 0.009
+   },
+   {
+    "l": "14°C",
+    "m": 0.048,
+    "p": 0.029
+   },
+   {
+    "l": "15°C",
+    "m": 0.125,
+    "p": 0.012
+   },
+   {
+    "l": "16°C",
+    "m": 0.217,
+    "p": 0.049
+   },
+   {
+    "l": "17°C",
+    "m": 0.252,
+    "p": 0.247
+   },
+   {
+    "l": "18°C",
+    "m": 0.196,
+    "p": 0.425
+   },
+   {
+    "l": "19°C",
+    "m": 0.102,
+    "p": 0.21
+   },
+   {
+    "l": "20°C",
+    "m": 0.036,
+    "p": 0.052
+   },
+   {
+    "l": "21°C",
+    "m": 0.008,
+    "p": 0.007
+   },
+   {
+    "l": "22°C и выше",
+    "m": 0.001,
+    "p": 0.008
+   }
+  ],
+  "first": "2026-11-19T02:31+00:00",
+  "status": "open",
+  "until": "2026-11-20T08:00+00:00",
+  "kind": "corr",
+  "label": "17°C",
+  "labels": [
+   "16°C",
+   "17°C",
+   "18°C"
+  ],
+  "lo": 15.5,
+  "hi": 18.5,
+  "legs": [
+   {
+    "l": "16°C",
+    "price": 0.061,
+    "pm": 0.217
+   },
+   {
+    "l": "17°C",
+    "price": 0.264,
+    "pm": 0.252
+   },
+   {
+    "l": "18°C",
+    "price": 0.44,
+    "pm": 0.196
+   }
+  ],
+  "price": 0.765,
+  "pm": 0.687,
+  "pm_model": 0.665,
+  "edge": -0.078,
+  "level": "light",
+  "key": "chongqing|2026-11-20",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-20-2026"
  }
 ]

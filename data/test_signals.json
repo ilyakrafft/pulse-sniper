@@ -4081,7 +4081,7 @@
   "sd": 1.56,
   "n": 19,
   "first": "2026-11-17T06:37+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -4097,7 +4097,9 @@
   "edge": -0.323,
   "level": "light",
   "key": "warsaw|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": true
  },
  {
   "city": "chengdu",
