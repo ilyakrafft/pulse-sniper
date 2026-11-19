@@ -10,7 +10,7 @@ import time
 import collect as C
 
 HIST = "https://historical-forecast-api.open-meteo.com/v1/forecast"
-DAYS = 15
+DAYS = 60
 MODELS_BF = ["ecmwf_ifs025", "ecmwf_aifs025_single", "icon_seamless", "gfs_seamless", "ukmo_seamless",
              "gem_seamless", "jma_seamless", "cma_grapes_global", "ecmwf_ifs"]
 
@@ -51,38 +51,36 @@ def fetch_forecasts(today):
 
 
 def fetch_actuals(offs, today):
-    """{город: {дата: максимум по станции}} за последние дни (только полные сутки)."""
-    rows = []
-    for c in C.CITIES:  # по одной станции: общий запрос обрезается (около 400 записей на всех)
-        if not c[4]:
-            continue
-        got = None
-        for hours in (336, 240):
-            try:
-                got = C.get("%s?ids=%s&format=json&hours=%d" % (C.METAR, c[4], hours))
-                if isinstance(got, list) and got:
-                    break
-            except Exception as e:  # noqa: BLE001
-                print("METAR", c[4], hours, "ч не загрузился:", type(e).__name__, getattr(e, "code", ""))
-        if isinstance(got, list):
-            rows += got
-            print("METAR", c[4], len(got), "записей")
-        time.sleep(1)
-    by_icao = {c[4]: c[0] for c in C.CITIES if c[4]}
-    days = {}
-    for r in rows if isinstance(rows, list) else []:
-        city, t, ts = by_icao.get(r.get("icaoId")), r.get("temp"), r.get("obsTime")
-        if not city or not isinstance(t, (int, float)) or not isinstance(ts, (int, float)):
-            continue
-        ldt = dt.datetime.fromtimestamp(ts, dt.timezone.utc) + dt.timedelta(seconds=offs.get(city, 0))
-        days.setdefault(city, {}).setdefault(ldt.date().isoformat(), []).append((ldt.hour, t))
+    """{город: {дата: итог рынка, °C}}: выигравший вариант закрытого рынка (по нему и платят), а не METAR:
+    METAR занижает итог примерно на 1°C. Крайние варианты («X и ниже/выше») не берём: у них нет точного значения."""
+    from concurrent.futures import ThreadPoolExecutor
+    jobs = [(c[0], c[1], today - dt.timedelta(days=k)) for c in C.CITIES for k in range(1, DAYS + 1)]
+
+    def one(a):
+        cid, slug, d = a
+        ev = None
+        for _ in range(2):
+            ev = C.fetch_event(C.slug_for(slug, d))
+            if ev is not None:
+                break
+            time.sleep(1)
+        if not ev or not ev.get("closed"):
+            return None
+        best = None
+        for mk in ev.get("markets") or []:
+            p, parsed = C.yes_price(mk), C.parse_bucket(mk.get("groupItemTitle") or mk.get("question") or "")
+            if p is not None and parsed and (best is None or p > best[0]):
+                best = (p, parsed)
+        if not best or best[0] < 0.95 or best[1][1] <= -80 or best[1][2] >= 80:
+            return None
+        return cid, d.isoformat(), best[1][3]
+
     out = {}
-    for city, dd in days.items():
-        for d, obs in dd.items():
-            hrs = {h for h, _ in obs}
-            if d >= today.isoformat() or len(hrs) < 18 or not any(12 <= h <= 17 for h in hrs):
-                continue  # день неполный: максимум мог быть недосчитан
-            out.setdefault(city, {})[d] = max(t for _, t in obs)
+    with ThreadPoolExecutor(8) as ex:
+        for r in ex.map(one, jobs):
+            if r:
+                out.setdefault(r[0], {})[r[1]] = r[2]
+    print("итогов рынков:", sum(len(v) for v in out.values()))
     return out
 
 
@@ -93,7 +91,7 @@ def main():
     act = fetch_actuals(offs, today)
     added, errs, mae = 0, [], {}
     for city, days in act.items():
-        rows = calib.setdefault(city, [])
+        rows = [r for r in calib.setdefault(city, []) if not r.get("bf")]  # старые строки по METAR заменяем итогами рынков
         have = {r["d"] for r in rows}
         for d, a in sorted(days.items()):
             m = (fc.get(city) or {}).get(d)
@@ -111,7 +109,7 @@ def main():
             for k, v in m.items():
                 mae.setdefault(k, []).append(abs(v - a))
         rows.sort(key=lambda r: r["d"])
-        calib[city] = rows[-60:]
+        calib[city] = rows[-90:]
     if added:
         C.save("calib.json", calib)
     print("добавлено строк:", added, "городов:", len(act))
