@@ -6504,5 +6504,58 @@
    "dmi_harmonie_arome_europe": 9.6,
    "ens": 9.41
   }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "busan",
+  "k": 9,
+  "p": 0.675,
+  "actual": 10,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 9.9,
+   "icon_seamless": 10.4,
+   "gfs_seamless": 9.9,
+   "ukmo_seamless": 8.9,
+   "meteofrance_seamless": 9.6,
+   "gem_seamless": 9.4,
+   "jma_seamless": 9.1,
+   "cma_grapes_global": 7.9,
+   "ecmwf_ifs": 8.0,
+   "icon_global": 10.4,
+   "gfs_global": 9.9,
+   "gem_global": 9.4,
+   "ukmo_global_deterministic_10km": 8.9,
+   "meteofrance_arpege_world": 9.6,
+   "jma_gsm": 11.5,
+   "ens": 8.92
+  }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "tokyo",
+  "k": 18,
+  "p": 0.588,
+  "actual": 20,
+  "hit": false,
+  "v": {
+   "ecmwf_aifs025_single": 18.6,
+   "icon_seamless": 17.7,
+   "gfs_seamless": 19.7,
+   "ukmo_seamless": 17.9,
+   "meteofrance_seamless": 16.6,
+   "gem_seamless": 14.5,
+   "jma_seamless": 19.0,
+   "cma_grapes_global": 17.9,
+   "ecmwf_ifs": 17.5,
+   "icon_global": 17.7,
+   "gfs_global": 19.7,
+   "gem_global": 14.5,
+   "ukmo_global_deterministic_10km": 17.9,
+   "meteofrance_arpege_world": 16.6,
+   "jma_gsm": 17.8,
+   "jma_msm": 19.0,
+   "ens": 18.21
+  }
  }
 ]

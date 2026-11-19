@@ -766,7 +766,9 @@
    ],
    "alerts": {
     "weak": "2026-11-19T02:31+00:00"
-   }
+   },
+   "done": true,
+   "hit": false
   },
   "wuhan|2026-11-19": {
    "city": "wuhan",
@@ -783,7 +785,9 @@
     "14°C",
     "15°C"
    ],
-   "alerts": {}
+   "alerts": {
+    "sell": "2026-11-19T04:36+00:00"
+   }
   },
   "miami|2026-11-17": {
    "city": "miami",
@@ -1272,6 +1276,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.72
+  },
+  {
+   "date": "2026-11-19",
+   "week": "2026-W47",
+   "hit": false,
+   "price": 0.69
   }
  ],
  "last_summary": "2026-W46",

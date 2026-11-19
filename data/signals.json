@@ -1637,7 +1637,7 @@
    }
   ],
   "first": "2026-11-17T05:36+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-19T07:00+00:00",
   "kind": "corr",
   "label": "18°C",
@@ -1673,17 +1673,19 @@
   "key": "tokyo|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T02:31+00:00",
-   "pm": 0.162,
+   "t": "2026-11-19T04:36+00:00",
+   "pm": 0.177,
    "val": 0.003,
    "state": "weak",
-   "temp": 20,
+   "temp": 19,
    "max": 20,
-   "hour": 11.5
+   "hour": 13.6
   },
   "alerts": {
    "weak": "2026-11-19T02:31+00:00"
-  }
+  },
+  "win": "20°C",
+  "hit": false
  },
  {
   "city": "wuhan",
@@ -1789,15 +1791,17 @@
   "key": "wuhan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T02:31+00:00",
-   "pm": 0.774,
-   "val": 0.524,
-   "state": "hold",
-   "temp": 11,
-   "max": 11,
-   "hour": 10.5
+   "t": "2026-11-19T04:36+00:00",
+   "pm": 0.909,
+   "val": 0.879,
+   "state": "sell",
+   "temp": 13,
+   "max": 13,
+   "hour": 12.6
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-19T04:36+00:00"
+  }
  },
  {
   "city": "moscow",
@@ -2489,13 +2493,13 @@
   "key": "milan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T02:31+00:00",
-   "pm": 0.773,
-   "val": 0.855,
+   "t": "2026-11-19T04:36+00:00",
+   "pm": 0.78,
+   "val": 0.865,
    "state": "sell",
-   "temp": 5,
-   "max": 5,
-   "hour": 3.5
+   "temp": 7,
+   "max": 7,
+   "hour": 5.6
   },
   "alerts": {
    "sell": "2026-11-18T23:51+00:00"
