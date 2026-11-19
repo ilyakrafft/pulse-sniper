@@ -4009,7 +4009,7 @@
   "sd": 1.0,
   "n": 19,
   "first": "2026-11-17T06:37+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -4025,7 +4025,9 @@
   "edge": -0.319,
   "level": "light",
   "key": "munich|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "milan",
