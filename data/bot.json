@@ -894,7 +894,9 @@
     "20°C",
     "21°C",
     "22°C"
-   ]
+   ],
+   "done": true,
+   "hit": true
   },
   "hongkong|2026-11-20": {
    "city": "hongkong",
@@ -1246,6 +1248,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.89
+  },
+  {
+   "date": "2026-11-19",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.72
   }
  ],
  "last_summary": "2026-W46",
