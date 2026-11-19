@@ -722,6 +722,7 @@ def test_pass(markets, fc, calib, obs, now, sigs, tests):
     return tests, n
 
 
+LOCK_ENABLED = False
 LOCK_HOUR = 16.5       # после этого местного времени максимум дня обычно уже достигнут
 LOCK_MAX_PRICE = 0.985
 
@@ -913,7 +914,9 @@ def main():
             OBS_LAST = fetch_obs(markets, fc, now)
             sigs, skips = build_signals(markets, fc, calib, OBS_LAST, now, sigs)
             try:
-                locks, ln = lock_pass(markets, fc, now, locks)
+                ln = 0  # «фиксация пика» отключена: 3 попадания из 40, станция по METAR занижает итог рынка на ~1°C
+                if LOCK_ENABLED:
+                    locks, ln = lock_pass(markets, fc, now, locks)
                 if ln:
                     print("«фиксаций пика» добавлено:", ln)
             except Exception as e:  # noqa: BLE001
