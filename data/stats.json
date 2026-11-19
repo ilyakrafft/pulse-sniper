@@ -6797,5 +6797,37 @@
    "jma_gsm": 24.6,
    "ens": 24.99
   }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "london",
+  "k": 10,
+  "p": 0.69,
+  "actual": 11,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 9.9,
+   "icon_seamless": 11.3,
+   "gfs_seamless": 10.3,
+   "ukmo_seamless": 10.8,
+   "meteofrance_seamless": 11.4,
+   "gem_seamless": 9.7,
+   "jma_seamless": 9.9,
+   "cma_grapes_global": 10.0,
+   "ecmwf_ifs": 10.0,
+   "icon_global": 10.9,
+   "gfs_global": 10.3,
+   "gem_global": 10.5,
+   "ukmo_global_deterministic_10km": 8.7,
+   "meteofrance_arpege_world": 9.0,
+   "jma_gsm": 9.9,
+   "icon_d2": 11.3,
+   "knmi_harmonie_arome_europe": 10.5,
+   "icon_eu": 10.8,
+   "meteofrance_arpege_europe": 9.0,
+   "dmi_harmonie_arome_europe": 10.4,
+   "ukmo_uk_deterministic_2km": 10.8,
+   "ens": 10.26
+  }
  }
 ]
