@@ -886,7 +886,9 @@
    ],
    "alerts": {
     "sell": "2026-11-18T23:51+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "hongkong|2026-11-19": {
    "city": "hongkong",
@@ -1322,6 +1324,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.65
+  },
+  {
+   "date": "2026-11-19",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.79
   }
  ],
  "last_summary": "2026-W46",

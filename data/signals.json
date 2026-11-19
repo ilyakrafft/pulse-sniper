@@ -2459,7 +2459,7 @@
    }
   ],
   "first": "2026-11-18T01:13+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-19T15:00+00:00",
   "kind": "corr",
   "label": "12°C",
@@ -2495,17 +2495,19 @@
   "key": "milan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T13:53+00:00",
-   "pm": 0.989,
-   "val": 0.936,
+   "t": "2026-11-19T14:56+00:00",
+   "pm": 0.747,
+   "val": 1.002,
    "state": "sell",
    "temp": 12,
-   "max": 12,
-   "hour": 14.9
+   "max": 13,
+   "hour": 15.9
   },
   "alerts": {
    "sell": "2026-11-18T23:51+00:00"
-  }
+  },
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "hongkong",
