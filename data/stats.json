@@ -6687,5 +6687,57 @@
    "jma_gsm": 22.6,
    "ens": 21.12
   }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "jeddah",
+  "k": 33,
+  "p": 0.562,
+  "actual": 34,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 33.9,
+   "icon_seamless": 34.1,
+   "gfs_seamless": 31.6,
+   "ukmo_seamless": 33.5,
+   "meteofrance_seamless": 34.3,
+   "gem_seamless": 31.5,
+   "jma_seamless": 28.4,
+   "cma_grapes_global": 33.6,
+   "ecmwf_ifs": 34.4,
+   "icon_global": 34.1,
+   "gfs_global": 31.6,
+   "gem_global": 31.5,
+   "ukmo_global_deterministic_10km": 33.5,
+   "meteofrance_arpege_world": 35.0,
+   "jma_gsm": 28.4,
+   "ens": 33.15
+  }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "lucknow",
+  "k": 27,
+  "p": 0.7,
+  "actual": 27,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 25.9,
+   "icon_seamless": 26.6,
+   "gfs_seamless": 27.2,
+   "ukmo_seamless": 26.9,
+   "meteofrance_seamless": 26.1,
+   "gem_seamless": 28.2,
+   "jma_seamless": 26.9,
+   "cma_grapes_global": 25.2,
+   "ecmwf_ifs": 25.9,
+   "icon_global": 26.6,
+   "gfs_global": 27.2,
+   "gem_global": 28.2,
+   "ukmo_global_deterministic_10km": 26.9,
+   "meteofrance_arpege_world": 26.1,
+   "jma_gsm": 26.9,
+   "ens": 26.6
+  }
  }
 ]
