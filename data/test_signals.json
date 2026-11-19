@@ -6076,5 +6076,31 @@
   "level": "light",
   "key": "houston|2026-11-21",
   "tier": "test"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-21",
+  "mu": 3.82,
+  "sigma": 1.3,
+  "sd": 0.56,
+  "n": 19,
+  "first": "2026-11-19T12:34+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "4°C",
+  "labels": [
+   "3°C",
+   "4°C",
+   "5°C"
+  ],
+  "lo": 2.5,
+  "hi": 5.5,
+  "price": 1.087,
+  "pm": 0.821,
+  "pm_model": 0.749,
+  "edge": -0.266,
+  "level": "light",
+  "key": "warsaw|2026-11-21",
+  "tier": "test"
  }
 ]

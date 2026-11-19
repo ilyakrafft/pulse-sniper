@@ -2495,13 +2495,13 @@
   "key": "milan|2026-11-19",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-19-2026",
   "live": {
-   "t": "2026-11-19T11:27+00:00",
-   "pm": 0.813,
-   "val": 0.96,
+   "t": "2026-11-19T12:34+00:00",
+   "pm": 0.965,
+   "val": 0.946,
    "state": "sell",
-   "temp": 10,
-   "max": 10,
-   "hour": 12.4
+   "temp": 12,
+   "max": 12,
+   "hour": 13.6
   },
   "alerts": {
    "sell": "2026-11-18T23:51+00:00"
