@@ -2821,7 +2821,17 @@
   "edge": -0.099,
   "level": "light",
   "key": "chengdu|2026-11-20",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026",
+  "live": {
+   "t": "2026-11-19T17:07+00:00",
+   "pm": 0.722,
+   "val": 0.796,
+   "state": "hold",
+   "temp": 11,
+   "max": 11,
+   "hour": 1.1
+  },
+  "alerts": {}
  },
  {
   "city": "shenzhen",
@@ -2925,7 +2935,19 @@
   "edge": -0.087,
   "level": "light",
   "key": "shenzhen|2026-11-20",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026",
+  "live": {
+   "t": "2026-11-19T17:07+00:00",
+   "pm": 0.888,
+   "val": 0.996,
+   "state": "sell",
+   "temp": 19,
+   "max": 19,
+   "hour": 1.1
+  },
+  "alerts": {
+   "sell": "2026-11-19T17:07+00:00"
+  }
  },
  {
   "city": "chongqing",
@@ -3029,7 +3051,17 @@
   "edge": -0.078,
   "level": "light",
   "key": "chongqing|2026-11-20",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-20-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-20-2026",
+  "live": {
+   "t": "2026-11-19T17:07+00:00",
+   "pm": 0.679,
+   "val": 0.792,
+   "state": "hold",
+   "temp": 10,
+   "max": 10,
+   "hour": 1.1
+  },
+  "alerts": {}
  },
  {
   "city": "tokyo",
