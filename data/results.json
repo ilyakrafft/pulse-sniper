@@ -982,5 +982,13 @@
  "lucknow|2026-11-19": {
   "win": "27°C",
   "actual": 27
+ },
+ "amsterdam|2026-11-19": {
+  "win": "11°C",
+  "actual": 11
+ },
+ "telaviv|2026-11-19": {
+  "win": "25°C",
+  "actual": 25
  }
 }

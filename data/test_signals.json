@@ -4167,7 +4167,7 @@
   "sd": 0.99,
   "n": 17,
   "first": "2026-11-17T08:23+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -4183,7 +4183,9 @@
   "edge": -0.248,
   "level": "light",
   "key": "telaviv|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "25°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -4385,7 +4387,7 @@
   "sd": 0.88,
   "n": 19,
   "first": "2026-11-17T09:36+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -4401,7 +4403,9 @@
   "edge": -0.237,
   "level": "light",
   "key": "amsterdam|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -5993,6 +5997,84 @@
   "edge": -0.316,
   "level": "light",
   "key": "atlanta|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-21",
+  "mu": 16.33,
+  "sigma": 1.84,
+  "sd": 1.35,
+  "n": 19,
+  "first": "2026-11-19T11:27+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "62–63°F",
+  "labels": [
+   "60–61°F",
+   "62–63°F",
+   "64–65°F"
+  ],
+  "lo": 15.278,
+  "hi": 18.611,
+  "price": 0.99,
+  "pm": 0.733,
+  "pm_model": 0.608,
+  "edge": -0.257,
+  "level": "light",
+  "key": "nyc|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "sf",
+  "date": "2026-11-21",
+  "mu": 14.18,
+  "sigma": 1.6,
+  "sd": 0.85,
+  "n": 19,
+  "first": "2026-11-19T11:27+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "price": 0.96,
+  "pm": 0.757,
+  "pm_model": 0.675,
+  "edge": -0.203,
+  "level": "light",
+  "key": "sf|2026-11-21",
+  "tier": "test"
+ },
+ {
+  "city": "houston",
+  "date": "2026-11-21",
+  "mu": 24.47,
+  "sigma": 2.01,
+  "sd": 1.32,
+  "n": 19,
+  "first": "2026-11-19T11:27+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "76–77°F",
+  "labels": [
+   "74–75°F",
+   "76–77°F",
+   "78–79°F"
+  ],
+  "lo": 23.056,
+  "hi": 26.389,
+  "price": 1.08,
+  "pm": 0.703,
+  "pm_model": 0.589,
+  "edge": -0.377,
+  "level": "light",
+  "key": "houston|2026-11-21",
   "tier": "test"
  }
 ]
