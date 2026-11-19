@@ -4627,7 +4627,7 @@
   "sd": 1.24,
   "n": 19,
   "first": "2026-11-17T14:24+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -4643,7 +4643,9 @@
   "edge": -0.337,
   "level": "light",
   "key": "sf|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "seattle",

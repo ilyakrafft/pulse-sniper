@@ -2823,13 +2823,13 @@
   "key": "chengdu|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T22:51+00:00",
-   "pm": 0.731,
-   "val": 0.856,
-   "state": "sell",
-   "temp": 8,
+   "t": "2026-11-19T23:45+00:00",
+   "pm": 0.735,
+   "val": 0.791,
+   "state": "hold",
+   "temp": 9,
    "max": 11,
-   "hour": 6.8
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-19T19:38+00:00"
@@ -2939,13 +2939,13 @@
   "key": "shenzhen|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T22:51+00:00",
-   "pm": 0.893,
-   "val": 1.006,
+   "t": "2026-11-19T23:45+00:00",
+   "pm": 0.891,
+   "val": 0.976,
    "state": "sell",
-   "temp": 14,
+   "temp": 13,
    "max": 19,
-   "hour": 6.8
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-19T17:07+00:00"
@@ -3055,13 +3055,13 @@
   "key": "chongqing|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T22:51+00:00",
+   "t": "2026-11-19T23:45+00:00",
    "pm": 0.662,
-   "val": 0.926,
+   "val": 0.953,
    "state": "sell",
    "temp": 10,
    "max": 11,
-   "hour": 6.8
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-19T22:51+00:00"

@@ -7243,5 +7243,34 @@
    "gem_regional": 9.6,
    "ens": 8.68
   }
+ },
+ {
+  "date": "2026-11-19",
+  "city": "sf",
+  "k": 14,
+  "p": 0.628,
+  "actual": 14,
+  "hit": true,
+  "v": {
+   "ecmwf_aifs025_single": 13.1,
+   "icon_seamless": 13.6,
+   "gfs_seamless": 14.2,
+   "ukmo_seamless": 14.5,
+   "meteofrance_seamless": 15.3,
+   "gem_seamless": 11.4,
+   "jma_seamless": 14.0,
+   "cma_grapes_global": 14.1,
+   "ecmwf_ifs": 13.3,
+   "icon_global": 13.6,
+   "gfs_global": 15.1,
+   "gem_global": 12.9,
+   "ukmo_global_deterministic_10km": 14.5,
+   "meteofrance_arpege_world": 15.3,
+   "jma_gsm": 14.0,
+   "gfs_hrrr": 14.2,
+   "ncep_nbm_conus": 12.8,
+   "gem_regional": 11.4,
+   "ens": 13.78
+  }
  }
 ]
