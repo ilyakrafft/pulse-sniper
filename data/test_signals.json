@@ -4653,7 +4653,7 @@
   "sd": 0.82,
   "n": 19,
   "first": "2026-11-17T14:24+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -4669,7 +4669,9 @@
   "edge": -0.346,
   "level": "light",
   "key": "seattle|2026-11-19",
-  "tier": "test"
+  "tier": "test",
+  "win": "48–49°F",
+  "hit": true
  },
  {
   "city": "london",
