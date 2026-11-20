@@ -5047,7 +5047,7 @@
   "sd": 1.28,
   "n": 19,
   "first": "2026-11-18T08:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "74–75°F",
   "labels": [
@@ -5063,7 +5063,9 @@
   "edge": 0.051,
   "level": "mid",
   "key": "dallas|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "74–75°F",
+  "hit": true
  },
  {
   "city": "jeddah",
@@ -5435,7 +5437,7 @@
   "sd": 1.35,
   "n": 19,
   "first": "2026-11-18T15:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "64–65°F",
   "labels": [
@@ -5451,7 +5453,9 @@
   "edge": -0.455,
   "level": "light",
   "key": "la|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "64–65°F",
+  "hit": true
  },
  {
   "city": "denver",

@@ -3180,13 +3180,13 @@
   "key": "tokyo|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-21-2026",
   "live": {
-   "t": "2026-11-20T21:49+00:00",
-   "pm": 0.78,
-   "val": 0.845,
+   "t": "2026-11-20T22:48+00:00",
+   "pm": 0.782,
+   "val": 0.84,
    "state": "hold",
-   "temp": 7,
+   "temp": 9,
    "max": 10,
-   "hour": 6.8
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-20T15:30+00:00"
@@ -3296,13 +3296,13 @@
   "key": "wuhan|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-21-2026",
   "live": {
-   "t": "2026-11-20T21:49+00:00",
-   "pm": 0.815,
+   "t": "2026-11-20T22:48+00:00",
+   "pm": 0.813,
    "val": 0.636,
    "state": "hold",
    "temp": 6,
    "max": 8,
-   "hour": 5.8
+   "hour": 6.8
   },
   "alerts": {}
  },
