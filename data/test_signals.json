@@ -4871,7 +4871,7 @@
   "sd": 0.77,
   "n": 19,
   "first": "2026-11-18T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -4887,7 +4887,9 @@
   "edge": -0.293,
   "level": "light",
   "key": "munich|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "10°C",
+  "hit": true
  },
  {
   "city": "milan",
@@ -5329,7 +5331,7 @@
   "sd": 0.89,
   "n": 17,
   "first": "2026-11-18T10:03+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "27°C",
   "labels": [
@@ -5345,7 +5347,9 @@
   "edge": -0.266,
   "level": "light",
   "key": "lucknow|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "sf",
@@ -6961,6 +6965,32 @@
   "edge": -0.385,
   "level": "light",
   "key": "dallas|2026-11-22",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-22",
+  "mu": 9.19,
+  "sigma": 1.61,
+  "sd": 1.04,
+  "n": 19,
+  "first": "2026-11-20T11:04+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "48–49°F",
+  "labels": [
+   "46–47°F",
+   "48–49°F",
+   "50–51°F"
+  ],
+  "lo": 7.5,
+  "hi": 10.833,
+  "price": 1.1,
+  "pm": 0.757,
+  "pm_model": 0.698,
+  "edge": -0.343,
+  "level": "light",
+  "key": "seattle|2026-11-22",
   "tier": "test"
  }
 ]
