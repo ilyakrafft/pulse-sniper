@@ -5383,7 +5383,7 @@
   "sd": 1.08,
   "n": 19,
   "first": "2026-11-18T13:15+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -5399,7 +5399,9 @@
   "edge": -0.357,
   "level": "light",
   "key": "sf|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "atlanta",
