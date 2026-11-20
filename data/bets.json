@@ -447,5 +447,39 @@
    "12°C",
    "13°C"
   ]
+ },
+ {
+  "date": "2026-11-20",
+  "city": "hongkong",
+  "label": "19°C",
+  "win": "19°C",
+  "hit": true,
+  "price": 0.74,
+  "pm": 0.641,
+  "edge": -0.099,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ]
+ },
+ {
+  "date": "2026-11-20",
+  "city": "shenzhen",
+  "label": "19°C",
+  "win": "19°C",
+  "hit": true,
+  "price": 0.78,
+  "pm": 0.693,
+  "edge": -0.087,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ]
  }
 ]

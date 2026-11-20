@@ -922,7 +922,9 @@
     "18°C",
     "19°C",
     "20°C"
-   ]
+   ],
+   "done": true,
+   "hit": true
   },
   "chengdu|2026-11-20": {
    "city": "chengdu",
@@ -960,7 +962,9 @@
    ],
    "alerts": {
     "sell": "2026-11-19T17:07+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "chongqing|2026-11-20": {
    "city": "chongqing",
@@ -1355,6 +1359,18 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.79
+  },
+  {
+   "date": "2026-11-20",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.74
+  },
+  {
+   "date": "2026-11-20",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.78
   }
  ],
  "last_summary": "2026-W46",

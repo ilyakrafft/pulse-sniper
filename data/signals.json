@@ -2683,7 +2683,7 @@
    }
   ],
   "first": "2026-11-18T12:03+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-20T08:00+00:00",
   "kind": "corr",
   "label": "19°C",
@@ -2717,7 +2717,9 @@
   "edge": -0.099,
   "level": "light",
   "key": "hongkong|2026-11-20",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-20-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-20-2026",
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "chengdu",
@@ -2823,13 +2825,13 @@
   "key": "chengdu|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chengdu-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T23:45+00:00",
+   "t": "2026-11-20T01:03+00:00",
    "pm": 0.735,
-   "val": 0.791,
+   "val": 0.756,
    "state": "hold",
    "temp": 9,
    "max": 11,
-   "hour": 7.8
+   "hour": 9.1
   },
   "alerts": {
    "sell": "2026-11-19T19:38+00:00"
@@ -2903,7 +2905,7 @@
    }
   ],
   "first": "2026-11-18T16:38+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-20T08:00+00:00",
   "kind": "corr",
   "label": "19°C",
@@ -2939,17 +2941,19 @@
   "key": "shenzhen|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T23:45+00:00",
-   "pm": 0.891,
-   "val": 0.976,
+   "t": "2026-11-20T01:03+00:00",
+   "pm": 0.895,
+   "val": 0.997,
    "state": "sell",
-   "temp": 13,
+   "temp": 12,
    "max": 19,
-   "hour": 7.8
+   "hour": 9.1
   },
   "alerts": {
    "sell": "2026-11-19T17:07+00:00"
-  }
+  },
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -3055,13 +3059,13 @@
   "key": "chongqing|2026-11-20",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chongqing-on-november-20-2026",
   "live": {
-   "t": "2026-11-19T23:45+00:00",
+   "t": "2026-11-20T01:03+00:00",
    "pm": 0.662,
-   "val": 0.953,
+   "val": 0.883,
    "state": "sell",
    "temp": 10,
    "max": 11,
-   "hour": 7.8
+   "hour": 9.1
   },
   "alerts": {
    "sell": "2026-11-19T22:51+00:00"

@@ -4787,7 +4787,7 @@
   "sd": 1.27,
   "n": 17,
   "first": "2026-11-18T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -4803,7 +4803,9 @@
   "edge": -0.352,
   "level": "light",
   "key": "shenzhen|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -4891,7 +4893,7 @@
   "sd": 1.82,
   "n": 20,
   "first": "2026-11-18T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -4907,7 +4909,9 @@
   "edge": -0.101,
   "level": "light",
   "key": "milan|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C и выше",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -5151,7 +5155,7 @@
   "sd": 1.12,
   "n": 17,
   "first": "2026-11-18T08:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -5167,7 +5171,9 @@
   "edge": -0.344,
   "level": "light",
   "key": "hongkong|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "houston",
