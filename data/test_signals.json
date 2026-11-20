@@ -5213,7 +5213,7 @@
   "sd": 1.29,
   "n": 19,
   "first": "2026-11-18T08:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "76–77°F",
   "labels": [
@@ -5229,7 +5229,9 @@
   "edge": -0.441,
   "level": "light",
   "key": "houston|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "72–73°F",
+  "hit": false
  },
  {
   "city": "chicago",
@@ -5513,7 +5515,7 @@
   "sd": 1.84,
   "n": 19,
   "first": "2026-11-18T21:54+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "68–69°F",
   "labels": [
@@ -5529,7 +5531,9 @@
   "edge": -0.235,
   "level": "light",
   "key": "atlanta|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "68–69°F",
+  "hit": true
  },
  {
   "city": "london",
