@@ -1122,5 +1122,9 @@
  "moscow|2026-11-20": {
   "win": "6°C",
   "actual": 6
+ },
+ "amsterdam|2026-11-20": {
+  "win": "8°C",
+  "actual": 8
  }
 }

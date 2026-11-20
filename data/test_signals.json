@@ -4851,7 +4851,7 @@
   "sd": 1.14,
   "n": 19,
   "first": "2026-11-18T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -4867,7 +4867,9 @@
   "edge": -0.256,
   "level": "light",
   "key": "amsterdam|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "munich",

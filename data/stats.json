@@ -7759,5 +7759,38 @@
    "jma_gsm": 5.5,
    "ens": 5.25
   }
+ },
+ {
+  "date": "2026-11-20",
+  "city": "amsterdam",
+  "k": 7,
+  "p": 0.686,
+  "actual": 8,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 7.0,
+   "ecmwf_aifs025_single": 7.0,
+   "icon_seamless": 7.5,
+   "gfs_seamless": 7.5,
+   "ukmo_seamless": 8.0,
+   "meteofrance_seamless": 7.6,
+   "gem_seamless": 5.8,
+   "jma_seamless": 7.7,
+   "cma_grapes_global": 6.8,
+   "ecmwf_ifs": 7.0,
+   "icon_global": 7.2,
+   "gfs_global": 7.5,
+   "gem_global": 6.0,
+   "ukmo_global_deterministic_10km": 7.4,
+   "meteofrance_arpege_world": 6.5,
+   "jma_gsm": 7.7,
+   "icon_d2": 7.5,
+   "knmi_harmonie_arome_europe": 8.6,
+   "icon_eu": 7.1,
+   "meteofrance_arpege_europe": 6.5,
+   "dmi_harmonie_arome_europe": 7.7,
+   "knmi_harmonie_arome_netherlands": 8.8,
+   "ens": 7.06
+  }
  }
 ]

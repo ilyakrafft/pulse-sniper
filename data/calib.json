@@ -20401,24 +20401,6 @@
  ],
  "amsterdam": [
   {
-   "d": "2026-09-21",
-   "mu": 18.63,
-   "sd": 0.32,
-   "a": 19.0,
-   "m": {
-    "ecmwf_ifs025": 18.5,
-    "ecmwf_aifs025_single": 18.1,
-    "icon_seamless": 18.6,
-    "gfs_seamless": 18.8,
-    "ukmo_seamless": 18.7,
-    "gem_seamless": 19.3,
-    "jma_seamless": 18.0,
-    "cma_grapes_global": 18.6,
-    "ecmwf_ifs": 18.6
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-22",
    "mu": 19.42,
    "sd": 0.44,
@@ -21551,6 +21533,37 @@
     "dmi_harmonie_arome_europe": 9.9,
     "knmi_harmonie_arome_netherlands": 9.9,
     "ens": 10.0
+   }
+  },
+  {
+   "d": "2026-11-20",
+   "mu": 7.41,
+   "sd": 0.7,
+   "a": 8.0,
+   "m": {
+    "ecmwf_ifs025": 7.0,
+    "ecmwf_aifs025_single": 7.0,
+    "icon_seamless": 7.5,
+    "gfs_seamless": 7.5,
+    "ukmo_seamless": 8.0,
+    "meteofrance_seamless": 7.6,
+    "gem_seamless": 5.8,
+    "jma_seamless": 7.7,
+    "cma_grapes_global": 6.8,
+    "ecmwf_ifs": 7.0,
+    "icon_global": 7.2,
+    "gfs_global": 7.5,
+    "gem_global": 6.0,
+    "ukmo_global_deterministic_10km": 7.4,
+    "meteofrance_arpege_world": 6.5,
+    "jma_gsm": 7.7,
+    "icon_d2": 7.5,
+    "knmi_harmonie_arome_europe": 8.6,
+    "icon_eu": 7.1,
+    "meteofrance_arpege_europe": 6.5,
+    "dmi_harmonie_arome_europe": 7.7,
+    "knmi_harmonie_arome_netherlands": 8.8,
+    "ens": 7.1
    }
   }
  ],
