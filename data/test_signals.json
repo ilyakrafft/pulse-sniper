@@ -5101,7 +5101,7 @@
   "sd": 1.24,
   "n": 19,
   "first": "2026-11-18T08:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "5°C",
   "labels": [
@@ -5117,7 +5117,9 @@
   "edge": -0.224,
   "level": "light",
   "key": "helsinki|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "6°C",
+  "hit": true
  },
  {
   "city": "chongqing",
