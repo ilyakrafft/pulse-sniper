@@ -6244,5 +6244,31 @@
   "level": "light",
   "key": "telaviv|2026-11-21",
   "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-21",
+  "mu": 9.85,
+  "sigma": 1.97,
+  "sd": 1.53,
+  "n": 19,
+  "first": "2026-11-20T04:34+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "48–49°F",
+  "labels": [
+   "46–47°F",
+   "48–49°F",
+   "50–51°F"
+  ],
+  "lo": 7.5,
+  "hi": 10.833,
+  "price": 1.15,
+  "pm": 0.703,
+  "pm_model": 0.576,
+  "edge": -0.447,
+  "level": "light",
+  "key": "seattle|2026-11-21",
+  "tier": "test"
  }
 ]
