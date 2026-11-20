@@ -944,7 +944,9 @@
    "alerts": {
     "sell": "2026-11-19T19:38+00:00",
     "weak": "2026-11-20T05:38+00:00"
-   }
+   },
+   "done": true,
+   "hit": false
   },
   "shenzhen|2026-11-20": {
    "city": "shenzhen",
@@ -984,7 +986,9 @@
    ],
    "alerts": {
     "sell": "2026-11-19T22:51+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "tokyo|2026-11-21": {
    "city": "tokyo",
@@ -1388,6 +1392,18 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.78
+  },
+  {
+   "date": "2026-11-20",
+   "week": "2026-W47",
+   "hit": false,
+   "price": 0.74
+  },
+  {
+   "date": "2026-11-20",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.765
   }
  ],
  "last_summary": "2026-W46",
