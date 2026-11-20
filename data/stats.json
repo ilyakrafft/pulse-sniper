@@ -7699,5 +7699,65 @@
    "jma_gsm": 27.1,
    "ens": 27.23
   }
+ },
+ {
+  "date": "2026-11-20",
+  "city": "london",
+  "k": 9,
+  "p": 0.719,
+  "actual": 11,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 8.8,
+   "ecmwf_aifs025_single": 9.0,
+   "icon_seamless": 9.9,
+   "gfs_seamless": 9.4,
+   "ukmo_seamless": 9.4,
+   "meteofrance_seamless": 10.1,
+   "gem_seamless": 8.8,
+   "jma_seamless": 10.2,
+   "cma_grapes_global": 8.8,
+   "ecmwf_ifs": 8.8,
+   "icon_global": 9.0,
+   "gfs_global": 9.4,
+   "gem_global": 8.6,
+   "ukmo_global_deterministic_10km": 9.1,
+   "meteofrance_arpege_world": 8.8,
+   "jma_gsm": 10.2,
+   "icon_d2": 9.9,
+   "knmi_harmonie_arome_europe": 10.2,
+   "icon_eu": 9.1,
+   "meteofrance_arpege_europe": 9.0,
+   "dmi_harmonie_arome_europe": 9.8,
+   "ukmo_uk_deterministic_2km": 9.4,
+   "ens": 9.0
+  }
+ },
+ {
+  "date": "2026-11-20",
+  "city": "moscow",
+  "k": 5,
+  "p": 0.658,
+  "actual": 6,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 6.4,
+   "ecmwf_aifs025_single": 5.8,
+   "icon_seamless": 5.3,
+   "gfs_seamless": 5.4,
+   "ukmo_seamless": 5.7,
+   "meteofrance_seamless": 3.9,
+   "gem_seamless": 5.3,
+   "jma_seamless": 5.5,
+   "cma_grapes_global": 1.1,
+   "ecmwf_ifs": 6.2,
+   "icon_global": 5.3,
+   "gfs_global": 5.4,
+   "gem_global": 5.3,
+   "ukmo_global_deterministic_10km": 5.7,
+   "meteofrance_arpege_world": 4.0,
+   "jma_gsm": 5.5,
+   "ens": 5.25
+  }
  }
 ]

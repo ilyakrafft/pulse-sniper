@@ -4683,7 +4683,7 @@
   "sd": 1.03,
   "n": 19,
   "first": "2026-11-18T05:39+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -4699,7 +4699,9 @@
   "edge": -0.275,
   "level": "light",
   "key": "london|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -5257,7 +5259,7 @@
   "sd": 0.77,
   "n": 17,
   "first": "2026-11-18T10:03+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "6°C",
   "labels": [
@@ -5273,7 +5275,9 @@
   "edge": -0.304,
   "level": "light",
   "key": "moscow|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "6°C",
+  "hit": true
  },
  {
   "city": "miami",
