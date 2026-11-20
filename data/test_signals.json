@@ -5063,7 +5063,7 @@
   "sd": 1.21,
   "n": 17,
   "first": "2026-11-18T08:40+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "35°C",
   "labels": [
@@ -5079,7 +5079,9 @@
   "edge": -0.281,
   "level": "light",
   "key": "jeddah|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "34°C",
+  "hit": true
  },
  {
   "city": "helsinki",
@@ -6933,6 +6935,32 @@
   "edge": -0.209,
   "level": "light",
   "key": "chicago|2026-11-22",
+  "tier": "test"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-22",
+  "mu": 19.99,
+  "sigma": 1.78,
+  "sd": 1.39,
+  "n": 19,
+  "first": "2026-11-20T10:03+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "66–67°F",
+  "labels": [
+   "64–65°F",
+   "66–67°F",
+   "68–69°F"
+  ],
+  "lo": 17.5,
+  "hi": 20.833,
+  "price": 1.13,
+  "pm": 0.745,
+  "pm_model": 0.601,
+  "edge": -0.385,
+  "level": "light",
+  "key": "dallas|2026-11-22",
   "tier": "test"
  }
 ]
