@@ -5495,7 +5495,7 @@
   "sd": 0.83,
   "n": 19,
   "first": "2026-11-18T16:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "48–49°F",
   "labels": [
@@ -5511,7 +5511,9 @@
   "edge": -0.314,
   "level": "light",
   "key": "seattle|2026-11-20",
-  "tier": "test"
+  "tier": "test",
+  "win": "42–43°F",
+  "hit": false
  },
  {
   "city": "atlanta",
@@ -5601,7 +5603,7 @@
   "sd": 1.05,
   "n": 19,
   "first": "2026-11-19T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -5617,7 +5619,9 @@
   "edge": -0.37,
   "level": "light",
   "key": "munich|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "madrid",
