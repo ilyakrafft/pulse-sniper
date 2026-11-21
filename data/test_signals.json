@@ -6051,7 +6051,7 @@
   "sd": 1.42,
   "n": 19,
   "first": "2026-11-19T10:07+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "66–67°F",
   "labels": [
@@ -6067,7 +6067,9 @@
   "edge": -0.206,
   "level": "light",
   "key": "chicago|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "68–69°F",
+  "hit": true
  },
  {
   "city": "lucknow",
@@ -6211,7 +6213,7 @@
   "sd": 0.56,
   "n": 19,
   "first": "2026-11-19T12:34+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "4°C",
   "labels": [
@@ -6227,7 +6229,9 @@
   "edge": -0.266,
   "level": "light",
   "key": "warsaw|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "4°C",
+  "hit": true
  },
  {
   "city": "la",
@@ -7871,6 +7875,32 @@
   "edge": -0.456,
   "level": "light",
   "key": "seattle|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-23",
+  "mu": 19.06,
+  "sigma": 1.48,
+  "sd": 0.75,
+  "n": 19,
+  "first": "2026-11-21T20:42+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "66–67°F",
+  "labels": [
+   "64–65°F",
+   "66–67°F",
+   "68–69°F"
+  ],
+  "lo": 17.5,
+  "hi": 20.833,
+  "price": 1.02,
+  "pm": 0.823,
+  "pm_model": 0.738,
+  "edge": -0.197,
+  "level": "light",
+  "key": "la|2026-11-23",
   "tier": "test"
  }
 ]
