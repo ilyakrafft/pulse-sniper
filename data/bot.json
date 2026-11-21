@@ -1049,7 +1049,9 @@
    ],
    "alerts": {
     "sell": "2026-11-21T07:47+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "london|2026-11-22": {
    "city": "london",
@@ -1505,6 +1507,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.726
+  },
+  {
+   "date": "2026-11-21",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.8
   }
  ],
  "last_summary": "2026-W46",
