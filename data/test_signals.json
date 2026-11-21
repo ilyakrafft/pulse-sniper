@@ -7820,5 +7820,57 @@
   "level": "light",
   "key": "sf|2026-11-23",
   "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-23",
+  "mu": 24.84,
+  "sigma": 1.46,
+  "sd": 0.96,
+  "n": 17,
+  "first": "2026-11-21T17:44+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 1.0,
+  "pm": 0.799,
+  "pm_model": 0.692,
+  "edge": -0.201,
+  "level": "light",
+  "key": "telaviv|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-23",
+  "mu": 10.1,
+  "sigma": 2.06,
+  "sd": 1.53,
+  "n": 19,
+  "first": "2026-11-21T17:44+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 1.14,
+  "pm": 0.684,
+  "pm_model": 0.58,
+  "edge": -0.456,
+  "level": "light",
+  "key": "seattle|2026-11-23",
+  "tier": "test"
  }
 ]
