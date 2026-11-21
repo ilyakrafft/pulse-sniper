@@ -3416,13 +3416,13 @@
   "key": "dallas|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T08:51+00:00",
-   "pm": 0.84,
-   "val": 0.945,
+   "t": "2026-11-21T09:49+00:00",
+   "pm": 0.861,
+   "val": 0.935,
    "state": "sell",
-   "temp": 17.2,
+   "temp": 16.7,
    "max": 18.3,
-   "hour": 2.9
+   "hour": 3.8
   },
   "alerts": {
    "sell": "2026-11-21T07:47+00:00"
@@ -3636,13 +3636,13 @@
   "key": "madrid|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T08:51+00:00",
-   "pm": 0.789,
-   "val": 0.952,
-   "state": "sell",
+   "t": "2026-11-21T09:49+00:00",
+   "pm": 0.803,
+   "val": 0.766,
+   "state": "hold",
    "temp": 10,
    "max": 11,
-   "hour": 9.8
+   "hour": 10.8
   },
   "alerts": {
    "sell": "2026-11-20T23:49+00:00"

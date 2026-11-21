@@ -1214,5 +1214,13 @@
  "singapore|2026-11-21": {
   "win": "29°C",
   "actual": 29
+ },
+ "jeddah|2026-11-21": {
+  "win": "35°C",
+  "actual": 35
+ },
+ "telaviv|2026-11-21": {
+  "win": "27°C",
+  "actual": 27
  }
 }
