@@ -7544,5 +7544,31 @@
   "level": "light",
   "key": "chicago|2026-11-23",
   "tier": "test"
+ },
+ {
+  "city": "amsterdam",
+  "date": "2026-11-23",
+  "mu": 5.84,
+  "sigma": 2.06,
+  "sd": 1.7,
+  "n": 19,
+  "first": "2026-11-21T10:49+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "6°C",
+  "labels": [
+   "5°C",
+   "6°C",
+   "7°C"
+  ],
+  "lo": 4.5,
+  "hi": 7.5,
+  "price": 1.026,
+  "pm": 0.647,
+  "pm_model": 0.531,
+  "edge": -0.379,
+  "level": "light",
+  "key": "amsterdam|2026-11-23",
+  "tier": "test"
  }
 ]
