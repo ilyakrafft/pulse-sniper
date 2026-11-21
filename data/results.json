@@ -1198,5 +1198,21 @@
  "wuhan|2026-11-21": {
   "win": "18°C",
   "actual": 18
+ },
+ "helsinki|2026-11-21": {
+  "win": "3°C",
+  "actual": 3
+ },
+ "lucknow|2026-11-21": {
+  "win": "28°C",
+  "actual": 28
+ },
+ "shenzhen|2026-11-21": {
+  "win": "22°C",
+  "actual": 22
+ },
+ "singapore|2026-11-21": {
+  "win": "29°C",
+  "actual": 29
  }
 }
