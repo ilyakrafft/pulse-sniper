@@ -515,5 +515,22 @@
    "17°C",
    "18°C"
   ]
+ },
+ {
+  "date": "2026-11-21",
+  "city": "tokyo",
+  "label": "14°C",
+  "win": "15°C",
+  "hit": true,
+  "price": 0.79,
+  "pm": 0.707,
+  "edge": -0.083,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ]
  }
 ]

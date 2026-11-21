@@ -5657,7 +5657,7 @@
   "sd": 1.12,
   "n": 18,
   "first": "2026-11-19T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -5673,7 +5673,9 @@
   "edge": -0.15,
   "level": "light",
   "key": "tokyo|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "wuhan",
@@ -7185,6 +7187,58 @@
   "edge": -0.279,
   "level": "light",
   "key": "tokyo|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-23",
+  "mu": 7.42,
+  "sigma": 1.43,
+  "sd": 0.91,
+  "n": 19,
+  "first": "2026-11-21T06:31+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "7°C",
+  "labels": [
+   "6°C",
+   "7°C",
+   "8°C"
+  ],
+  "lo": 5.5,
+  "hi": 8.5,
+  "price": 0.83,
+  "pm": 0.728,
+  "pm_model": 0.686,
+  "edge": -0.102,
+  "level": "light",
+  "key": "london|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "singapore",
+  "date": "2026-11-23",
+  "mu": 30.85,
+  "sigma": 1.79,
+  "sd": 1.4,
+  "n": 17,
+  "first": "2026-11-21T06:31+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "31°C",
+  "labels": [
+   "30°C",
+   "31°C",
+   "32°C"
+  ],
+  "lo": 29.5,
+  "hi": 32.5,
+  "price": 1.062,
+  "pm": 0.728,
+  "pm_model": 0.596,
+  "edge": -0.334,
+  "level": "light",
+  "key": "singapore|2026-11-23",
   "tier": "test"
  }
 ]
