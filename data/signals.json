@@ -3416,13 +3416,13 @@
   "key": "dallas|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T14:52+00:00",
+   "t": "2026-11-21T15:46+00:00",
    "pm": 0.816,
-   "val": 0.98,
+   "val": 0.995,
    "state": "sell",
-   "temp": 16.1,
-   "max": 18.3,
-   "hour": 8.9
+   "temp": 17.2,
+   "max": 17.2,
+   "hour": 9.8
   },
   "alerts": {
    "sell": "2026-11-21T07:47+00:00"
@@ -3600,7 +3600,7 @@
    }
   ],
   "first": "2026-11-20T10:03+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-21T15:00+00:00",
   "kind": "corr",
   "label": "14°C",
@@ -3636,18 +3636,20 @@
   "key": "madrid|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T14:52+00:00",
-   "pm": 0.369,
-   "val": 0.3,
-   "state": "weak",
+   "t": "2026-11-21T15:46+00:00",
+   "pm": 0.944,
+   "val": 0.994,
+   "state": "sell",
    "temp": 12,
-   "max": 12,
-   "hour": 15.9
+   "max": 13,
+   "hour": 16.8
   },
   "alerts": {
    "sell": "2026-11-20T23:49+00:00",
    "weak": "2026-11-21T14:00+00:00"
-  }
+  },
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "hongkong",

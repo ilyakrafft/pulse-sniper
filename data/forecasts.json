@@ -107,27 +107,6 @@
   "gem_regional": 29.5,
   "ens": 26.88
  },
- "madrid|2026-11-21": {
-  "ecmwf_ifs025": 13.6,
-  "ecmwf_aifs025_single": 11.1,
-  "icon_seamless": 12.9,
-  "gfs_seamless": 14.5,
-  "ukmo_seamless": 13.2,
-  "meteofrance_seamless": 13.8,
-  "gem_seamless": 13.7,
-  "jma_seamless": 15.1,
-  "cma_grapes_global": 13.2,
-  "ecmwf_ifs": 13.0,
-  "icon_global": 12.8,
-  "gfs_global": 14.5,
-  "gem_global": 13.7,
-  "ukmo_global_deterministic_10km": 13.2,
-  "meteofrance_arpege_world": 13.3,
-  "jma_gsm": 15.1,
-  "icon_eu": 12.9,
-  "meteofrance_arpege_europe": 12.9,
-  "ens": 13.17
- },
  "la|2026-11-21": {
   "ecmwf_ifs025": 19.0,
   "ecmwf_aifs025_single": 18.5,
