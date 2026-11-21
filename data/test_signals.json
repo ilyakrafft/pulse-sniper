@@ -5685,7 +5685,7 @@
   "sd": 1.14,
   "n": 17,
   "first": "2026-11-19T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "17°C",
   "labels": [
@@ -5701,7 +5701,9 @@
   "edge": -0.191,
   "level": "light",
   "key": "wuhan|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "18°C",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -5737,7 +5739,7 @@
   "sd": 0.67,
   "n": 17,
   "first": "2026-11-19T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "18°C",
   "labels": [
@@ -5753,7 +5755,9 @@
   "edge": -0.197,
   "level": "light",
   "key": "chengdu|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "dallas",
@@ -5815,7 +5819,7 @@
   "sd": 1.09,
   "n": 17,
   "first": "2026-11-19T08:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "18°C",
   "labels": [
@@ -5831,7 +5835,9 @@
   "edge": -0.433,
   "level": "light",
   "key": "chongqing|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "19°C",
+  "hit": true
  },
  {
   "city": "milan",
@@ -7239,6 +7245,58 @@
   "edge": -0.334,
   "level": "light",
   "key": "singapore|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "chongqing",
+  "date": "2026-11-23",
+  "mu": 15.23,
+  "sigma": 1.84,
+  "sd": 1.17,
+  "n": 17,
+  "first": "2026-11-21T07:47+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "15°C",
+  "labels": [
+   "14°C",
+   "15°C",
+   "16°C"
+  ],
+  "lo": 13.5,
+  "hi": 16.5,
+  "price": 1.11,
+  "pm": 0.693,
+  "pm_model": 0.582,
+  "edge": -0.417,
+  "level": "light",
+  "key": "chongqing|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "chengdu",
+  "date": "2026-11-23",
+  "mu": 18.91,
+  "sigma": 2.1,
+  "sd": 1.46,
+  "n": 17,
+  "first": "2026-11-21T07:47+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "20°C",
+  "labels": [
+   "19°C",
+   "20°C",
+   "21°C"
+  ],
+  "lo": 18.5,
+  "hi": 21.5,
+  "price": 0.951,
+  "pm": 0.588,
+  "pm_model": 0.469,
+  "edge": -0.363,
+  "level": "light",
+  "key": "chengdu|2026-11-23",
   "tier": "test"
  }
 ]

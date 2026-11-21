@@ -3262,7 +3262,7 @@
    }
   ],
   "first": "2026-11-19T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-21T08:00+00:00",
   "kind": "corr",
   "label": "17°C",
@@ -3298,17 +3298,19 @@
   "key": "wuhan|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T06:31+00:00",
-   "pm": 0.761,
-   "val": 0.857,
+   "t": "2026-11-21T07:47+00:00",
+   "pm": 0.838,
+   "val": 0.979,
    "state": "sell",
    "temp": 18,
    "max": 18,
-   "hour": 14.5
+   "hour": 15.8
   },
   "alerts": {
    "sell": "2026-11-21T06:31+00:00"
-  }
+  },
+  "win": "18°C",
+  "hit": true
  },
  {
   "city": "dallas",
@@ -3412,7 +3414,19 @@
   "edge": -0.098,
   "level": "light",
   "key": "dallas|2026-11-21",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-21-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-21-2026",
+  "live": {
+   "t": "2026-11-21T07:47+00:00",
+   "pm": 0.84,
+   "val": 0.94,
+   "state": "sell",
+   "temp": 18.3,
+   "max": 18.3,
+   "hour": 1.8
+  },
+  "alerts": {
+   "sell": "2026-11-21T07:47+00:00"
+  }
  },
  {
   "city": "london",
@@ -3622,13 +3636,13 @@
   "key": "madrid|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T06:31+00:00",
-   "pm": 0.802,
-   "val": 0.976,
+   "t": "2026-11-21T07:47+00:00",
+   "pm": 0.789,
+   "val": 0.966,
    "state": "sell",
-   "temp": 10,
+   "temp": 11,
    "max": 11,
-   "hour": 7.5
+   "hour": 8.8
   },
   "alerts": {
    "sell": "2026-11-20T23:49+00:00"
