@@ -6255,7 +6255,7 @@
   "sd": 0.59,
   "n": 22,
   "first": "2026-11-19T17:07+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "9°C",
   "labels": [
@@ -6271,7 +6271,9 @@
   "edge": -0.288,
   "level": "light",
   "key": "amsterdam|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "jeddah",
