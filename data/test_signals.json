@@ -5851,7 +5851,7 @@
   "sd": 1.19,
   "n": 20,
   "first": "2026-11-19T08:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -5867,7 +5867,9 @@
   "edge": -0.28,
   "level": "light",
   "key": "milan|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "17°C и выше",
+  "hit": true
  },
  {
   "city": "busan",
@@ -5959,7 +5961,7 @@
   "sd": 0.63,
   "n": 17,
   "first": "2026-11-19T10:07+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "5°C",
   "labels": [
@@ -5975,7 +5977,9 @@
   "edge": -0.278,
   "level": "light",
   "key": "moscow|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "5°C",
+  "hit": true
  },
  {
   "city": "miami",
@@ -6093,7 +6097,7 @@
   "sd": 1.54,
   "n": 19,
   "first": "2026-11-19T10:07+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "68–69°F",
   "labels": [
@@ -6109,7 +6113,9 @@
   "edge": -0.316,
   "level": "light",
   "key": "atlanta|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": false
  },
  {
   "city": "nyc",
