@@ -3416,13 +3416,13 @@
   "key": "dallas|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T15:46+00:00",
-   "pm": 0.816,
-   "val": 0.995,
+   "t": "2026-11-21T16:47+00:00",
+   "pm": 0.837,
+   "val": 0.945,
    "state": "sell",
-   "temp": 17.2,
-   "max": 17.2,
-   "hour": 9.8
+   "temp": 20,
+   "max": 20,
+   "hour": 10.8
   },
   "alerts": {
    "sell": "2026-11-21T07:47+00:00"
