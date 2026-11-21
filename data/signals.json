@@ -3180,13 +3180,13 @@
   "key": "tokyo|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T01:08+00:00",
-   "pm": 0.791,
-   "val": 0.869,
+   "t": "2026-11-21T02:29+00:00",
+   "pm": 0.884,
+   "val": 0.901,
    "state": "sell",
-   "temp": 12,
-   "max": 12,
-   "hour": 10.1
+   "temp": 13,
+   "max": 14,
+   "hour": 11.5
   },
   "alerts": {
    "sell": "2026-11-20T15:30+00:00"
@@ -3296,13 +3296,13 @@
   "key": "wuhan|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T01:08+00:00",
-   "pm": 0.826,
-   "val": 0.658,
+   "t": "2026-11-21T02:29+00:00",
+   "pm": 0.824,
+   "val": 0.618,
    "state": "hold",
-   "temp": 11,
-   "max": 11,
-   "hour": 9.1
+   "temp": 13,
+   "max": 13,
+   "hour": 10.5
   },
   "alerts": {}
  },
@@ -3618,13 +3618,13 @@
   "key": "madrid|2026-11-21",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-21-2026",
   "live": {
-   "t": "2026-11-21T01:08+00:00",
-   "pm": 0.847,
-   "val": 0.898,
+   "t": "2026-11-21T02:29+00:00",
+   "pm": 0.846,
+   "val": 0.892,
    "state": "sell",
    "temp": 10,
    "max": 11,
-   "hour": 2.1
+   "hour": 3.5
   },
   "alerts": {
    "sell": "2026-11-20T23:49+00:00"

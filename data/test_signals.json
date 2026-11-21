@@ -7080,5 +7080,31 @@
   "level": "light",
   "key": "la|2026-11-22",
   "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-22",
+  "mu": 7.76,
+  "sigma": 2.4,
+  "sd": 1.84,
+  "n": 18,
+  "first": "2026-11-21T02:29+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "44–45°F",
+  "labels": [
+   "42–43°F",
+   "44–45°F",
+   "46–47°F"
+  ],
+  "lo": 5.278,
+  "hi": 8.611,
+  "price": 0.95,
+  "pm": 0.575,
+  "pm_model": 0.489,
+  "edge": -0.375,
+  "level": "light",
+  "key": "denver|2026-11-22",
+  "tier": "test"
  }
 ]
