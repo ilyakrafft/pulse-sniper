@@ -7570,5 +7570,57 @@
   "level": "light",
   "key": "amsterdam|2026-11-23",
   "tier": "test"
+ },
+ {
+  "city": "miami",
+  "date": "2026-11-23",
+  "mu": 26.5,
+  "sigma": 1.84,
+  "sd": 1.45,
+  "n": 19,
+  "first": "2026-11-21T11:46+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "80–81°F",
+  "labels": [
+   "78–79°F",
+   "80–81°F",
+   "82–83°F"
+  ],
+  "lo": 25.278,
+  "hi": 28.611,
+  "price": 1.1,
+  "pm": 0.757,
+  "pm_model": 0.622,
+  "edge": -0.343,
+  "level": "light",
+  "key": "miami|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-23",
+  "mu": 20.48,
+  "sigma": 2.2,
+  "sd": 1.74,
+  "n": 19,
+  "first": "2026-11-21T11:46+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "68–69°F",
+  "labels": [
+   "66–67°F",
+   "68–69°F",
+   "70–71°F"
+  ],
+  "lo": 18.611,
+  "hi": 21.944,
+  "price": 1.1,
+  "pm": 0.682,
+  "pm_model": 0.55,
+  "edge": -0.418,
+  "level": "light",
+  "key": "atlanta|2026-11-23",
+  "tier": "test"
  }
 ]
