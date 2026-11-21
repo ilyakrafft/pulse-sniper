@@ -8939,5 +8939,35 @@
    "gem_regional": 7.9,
    "ens": 6.89
   }
+ },
+ {
+  "date": "2026-11-21",
+  "city": "la",
+  "k": 19,
+  "p": 0.625,
+  "actual": 19,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 19.0,
+   "ecmwf_aifs025_single": 18.5,
+   "icon_seamless": 21.0,
+   "gfs_seamless": 20.7,
+   "ukmo_seamless": 18.4,
+   "meteofrance_seamless": 17.7,
+   "gem_seamless": 18.1,
+   "jma_seamless": 18.6,
+   "cma_grapes_global": 19.0,
+   "ecmwf_ifs": 18.0,
+   "icon_global": 21.0,
+   "gfs_global": 19.2,
+   "gem_global": 16.5,
+   "ukmo_global_deterministic_10km": 18.4,
+   "meteofrance_arpege_world": 17.7,
+   "jma_gsm": 18.6,
+   "gfs_hrrr": 20.7,
+   "ncep_nbm_conus": 18.9,
+   "gem_regional": 18.1,
+   "ens": 18.95
+  }
  }
 ]

@@ -6249,7 +6249,7 @@
   "sd": 1.57,
   "n": 18,
   "first": "2026-11-19T14:56+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "66–67°F",
   "labels": [
@@ -6265,7 +6265,9 @@
   "edge": -0.199,
   "level": "light",
   "key": "la|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "66–67°F",
+  "hit": true
  },
  {
   "city": "amsterdam",
