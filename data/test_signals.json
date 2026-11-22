@@ -6663,7 +6663,7 @@
   "sd": 0.9,
   "n": 20,
   "first": "2026-11-20T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -6679,7 +6679,9 @@
   "edge": -0.183,
   "level": "light",
   "key": "milan|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -8491,6 +8493,84 @@
   "edge": -0.315,
   "level": "light",
   "key": "la|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-24",
+  "mu": 10.02,
+  "sigma": 1.81,
+  "sd": 1.41,
+  "n": 19,
+  "first": "2026-11-22T13:58+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 0.967,
+  "pm": 0.697,
+  "pm_model": 0.638,
+  "edge": -0.27,
+  "level": "light",
+  "key": "dallas|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "miami",
+  "date": "2026-11-24",
+  "mu": 26.86,
+  "sigma": 1.48,
+  "sd": 0.97,
+  "n": 19,
+  "first": "2026-11-22T13:58+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "80–81°F",
+  "labels": [
+   "78–79°F",
+   "80–81°F",
+   "82–83°F"
+  ],
+  "lo": 25.278,
+  "hi": 28.611,
+  "price": 1.116,
+  "pm": 0.828,
+  "pm_model": 0.739,
+  "edge": -0.288,
+  "level": "light",
+  "key": "miami|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-24",
+  "mu": 16.71,
+  "sigma": 1.98,
+  "sd": 1.51,
+  "n": 19,
+  "first": "2026-11-22T13:58+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "62–63°F",
+  "labels": [
+   "60–61°F",
+   "62–63°F",
+   "64–65°F"
+  ],
+  "lo": 15.278,
+  "hi": 18.611,
+  "price": 1.014,
+  "pm": 0.726,
+  "pm_model": 0.596,
+  "edge": -0.288,
+  "level": "light",
+  "key": "atlanta|2026-11-24",
   "tier": "test"
  }
 ]

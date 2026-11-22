@@ -9418,5 +9418,36 @@
    "jma_gsm": 22.7,
    "ens": 24.88
   }
+ },
+ {
+  "date": "2026-11-22",
+  "city": "milan",
+  "k": 8,
+  "p": 0.714,
+  "actual": 9,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 8.2,
+   "ecmwf_aifs025_single": 7.4,
+   "icon_seamless": 8.6,
+   "gfs_seamless": 8.6,
+   "ukmo_seamless": 8.9,
+   "meteofrance_seamless": 8.2,
+   "gem_seamless": 7.2,
+   "jma_seamless": 7.0,
+   "cma_grapes_global": 6.6,
+   "ecmwf_ifs": 8.3,
+   "icon_global": 8.8,
+   "gfs_global": 8.6,
+   "gem_global": 7.2,
+   "ukmo_global_deterministic_10km": 7.5,
+   "meteofrance_arpege_world": 7.8,
+   "jma_gsm": 7.0,
+   "icon_d2": 8.6,
+   "icon_eu": 8.8,
+   "meteofrance_arpege_europe": 7.7,
+   "italia_meteo_arpae_icon_2i": 8.9,
+   "ens": 7.89
+  }
  }
 ]
