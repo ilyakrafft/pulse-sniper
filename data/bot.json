@@ -1124,7 +1124,9 @@
     "66–67°F",
     "68–69°F",
     "70–71°F"
-   ]
+   ],
+   "done": true,
+   "hit": true
   },
   "busan|2026-11-23": {
    "city": "busan",
@@ -1516,6 +1518,12 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.8
+  },
+  {
+   "date": "2026-11-22",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.875
   }
  ],
  "last_summary": "2026-W46",

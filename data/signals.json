@@ -3534,13 +3534,13 @@
   "key": "london|2026-11-22",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026",
   "live": {
-   "t": "2026-11-22T06:30+00:00",
+   "t": "2026-11-22T07:47+00:00",
    "pm": 0.895,
-   "val": 0.97,
+   "val": 1.0,
    "state": "sell",
    "temp": 7,
    "max": 7,
-   "hour": 6.5
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-22T01:04+00:00"
@@ -3837,7 +3837,7 @@
    }
   ],
   "first": "2026-11-21T14:00+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-22T22:00+00:00",
   "kind": "corr",
   "label": "68–69°F",
@@ -3871,7 +3871,21 @@
   "edge": -0.088,
   "level": "light",
   "key": "dallas|2026-11-22",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-22-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-22-2026",
+  "live": {
+   "t": "2026-11-22T07:47+00:00",
+   "pm": 0.937,
+   "val": 0.987,
+   "state": "sell",
+   "temp": 19.4,
+   "max": 20,
+   "hour": 1.8
+  },
+  "alerts": {
+   "sell": "2026-11-22T07:47+00:00"
+  },
+  "win": "68–69°F",
+  "hit": true
  },
  {
   "city": "busan",
