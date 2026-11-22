@@ -6391,7 +6391,7 @@
   "sd": 0.64,
   "n": 19,
   "first": "2026-11-20T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "9°C",
   "labels": [
@@ -6407,7 +6407,9 @@
   "edge": -0.15,
   "level": "light",
   "key": "london|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "paris",
@@ -6417,7 +6419,7 @@
   "sd": 1.35,
   "n": 19,
   "first": "2026-11-20T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -6433,7 +6435,9 @@
   "edge": -0.449,
   "level": "light",
   "key": "paris|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -6611,7 +6615,7 @@
   "sd": 1.06,
   "n": 19,
   "first": "2026-11-20T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "5°C",
   "labels": [
@@ -6627,7 +6631,9 @@
   "edge": -0.237,
   "level": "light",
   "key": "munich|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "4°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -6887,7 +6893,7 @@
   "sd": 0.94,
   "n": 19,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "7°C",
   "labels": [
@@ -6903,7 +6909,9 @@
   "edge": -0.265,
   "level": "light",
   "key": "amsterdam|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -6913,7 +6921,7 @@
   "sd": 1.13,
   "n": 17,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "22°C",
   "labels": [
@@ -6929,7 +6937,9 @@
   "edge": -0.157,
   "level": "light",
   "key": "hongkong|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "22°C",
+  "hit": true
  },
  {
   "city": "miami",
@@ -8571,6 +8581,58 @@
   "edge": -0.288,
   "level": "light",
   "key": "atlanta|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-24",
+  "mu": 9.73,
+  "sigma": 1.59,
+  "sd": 0.9,
+  "n": 21,
+  "first": "2026-11-22T14:50+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "10°C",
+  "labels": [
+   "9°C",
+   "10°C",
+   "11°C"
+  ],
+  "lo": 8.5,
+  "hi": 11.5,
+  "price": 1.121,
+  "pm": 0.748,
+  "pm_model": 0.648,
+  "edge": -0.373,
+  "level": "light",
+  "key": "milan|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-24",
+  "mu": 11.33,
+  "sigma": 2.11,
+  "sd": 1.54,
+  "n": 19,
+  "first": "2026-11-22T14:50+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "52–53°F",
+  "labels": [
+   "50–51°F",
+   "52–53°F",
+   "54–55°F"
+  ],
+  "lo": 9.722,
+  "hi": 13.056,
+  "price": 1.12,
+  "pm": 0.668,
+  "pm_model": 0.57,
+  "edge": -0.452,
+  "level": "light",
+  "key": "seattle|2026-11-24",
   "tier": "test"
  }
 ]

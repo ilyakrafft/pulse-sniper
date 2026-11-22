@@ -1354,5 +1354,25 @@
  "milan|2026-11-22": {
   "win": "9°C",
   "actual": 9
+ },
+ "amsterdam|2026-11-22": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "hongkong|2026-11-22": {
+  "win": "22°C",
+  "actual": 22
+ },
+ "london|2026-11-22": {
+  "win": "9°C",
+  "actual": 9
+ },
+ "munich|2026-11-22": {
+  "win": "4°C",
+  "actual": 4
+ },
+ "paris|2026-11-22": {
+  "win": "8°C",
+  "actual": 8
  }
 }

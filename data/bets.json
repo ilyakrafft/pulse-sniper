@@ -617,5 +617,39 @@
    "4°C",
    "5°C"
   ]
+ },
+ {
+  "date": "2026-11-22",
+  "city": "london",
+  "label": "9°C",
+  "win": "9°C",
+  "hit": true,
+  "price": 0.88,
+  "pm": 0.784,
+  "edge": -0.096,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "8°C",
+   "9°C",
+   "10°C"
+  ]
+ },
+ {
+  "date": "2026-11-22",
+  "city": "hongkong",
+  "label": "22°C",
+  "win": "22°C",
+  "hit": true,
+  "price": 0.85,
+  "pm": 0.75,
+  "edge": -0.1,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ]
  }
 ]

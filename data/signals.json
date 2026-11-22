@@ -3498,7 +3498,7 @@
    }
   ],
   "first": "2026-11-20T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-22T16:00+00:00",
   "kind": "corr",
   "label": "9°C",
@@ -3534,17 +3534,19 @@
   "key": "london|2026-11-22",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026",
   "live": {
-   "t": "2026-11-22T13:58+00:00",
-   "pm": 0.986,
+   "t": "2026-11-22T14:50+00:00",
+   "pm": 0.996,
    "val": 1.001,
    "state": "sell",
    "temp": 9,
    "max": 9,
-   "hour": 14.0
+   "hour": 14.8
   },
   "alerts": {
    "sell": "2026-11-22T01:04+00:00"
-  }
+  },
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "madrid",
@@ -3733,7 +3735,7 @@
    }
   ],
   "first": "2026-11-21T08:51+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-22T08:00+00:00",
   "kind": "corr",
   "label": "22°C",
@@ -3767,7 +3769,9 @@
   "edge": -0.1,
   "level": "light",
   "key": "hongkong|2026-11-22",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-22-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-22-2026",
+  "win": "22°C",
+  "hit": true
  },
  {
   "city": "dallas",

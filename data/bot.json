@@ -1070,7 +1070,9 @@
    ],
    "alerts": {
     "sell": "2026-11-22T01:04+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "madrid|2026-11-21": {
    "city": "madrid",
@@ -1108,7 +1110,9 @@
     "21°C",
     "22°C",
     "23°C"
-   ]
+   ],
+   "done": true,
+   "hit": true
   },
   "dallas|2026-11-22": {
    "city": "dallas",
@@ -1540,6 +1544,18 @@
    "week": "2026-W47",
    "hit": true,
    "price": 0.875
+  },
+  {
+   "date": "2026-11-22",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.88
+  },
+  {
+   "date": "2026-11-22",
+   "week": "2026-W47",
+   "hit": true,
+   "price": 0.85
   }
  ],
  "last_summary": "2026-W46",
