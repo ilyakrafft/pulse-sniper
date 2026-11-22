@@ -8466,5 +8466,31 @@
   "level": "light",
   "key": "houston|2026-11-24",
   "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-24",
+  "mu": 21.26,
+  "sigma": 1.61,
+  "sd": 1.02,
+  "n": 19,
+  "first": "2026-11-22T12:53+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "70–71°F",
+  "labels": [
+   "68–69°F",
+   "70–71°F",
+   "72–73°F"
+  ],
+  "lo": 19.722,
+  "hi": 23.056,
+  "price": 1.06,
+  "pm": 0.745,
+  "pm_model": 0.699,
+  "edge": -0.315,
+  "level": "light",
+  "key": "la|2026-11-24",
+  "tier": "test"
  }
 ]
