@@ -6443,7 +6443,7 @@
   "sd": 1.16,
   "n": 17,
   "first": "2026-11-20T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -6459,7 +6459,9 @@
   "edge": -0.469,
   "level": "light",
   "key": "chongqing|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "moscow",
@@ -6551,7 +6553,7 @@
   "sd": 1.85,
   "n": 17,
   "first": "2026-11-20T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "22°C",
   "labels": [
@@ -6567,7 +6569,9 @@
   "edge": -0.461,
   "level": "light",
   "key": "shenzhen|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "22°C",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -8377,6 +8381,58 @@
   "edge": -0.334,
   "level": "light",
   "key": "lucknow|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-24",
+  "mu": 23.87,
+  "sigma": 1.38,
+  "sd": 0.84,
+  "n": 17,
+  "first": "2026-11-22T08:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "24°C",
+  "labels": [
+   "23°C",
+   "24°C",
+   "25°C"
+  ],
+  "lo": 22.5,
+  "hi": 25.5,
+  "price": 1.04,
+  "pm": 0.816,
+  "pm_model": 0.72,
+  "edge": -0.224,
+  "level": "light",
+  "key": "telaviv|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-24",
+  "mu": 4.32,
+  "sigma": 1.48,
+  "sd": 0.9,
+  "n": 19,
+  "first": "2026-11-22T08:52+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "40–41°F",
+  "labels": [
+   "38–39°F",
+   "40–41°F",
+   "42–43°F"
+  ],
+  "lo": 3.056,
+  "hi": 6.389,
+  "price": 1.067,
+  "pm": 0.803,
+  "pm_model": 0.722,
+  "edge": -0.264,
+  "level": "light",
+  "key": "chicago|2026-11-24",
   "tier": "test"
  }
 ]

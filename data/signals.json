@@ -3534,13 +3534,13 @@
   "key": "london|2026-11-22",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026",
   "live": {
-   "t": "2026-11-22T07:47+00:00",
+   "t": "2026-11-22T08:52+00:00",
    "pm": 0.895,
    "val": 1.0,
    "state": "sell",
    "temp": 7,
    "max": 7,
-   "hour": 7.8
+   "hour": 8.9
   },
   "alerts": {
    "sell": "2026-11-22T01:04+00:00"
@@ -3990,5 +3990,121 @@
   "level": "light",
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-22",
+  "mu": 4.28,
+  "sigma": 0.99,
+  "sd": 0.51,
+  "n": 20,
+  "st": "EPWA",
+  "liq": 64617.53,
+  "v24": 14386.14,
+  "dist": [
+   {
+    "l": "-1°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "0°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "1°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "2°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "3°C",
+    "m": 0.13,
+    "p": 0.001
+   },
+   {
+    "l": "4°C",
+    "m": 0.414,
+    "p": 0.001
+   },
+   {
+    "l": "5°C",
+    "m": 0.336,
+    "p": 0.975
+   },
+   {
+    "l": "6°C",
+    "m": 0.106,
+    "p": 0.021
+   },
+   {
+    "l": "7°C",
+    "m": 0.013,
+    "p": 0.005
+   },
+   {
+    "l": "8°C",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "9°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-22T08:52+00:00",
+  "status": "done",
+  "until": "2026-11-22T15:00+00:00",
+  "kind": "corr",
+  "label": "4°C",
+  "labels": [
+   "3°C",
+   "4°C",
+   "5°C"
+  ],
+  "lo": 2.5,
+  "hi": 5.5,
+  "legs": [
+   {
+    "l": "3°C",
+    "price": 0.001,
+    "pm": 0.13
+   },
+   {
+    "l": "4°C",
+    "price": 0.001,
+    "pm": 0.414
+   },
+   {
+    "l": "5°C",
+    "price": 0.988,
+    "pm": 0.336
+   }
+  ],
+  "price": 0.99,
+  "pm": 0.919,
+  "pm_model": 0.881,
+  "edge": -0.071,
+  "level": "light",
+  "key": "warsaw|2026-11-22",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-warsaw-on-november-22-2026",
+  "live": {
+   "t": "2026-11-22T08:52+00:00",
+   "pm": 0.9,
+   "val": 0.977,
+   "state": "hold",
+   "temp": 3,
+   "max": 4,
+   "hour": 9.9
+  },
+  "alerts": {},
+  "win": "5°C",
+  "hit": true
  }
 ]

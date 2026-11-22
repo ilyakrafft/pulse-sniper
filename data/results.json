@@ -1330,5 +1330,13 @@
  "wuhan|2026-11-22": {
   "win": "17°C",
   "actual": 17
+ },
+ "chongqing|2026-11-22": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "shenzhen|2026-11-22": {
+  "win": "22°C",
+  "actual": 22
  }
 }

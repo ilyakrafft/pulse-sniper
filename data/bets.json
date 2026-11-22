@@ -600,5 +600,22 @@
    "68–69°F",
    "70–71°F"
   ]
+ },
+ {
+  "date": "2026-11-22",
+  "city": "warsaw",
+  "label": "4°C",
+  "win": "5°C",
+  "hit": true,
+  "price": 0.99,
+  "pm": 0.919,
+  "edge": -0.071,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "3°C",
+   "4°C",
+   "5°C"
+  ]
  }
 ]
