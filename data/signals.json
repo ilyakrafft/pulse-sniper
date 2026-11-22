@@ -3532,7 +3532,19 @@
   "edge": -0.096,
   "level": "light",
   "key": "london|2026-11-22",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026",
+  "live": {
+   "t": "2026-11-22T01:04+00:00",
+   "pm": 0.884,
+   "val": 0.975,
+   "state": "sell",
+   "temp": 6,
+   "max": 7,
+   "hour": 1.1
+  },
+  "alerts": {
+   "sell": "2026-11-22T01:04+00:00"
+  }
  },
  {
   "city": "madrid",

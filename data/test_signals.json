@@ -6167,7 +6167,7 @@
   "sd": 0.85,
   "n": 19,
   "first": "2026-11-19T11:27+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -6183,7 +6183,9 @@
   "edge": -0.203,
   "level": "light",
   "key": "sf|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "houston",
@@ -6361,7 +6363,7 @@
   "sd": 1.53,
   "n": 19,
   "first": "2026-11-20T04:34+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "48–49°F",
   "labels": [
@@ -6377,7 +6379,9 @@
   "edge": -0.447,
   "level": "light",
   "key": "seattle|2026-11-21",
-  "tier": "test"
+  "tier": "test",
+  "win": "44–45°F",
+  "hit": false
  },
  {
   "city": "london",
@@ -6699,7 +6703,7 @@
   "sd": 0.6,
   "n": 19,
   "first": "2026-11-20T07:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "4°C",
   "labels": [
@@ -6715,7 +6719,9 @@
   "edge": -0.259,
   "level": "light",
   "key": "warsaw|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "5°C",
+  "hit": true
  },
  {
   "city": "busan",
@@ -6829,7 +6835,7 @@
   "sd": 0.57,
   "n": 19,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "1°C",
   "labels": [
@@ -6845,7 +6851,9 @@
   "edge": -0.168,
   "level": "light",
   "key": "helsinki|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "1°C",
+  "hit": true
  },
  {
   "city": "amsterdam",
