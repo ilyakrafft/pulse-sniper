@@ -6949,7 +6949,7 @@
   "sd": 1.2,
   "n": 19,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "84–85°F",
   "labels": [
@@ -6965,7 +6965,9 @@
   "edge": -0.308,
   "level": "light",
   "key": "miami|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "84–85°F",
+  "hit": true
  },
  {
   "city": "madrid",

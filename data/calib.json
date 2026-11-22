@@ -23156,24 +23156,6 @@
  ],
  "miami": [
   {
-   "d": "2026-09-23",
-   "mu": 28.07,
-   "sd": 0.26,
-   "a": 28.055555555555554,
-   "m": {
-    "ecmwf_ifs025": 28.0,
-    "ecmwf_aifs025_single": 27.5,
-    "icon_seamless": 28.4,
-    "gfs_seamless": 28.0,
-    "ukmo_seamless": 28.1,
-    "gem_seamless": 27.9,
-    "jma_seamless": 28.5,
-    "cma_grapes_global": 28.4,
-    "ecmwf_ifs": 28.0
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-24",
    "mu": 31.65,
    "sd": 0.66,
@@ -24305,6 +24287,34 @@
     "ncep_nbm_conus": 27.4,
     "gem_regional": 29.5,
     "ens": 26.9
+   }
+  },
+  {
+   "d": "2026-11-22",
+   "mu": 27.91,
+   "sd": 1.01,
+   "a": 29.17,
+   "m": {
+    "ecmwf_ifs025": 27.7,
+    "ecmwf_aifs025_single": 27.5,
+    "icon_seamless": 27.3,
+    "gfs_seamless": 26.7,
+    "ukmo_seamless": 28.3,
+    "meteofrance_seamless": 26.5,
+    "gem_seamless": 29.7,
+    "jma_seamless": 27.5,
+    "cma_grapes_global": 28.5,
+    "ecmwf_ifs": 27.9,
+    "icon_global": 27.3,
+    "gfs_global": 30.4,
+    "gem_global": 30.2,
+    "ukmo_global_deterministic_10km": 28.3,
+    "meteofrance_arpege_world": 26.5,
+    "jma_gsm": 27.5,
+    "gfs_hrrr": 26.7,
+    "ncep_nbm_conus": 28.9,
+    "gem_regional": 29.7,
+    "ens": 28.0
    }
   }
  ],
