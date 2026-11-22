@@ -7117,7 +7117,7 @@
   "sd": 1.04,
   "n": 19,
   "first": "2026-11-20T11:04+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "48–49°F",
   "labels": [
@@ -7133,7 +7133,9 @@
   "edge": -0.343,
   "level": "light",
   "key": "seattle|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "46–47°F",
+  "hit": true
  },
  {
   "city": "sf",
@@ -7169,7 +7171,7 @@
   "sd": 0.87,
   "n": 19,
   "first": "2026-11-20T11:59+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "66–67°F",
   "labels": [
@@ -7185,7 +7187,9 @@
   "edge": -0.244,
   "level": "light",
   "key": "la|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "66–67°F",
+  "hit": true
  },
  {
   "city": "denver",
@@ -7195,7 +7199,7 @@
   "sd": 1.84,
   "n": 18,
   "first": "2026-11-21T02:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "44–45°F",
   "labels": [
@@ -7211,7 +7215,9 @@
   "edge": -0.375,
   "level": "light",
   "key": "denver|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "42–43°F",
+  "hit": true
  },
  {
   "city": "paris",

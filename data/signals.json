@@ -3995,13 +3995,13 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-22T21:43+00:00",
-   "pm": 0.725,
-   "val": 0.725,
+   "t": "2026-11-22T22:45+00:00",
+   "pm": 0.734,
+   "val": 0.774,
    "state": "hold",
-   "temp": -1,
+   "temp": 0,
    "max": 1,
-   "hour": 6.7
+   "hour": 7.8
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
@@ -4435,13 +4435,13 @@
   "key": "tokyo|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-23-2026",
   "live": {
-   "t": "2026-11-22T21:43+00:00",
+   "t": "2026-11-22T22:45+00:00",
    "pm": 0.857,
-   "val": 0.915,
+   "val": 0.905,
    "state": "hold",
    "temp": 8,
    "max": 9,
-   "hour": 6.7
+   "hour": 7.8
   },
   "alerts": {}
  },
