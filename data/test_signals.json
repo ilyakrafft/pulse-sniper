@@ -8638,5 +8638,31 @@
   "level": "light",
   "key": "seattle|2026-11-24",
   "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-24",
+  "mu": 21.77,
+  "sigma": 1.31,
+  "sd": 0.79,
+  "n": 17,
+  "first": "2026-11-22T17:43+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "22°C",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ],
+  "lo": 20.5,
+  "hi": 23.5,
+  "price": 1.129,
+  "pm": 0.773,
+  "pm_model": 0.74,
+  "edge": -0.356,
+  "level": "light",
+  "key": "shenzhen|2026-11-24",
+  "tier": "test"
  }
 ]
