@@ -1,13 +1,18 @@
 {
- "version": 0,
- "updated": "2026-11-15",
- "status": "learning",
- "closed": 15,
+ "version": 1,
+ "updated": "2026-11-22",
+ "status": "active",
+ "closed": 39,
  "need": 30,
  "params": {
-  "min_corr_p": 0.5,
-  "max_per_day": 4
+  "min_corr_p": 0.48,
+  "max_per_day": 5
  },
  "paused": {},
- "log": []
+ "log": [
+  {
+   "d": "2026-11-22",
+   "t": "Последние 20 сигналов сыграли на 85%: отбор стал мягче (порог шанса 48%, до 5 сигналов в день)."
+  }
+ ]
 }

@@ -1,21 +1,33 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-22",
  "week": {
-  "n": 15,
-  "hit": 2,
-  "pct": 13
+  "n": 24,
+  "hit": 21,
+  "pct": 88
  },
  "prev": {
-  "n": 0,
-  "hit": 0,
-  "pct": 0
- },
- "total": {
   "n": 15,
   "hit": 2,
   "pct": 13
  },
+ "total": {
+  "n": 39,
+  "hit": 23,
+  "pct": 59
+ },
  "cities": [
+  {
+   "city": "hongkong",
+   "n": 3,
+   "hit": 3,
+   "pct": 100
+  },
+  {
+   "city": "milan",
+   "n": 2,
+   "hit": 2,
+   "pct": 100
+  },
   {
    "city": "telaviv",
    "n": 1,
@@ -23,38 +35,86 @@
    "pct": 100
   },
   {
-   "city": "tokyo",
+   "city": "moscow",
    "n": 1,
    "hit": 1,
    "pct": 100
   },
   {
-   "city": "london",
+   "city": "miami",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "atlanta",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "munich",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "chicago",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "madrid",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "warsaw",
+   "n": 1,
+   "hit": 1,
+   "pct": 100
+  },
+  {
+   "city": "tokyo",
    "n": 3,
-   "hit": 0,
-   "pct": 0
+   "hit": 2,
+   "pct": 67
+  },
+  {
+   "city": "wuhan",
+   "n": 3,
+   "hit": 2,
+   "pct": 67
   },
   {
    "city": "dallas",
+   "n": 5,
+   "hit": 3,
+   "pct": 60
+  },
+  {
+   "city": "chongqing",
    "n": 2,
-   "hit": 0,
-   "pct": 0
+   "hit": 1,
+   "pct": 50
+  },
+  {
+   "city": "shenzhen",
+   "n": 3,
+   "hit": 1,
+   "pct": 33
+  },
+  {
+   "city": "london",
+   "n": 4,
+   "hit": 1,
+   "pct": 25
   },
   {
    "city": "paris",
    "n": 2,
-   "hit": 0,
-   "pct": 0
-  },
-  {
-   "city": "shenzhen",
-   "n": 2,
-   "hit": 0,
-   "pct": 0
-  },
-  {
-   "city": "chongqing",
-   "n": 1,
    "hit": 0,
    "pct": 0
   },
@@ -75,6 +135,12 @@
    "n": 1,
    "hit": 0,
    "pct": 0
+  },
+  {
+   "city": "chengdu",
+   "n": 1,
+   "hit": 0,
+   "pct": 0
   }
  ],
  "levels": [
@@ -89,39 +155,45 @@
    "n": 1,
    "hit": 0,
    "pct": 0
+  },
+  {
+   "level": "light",
+   "n": 24,
+   "hit": 21,
+   "pct": 88
   }
  ],
  "tips": [
-  "Данных пока мало (15 закрытых сигналов). Пороги не меняем: нужно хотя бы 30–40."
+  "Лондон: 25% при 4 сигналах, заметно хуже среднего. Стоит ослабить доверие к этому городу или временно отключить."
  ],
  "test": {
   "all": {
-   "n": 41,
-   "hit": 38,
-   "pct": 93,
-   "exp": 80,
-   "roi": -5
+   "n": 251,
+   "hit": 225,
+   "pct": 90,
+   "exp": 72,
+   "roi": -10
   },
   "cheap": {
-   "n": 1,
-   "hit": 1,
-   "pct": 100,
-   "exp": 59,
-   "roi": 33
+   "n": 10,
+   "hit": 9,
+   "pct": 90,
+   "exp": 55,
+   "roi": 29
   },
   "mid": {
-   "n": 20,
-   "hit": 18,
-   "pct": 90,
-   "exp": 74,
-   "roi": -4
+   "n": 104,
+   "hit": 90,
+   "pct": 87,
+   "exp": 70,
+   "roi": -7
   },
   "dear": {
-   "n": 20,
-   "hit": 19,
-   "pct": 95,
-   "exp": 86,
-   "roi": -8
+   "n": 137,
+   "hit": 126,
+   "pct": 92,
+   "exp": 75,
+   "roi": -14
   }
  }
 }
