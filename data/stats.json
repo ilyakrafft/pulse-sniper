@@ -9090,5 +9090,33 @@
    "dmi_harmonie_arome_europe": 4.0,
    "ens": 3.73
   }
+ },
+ {
+  "date": "2026-11-22",
+  "city": "tokyo",
+  "k": 13,
+  "p": 0.725,
+  "actual": 13,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 12.6,
+   "ecmwf_aifs025_single": 12.9,
+   "icon_seamless": 13.3,
+   "gfs_seamless": 14.3,
+   "ukmo_seamless": 12.8,
+   "meteofrance_seamless": 12.6,
+   "gem_seamless": 13.9,
+   "jma_seamless": 12.7,
+   "cma_grapes_global": 12.1,
+   "ecmwf_ifs": 12.5,
+   "icon_global": 13.3,
+   "gfs_global": 14.3,
+   "gem_global": 13.9,
+   "ukmo_global_deterministic_10km": 12.8,
+   "meteofrance_arpege_world": 12.6,
+   "jma_gsm": 13.1,
+   "jma_msm": 12.7,
+   "ens": 12.8
+  }
  }
 ]

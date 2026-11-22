@@ -6495,7 +6495,7 @@
   "sd": 0.86,
   "n": 18,
   "first": "2026-11-20T05:38+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -6511,7 +6511,9 @@
   "edge": -0.164,
   "level": "light",
   "key": "tokyo|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "wuhan",
@@ -7947,6 +7949,110 @@
   "edge": -0.226,
   "level": "light",
   "key": "atlanta|2026-11-22",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-24",
+  "mu": 8.52,
+  "sigma": 2.22,
+  "sd": 1.94,
+  "n": 19,
+  "first": "2026-11-22T06:30+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ],
+  "lo": 6.5,
+  "hi": 9.5,
+  "price": 1.1,
+  "pm": 0.637,
+  "pm_model": 0.489,
+  "edge": -0.463,
+  "level": "light",
+  "key": "london|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "paris",
+  "date": "2026-11-24",
+  "mu": 7.11,
+  "sigma": 2.05,
+  "sd": 1.64,
+  "n": 19,
+  "first": "2026-11-22T06:30+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "7°C",
+  "labels": [
+   "6°C",
+   "7°C",
+   "8°C"
+  ],
+  "lo": 5.5,
+  "hi": 8.5,
+  "price": 1.06,
+  "pm": 0.673,
+  "pm_model": 0.535,
+  "edge": -0.387,
+  "level": "light",
+  "key": "paris|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "munich",
+  "date": "2026-11-24",
+  "mu": 1.89,
+  "sigma": 1.67,
+  "sd": 1.25,
+  "n": 19,
+  "first": "2026-11-22T06:30+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "2°C",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ],
+  "lo": 0.5,
+  "hi": 3.5,
+  "price": 1.046,
+  "pm": 0.731,
+  "pm_model": 0.63,
+  "edge": -0.315,
+  "level": "light",
+  "key": "munich|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-24",
+  "mu": 22.93,
+  "sigma": 1.31,
+  "sd": 0.71,
+  "n": 17,
+  "first": "2026-11-22T06:30+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "23°C",
+  "labels": [
+   "22°C",
+   "23°C",
+   "24°C"
+  ],
+  "lo": 21.5,
+  "hi": 24.5,
+  "price": 1.15,
+  "pm": 0.832,
+  "pm_model": 0.746,
+  "edge": -0.318,
+  "level": "light",
+  "key": "hongkong|2026-11-24",
   "tier": "test"
  }
 ]
