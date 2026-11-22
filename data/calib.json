@@ -17261,24 +17261,6 @@
  ],
  "madrid": [
   {
-   "d": "2026-09-23",
-   "mu": 32.77,
-   "sd": 0.86,
-   "a": 34.0,
-   "m": {
-    "ecmwf_ifs025": 33.1,
-    "ecmwf_aifs025_single": 31.7,
-    "icon_seamless": 33.7,
-    "gfs_seamless": 32.4,
-    "ukmo_seamless": 32.5,
-    "gem_seamless": 33.4,
-    "jma_seamless": 31.9,
-    "cma_grapes_global": 29.6,
-    "ecmwf_ifs": 33.1
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-24",
    "mu": 33.24,
    "sd": 1.04,
@@ -18405,6 +18387,33 @@
     "icon_eu": 12.9,
     "meteofrance_arpege_europe": 12.9,
     "ens": 13.2
+   }
+  },
+  {
+   "d": "2026-11-22",
+   "mu": 13.43,
+   "sd": 0.33,
+   "a": 14.0,
+   "m": {
+    "ecmwf_ifs025": 13.6,
+    "ecmwf_aifs025_single": 13.0,
+    "icon_seamless": 13.7,
+    "gfs_seamless": 13.9,
+    "ukmo_seamless": 13.4,
+    "meteofrance_seamless": 12.9,
+    "gem_seamless": 12.9,
+    "jma_seamless": 12.8,
+    "cma_grapes_global": 13.3,
+    "ecmwf_ifs": 13.6,
+    "icon_global": 13.7,
+    "gfs_global": 13.9,
+    "gem_global": 12.9,
+    "ukmo_global_deterministic_10km": 13.4,
+    "meteofrance_arpege_world": 13.5,
+    "jma_gsm": 12.8,
+    "icon_eu": 13.7,
+    "meteofrance_arpege_europe": 12.9,
+    "ens": 13.4
    }
   }
  ],

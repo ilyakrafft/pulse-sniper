@@ -3993,7 +3993,17 @@
   "edge": -0.075,
   "level": "light",
   "key": "busan|2026-11-23",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
+  "live": {
+   "t": "2026-11-22T15:46+00:00",
+   "pm": 0.746,
+   "val": 0.82,
+   "state": "hold",
+   "temp": 1,
+   "max": 1,
+   "hour": 0.8
+  },
+  "alerts": {}
  },
  {
   "city": "warsaw",
