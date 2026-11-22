@@ -3534,13 +3534,13 @@
   "key": "london|2026-11-22",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-22-2026",
   "live": {
-   "t": "2026-11-22T09:48+00:00",
+   "t": "2026-11-22T10:47+00:00",
    "pm": 0.906,
-   "val": 1.01,
+   "val": 1.005,
    "state": "sell",
    "temp": 8,
    "max": 8,
-   "hour": 9.8
+   "hour": 10.8
   },
   "alerts": {
    "sell": "2026-11-22T01:04+00:00"
