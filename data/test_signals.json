@@ -7057,7 +7057,7 @@
   "sd": 1.74,
   "n": 19,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -7073,7 +7073,9 @@
   "edge": -0.209,
   "level": "light",
   "key": "chicago|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "58–59°F",
+  "hit": true
  },
  {
   "city": "dallas",

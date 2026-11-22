@@ -30018,24 +30018,6 @@
  ],
  "chicago": [
   {
-   "d": "2026-09-23",
-   "mu": 19.05,
-   "sd": 0.35,
-   "a": 20.27777777777778,
-   "m": {
-    "ecmwf_ifs025": 19.1,
-    "ecmwf_aifs025_single": 18.4,
-    "icon_seamless": 19.1,
-    "gfs_seamless": 19.3,
-    "ukmo_seamless": 18.9,
-    "gem_seamless": 19.6,
-    "jma_seamless": 18.1,
-    "cma_grapes_global": 19.3,
-    "ecmwf_ifs": 19.0
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-24",
    "mu": 20.52,
    "sd": 0.64,
@@ -31162,6 +31144,34 @@
     "ncep_nbm_conus": 19.5,
     "gem_regional": 19.2,
     "ens": 18.0
+   }
+  },
+  {
+   "d": "2026-11-22",
+   "mu": 13.77,
+   "sd": 1.1,
+   "a": 14.72,
+   "m": {
+    "ecmwf_ifs025": 13.1,
+    "ecmwf_aifs025_single": 12.6,
+    "icon_seamless": 13.3,
+    "gfs_seamless": 13.1,
+    "ukmo_seamless": 12.5,
+    "meteofrance_seamless": 14.0,
+    "gem_seamless": 15.2,
+    "jma_seamless": 15.2,
+    "cma_grapes_global": 12.7,
+    "ecmwf_ifs": 13.7,
+    "icon_global": 13.3,
+    "gfs_global": 14.3,
+    "gem_global": 16.7,
+    "ukmo_global_deterministic_10km": 12.5,
+    "meteofrance_arpege_world": 14.0,
+    "jma_gsm": 15.2,
+    "gfs_hrrr": 13.2,
+    "ncep_nbm_conus": 15.4,
+    "gem_regional": 16.1,
+    "ens": 13.4
    }
   }
  ],
