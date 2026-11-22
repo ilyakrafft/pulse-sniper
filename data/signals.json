@@ -3995,13 +3995,13 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-22T20:45+00:00",
+   "t": "2026-11-22T21:43+00:00",
    "pm": 0.725,
-   "val": 0.756,
+   "val": 0.725,
    "state": "hold",
    "temp": -1,
    "max": 1,
-   "hour": 5.8
+   "hour": 6.7
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
@@ -4435,13 +4435,13 @@
   "key": "tokyo|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-23-2026",
   "live": {
-   "t": "2026-11-22T20:45+00:00",
+   "t": "2026-11-22T21:43+00:00",
    "pm": 0.857,
-   "val": 0.925,
+   "val": 0.915,
    "state": "hold",
-   "temp": 7,
+   "temp": 8,
    "max": 9,
-   "hour": 5.8
+   "hour": 6.7
   },
   "alerts": {}
  },
@@ -4548,5 +4548,109 @@
   "level": "light",
   "key": "hongkong|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-24-2026"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-24",
+  "mu": 21.41,
+  "sigma": 1.58,
+  "sd": 0.97,
+  "n": 19,
+  "st": "KLAX",
+  "liq": 51655.86,
+  "v24": 4215.16,
+  "dist": [
+   {
+    "l": "63°F и ниже",
+    "m": 0.007,
+    "p": 0.001
+   },
+   {
+    "l": "64–65°F",
+    "m": 0.032,
+    "p": 0.011
+   },
+   {
+    "l": "66–67°F",
+    "m": 0.105,
+    "p": 0.011
+   },
+   {
+    "l": "68–69°F",
+    "m": 0.215,
+    "p": 0.045
+   },
+   {
+    "l": "70–71°F",
+    "m": 0.275,
+    "p": 0.25
+   },
+   {
+    "l": "72–73°F",
+    "m": 0.219,
+    "p": 0.49
+   },
+   {
+    "l": "74–75°F",
+    "m": 0.108,
+    "p": 0.205
+   },
+   {
+    "l": "76–77°F",
+    "m": 0.033,
+    "p": 0.039
+   },
+   {
+    "l": "78–79°F",
+    "m": 0.006,
+    "p": 0.013
+   },
+   {
+    "l": "80–81°F",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "82°F и выше",
+    "m": 0.0,
+    "p": 0.005
+   }
+  ],
+  "first": "2026-11-22T21:43+00:00",
+  "status": "open",
+  "until": "2026-11-25T00:00+00:00",
+  "kind": "corr",
+  "label": "70–71°F",
+  "labels": [
+   "68–69°F",
+   "70–71°F",
+   "72–73°F"
+  ],
+  "lo": 19.722,
+  "hi": 23.056,
+  "legs": [
+   {
+    "l": "68–69°F",
+    "price": 0.06,
+    "pm": 0.215
+   },
+   {
+    "l": "70–71°F",
+    "price": 0.26,
+    "pm": 0.275
+   },
+   {
+    "l": "72–73°F",
+    "price": 0.51,
+    "pm": 0.219
+   }
+  ],
+  "price": 0.83,
+  "pm": 0.739,
+  "pm_model": 0.709,
+  "edge": -0.091,
+  "level": "light",
+  "key": "la|2026-11-24",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-24-2026"
  }
 ]

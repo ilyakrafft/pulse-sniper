@@ -7005,7 +7005,7 @@
   "sd": 1.65,
   "n": 19,
   "first": "2026-11-20T08:41+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "78–79°F",
   "labels": [
@@ -7021,7 +7021,9 @@
   "edge": -0.381,
   "level": "light",
   "key": "houston|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "80–81°F",
+  "hit": true
  },
  {
   "city": "denver",
@@ -7973,7 +7975,7 @@
   "sd": 1.92,
   "n": 20,
   "first": "2026-11-21T22:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "62–63°F",
   "labels": [
@@ -7989,7 +7991,9 @@
   "edge": -0.226,
   "level": "light",
   "key": "atlanta|2026-11-22",
-  "tier": "test"
+  "tier": "test",
+  "win": "61°F и ниже",
+  "hit": true
  },
  {
   "city": "london",
@@ -8665,6 +8669,32 @@
   "edge": -0.356,
   "level": "light",
   "key": "shenzhen|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-24",
+  "mu": -0.26,
+  "sigma": 1.08,
+  "sd": 0.49,
+  "n": 17,
+  "first": "2026-11-22T21:43+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "0°C",
+  "labels": [
+   "-1°C",
+   "0°C",
+   "1°C"
+  ],
+  "lo": -1.5,
+  "hi": 1.5,
+  "price": 1.1,
+  "pm": 0.882,
+  "pm_model": 0.823,
+  "edge": -0.218,
+  "level": "light",
+  "key": "moscow|2026-11-24",
   "tier": "test"
  }
 ]
