@@ -7313,7 +7313,7 @@
   "sd": 0.91,
   "n": 19,
   "first": "2026-11-21T06:31+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "7°C",
   "labels": [
@@ -7329,7 +7329,9 @@
   "edge": -0.102,
   "level": "light",
   "key": "london|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "8°C",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -7611,7 +7613,7 @@
   "sd": 1.14,
   "n": 19,
   "first": "2026-11-21T09:49+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -7627,7 +7629,9 @@
   "edge": -0.346,
   "level": "light",
   "key": "munich|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "3°C",
+  "hit": true
  },
  {
   "city": "chicago",
@@ -7795,7 +7799,7 @@
   "sd": 0.43,
   "n": 17,
   "first": "2026-11-21T14:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "1°C",
   "labels": [
@@ -7811,7 +7815,9 @@
   "edge": -0.231,
   "level": "light",
   "key": "moscow|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "1°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -9195,6 +9201,58 @@
   "edge": -0.342,
   "level": "light",
   "key": "shenzhen|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-25",
+  "mu": 23.59,
+  "sigma": 1.15,
+  "sd": 0.97,
+  "n": 17,
+  "first": "2026-11-23T13:19+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "24°C",
+  "labels": [
+   "23°C",
+   "24°C",
+   "25°C"
+  ],
+  "lo": 22.5,
+  "hi": 25.5,
+  "price": 1.06,
+  "pm": 0.832,
+  "pm_model": 0.78,
+  "edge": -0.228,
+  "level": "light",
+  "key": "telaviv|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "miami",
+  "date": "2026-11-25",
+  "mu": 25.56,
+  "sigma": 1.26,
+  "sd": 1.13,
+  "n": 19,
+  "first": "2026-11-23T13:19+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "76–77°F",
+  "labels": [
+   "74–75°F",
+   "76–77°F",
+   "78–79°F"
+  ],
+  "lo": 23.056,
+  "hi": 26.389,
+  "price": 1.0,
+  "pm": 0.793,
+  "pm_model": 0.722,
+  "edge": -0.207,
+  "level": "light",
+  "key": "miami|2026-11-25",
   "tier": "test"
  }
 ]

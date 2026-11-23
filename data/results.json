@@ -1458,5 +1458,17 @@
  "telaviv|2026-11-23": {
   "win": "25°C",
   "actual": 25
+ },
+ "london|2026-11-23": {
+  "win": "8°C",
+  "actual": 8
+ },
+ "moscow|2026-11-23": {
+  "win": "1°C",
+  "actual": 1
+ },
+ "munich|2026-11-23": {
+  "win": "3°C",
+  "actual": 3
  }
 }
