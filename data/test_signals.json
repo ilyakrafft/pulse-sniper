@@ -7441,7 +7441,7 @@
   "sd": 1.24,
   "n": 17,
   "first": "2026-11-21T08:51+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -7457,7 +7457,9 @@
   "edge": -0.424,
   "level": "light",
   "key": "shenzhen|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "25°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -7571,7 +7573,7 @@
   "sd": 1.63,
   "n": 17,
   "first": "2026-11-21T08:51+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "15°C",
   "labels": [
@@ -7587,7 +7589,9 @@
   "edge": -0.49,
   "level": "light",
   "key": "wuhan|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "munich",
@@ -8889,6 +8893,136 @@
   "edge": -0.375,
   "level": "light",
   "key": "chengdu|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "helsinki",
+  "date": "2026-11-25",
+  "mu": 0.2,
+  "sigma": 1.47,
+  "sd": 0.99,
+  "n": 19,
+  "first": "2026-11-23T07:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "0°C",
+  "labels": [
+   "-1°C",
+   "0°C",
+   "1°C"
+  ],
+  "lo": -1.5,
+  "hi": 1.5,
+  "price": 1.14,
+  "pm": 0.787,
+  "pm_model": 0.689,
+  "edge": -0.353,
+  "level": "light",
+  "key": "helsinki|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "chongqing",
+  "date": "2026-11-25",
+  "mu": 16.49,
+  "sigma": 1.7,
+  "sd": 0.94,
+  "n": 17,
+  "first": "2026-11-23T07:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "17°C",
+  "labels": [
+   "16°C",
+   "17°C",
+   "18°C"
+  ],
+  "lo": 15.5,
+  "hi": 18.5,
+  "price": 1.11,
+  "pm": 0.732,
+  "pm_model": 0.6,
+  "edge": -0.378,
+  "level": "light",
+  "key": "chongqing|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "singapore",
+  "date": "2026-11-25",
+  "mu": 31.56,
+  "sigma": 1.92,
+  "sd": 1.56,
+  "n": 17,
+  "first": "2026-11-23T07:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "32°C",
+  "labels": [
+   "31°C",
+   "32°C",
+   "33°C"
+  ],
+  "lo": 30.5,
+  "hi": 33.5,
+  "price": 1.11,
+  "pm": 0.704,
+  "pm_model": 0.553,
+  "edge": -0.406,
+  "level": "light",
+  "key": "singapore|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "busan",
+  "date": "2026-11-25",
+  "mu": 8.99,
+  "sigma": 1.55,
+  "sd": 1.03,
+  "n": 17,
+  "first": "2026-11-23T07:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "9°C",
+  "labels": [
+   "8°C",
+   "9°C",
+   "10°C"
+  ],
+  "lo": 7.5,
+  "hi": 10.5,
+  "price": 1.06,
+  "pm": 0.736,
+  "pm_model": 0.667,
+  "edge": -0.324,
+  "level": "light",
+  "key": "busan|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-25",
+  "mu": 15.13,
+  "sigma": 1.71,
+  "sd": 1.23,
+  "n": 17,
+  "first": "2026-11-23T07:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "15°C",
+  "labels": [
+   "14°C",
+   "15°C",
+   "16°C"
+  ],
+  "lo": 13.5,
+  "hi": 16.5,
+  "price": 0.83,
+  "pm": 0.645,
+  "pm_model": 0.618,
+  "edge": -0.185,
+  "level": "light",
+  "key": "wuhan|2026-11-25",
   "tier": "test"
  }
 ]

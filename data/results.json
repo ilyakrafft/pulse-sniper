@@ -1418,5 +1418,13 @@
  "singapore|2026-11-23": {
   "win": "33°C",
   "actual": 33
+ },
+ "shenzhen|2026-11-23": {
+  "win": "25°C",
+  "actual": 25
+ },
+ "wuhan|2026-11-23": {
+  "win": "16°C",
+  "actual": 16
  }
 }
