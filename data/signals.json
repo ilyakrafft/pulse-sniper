@@ -3995,13 +3995,13 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T09:25+00:00",
-   "pm": 0.937,
-   "val": 1.001,
-   "state": "sell",
-   "temp": 13,
-   "max": 14,
-   "hour": 18.4
+   "t": "2026-11-23T10:39+00:00",
+   "pm": 0.737,
+   "val": 0.84,
+   "state": "hold",
+   "temp": 15,
+   "max": 16,
+   "hour": 19.6
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
@@ -4333,13 +4333,13 @@
   "key": "la|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T09:25+00:00",
+   "t": "2026-11-23T10:39+00:00",
    "pm": 0.826,
-   "val": 0.986,
+   "val": 1.004,
    "state": "sell",
-   "temp": 14.4,
+   "temp": 13.9,
    "max": 14.4,
-   "hour": 1.4
+   "hour": 2.6
   },
   "alerts": {
    "sell": "2026-11-23T09:25+00:00"
@@ -4878,5 +4878,119 @@
   "level": "light",
   "key": "wuhan|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-23",
+  "mu": 11.87,
+  "sigma": 1.54,
+  "sd": 1.26,
+  "n": 22,
+  "st": "LIMC",
+  "liq": 58934.83,
+  "v24": 12868.68,
+  "dist": [
+   {
+    "l": "7°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "8°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "9°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "10°C",
+    "m": 0.084,
+    "p": 0.001
+   },
+   {
+    "l": "11°C",
+    "m": 0.247,
+    "p": 0.066
+   },
+   {
+    "l": "12°C",
+    "m": 0.286,
+    "p": 0.211
+   },
+   {
+    "l": "13°C",
+    "m": 0.221,
+    "p": 0.455
+   },
+   {
+    "l": "14°C",
+    "m": 0.113,
+    "p": 0.2
+   },
+   {
+    "l": "15°C",
+    "m": 0.039,
+    "p": 0.035
+   },
+   {
+    "l": "16°C",
+    "m": 0.009,
+    "p": 0.002
+   },
+   {
+    "l": "17°C и выше",
+    "m": 0.001,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-23T10:39+00:00",
+  "status": "open",
+  "until": "2026-11-23T15:00+00:00",
+  "kind": "corr",
+  "label": "12°C",
+  "labels": [
+   "11°C",
+   "12°C",
+   "13°C"
+  ],
+  "lo": 10.5,
+  "hi": 13.5,
+  "legs": [
+   {
+    "l": "11°C",
+    "price": 0.095,
+    "pm": 0.247
+   },
+   {
+    "l": "12°C",
+    "price": 0.271,
+    "pm": 0.286
+   },
+   {
+    "l": "13°C",
+    "price": 0.47,
+    "pm": 0.221
+   }
+  ],
+  "price": 0.836,
+  "pm": 0.745,
+  "pm_model": 0.754,
+  "edge": -0.091,
+  "level": "light",
+  "key": "milan|2026-11-23",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-23-2026",
+  "live": {
+   "t": "2026-11-23T10:39+00:00",
+   "pm": 0.836,
+   "val": 0.732,
+   "state": "hold",
+   "temp": 11,
+   "max": 11,
+   "hour": 11.7
+  },
+  "alerts": {}
  }
 ]

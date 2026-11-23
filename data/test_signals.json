@@ -7739,7 +7739,7 @@
   "sd": 1.13,
   "n": 17,
   "first": "2026-11-21T14:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "34°C",
   "labels": [
@@ -7755,7 +7755,9 @@
   "edge": -0.376,
   "level": "light",
   "key": "jeddah|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "34°C",
+  "hit": true
  },
  {
   "city": "helsinki",
