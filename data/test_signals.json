@@ -7901,7 +7901,7 @@
   "sd": 1.91,
   "n": 19,
   "first": "2026-11-21T15:46+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "68–69°F",
   "labels": [
@@ -7917,7 +7917,9 @@
   "edge": -0.499,
   "level": "light",
   "key": "houston|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": false
  },
  {
   "city": "sf",
@@ -9127,7 +9129,7 @@
   "sd": 1.85,
   "n": 20,
   "first": "2026-11-23T09:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "38–39°F",
   "labels": [
@@ -9143,7 +9145,9 @@
   "edge": -0.193,
   "level": "light",
   "key": "denver|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "38–39°F",
+  "hit": true
  },
  {
   "city": "chicago",
