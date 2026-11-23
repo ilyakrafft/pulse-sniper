@@ -98,19 +98,26 @@ MAX_PRICE = 0.85
 MIN_PM = 0.25         # итоговая вероятность варианта (один градус редко бывает выше 30–40%)
 MIN_EDGE = 0.05       # итоговая вероятность минус цена
 MODEL_SHARE = 0.6     # доля моделей в итоговой вероятности, остальное это сама цена рынка
-MAX_SD = 1.3          # допустимый разброс моделей, °C
+MAX_SD = 1.1          # допустимый разброс моделей, °C (по реальным дням: при разбросе до 1,1 ошибка консенсуса 1,0–1,3°C, при 1,1–1,4 уже 1,6°C)
 MAX_PER_DAY = 4       # сигналов на одну дату рынка (ошибки городов общие: больше 4 не диверсификация, а общий риск)
 MIN_MODELS = 4
 LAST_NEW_HOUR = 14   # на сегодняшний рынок новые сигналы только до 14:00 по времени города
-MAX_CORR_COST = 1.00   # смягчено: сумма цен коридора не выше выплаты (1.00)
-MIN_CORR_P = 0.55     # шанс попасть в коридор
-MIN_CORR_EDGE = -0.10  # смягчено: допускаем небольшой минус к оценке (комиссия, спред)
+# «Рабочее окно» цены коридора (по 135 закрытым коридорам с ценой до 1,00, живые и тестовые вместе):
+#   0,70–0,90: 45 шт., попало около 90%, прибыль на вложенное около +10%
+#   0,90–1,00: 75 шт., попало 86%, итог -9% (выигрыш слишком мал, один промах съедает 10 удач)
+#   дешевле 0,70: 15 шт., попало 4 (27%): когда рынок в разы дешевле нашей оценки, прав обычно рынок
+MAX_CORR_COST = 0.90
+MIN_CORR_COST = 0.70
+MIN_CORR_P = 0.70     # шанс попасть в коридор (смесь модели и рынка)
+MIN_CORR_PM = 0.70    # шанс по самой модели: ниже 0,6 модель попадала в 33%, выше 0,6 стабильно около 90%
+MIN_CORR_EDGE = 0.0    # запас (оценка минус цена) не ниже нуля: ставим только когда оценка не хуже цены
 TEST_MIN_P = 0.40       # режим «тест»: мягкий отбор для сбора статистики (в бот не уходит)
 TEST_MAX_COST = 1.15
 TEST_MAX_SD = 2.0
 ALLOW_SINGLE = False   # одиночные ставки отключены: они проигрывают чаще коридора
 UNTIL_HOUR = 16      # после 16:00 по времени города сигнал в приложении и в боте больше не показывается
 BASE_SIGMA, LEAD_SIGMA = 1.0, 0.25   # типичная ошибка суточного максимума на станции, °C
+SIGMA_SCALE = 0.8    # после поправки смещения реальная ошибка меньше прежней оценки: прежняя sigma занижала шансы (ждали 72%, попадало 89%)
 
 def get(url):
     req = urllib.request.Request(url, headers=UA)
@@ -251,38 +258,46 @@ def consensus(vals, wmap=None):
     return mu, sdm, len(pairs)
 
 
-def pooled_bias(calib):
-    """Общая поправка по всем городам, пока по своему городу данных мало (меньше 5 дней).
-    Берём средние ошибки по дням (а не по сигналам), чтобы один тёплый день не перевесил всё; поправка осторожная."""
-    by = {}
-    for rows in calib.values():
-        for r in rows[-14:]:
-            if "a" in r and "mu" in r:
-                by.setdefault(r["d"], []).append(r["a"] - r["mu"])
-    days = [sum(v) / len(v) for v in by.values() if len(v) >= 5]
+def pooled_bias(calib, real_only=True):
+    """Общая поправка по всем городам. Берём средние ошибки по дням (а не по сигналам), чтобы один тёплый день не перевесил всё.
+    Учим по НАСТОЯЩИМ дням (прогноз за сутки против итога рынка): архивные строки (bf) занижают холодное смещение моделей
+    (в архиве оно -0,1…-0,5°C, в реальности около -0,65°C), поэтому по ним поправка недобирала. Проверка «вперёд» на 267
+    днях-городов: ошибка RMSE 1,16 -> 0,96°C. Архив нужен только пока настоящих дней меньше трёх."""
+    def days_of(only_real):
+        by = {}
+        for rows in calib.values():
+            for r in rows[-14:]:
+                if "a" in r and "mu" in r and not (only_real and r.get("bf")):
+                    by.setdefault(r["d"], []).append(r["a"] - r["mu"])
+        return [sum(v) / len(v) for v in by.values() if len(v) >= 5]
+    days = days_of(real_only)
+    if real_only and len(days) < 3:
+        days = days_of(False)  # старт системы: настоящих дней ещё мало
+        nd = len(days)
+        return 0.0 if nd < 2 else clamp(sum(days) / nd * nd / (nd + 2.0), -1.0, 1.0)
     nd = len(days)
     if nd < 2:
         return 0.0
-    return clamp(sum(days) / nd * nd / (nd + 2.0), -1.0, 1.0)
+    return clamp(sum(days) / nd * nd / (nd + 2.0), -1.5, 1.5)
+
+
+BIAS_K = 10.0   # сколько настоящих дней города «весит» его собственная поправка против общей (подобрано проверкой вперёд)
 
 
 def calib_of(calib, city):
-    """Поправка и реальная ошибка по истории закрытых дней этого города."""
+    """Поправка и реальная ошибка по истории закрытых дней этого города (только настоящие дни)."""
     rows = (calib.get(city) or [])[-40:]
-    n = len(rows)
-    if n < 5:
-        return pooled_bias(calib), None, n
-    errs = [r["a"] - r["mu"] for r in rows]
-    bias = sum(errs) / n
-    # уверенность (sigma) учим только по настоящим дням: архивные строки (bf) точнее реальных прогнозов «за сутки»
-    real = [r["a"] - r["mu"] for r in rows if not r.get("bf")]
+    real = [r["a"] - r["mu"] for r in rows if not r.get("bf") and "a" in r and "mu" in r]
     nr = len(real)
+    pb = pooled_bias(calib)  # общая поправка по всем городам: модели стабильно холодные
+    if nr < 3:
+        return pb, None, nr
+    bias = sum(real) / nr
+    # уверенность (sigma) учим тоже только по настоящим дням: архивные прогнозы точнее реальных «за сутки»
     rmse = None
     if nr >= 5:
-        rb = sum(real) / nr
-        rmse = math.sqrt(sum((e - rb) ** 2 for e in real) / nr)
-    pb = pooled_bias(calib)  # общая поправка по всем городам: модели стабильно холодные, 8 дней из 8
-    return clamp(pb + (bias - pb) * n / (n + 4.0), -1.5, 1.5), rmse, nr
+        rmse = math.sqrt(sum((e - bias) ** 2 for e in real) / nr)
+    return clamp(pb + (bias - pb) * nr / (nr + BIAS_K), -1.5, 1.5), rmse, nr
 
 
 def model_weights(calib, city):
@@ -316,7 +331,7 @@ def predict(vals, lead, calib_city=(0.0, None, 0), es=None, wmap=None):
     if rmse is not None:
         w = hist / (hist + 10.0)
         base = w * clamp(rmse, 0.7, 3.0) + (1 - w) * base
-    sigma = math.sqrt(sdm ** 2 + base ** 2)
+    sigma = SIGMA_SCALE * math.sqrt(sdm ** 2 + base ** 2)
     return {"mu": mu + bias, "sigma": sigma, "sd": sdm, "n": n}
 
 
@@ -664,6 +679,7 @@ def evaluate(m, fc, calib, obs, now, strict=True):
                       - dt.timedelta(seconds=(fc.get("offsets") or {}).get(m["c"], 0))).isoformat(timespec="minutes")}
     # --- коридор: три соседних варианта, ставки так, чтобы выплата была одинаковой ---
     best_c = None
+    cands = []
     for j in range(0, len(bks) - 2):
         w = bks[j:j + 3]
         cost = sum(buy_price(b) for b in w)
@@ -671,13 +687,21 @@ def evaluate(m, fc, calib, obs, now, strict=True):
         pm = sum(pms[j:j + 3])
         p = MODEL_SHARE * pm + (1 - MODEL_SHARE) * mid
         e = p - cost
-        # выбираем коридор с наибольшей вероятностью (центр у прогноза), а не самый дешёвый: дешёвые окна по краям выигрывают редко
+        cands.append((e, j, w, cost, pm, p))
+        # для режима «тест» и для текста отказа: коридор с наибольшей вероятностью (центр у прогноза)
         if best_c is None or p > best_c[5]:
             best_c = (e, j, w, cost, pm, p)
-    ok_c = best_c and ((best_c[3] <= MAX_CORR_COST and best_c[5] >= MIN_CORR_P and best_c[0] >= MIN_CORR_EDGE) if strict
-                       else (best_c[3] <= TEST_MAX_COST and best_c[5] >= TEST_MIN_P))
-    if ok_c:
-        e, j, w, cost, pm, p = best_c
+    chosen = None
+    if strict:
+        # Основной режим: из всех коридоров берём тот, у которого лучший запас (оценка минус цена), но только если он проходит все пороги:
+        # цена в «рабочем окне» 70–90% (см. выше), модельный шанс не ниже 70% и неотрицательный запас.
+        elig = [t for t in cands if MIN_CORR_COST <= t[3] <= MAX_CORR_COST and t[5] >= MIN_CORR_P and t[4] >= MIN_CORR_PM and t[0] >= MIN_CORR_EDGE]
+        if elig:
+            chosen = max(elig, key=lambda t: t[0])
+    elif best_c and best_c[3] <= TEST_MAX_COST and best_c[5] >= TEST_MIN_P:
+        chosen = best_c
+    if chosen:
+        e, j, w, cost, pm, p = chosen
         return dict(base, kind="corr", label=w[1]["l"], labels=[b["l"] for b in w], lo=w[0]["lo"], hi=w[2]["hi"],
                     legs=[{"l": b["l"], "price": buy_price(b), "pm": round(x, 3)} for b, x in zip(w, pms[j:j + 3])],
                     price=round(cost, 3), pm=round(p, 3), pm_model=round(pm, 3), edge=round(e, 3),
@@ -761,7 +785,7 @@ def apply_tuning():
     tn = load("tuning.json", {}) or {}
     pr = tn.get("params") or {}
     if tn.get("status") == "active":
-        MIN_CORR_P = clamp(float(pr.get("min_corr_p", MIN_CORR_P)), 0.45, 0.60)
+        MIN_CORR_P = clamp(float(pr.get("min_corr_p", MIN_CORR_P)), 0.60, 0.85)
         MAX_PER_DAY = int(clamp(int(pr.get("max_per_day", MAX_PER_DAY)), 3, 5))
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
     PAUSED = {c: u for c, u in (tn.get("paused") or {}).items() if u >= today}

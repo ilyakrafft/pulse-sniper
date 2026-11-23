@@ -33,14 +33,20 @@ def stat(rows):
     return n, h, pct(h, n)
 
 
+def roi(rows):
+    """Прибыль на вложенное в процентах: ставка на коридор по цене из сигнала, выплата 1. Доля попаданий одна не показывает, зарабатываем ли мы."""
+    pts = [(1.0 / r["price"] - 1.0) if r.get("hit") else -1.0 for r in rows if r.get("price")]
+    return round(100 * sum(pts) / len(pts)) if pts else 0
+
+
 def build(bets, today):
     d7 = (today - dt.timedelta(days=7)).isoformat()
     d14 = (today - dt.timedelta(days=14)).isoformat()
     wk = [b for b in bets if b["date"] >= d7]
     prev = [b for b in bets if d14 <= b["date"] < d7]
     n, h, p = stat(wk)
-    out = {"date": today.isoformat(), "week": {"n": n, "hit": h, "pct": p}, "prev": dict(zip(("n", "hit", "pct"), stat(prev))),
-           "total": dict(zip(("n", "hit", "pct"), stat(bets))), "cities": [], "levels": [], "tips": []}
+    out = {"date": today.isoformat(), "week": {"n": n, "hit": h, "pct": p, "roi": roi(wk)}, "prev": dict(zip(("n", "hit", "pct"), stat(prev))),
+           "total": dict(zip(("n", "hit", "pct"), stat(bets)), roi=roi(bets)), "cities": [], "levels": [], "tips": []}
     for c, rows in group(bets, lambda b: b["city"]).items():
         cn, ch, cp = stat(rows)
         out["cities"].append({"city": c, "n": cn, "hit": ch, "pct": cp})
@@ -81,10 +87,10 @@ def build(bets, today):
 def text(o):
     w, t, p = o["week"], o["total"], o["prev"]
     s = "🧭 <b>Сводка для владельца</b>\n\n"
-    s += "<b>За 7 дней:</b> закрыто %d, выиграло %d (%d%%)\n" % (w["n"], w["hit"], w["pct"])
+    s += "<b>За 7 дней:</b> закрыто %d, выиграло %d (%d%%), прибыль на вложенное %+d%%\n" % (w["n"], w["hit"], w["pct"], w.get("roi", 0))
     if p["n"]:
         s += "Неделей ранее: %d из %d (%d%%)\n" % (p["hit"], p["n"], p["pct"])
-    s += "<b>Всего за всё время:</b> %d из %d (%d%%)\n" % (t["hit"], t["n"], t["pct"])
+    s += "<b>Всего за всё время:</b> %d из %d (%d%%), прибыль на вложенное %+d%%\n" % (t["hit"], t["n"], t["pct"], t.get("roi", 0))
     rated = [c for c in o["cities"] if c["n"] >= MIN_N]
     if rated:
         s += "\n<b>По городам</b> (от %d сигналов):\n" % MIN_N

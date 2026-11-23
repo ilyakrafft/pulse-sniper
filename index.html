@@ -6,6 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <title>Pulse Sniper</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
 
 
 
@@ -406,13 +408,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <svg class="logo" width="42" height="42" viewBox="0 0 48 48" aria-hidden="true">
+      <svg class="logo" width="44" height="44" viewBox="100 100 440 440" aria-hidden="true">
+        <!-- градиент #lg нужен круговым индикаторам шанса (.gauge .gfg), к логотипу он не относится -->
         <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="1" style="stop-color:var(--g2)"/></linearGradient></defs>
         <g class="lg-glow">
-          <circle class="lg-ring" cx="24" cy="24" r="21" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-dasharray="2 5" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="14" fill="none" stroke="url(#lg)" stroke-width="2.4"/>
-          <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-          <path class="lg-pulse" pathLength="1" d="M6 25h10l3-8 5 17 4-13 2 4h12" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="119" y="119" width="402" height="402" rx="104" fill="none" stroke="#ff5001" stroke-width="24"/>
+          <path class="lg-pulse" pathLength="1" d="M172 330H236L267 255L297 405L331 212L362 382L396 295L426 330H468" fill="none" stroke="#ff5001" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
       </svg>
       <div><h1 class="wm">PULSE <b>SNIPER</b></h1><p>Сигналы по погодным рынкам</p></div>
