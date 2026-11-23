@@ -1149,7 +1149,9 @@
    ],
    "alerts": {
     "sell": "2026-11-22T16:47+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "hongkong|2026-11-23": {
    "city": "hongkong",
@@ -1288,7 +1290,9 @@
     "12°C",
     "13°C"
    ],
-   "alerts": {}
+   "alerts": {
+    "sell": "2026-11-23T11:56+00:00"
+   }
   }
  },
  "free_week": {},
@@ -1694,6 +1698,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.91
+  },
+  {
+   "date": "2026-11-23",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.759
   }
  ],
  "last_summary": "2026-W47",

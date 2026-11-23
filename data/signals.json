@@ -3959,7 +3959,7 @@
    }
   ],
   "first": "2026-11-21T21:41+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-23T07:00+00:00",
   "kind": "corr",
   "label": "15°C",
@@ -3995,17 +3995,19 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T10:39+00:00",
-   "pm": 0.737,
-   "val": 0.84,
-   "state": "hold",
-   "temp": 15,
+   "t": "2026-11-23T11:56+00:00",
+   "pm": 0.747,
+   "val": 0.972,
+   "state": "sell",
+   "temp": 13,
    "max": 16,
-   "hour": 19.6
+   "hour": 20.9
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
-  }
+  },
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -4333,13 +4335,13 @@
   "key": "la|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T10:39+00:00",
-   "pm": 0.826,
-   "val": 1.004,
-   "state": "sell",
-   "temp": 13.9,
+   "t": "2026-11-23T11:56+00:00",
+   "pm": 0.839,
+   "val": 0.959,
+   "state": "hold",
+   "temp": 13.3,
    "max": 14.4,
-   "hour": 2.6
+   "hour": 3.9
   },
   "alerts": {
    "sell": "2026-11-23T09:25+00:00"
@@ -4983,14 +4985,16 @@
   "key": "milan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-milan-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T10:39+00:00",
-   "pm": 0.836,
-   "val": 0.732,
-   "state": "hold",
+   "t": "2026-11-23T11:56+00:00",
+   "pm": 0.936,
+   "val": 0.942,
+   "state": "sell",
    "temp": 11,
    "max": 11,
-   "hour": 11.7
+   "hour": 12.9
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-23T11:56+00:00"
+  }
  }
 ]

@@ -685,5 +685,22 @@
    "14°C",
    "15°C"
   ]
+ },
+ {
+  "date": "2026-11-23",
+  "city": "busan",
+  "label": "15°C",
+  "win": "16°C",
+  "hit": true,
+  "price": 0.759,
+  "pm": 0.684,
+  "edge": -0.075,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "14°C",
+   "15°C",
+   "16°C"
+  ]
  }
 ]
