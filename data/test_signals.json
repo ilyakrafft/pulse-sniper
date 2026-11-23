@@ -8732,5 +8732,31 @@
   "level": "light",
   "key": "sf|2026-11-24",
   "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-24",
+  "mu": 33.7,
+  "sigma": 1.91,
+  "sd": 1.61,
+  "n": 17,
+  "first": "2026-11-23T04:50+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 1.037,
+  "pm": 0.683,
+  "pm_model": 0.561,
+  "edge": -0.354,
+  "level": "light",
+  "key": "jeddah|2026-11-24",
+  "tier": "test"
  }
 ]
