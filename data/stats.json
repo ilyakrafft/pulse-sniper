@@ -9904,5 +9904,32 @@
    "gem_regional": 11.3,
    "ens": 12.7
   }
+ },
+ {
+  "date": "2026-11-23",
+  "city": "singapore",
+  "k": 31,
+  "p": 0.644,
+  "actual": 33,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 29.3,
+   "ecmwf_aifs025_single": 30.6,
+   "icon_seamless": 31.9,
+   "gfs_seamless": 31.3,
+   "ukmo_seamless": 31.9,
+   "meteofrance_seamless": 29.7,
+   "gem_seamless": 31.4,
+   "jma_seamless": 28.9,
+   "cma_grapes_global": 32.7,
+   "ecmwf_ifs": 29.7,
+   "icon_global": 31.9,
+   "gfs_global": 31.3,
+   "gem_global": 31.4,
+   "ukmo_global_deterministic_10km": 31.9,
+   "meteofrance_arpege_world": 29.7,
+   "jma_gsm": 28.9,
+   "ens": 30.88
+  }
  }
 ]

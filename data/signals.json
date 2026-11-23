@@ -3995,13 +3995,13 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T04:50+00:00",
-   "pm": 0.721,
-   "val": 0.881,
+   "t": "2026-11-23T06:06+00:00",
+   "pm": 0.901,
+   "val": 1.024,
    "state": "sell",
-   "temp": 13,
-   "max": 13,
-   "hour": 13.8
+   "temp": 14,
+   "max": 14,
+   "hour": 15.1
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
@@ -4435,15 +4435,17 @@
   "key": "tokyo|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T04:50+00:00",
-   "pm": 0.732,
-   "val": 0.775,
-   "state": "hold",
-   "temp": 12,
-   "max": 12,
-   "hour": 13.8
+   "t": "2026-11-23T06:06+00:00",
+   "pm": 0.918,
+   "val": 1.012,
+   "state": "sell",
+   "temp": 13,
+   "max": 13,
+   "hour": 15.1
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-23T06:06+00:00"
+  }
  },
  {
   "city": "hongkong",
@@ -4756,5 +4758,109 @@
   "level": "light",
   "key": "shenzhen|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-24",
+  "mu": 15.65,
+  "sigma": 1.4,
+  "sd": 0.94,
+  "n": 17,
+  "st": "ZHHH",
+  "liq": 10444.94,
+  "v24": 2292.19,
+  "dist": [
+   {
+    "l": "10°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "11°C",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "12°C",
+    "m": 0.011,
+    "p": 0.001
+   },
+   {
+    "l": "13°C",
+    "m": 0.05,
+    "p": 0.009
+   },
+   {
+    "l": "14°C",
+    "m": 0.144,
+    "p": 0.017
+   },
+   {
+    "l": "15°C",
+    "m": 0.252,
+    "p": 0.04
+   },
+   {
+    "l": "16°C",
+    "m": 0.271,
+    "p": 0.216
+   },
+   {
+    "l": "17°C",
+    "m": 0.178,
+    "p": 0.465
+   },
+   {
+    "l": "18°C",
+    "m": 0.072,
+    "p": 0.24
+   },
+   {
+    "l": "19°C",
+    "m": 0.018,
+    "p": 0.025
+   },
+   {
+    "l": "20°C и выше",
+    "m": 0.003,
+    "p": 0.004
+   }
+  ],
+  "first": "2026-11-23T06:06+00:00",
+  "status": "open",
+  "until": "2026-11-24T08:00+00:00",
+  "kind": "corr",
+  "label": "16°C",
+  "labels": [
+   "15°C",
+   "16°C",
+   "17°C"
+  ],
+  "lo": 14.5,
+  "hi": 17.5,
+  "legs": [
+   {
+    "l": "15°C",
+    "price": 0.048,
+    "pm": 0.252
+   },
+   {
+    "l": "16°C",
+    "price": 0.243,
+    "pm": 0.271
+   },
+   {
+    "l": "17°C",
+    "price": 0.485,
+    "pm": 0.178
+   }
+  ],
+  "price": 0.776,
+  "pm": 0.709,
+  "pm_model": 0.702,
+  "edge": -0.067,
+  "level": "light",
+  "key": "wuhan|2026-11-24",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026"
  }
 ]
