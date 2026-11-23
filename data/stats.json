@@ -10453,5 +10453,68 @@
    "dmi_harmonie_arome_europe": 2.3,
    "ens": 2.0
   }
+ },
+ {
+  "date": "2026-11-23",
+  "city": "helsinki",
+  "k": 1,
+  "p": 0.824,
+  "actual": 1,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 1.6,
+   "ecmwf_aifs025_single": 1.5,
+   "icon_seamless": 0.8,
+   "gfs_seamless": 1.5,
+   "ukmo_seamless": 2.2,
+   "meteofrance_seamless": 0.9,
+   "gem_seamless": 1.2,
+   "jma_seamless": 1.3,
+   "cma_grapes_global": -0.7,
+   "ecmwf_ifs": 1.6,
+   "icon_global": 0.7,
+   "gfs_global": 1.5,
+   "gem_global": 0.7,
+   "ukmo_global_deterministic_10km": 2.2,
+   "meteofrance_arpege_world": 1.0,
+   "jma_gsm": 1.3,
+   "knmi_harmonie_arome_europe": 1.4,
+   "icon_eu": 0.8,
+   "meteofrance_arpege_europe": 0.9,
+   "dmi_harmonie_arome_europe": 1.3,
+   "metno_nordic": 1.7,
+   "ens": 1.26
+  }
+ },
+ {
+  "date": "2026-11-23",
+  "city": "nyc",
+  "k": 19,
+  "p": 0.736,
+  "actual": 21,
+  "hit": false,
+  "v": {
+   "ecmwf_ifs025": 18.9,
+   "ecmwf_aifs025_single": 18.2,
+   "icon_seamless": 18.8,
+   "gfs_seamless": 19.4,
+   "ukmo_seamless": 16.5,
+   "meteofrance_seamless": 17.8,
+   "gem_seamless": 18.6,
+   "jma_seamless": 16.5,
+   "cma_grapes_global": 16.8,
+   "ecmwf_ifs": 18.4,
+   "icon_global": 18.8,
+   "gfs_global": 19.7,
+   "gem_global": 19.7,
+   "ukmo_global_deterministic_10km": 16.5,
+   "meteofrance_arpege_world": 17.8,
+   "jma_gsm": 16.5,
+   "gfs_hrrr": 19.4,
+   "ncep_nbm_conus": 18.9,
+   "gem_hrdps_continental": 18.6,
+   "gem_regional": 20.6,
+   "ens": 18.19
+  }
  }
 ]
