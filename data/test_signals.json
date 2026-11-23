@@ -7257,7 +7257,7 @@
   "sd": 1.37,
   "n": 17,
   "first": "2026-11-21T05:30+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "24°C",
   "labels": [
@@ -7273,7 +7273,9 @@
   "edge": -0.384,
   "level": "light",
   "key": "hongkong|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "23°C",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -7283,7 +7285,7 @@
   "sd": 0.96,
   "n": 18,
   "first": "2026-11-21T05:30+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -7299,7 +7301,9 @@
   "edge": -0.279,
   "level": "light",
   "key": "tokyo|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "14°C",
+  "hit": true
  },
  {
   "city": "london",
@@ -7363,7 +7367,7 @@
   "sd": 1.17,
   "n": 17,
   "first": "2026-11-21T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "15°C",
   "labels": [
@@ -7379,7 +7383,9 @@
   "edge": -0.417,
   "level": "light",
   "key": "chongqing|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "chengdu",
@@ -7389,7 +7395,7 @@
   "sd": 1.46,
   "n": 17,
   "first": "2026-11-21T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "20°C",
   "labels": [
@@ -7405,7 +7411,9 @@
   "edge": -0.363,
   "level": "light",
   "key": "chengdu|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "16°C",
+  "hit": false
  },
  {
   "city": "dallas",
@@ -7835,7 +7843,7 @@
   "sd": 0.86,
   "n": 17,
   "first": "2026-11-21T14:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -7851,7 +7859,9 @@
   "edge": -0.323,
   "level": "light",
   "key": "lucknow|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "houston",
@@ -9023,6 +9033,136 @@
   "edge": -0.185,
   "level": "light",
   "key": "wuhan|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-25",
+  "mu": 11.78,
+  "sigma": 1.69,
+  "sd": 1.26,
+  "n": 19,
+  "first": "2026-11-23T09:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "price": 1.1,
+  "pm": 0.786,
+  "pm_model": 0.633,
+  "edge": -0.314,
+  "level": "light",
+  "key": "dallas|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-25",
+  "mu": 20.2,
+  "sigma": 1.81,
+  "sd": 1.46,
+  "n": 17,
+  "first": "2026-11-23T09:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "20°C",
+  "labels": [
+   "19°C",
+   "20°C",
+   "21°C"
+  ],
+  "lo": 18.5,
+  "hi": 21.5,
+  "price": 1.14,
+  "pm": 0.718,
+  "pm_model": 0.59,
+  "edge": -0.422,
+  "level": "light",
+  "key": "hongkong|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-23",
+  "mu": 4.13,
+  "sigma": 2.22,
+  "sd": 1.85,
+  "n": 20,
+  "first": "2026-11-23T09:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "38–39°F",
+  "labels": [
+   "36–37°F",
+   "38–39°F",
+   "40–41°F"
+  ],
+  "lo": 1.944,
+  "hi": 5.278,
+  "price": 0.82,
+  "pm": 0.627,
+  "pm_model": 0.535,
+  "edge": -0.193,
+  "level": "light",
+  "key": "denver|2026-11-23",
+  "tier": "test"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-25",
+  "mu": 6.28,
+  "sigma": 1.46,
+  "sd": 0.91,
+  "n": 19,
+  "first": "2026-11-23T09:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "42–43°F",
+  "labels": [
+   "40–41°F",
+   "42–43°F",
+   "44–45°F"
+  ],
+  "lo": 4.167,
+  "hi": 7.5,
+  "price": 1.09,
+  "pm": 0.814,
+  "pm_model": 0.724,
+  "edge": -0.276,
+  "level": "light",
+  "key": "chicago|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "lucknow",
+  "date": "2026-11-25",
+  "mu": 25.46,
+  "sigma": 1.59,
+  "sd": 1.12,
+  "n": 17,
+  "first": "2026-11-23T09:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "26°C",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ],
+  "lo": 24.5,
+  "hi": 27.5,
+  "price": 1.14,
+  "pm": 0.793,
+  "pm_model": 0.628,
+  "edge": -0.347,
+  "level": "light",
+  "key": "lucknow|2026-11-25",
   "tier": "test"
  }
 ]

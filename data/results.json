@@ -1426,5 +1426,25 @@
  "wuhan|2026-11-23": {
   "win": "16°C",
   "actual": 16
+ },
+ "chengdu|2026-11-23": {
+  "win": "16°C",
+  "actual": 16
+ },
+ "chongqing|2026-11-23": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "hongkong|2026-11-23": {
+  "win": "23°C",
+  "actual": 23
+ },
+ "lucknow|2026-11-23": {
+  "win": "26°C",
+  "actual": 26
+ },
+ "tokyo|2026-11-23": {
+  "win": "14°C",
+  "actual": 14
  }
 }

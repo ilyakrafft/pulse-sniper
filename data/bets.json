@@ -651,5 +651,39 @@
    "22°C",
    "23°C"
   ]
+ },
+ {
+  "date": "2026-11-23",
+  "city": "hongkong",
+  "label": "24°C",
+  "win": "23°C",
+  "hit": true,
+  "price": 0.78,
+  "pm": 0.701,
+  "edge": -0.079,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "23°C",
+   "24°C",
+   "25°C"
+  ]
+ },
+ {
+  "date": "2026-11-23",
+  "city": "tokyo",
+  "label": "14°C",
+  "win": "14°C",
+  "hit": true,
+  "price": 0.91,
+  "pm": 0.811,
+  "edge": -0.099,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ]
  }
 ]

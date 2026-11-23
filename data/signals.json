@@ -3995,13 +3995,13 @@
   "key": "busan|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-busan-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T07:39+00:00",
-   "pm": 0.881,
-   "val": 1.004,
+   "t": "2026-11-23T09:25+00:00",
+   "pm": 0.937,
+   "val": 1.001,
    "state": "sell",
-   "temp": 14,
+   "temp": 13,
    "max": 14,
-   "hour": 16.6
+   "hour": 18.4
   },
   "alerts": {
    "sell": "2026-11-22T16:47+00:00"
@@ -4191,7 +4191,7 @@
    }
   ],
   "first": "2026-11-22T09:48+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-23T08:00+00:00",
   "kind": "corr",
   "label": "24°C",
@@ -4225,7 +4225,9 @@
   "edge": -0.079,
   "level": "light",
   "key": "hongkong|2026-11-23",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-23-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-23-2026",
+  "win": "23°C",
+  "hit": true
  },
  {
   "city": "la",
@@ -4329,7 +4331,19 @@
   "edge": -0.095,
   "level": "light",
   "key": "la|2026-11-23",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-23-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-23-2026",
+  "live": {
+   "t": "2026-11-23T09:25+00:00",
+   "pm": 0.826,
+   "val": 0.986,
+   "state": "sell",
+   "temp": 14.4,
+   "max": 14.4,
+   "hour": 1.4
+  },
+  "alerts": {
+   "sell": "2026-11-23T09:25+00:00"
+  }
  },
  {
   "city": "tokyo",
@@ -4399,7 +4413,7 @@
    }
   ],
   "first": "2026-11-22T16:47+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-23T07:00+00:00",
   "kind": "corr",
   "label": "14°C",
@@ -4435,17 +4449,19 @@
   "key": "tokyo|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T07:39+00:00",
-   "pm": 0.899,
-   "val": 0.987,
+   "t": "2026-11-23T09:25+00:00",
+   "pm": 1.0,
+   "val": 0.999,
    "state": "sell",
-   "temp": 13,
-   "max": 13,
-   "hour": 16.6
+   "temp": 14,
+   "max": 14,
+   "hour": 18.4
   },
   "alerts": {
    "sell": "2026-11-23T06:06+00:00"
-  }
+  },
+  "win": "14°C",
+  "hit": true
  },
  {
   "city": "hongkong",
