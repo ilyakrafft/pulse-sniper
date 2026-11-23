@@ -4335,13 +4335,13 @@
   "key": "la|2026-11-23",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-23-2026",
   "live": {
-   "t": "2026-11-23T14:42+00:00",
+   "t": "2026-11-23T16:07+00:00",
    "pm": 0.853,
-   "val": 0.943,
+   "val": 0.967,
    "state": "hold",
-   "temp": 12.8,
+   "temp": 14.4,
    "max": 14.4,
-   "hour": 6.7
+   "hour": 8.1
   },
   "alerts": {
    "sell": "2026-11-23T09:25+00:00"
@@ -4775,7 +4775,17 @@
   "edge": -0.084,
   "level": "light",
   "key": "shenzhen|2026-11-24",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026",
+  "live": {
+   "t": "2026-11-23T16:07+00:00",
+   "pm": 0.677,
+   "val": 0.872,
+   "state": "hold",
+   "temp": 23,
+   "max": 23,
+   "hour": 0.1
+  },
+  "alerts": {}
  },
  {
   "city": "wuhan",
@@ -4879,7 +4889,17 @@
   "edge": -0.067,
   "level": "light",
   "key": "wuhan|2026-11-24",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026",
+  "live": {
+   "t": "2026-11-23T16:07+00:00",
+   "pm": 0.916,
+   "val": 0.7,
+   "state": "hold",
+   "temp": 11,
+   "max": 11,
+   "hour": 0.1
+  },
+  "alerts": {}
  },
  {
   "city": "milan",

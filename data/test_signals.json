@@ -7535,7 +7535,7 @@
   "sd": 0.75,
   "n": 19,
   "first": "2026-11-21T08:51+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "14°C",
   "labels": [
@@ -7551,7 +7551,9 @@
   "edge": -0.308,
   "level": "light",
   "key": "madrid|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "13°C",
+  "hit": true
  },
  {
   "city": "busan",
@@ -9337,6 +9339,110 @@
   "edge": -0.321,
   "level": "light",
   "key": "seattle|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-25",
+  "mu": 7.57,
+  "sigma": 1.1,
+  "sd": 0.5,
+  "n": 21,
+  "first": "2026-11-23T16:07+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ],
+  "lo": 6.5,
+  "hi": 9.5,
+  "price": 0.964,
+  "pm": 0.834,
+  "pm_model": 0.796,
+  "edge": -0.13,
+  "level": "light",
+  "key": "milan|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "madrid",
+  "date": "2026-11-25",
+  "mu": 11.53,
+  "sigma": 1.08,
+  "sd": 0.83,
+  "n": 19,
+  "first": "2026-11-23T16:07+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "12°C",
+  "labels": [
+   "11°C",
+   "12°C",
+   "13°C"
+  ],
+  "lo": 10.5,
+  "hi": 13.5,
+  "price": 1.06,
+  "pm": 0.854,
+  "pm_model": 0.796,
+  "edge": -0.206,
+  "level": "light",
+  "key": "madrid|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-25",
+  "mu": 22.65,
+  "sigma": 1.24,
+  "sd": 0.96,
+  "n": 19,
+  "first": "2026-11-23T16:07+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "72–73°F",
+  "labels": [
+   "70–71°F",
+   "72–73°F",
+   "74–75°F"
+  ],
+  "lo": 20.833,
+  "hi": 24.167,
+  "price": 1.06,
+  "pm": 0.861,
+  "pm_model": 0.818,
+  "edge": -0.199,
+  "level": "light",
+  "key": "la|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-24",
+  "mu": 9.77,
+  "sigma": 1.55,
+  "sd": 1.36,
+  "n": 20,
+  "first": "2026-11-23T16:07+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 1.1,
+  "pm": 0.774,
+  "pm_model": 0.694,
+  "edge": -0.326,
+  "level": "light",
+  "key": "denver|2026-11-24",
   "tier": "test"
  }
 ]
