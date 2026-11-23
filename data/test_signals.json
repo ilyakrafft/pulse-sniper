@@ -7835,7 +7835,7 @@
   "sd": 0.55,
   "n": 20,
   "first": "2026-11-21T14:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -7851,7 +7851,9 @@
   "edge": -0.246,
   "level": "light",
   "key": "warsaw|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "2°C",
+  "hit": true
  },
  {
   "city": "lucknow",

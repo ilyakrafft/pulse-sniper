@@ -20763,6 +20763,35 @@
     "dmi_harmonie_arome_europe": 4.0,
     "ens": 3.7
    }
+  },
+  {
+   "d": "2026-11-23",
+   "mu": 1.99,
+   "sd": 0.34,
+   "a": 2.0,
+   "m": {
+    "ecmwf_ifs025": 2.0,
+    "ecmwf_aifs025_single": 1.8,
+    "icon_seamless": 2.0,
+    "gfs_seamless": 2.5,
+    "ukmo_seamless": 2.1,
+    "meteofrance_seamless": 1.1,
+    "gem_seamless": 2.2,
+    "jma_seamless": 2.4,
+    "cma_grapes_global": 1.0,
+    "ecmwf_ifs": 2.1,
+    "icon_global": 2.0,
+    "gfs_global": 2.5,
+    "gem_global": 2.0,
+    "ukmo_global_deterministic_10km": 2.1,
+    "meteofrance_arpege_world": 1.3,
+    "jma_gsm": 2.4,
+    "knmi_harmonie_arome_europe": 1.8,
+    "icon_eu": 2.0,
+    "meteofrance_arpege_europe": 1.1,
+    "dmi_harmonie_arome_europe": 2.3,
+    "ens": 2.0
+   }
   }
  ],
  "amsterdam": [
