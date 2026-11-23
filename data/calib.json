@@ -3460,24 +3460,6 @@
  ],
  "paris": [
   {
-   "d": "2026-09-24",
-   "mu": 22.88,
-   "sd": 0.9,
-   "a": 24.0,
-   "m": {
-    "ecmwf_ifs025": 22.8,
-    "ecmwf_aifs025_single": 21.5,
-    "icon_seamless": 22.9,
-    "gfs_seamless": 24.1,
-    "ukmo_seamless": 22.9,
-    "gem_seamless": 23.9,
-    "jma_seamless": 20.5,
-    "cma_grapes_global": 21.4,
-    "ecmwf_ifs": 23.0
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-25",
    "mu": 27.06,
    "sd": 0.73,
@@ -4616,6 +4598,38 @@
     "meteofrance_arome_france": 7.3,
     "meteofrance_arome_france_hd": 7.3,
     "ens": 7.7
+   }
+  },
+  {
+   "d": "2026-11-23",
+   "mu": 6.79,
+   "sd": 0.27,
+   "a": 7.0,
+   "m": {
+    "ecmwf_ifs025": 6.5,
+    "ecmwf_aifs025_single": 6.6,
+    "icon_seamless": 6.8,
+    "gfs_seamless": 7.2,
+    "ukmo_seamless": 7.1,
+    "meteofrance_seamless": 7.1,
+    "gem_seamless": 6.5,
+    "jma_seamless": 6.3,
+    "cma_grapes_global": 5.8,
+    "ecmwf_ifs": 6.8,
+    "icon_global": 6.5,
+    "gfs_global": 7.2,
+    "gem_global": 7.2,
+    "ukmo_global_deterministic_10km": 6.4,
+    "meteofrance_arpege_world": 7.3,
+    "jma_gsm": 6.3,
+    "icon_d2": 6.8,
+    "knmi_harmonie_arome_europe": 6.9,
+    "icon_eu": 6.6,
+    "meteofrance_arpege_europe": 7.3,
+    "dmi_harmonie_arome_europe": 7.1,
+    "meteofrance_arome_france": 6.7,
+    "meteofrance_arome_france_hd": 6.8,
+    "ens": 6.7
    }
   }
  ],
@@ -18393,24 +18407,6 @@
  ],
  "milan": [
   {
-   "d": "2026-09-24",
-   "mu": 23.84,
-   "sd": 0.92,
-   "a": 24.0,
-   "m": {
-    "ecmwf_ifs025": 23.5,
-    "ecmwf_aifs025_single": 22.5,
-    "icon_seamless": 23.3,
-    "gfs_seamless": 25.3,
-    "ukmo_seamless": 24.0,
-    "gem_seamless": 24.7,
-    "jma_seamless": 23.2,
-    "cma_grapes_global": 21.8,
-    "ecmwf_ifs": 24.7
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-25",
    "mu": 21.68,
    "sd": 0.86,
@@ -19572,6 +19568,36 @@
     "italia_meteo_arpae_icon_2i": 8.9,
     "ens": 7.9
    }
+  },
+  {
+   "d": "2026-11-23",
+   "mu": 12.44,
+   "sd": 1.08,
+   "a": 12.0,
+   "m": {
+    "ecmwf_ifs025": 12.6,
+    "ecmwf_aifs025_single": 13.5,
+    "icon_seamless": 14.0,
+    "gfs_seamless": 11.2,
+    "ukmo_seamless": 12.9,
+    "meteofrance_seamless": 12.6,
+    "gem_seamless": 10.4,
+    "jma_seamless": 13.0,
+    "cma_grapes_global": 10.5,
+    "ecmwf_ifs": 11.7,
+    "icon_global": 11.7,
+    "gfs_global": 11.2,
+    "gem_global": 10.4,
+    "ukmo_global_deterministic_10km": 11.2,
+    "meteofrance_arpege_world": 11.3,
+    "jma_gsm": 13.0,
+    "icon_d2": 14.0,
+    "knmi_harmonie_arome_europe": 12.6,
+    "icon_eu": 11.6,
+    "meteofrance_arpege_europe": 10.6,
+    "italia_meteo_arpae_icon_2i": 12.8,
+    "ens": 12.6
+   }
   }
  ],
  "warsaw": [
@@ -20731,24 +20757,6 @@
   }
  ],
  "amsterdam": [
-  {
-   "d": "2026-09-24",
-   "mu": 17.47,
-   "sd": 0.46,
-   "a": 18.0,
-   "m": {
-    "ecmwf_ifs025": 16.9,
-    "ecmwf_aifs025_single": 16.9,
-    "icon_seamless": 17.8,
-    "gfs_seamless": 18.1,
-    "ukmo_seamless": 17.8,
-    "gem_seamless": 17.7,
-    "jma_seamless": 16.8,
-    "cma_grapes_global": 17.4,
-    "ecmwf_ifs": 17.1
-   },
-   "bf": 1
-  },
   {
    "d": "2026-09-25",
    "mu": 21.16,
@@ -21919,6 +21927,37 @@
     "dmi_harmonie_arome_europe": 8.3,
     "knmi_harmonie_arome_netherlands": 8.8,
     "ens": 6.4
+   }
+  },
+  {
+   "d": "2026-11-23",
+   "mu": 5.83,
+   "sd": 0.6,
+   "a": 7.0,
+   "m": {
+    "ecmwf_ifs025": 6.0,
+    "ecmwf_aifs025_single": 5.2,
+    "icon_seamless": 5.7,
+    "gfs_seamless": 5.6,
+    "ukmo_seamless": 6.4,
+    "meteofrance_seamless": 6.0,
+    "gem_seamless": 5.7,
+    "jma_seamless": 4.5,
+    "cma_grapes_global": 5.4,
+    "ecmwf_ifs": 6.0,
+    "icon_global": 6.4,
+    "gfs_global": 5.6,
+    "gem_global": 6.8,
+    "ukmo_global_deterministic_10km": 5.5,
+    "meteofrance_arpege_world": 4.3,
+    "jma_gsm": 4.5,
+    "icon_d2": 5.7,
+    "knmi_harmonie_arome_europe": 6.3,
+    "icon_eu": 6.2,
+    "meteofrance_arpege_europe": 4.6,
+    "dmi_harmonie_arome_europe": 6.7,
+    "knmi_harmonie_arome_netherlands": 6.7,
+    "ens": 5.2
    }
   }
  ],

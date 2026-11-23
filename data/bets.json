@@ -702,5 +702,22 @@
    "15°C",
    "16°C"
   ]
+ },
+ {
+  "date": "2026-11-23",
+  "city": "milan",
+  "label": "12°C",
+  "win": "12°C",
+  "hit": true,
+  "price": 0.836,
+  "pm": 0.745,
+  "edge": -0.091,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "11°C",
+   "12°C",
+   "13°C"
+  ]
  }
 ]

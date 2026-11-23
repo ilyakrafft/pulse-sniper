@@ -1470,5 +1470,17 @@
  "munich|2026-11-23": {
   "win": "3°C",
   "actual": 3
+ },
+ "amsterdam|2026-11-23": {
+  "win": "7°C",
+  "actual": 7
+ },
+ "milan|2026-11-23": {
+  "win": "12°C",
+  "actual": 12
+ },
+ "paris|2026-11-23": {
+  "win": "7°C",
+  "actual": 7
  }
 }
