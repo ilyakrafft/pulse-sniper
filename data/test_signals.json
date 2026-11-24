@@ -8367,7 +8367,7 @@
   "sd": 0.8,
   "n": 19,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "3°C",
   "labels": [
@@ -8383,7 +8383,9 @@
   "edge": -0.22,
   "level": "light",
   "key": "warsaw|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "4°C",
+  "hit": true
  },
  {
   "city": "busan",
@@ -9883,6 +9885,58 @@
   "edge": -0.357,
   "level": "light",
   "key": "milan|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-26",
+  "mu": 12.54,
+  "sigma": 1.34,
+  "sd": 1.24,
+  "n": 19,
+  "first": "2026-11-24T12:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "price": 1.09,
+  "pm": 0.815,
+  "pm_model": 0.785,
+  "edge": -0.275,
+  "level": "light",
+  "key": "dallas|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-26",
+  "mu": 26.3,
+  "sigma": 1.29,
+  "sd": 1.22,
+  "n": 17,
+  "first": "2026-11-24T12:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "26°C",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ],
+  "lo": 24.5,
+  "hi": 27.5,
+  "price": 1.05,
+  "pm": 0.82,
+  "pm_model": 0.743,
+  "edge": -0.23,
+  "level": "light",
+  "key": "telaviv|2026-11-26",
   "tier": "test"
  }
 ]
