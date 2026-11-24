@@ -8547,7 +8547,7 @@
   "sd": 0.9,
   "n": 19,
   "first": "2026-11-22T08:52+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "40–41°F",
   "labels": [
@@ -8563,7 +8563,9 @@
   "edge": -0.264,
   "level": "light",
   "key": "chicago|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "42–43°F",
+  "hit": true
  },
  {
   "city": "houston",
@@ -8651,7 +8653,7 @@
   "sd": 0.97,
   "n": 19,
   "first": "2026-11-22T13:58+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "80–81°F",
   "labels": [
@@ -8667,7 +8669,9 @@
   "edge": -0.288,
   "level": "light",
   "key": "miami|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "78–79°F",
+  "hit": true
  },
  {
   "city": "atlanta",
@@ -8677,7 +8681,7 @@
   "sd": 1.51,
   "n": 19,
   "first": "2026-11-22T13:58+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "62–63°F",
   "labels": [
@@ -8693,7 +8697,9 @@
   "edge": -0.288,
   "level": "light",
   "key": "atlanta|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "64–65°F",
+  "hit": true
  },
  {
   "city": "milan",
