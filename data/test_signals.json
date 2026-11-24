@@ -8333,7 +8333,7 @@
   "sd": 1.05,
   "n": 18,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -8349,7 +8349,9 @@
   "edge": -0.222,
   "level": "light",
   "key": "tokyo|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "20°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -8385,7 +8387,7 @@
   "sd": 1.54,
   "n": 17,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "13°C",
   "labels": [
@@ -8401,7 +8403,9 @@
   "edge": -0.334,
   "level": "light",
   "key": "busan|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "11°C",
+  "hit": false
  },
  {
   "city": "chengdu",
@@ -9497,6 +9501,32 @@
   "edge": -0.105,
   "level": "light",
   "key": "moscow|2026-11-25",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-25",
+  "mu": 33.87,
+  "sigma": 1.24,
+  "sd": 1.15,
+  "n": 14,
+  "first": "2026-11-24T04:41+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 0.987,
+  "pm": 0.812,
+  "pm_model": 0.772,
+  "edge": -0.175,
+  "level": "light",
+  "key": "jeddah|2026-11-25",
   "tier": "test"
  }
 ]
