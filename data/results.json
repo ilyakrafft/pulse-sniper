@@ -1574,5 +1574,17 @@
  "shenzhen|2026-11-24": {
   "win": "23°C",
   "actual": 23
+ },
+ "jeddah|2026-11-24": {
+  "win": "34°C",
+  "actual": 34
+ },
+ "lucknow|2026-11-24": {
+  "win": "26°C",
+  "actual": 26
+ },
+ "telaviv|2026-11-24": {
+  "win": "24°C",
+  "actual": 24
  }
 }
