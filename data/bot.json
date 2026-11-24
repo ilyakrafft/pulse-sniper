@@ -1248,7 +1248,9 @@
    ],
    "alerts": {
     "sell": "2026-11-24T19:37+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "shenzhen|2026-11-24": {
    "city": "shenzhen",
@@ -1836,6 +1838,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.838
+  },
+  {
+   "date": "2026-11-24",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.83
   }
  ],
  "last_summary": "2026-W47",

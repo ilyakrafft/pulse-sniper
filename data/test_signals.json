@@ -8603,7 +8603,7 @@
   "sd": 1.02,
   "n": 19,
   "first": "2026-11-22T12:53+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "70–71°F",
   "labels": [
@@ -8619,7 +8619,9 @@
   "edge": -0.315,
   "level": "light",
   "key": "la|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "72–73°F",
+  "hit": true
  },
  {
   "city": "dallas",
@@ -8629,7 +8631,7 @@
   "sd": 1.41,
   "n": 19,
   "first": "2026-11-22T13:58+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "50–51°F",
   "labels": [
@@ -8645,7 +8647,9 @@
   "edge": -0.27,
   "level": "light",
   "key": "dallas|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "46–47°F",
+  "hit": false
  },
  {
   "city": "miami",
@@ -10299,6 +10303,32 @@
   "edge": -0.249,
   "level": "light",
   "key": "moscow|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-26",
+  "mu": 7.83,
+  "sigma": 1.06,
+  "sd": 0.74,
+  "n": 19,
+  "first": "2026-11-24T23:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "46–47°F",
+  "labels": [
+   "44–45°F",
+   "46–47°F",
+   "48–49°F"
+  ],
+  "lo": 6.389,
+  "hi": 9.722,
+  "price": 1.02,
+  "pm": 0.882,
+  "pm_model": 0.876,
+  "edge": -0.138,
+  "level": "light",
+  "key": "chicago|2026-11-26",
   "tier": "test"
  }
 ]
