@@ -4781,13 +4781,13 @@
   "key": "shenzhen|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T06:02+00:00",
-   "pm": 0.777,
-   "val": 0.644,
-   "state": "hold",
+   "t": "2026-11-24T07:18+00:00",
+   "pm": 0.86,
+   "val": 0.902,
+   "state": "sell",
    "temp": 23,
    "max": 23,
-   "hour": 14.0
+   "hour": 15.3
   },
   "alerts": {
    "sell": "2026-11-23T18:27+00:00"
@@ -4861,7 +4861,7 @@
    }
   ],
   "first": "2026-11-23T06:06+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-24T08:00+00:00",
   "kind": "corr",
   "label": "16°C",
@@ -4897,17 +4897,19 @@
   "key": "wuhan|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T06:02+00:00",
-   "pm": 0.996,
-   "val": 0.986,
+   "t": "2026-11-24T07:18+00:00",
+   "pm": 0.999,
+   "val": 0.996,
    "state": "sell",
    "temp": 16,
    "max": 16,
-   "hour": 14.0
+   "hour": 15.3
   },
   "alerts": {
    "sell": "2026-11-23T20:54+00:00"
-  }
+  },
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "milan",
@@ -5130,5 +5132,109 @@
   "level": "light",
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026"
+ },
+ {
+  "city": "dallas",
+  "date": "2026-11-25",
+  "mu": 12.13,
+  "sigma": 1.16,
+  "sd": 1.01,
+  "n": 19,
+  "st": "KDAL",
+  "liq": 13606.83,
+  "v24": 6421.85,
+  "dist": [
+   {
+    "l": "45°F и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "46–47°F",
+    "m": 0.001,
+    "p": 0.004
+   },
+   {
+    "l": "48–49°F",
+    "m": 0.018,
+    "p": 0.002
+   },
+   {
+    "l": "50–51°F",
+    "m": 0.113,
+    "p": 0.013
+   },
+   {
+    "l": "52–53°F",
+    "m": 0.305,
+    "p": 0.1
+   },
+   {
+    "l": "54–55°F",
+    "m": 0.352,
+    "p": 0.6
+   },
+   {
+    "l": "56–57°F",
+    "m": 0.172,
+    "p": 0.245
+   },
+   {
+    "l": "58–59°F",
+    "m": 0.036,
+    "p": 0.029
+   },
+   {
+    "l": "60–61°F",
+    "m": 0.003,
+    "p": 0.002
+   },
+   {
+    "l": "62–63°F",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "64°F и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-24T07:18+00:00",
+  "status": "open",
+  "until": "2026-11-25T22:00+00:00",
+  "kind": "corr",
+  "label": "52–53°F",
+  "labels": [
+   "50–51°F",
+   "52–53°F",
+   "54–55°F"
+  ],
+  "lo": 9.722,
+  "hi": 13.056,
+  "legs": [
+   {
+    "l": "50–51°F",
+    "price": 0.016,
+    "pm": 0.113
+   },
+   {
+    "l": "52–53°F",
+    "price": 0.11,
+    "pm": 0.305
+   },
+   {
+    "l": "54–55°F",
+    "price": 0.61,
+    "pm": 0.352
+   }
+  ],
+  "price": 0.736,
+  "pm": 0.747,
+  "pm_model": 0.77,
+  "edge": 0.011,
+  "level": "light",
+  "key": "dallas|2026-11-25",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026"
  }
 ]

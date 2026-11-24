@@ -753,5 +753,22 @@
    "23°C",
    "24°C"
   ]
+ },
+ {
+  "date": "2026-11-24",
+  "city": "wuhan",
+  "label": "16°C",
+  "win": "16°C",
+  "hit": true,
+  "price": 0.776,
+  "pm": 0.709,
+  "edge": -0.067,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "15°C",
+   "16°C",
+   "17°C"
+  ]
  }
 ]

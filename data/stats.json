@@ -10922,5 +10922,86 @@
    "jma_gsm": 28.5,
    "ens": 30.44
   }
+ },
+ {
+  "date": "2026-11-24",
+  "city": "chengdu",
+  "k": 15,
+  "p": 0.705,
+  "actual": 15,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 13.3,
+   "ecmwf_aifs025_single": 13.6,
+   "icon_seamless": 14.5,
+   "gfs_seamless": 17.5,
+   "ukmo_seamless": 14.3,
+   "meteofrance_seamless": 16.1,
+   "gem_seamless": 15.9,
+   "jma_seamless": 14.8,
+   "cma_grapes_global": 16.0,
+   "ecmwf_ifs": 13.2,
+   "icon_global": 14.5,
+   "gfs_global": 17.5,
+   "gem_global": 15.9,
+   "ukmo_global_deterministic_10km": 14.3,
+   "meteofrance_arpege_world": 16.1,
+   "jma_gsm": 14.8,
+   "ens": 15.1
+  }
+ },
+ {
+  "date": "2026-11-24",
+  "city": "chongqing",
+  "k": 14,
+  "p": 0.718,
+  "actual": 15,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 13.8,
+   "ecmwf_aifs025_single": 15.1,
+   "icon_seamless": 14.3,
+   "gfs_seamless": 12.0,
+   "ukmo_seamless": 16.5,
+   "meteofrance_seamless": 15.5,
+   "gem_seamless": 14.2,
+   "jma_seamless": 13.0,
+   "cma_grapes_global": 14.8,
+   "ecmwf_ifs": 13.7,
+   "icon_global": 14.3,
+   "gfs_global": 12.0,
+   "gem_global": 14.2,
+   "ukmo_global_deterministic_10km": 16.5,
+   "meteofrance_arpege_world": 15.5,
+   "jma_gsm": 13.0,
+   "ens": 14.0
+  }
+ },
+ {
+  "date": "2026-11-24",
+  "city": "wuhan",
+  "k": 16,
+  "p": 0.784,
+  "actual": 16,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 16.2,
+   "ecmwf_aifs025_single": 16.5,
+   "icon_seamless": 14.9,
+   "gfs_seamless": 15.0,
+   "ukmo_seamless": 15.2,
+   "meteofrance_seamless": 16.2,
+   "gem_seamless": 15.4,
+   "jma_seamless": 15.6,
+   "cma_grapes_global": 13.3,
+   "ecmwf_ifs": 16.3,
+   "icon_global": 14.9,
+   "gfs_global": 15.0,
+   "gem_global": 15.4,
+   "ukmo_global_deterministic_10km": 15.2,
+   "meteofrance_arpege_world": 16.2,
+   "jma_gsm": 15.6,
+   "ens": 15.83
+  }
  }
 ]

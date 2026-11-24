@@ -8229,7 +8229,7 @@
   "sd": 1.55,
   "n": 17,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -8245,7 +8245,9 @@
   "edge": -0.405,
   "level": "light",
   "key": "chongqing|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -8417,7 +8419,7 @@
   "sd": 1.55,
   "n": 17,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "17°C",
   "labels": [
@@ -8433,7 +8435,9 @@
   "edge": -0.288,
   "level": "light",
   "key": "chengdu|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "15°C",
+  "hit": false
  },
  {
   "city": "wuhan",
@@ -8443,7 +8447,7 @@
   "sd": 1.16,
   "n": 17,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "16°C",
   "labels": [
@@ -8459,7 +8463,9 @@
   "edge": -0.496,
   "level": "light",
   "key": "wuhan|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "16°C",
+  "hit": true
  },
  {
   "city": "lucknow",
@@ -9633,6 +9639,58 @@
   "edge": -0.41,
   "level": "light",
   "key": "chengdu|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-26",
+  "mu": 5.93,
+  "sigma": 1.04,
+  "sd": 0.77,
+  "n": 19,
+  "first": "2026-11-24T07:18+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "6°C",
+  "labels": [
+   "5°C",
+   "6°C",
+   "7°C"
+  ],
+  "lo": 4.5,
+  "hi": 7.5,
+  "price": 1.06,
+  "pm": 0.896,
+  "pm_model": 0.849,
+  "edge": -0.164,
+  "level": "light",
+  "key": "london|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "paris",
+  "date": "2026-11-26",
+  "mu": 4.82,
+  "sigma": 1.53,
+  "sd": 1.51,
+  "n": 19,
+  "first": "2026-11-24T07:18+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "5°C",
+  "labels": [
+   "4°C",
+   "5°C",
+   "6°C"
+  ],
+  "lo": 3.5,
+  "hi": 6.5,
+  "price": 0.95,
+  "pm": 0.72,
+  "pm_model": 0.67,
+  "edge": -0.23,
+  "level": "light",
+  "key": "paris|2026-11-26",
   "tier": "test"
  }
 ]

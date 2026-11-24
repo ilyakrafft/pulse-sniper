@@ -1554,5 +1554,17 @@
  "singapore|2026-11-24": {
   "win": "32°C",
   "actual": 32
+ },
+ "chengdu|2026-11-24": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "chongqing|2026-11-24": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "wuhan|2026-11-24": {
+  "win": "16°C",
+  "actual": 16
  }
 }
