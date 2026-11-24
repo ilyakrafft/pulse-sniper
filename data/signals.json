@@ -4781,13 +4781,13 @@
   "key": "shenzhen|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T04:41+00:00",
-   "pm": 0.719,
-   "val": 0.817,
+   "t": "2026-11-24T06:02+00:00",
+   "pm": 0.777,
+   "val": 0.644,
    "state": "hold",
-   "temp": 22,
+   "temp": 23,
    "max": 23,
-   "hour": 12.7
+   "hour": 14.0
   },
   "alerts": {
    "sell": "2026-11-23T18:27+00:00"
@@ -4897,13 +4897,13 @@
   "key": "wuhan|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T04:41+00:00",
-   "pm": 0.983,
-   "val": 0.898,
+   "t": "2026-11-24T06:02+00:00",
+   "pm": 0.996,
+   "val": 0.986,
    "state": "sell",
    "temp": 16,
    "max": 16,
-   "hour": 12.7
+   "hour": 14.0
   },
   "alerts": {
    "sell": "2026-11-23T20:54+00:00"
