@@ -4745,7 +4745,7 @@
    }
   ],
   "first": "2026-11-22T23:43+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-24T08:00+00:00",
   "kind": "corr",
   "label": "22°C",
@@ -4781,17 +4781,19 @@
   "key": "shenzhen|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-shenzhen-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T07:18+00:00",
-   "pm": 0.86,
-   "val": 0.902,
+   "t": "2026-11-24T08:45+00:00",
+   "pm": 0.747,
+   "val": 1.0,
    "state": "sell",
-   "temp": 23,
+   "temp": 21,
    "max": 23,
-   "hour": 15.3
+   "hour": 16.8
   },
   "alerts": {
    "sell": "2026-11-23T18:27+00:00"
-  }
+  },
+  "win": "23°C",
+  "hit": true
  },
  {
   "city": "wuhan",
@@ -5236,5 +5238,109 @@
   "level": "light",
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026"
+ },
+ {
+  "city": "tokyo",
+  "date": "2026-11-25",
+  "mu": 13.65,
+  "sigma": 1.01,
+  "sd": 0.81,
+  "n": 18,
+  "st": "RJTT",
+  "liq": 11551.03,
+  "v24": 9189.97,
+  "dist": [
+   {
+    "l": "8°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "9°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "10°C",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "11°C",
+    "m": 0.016,
+    "p": 0.004
+   },
+   {
+    "l": "12°C",
+    "m": 0.111,
+    "p": 0.011
+   },
+   {
+    "l": "13°C",
+    "m": 0.313,
+    "p": 0.105
+   },
+   {
+    "l": "14°C",
+    "m": 0.358,
+    "p": 0.575
+   },
+   {
+    "l": "15°C",
+    "m": 0.167,
+    "p": 0.29
+   },
+   {
+    "l": "16°C",
+    "m": 0.032,
+    "p": 0.005
+   },
+   {
+    "l": "17°C",
+    "m": 0.002,
+    "p": 0.005
+   },
+   {
+    "l": "18°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-24T08:45+00:00",
+  "status": "open",
+  "until": "2026-11-25T07:00+00:00",
+  "kind": "corr",
+  "label": "13°C",
+  "labels": [
+   "12°C",
+   "13°C",
+   "14°C"
+  ],
+  "lo": 11.5,
+  "hi": 14.5,
+  "legs": [
+   {
+    "l": "12°C",
+    "price": 0.014,
+    "pm": 0.111
+   },
+   {
+    "l": "13°C",
+    "price": 0.11,
+    "pm": 0.313
+   },
+   {
+    "l": "14°C",
+    "price": 0.59,
+    "pm": 0.358
+   }
+  ],
+  "price": 0.714,
+  "pm": 0.745,
+  "pm_model": 0.782,
+  "edge": 0.031,
+  "level": "light",
+  "key": "tokyo|2026-11-25",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026"
  }
 ]

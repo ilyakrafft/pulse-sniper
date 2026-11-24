@@ -770,5 +770,22 @@
    "16°C",
    "17°C"
   ]
+ },
+ {
+  "date": "2026-11-24",
+  "city": "shenzhen",
+  "label": "22°C",
+  "win": "23°C",
+  "hit": true,
+  "price": 0.838,
+  "pm": 0.754,
+  "edge": -0.084,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ]
  }
 ]
