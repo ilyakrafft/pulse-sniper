@@ -4677,13 +4677,13 @@
   "key": "la|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T15:01+00:00",
-   "pm": 0.631,
-   "val": 0.823,
+   "t": "2026-11-24T16:12+00:00",
+   "pm": 0.643,
+   "val": 0.849,
    "state": "hold",
-   "temp": 13.3,
+   "temp": 15.6,
    "max": 15.6,
-   "hour": 7.0
+   "hour": 8.2
   },
   "alerts": {}
  },
@@ -5353,13 +5353,13 @@
   "key": "tokyo|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026",
   "live": {
-   "t": "2026-11-24T15:01+00:00",
-   "pm": 0.834,
-   "val": 0.777,
+   "t": "2026-11-24T16:12+00:00",
+   "pm": 0.835,
+   "val": 0.824,
    "state": "hold",
    "temp": 12,
    "max": 12,
-   "hour": 0.0
+   "hour": 1.2
   },
   "alerts": {}
  },

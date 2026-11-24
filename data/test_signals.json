@@ -10158,5 +10158,57 @@
   "level": "light",
   "key": "atlanta|2026-11-26",
   "tier": "test"
+ },
+ {
+  "city": "houston",
+  "date": "2026-11-26",
+  "mu": 15.47,
+  "sigma": 1.68,
+  "sd": 1.42,
+  "n": 17,
+  "first": "2026-11-24T16:12+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "60–61°F",
+  "labels": [
+   "58–59°F",
+   "60–61°F",
+   "62–63°F"
+  ],
+  "lo": 14.167,
+  "hi": 17.5,
+  "price": 1.14,
+  "pm": 0.757,
+  "pm_model": 0.668,
+  "edge": -0.383,
+  "level": "light",
+  "key": "houston|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "lucknow",
+  "date": "2026-11-26",
+  "mu": 25.5,
+  "sigma": 1.22,
+  "sd": 1.05,
+  "n": 15,
+  "first": "2026-11-24T16:12+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 1.13,
+  "pm": 0.819,
+  "pm_model": 0.744,
+  "edge": -0.311,
+  "level": "light",
+  "key": "lucknow|2026-11-26",
+  "tier": "test"
  }
 ]
