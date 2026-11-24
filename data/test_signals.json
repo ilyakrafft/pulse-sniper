@@ -7931,7 +7931,7 @@
   "sd": 0.99,
   "n": 19,
   "first": "2026-11-21T16:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -7947,7 +7947,9 @@
   "edge": -0.357,
   "level": "light",
   "key": "sf|2026-11-23",
-  "tier": "test"
+  "tier": "test",
+  "win": "54–55°F",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -9469,6 +9471,32 @@
   "edge": -0.326,
   "level": "light",
   "key": "denver|2026-11-24",
+  "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-25",
+  "mu": -1.43,
+  "sigma": 0.9,
+  "sd": 0.62,
+  "n": 17,
+  "first": "2026-11-24T02:36+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "-1°C",
+  "labels": [
+   "-2°C",
+   "-1°C",
+   "0°C"
+  ],
+  "lo": -2.5,
+  "hi": 0.5,
+  "price": 0.99,
+  "pm": 0.885,
+  "pm_model": 0.866,
+  "edge": -0.105,
+  "level": "light",
+  "key": "moscow|2026-11-25",
   "tier": "test"
  }
 ]

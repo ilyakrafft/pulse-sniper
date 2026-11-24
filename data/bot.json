@@ -1305,6 +1305,22 @@
    },
    "done": true,
    "hit": true
+  },
+  "london|2026-11-25": {
+   "city": "london",
+   "date": "2026-11-25",
+   "label": "8°C",
+   "pm": 0.741,
+   "price": 0.711,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "7°C",
+    "8°C",
+    "9°C"
+   ]
   }
  },
  "free_week": {},
