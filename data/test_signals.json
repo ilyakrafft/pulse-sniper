@@ -8123,7 +8123,7 @@
   "sd": 1.25,
   "n": 19,
   "first": "2026-11-22T06:30+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -8139,7 +8139,9 @@
   "edge": -0.315,
   "level": "light",
   "key": "munich|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "3°C",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -8691,7 +8693,7 @@
   "sd": 0.9,
   "n": 21,
   "first": "2026-11-22T14:50+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "10°C",
   "labels": [
@@ -8707,7 +8709,9 @@
   "edge": -0.373,
   "level": "light",
   "key": "milan|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "10°C",
+  "hit": true
  },
  {
   "city": "seattle",
@@ -9937,6 +9941,84 @@
   "edge": -0.23,
   "level": "light",
   "key": "telaviv|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-26",
+  "mu": 21.63,
+  "sigma": 1.82,
+  "sd": 1.98,
+  "n": 17,
+  "first": "2026-11-24T13:56+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "22°C",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ],
+  "lo": 20.5,
+  "hi": 23.5,
+  "price": 0.82,
+  "pm": 0.586,
+  "pm_model": 0.581,
+  "edge": -0.234,
+  "level": "light",
+  "key": "shenzhen|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "madrid",
+  "date": "2026-11-26",
+  "mu": 11.07,
+  "sigma": 1.12,
+  "sd": 0.92,
+  "n": 19,
+  "first": "2026-11-24T13:56+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "11°C",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ],
+  "lo": 9.5,
+  "hi": 12.5,
+  "price": 0.9,
+  "pm": 0.832,
+  "pm_model": 0.817,
+  "edge": -0.068,
+  "level": "light",
+  "key": "madrid|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "singapore",
+  "date": "2026-11-26",
+  "mu": 31.59,
+  "sigma": 1.66,
+  "sd": 1.77,
+  "n": 17,
+  "first": "2026-11-24T13:56+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "31°C",
+  "labels": [
+   "30°C",
+   "31°C",
+   "32°C"
+  ],
+  "lo": 29.5,
+  "hi": 32.5,
+  "price": 0.91,
+  "pm": 0.698,
+  "pm_model": 0.603,
+  "edge": -0.212,
+  "level": "light",
+  "key": "singapore|2026-11-26",
   "tier": "test"
  }
 ]
