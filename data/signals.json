@@ -4677,15 +4677,17 @@
   "key": "la|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T18:25+00:00",
-   "pm": 0.663,
-   "val": 0.723,
-   "state": "hold",
-   "temp": 19.4,
-   "max": 19.4,
-   "hour": 10.4
+   "t": "2026-11-24T19:37+00:00",
+   "pm": 0.738,
+   "val": 0.878,
+   "state": "sell",
+   "temp": 20.6,
+   "max": 20.6,
+   "hour": 11.6
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-24T19:37+00:00"
+  }
  },
  {
   "city": "shenzhen",
@@ -5353,13 +5355,13 @@
   "key": "tokyo|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026",
   "live": {
-   "t": "2026-11-24T18:25+00:00",
-   "pm": 0.876,
-   "val": 0.851,
+   "t": "2026-11-24T19:37+00:00",
+   "pm": 0.871,
+   "val": 0.882,
    "state": "sell",
-   "temp": 10,
+   "temp": 9,
    "max": 12,
-   "hour": 3.4
+   "hour": 4.6
   },
   "alerts": {
    "sell": "2026-11-24T17:28+00:00"
@@ -5468,5 +5470,109 @@
   "level": "light",
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026"
+ },
+ {
+  "city": "munich",
+  "date": "2026-11-26",
+  "mu": 0.48,
+  "sigma": 1.07,
+  "sd": 0.83,
+  "n": 21,
+  "st": "EDDM",
+  "liq": 31152.37,
+  "v24": 4351.24,
+  "dist": [
+   {
+    "l": "-5°C и ниже",
+    "m": 0.0,
+    "p": 0.003
+   },
+   {
+    "l": "-4°C",
+    "m": 0.0,
+    "p": 0.004
+   },
+   {
+    "l": "-3°C",
+    "m": 0.003,
+    "p": 0.006
+   },
+   {
+    "l": "-2°C",
+    "m": 0.029,
+    "p": 0.016
+   },
+   {
+    "l": "-1°C",
+    "m": 0.147,
+    "p": 0.275
+   },
+   {
+    "l": "0°C",
+    "m": 0.327,
+    "p": 0.575
+   },
+   {
+    "l": "1°C",
+    "m": 0.322,
+    "p": 0.095
+   },
+   {
+    "l": "2°C",
+    "m": 0.142,
+    "p": 0.011
+   },
+   {
+    "l": "3°C",
+    "m": 0.027,
+    "p": 0.006
+   },
+   {
+    "l": "4°C",
+    "m": 0.002,
+    "p": 0.005
+   },
+   {
+    "l": "5°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-24T19:37+00:00",
+  "status": "open",
+  "until": "2026-11-26T15:00+00:00",
+  "kind": "corr",
+  "label": "1°C",
+  "labels": [
+   "0°C",
+   "1°C",
+   "2°C"
+  ],
+  "lo": -0.5,
+  "hi": 2.5,
+  "legs": [
+   {
+    "l": "0°C",
+    "price": 0.6,
+    "pm": 0.327
+   },
+   {
+    "l": "1°C",
+    "price": 0.11,
+    "pm": 0.322
+   },
+   {
+    "l": "2°C",
+    "price": 0.017,
+    "pm": 0.142
+   }
+  ],
+  "price": 0.727,
+  "pm": 0.747,
+  "pm_model": 0.791,
+  "edge": 0.02,
+  "level": "light",
+  "key": "munich|2026-11-26",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-26-2026"
  }
 ]
