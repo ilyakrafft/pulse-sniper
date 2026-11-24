@@ -4677,13 +4677,13 @@
   "key": "la|2026-11-24",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-los-angeles-on-november-24-2026",
   "live": {
-   "t": "2026-11-24T10:11+00:00",
+   "t": "2026-11-24T11:29+00:00",
    "pm": 0.657,
-   "val": 0.791,
+   "val": 0.753,
    "state": "hold",
-   "temp": 13.9,
+   "temp": 14.4,
    "max": 15.6,
-   "hour": 2.2
+   "hour": 3.5
   },
   "alerts": {}
  },
