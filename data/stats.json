@@ -11369,5 +11369,34 @@
    "meteofrance_arome_france_hd": 6.1,
    "ens": 6.14
   }
+ },
+ {
+  "date": "2026-11-24",
+  "city": "madrid",
+  "k": 9,
+  "p": 0.716,
+  "actual": 9,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 8.6,
+   "ecmwf_aifs025_single": 9.2,
+   "icon_seamless": 9.3,
+   "gfs_seamless": 11.4,
+   "ukmo_seamless": 8.8,
+   "meteofrance_seamless": 8.4,
+   "gem_seamless": 7.0,
+   "jma_seamless": 11.8,
+   "cma_grapes_global": 9.4,
+   "ecmwf_ifs": 8.5,
+   "icon_global": 9.1,
+   "gfs_global": 11.4,
+   "gem_global": 7.0,
+   "ukmo_global_deterministic_10km": 8.8,
+   "meteofrance_arpege_world": 7.4,
+   "jma_gsm": 11.8,
+   "icon_eu": 9.3,
+   "meteofrance_arpege_europe": 7.2,
+   "ens": 9.73
+  }
  }
 ]

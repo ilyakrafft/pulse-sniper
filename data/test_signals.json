@@ -8295,7 +8295,7 @@
   "sd": 1.68,
   "n": 19,
   "first": "2026-11-22T07:47+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -8311,7 +8311,9 @@
   "edge": -0.383,
   "level": "light",
   "key": "madrid|2026-11-24",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": false
  },
  {
   "city": "singapore",
