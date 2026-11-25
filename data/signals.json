@@ -5267,13 +5267,13 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T17:06+00:00",
-   "pm": 0.94,
-   "val": 0.986,
+   "t": "2026-11-25T18:54+00:00",
+   "pm": 0.951,
+   "val": 0.935,
    "state": "sell",
-   "temp": 7.8,
-   "max": 7.8,
-   "hour": 11.1
+   "temp": 9.4,
+   "max": 9.4,
+   "hour": 12.9
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
@@ -5501,13 +5501,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T17:06+00:00",
-   "pm": 0.941,
-   "val": 0.476,
+   "t": "2026-11-25T18:54+00:00",
+   "pm": 0.891,
+   "val": 0.409,
    "state": "hold",
-   "temp": 22.2,
-   "max": 22.2,
-   "hour": 12.1
+   "temp": 22.8,
+   "max": 22.8,
+   "hour": 13.9
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"

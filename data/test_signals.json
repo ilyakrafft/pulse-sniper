@@ -11152,5 +11152,31 @@
   "level": "light",
   "key": "seattle|2026-11-27",
   "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-27",
+  "mu": 10.33,
+  "sigma": 1.57,
+  "sd": 1.42,
+  "n": 19,
+  "first": "2026-11-25T18:54+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 0.96,
+  "pm": 0.753,
+  "pm_model": 0.712,
+  "edge": -0.207,
+  "level": "light",
+  "key": "atlanta|2026-11-27",
+  "tier": "test"
  }
 ]
