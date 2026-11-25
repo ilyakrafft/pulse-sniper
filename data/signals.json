@@ -5267,13 +5267,13 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T15:38+00:00",
-   "pm": 0.87,
-   "val": 0.972,
+   "t": "2026-11-25T17:06+00:00",
+   "pm": 0.94,
+   "val": 0.986,
    "state": "sell",
-   "temp": 3.9,
-   "max": 5.6,
-   "hour": 9.6
+   "temp": 7.8,
+   "max": 7.8,
+   "hour": 11.1
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
@@ -5501,13 +5501,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T15:38+00:00",
-   "pm": 0.953,
-   "val": 0.712,
+   "t": "2026-11-25T17:06+00:00",
+   "pm": 0.941,
+   "val": 0.476,
    "state": "hold",
-   "temp": 21.7,
-   "max": 22,
-   "hour": 10.6
+   "temp": 22.2,
+   "max": 22.2,
+   "hour": 12.1
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"
@@ -6032,5 +6032,109 @@
   "level": "light",
   "key": "madrid|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-27-2026"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-27",
+  "mu": 25.35,
+  "sigma": 1.0,
+  "sd": 0.84,
+  "n": 17,
+  "st": null,
+  "liq": 56471.51,
+  "v24": 567.89,
+  "dist": [
+   {
+    "l": "20°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "21°C",
+    "m": 0.0,
+    "p": 0.005
+   },
+   {
+    "l": "22°C",
+    "m": 0.002,
+    "p": 0.03
+   },
+   {
+    "l": "23°C",
+    "m": 0.03,
+    "p": 0.035
+   },
+   {
+    "l": "24°C",
+    "m": 0.166,
+    "p": 0.33
+   },
+   {
+    "l": "25°C",
+    "m": 0.361,
+    "p": 0.405
+   },
+   {
+    "l": "26°C",
+    "m": 0.315,
+    "p": 0.215
+   },
+   {
+    "l": "27°C",
+    "m": 0.11,
+    "p": 0.045
+   },
+   {
+    "l": "28°C",
+    "m": 0.015,
+    "p": 0.031
+   },
+   {
+    "l": "29°C",
+    "m": 0.001,
+    "p": 0.03
+   },
+   {
+    "l": "30°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-25T17:06+00:00",
+  "status": "open",
+  "until": "2026-11-27T08:00+00:00",
+  "kind": "corr",
+  "label": "26°C",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ],
+  "lo": 24.5,
+  "hi": 27.5,
+  "legs": [
+   {
+    "l": "25°C",
+    "price": 0.42,
+    "pm": 0.361
+   },
+   {
+    "l": "26°C",
+    "price": 0.23,
+    "pm": 0.315
+   },
+   {
+    "l": "27°C",
+    "price": 0.06,
+    "pm": 0.11
+   }
+  ],
+  "price": 0.71,
+  "pm": 0.737,
+  "pm_model": 0.786,
+  "edge": 0.027,
+  "level": "light",
+  "key": "hongkong|2026-11-27",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-27-2026"
  }
 ]

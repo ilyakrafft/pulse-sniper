@@ -11074,5 +11074,83 @@
   "level": "light",
   "key": "lucknow|2026-11-27",
   "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-27",
+  "mu": 24.74,
+  "sigma": 1.19,
+  "sd": 1.07,
+  "n": 17,
+  "first": "2026-11-25T17:06+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 0.92,
+  "pm": 0.808,
+  "pm_model": 0.78,
+  "edge": -0.112,
+  "level": "light",
+  "key": "shenzhen|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-27",
+  "mu": 26.76,
+  "sigma": 1.81,
+  "sd": 1.94,
+  "n": 19,
+  "first": "2026-11-25T17:06+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "80–81°F",
+  "labels": [
+   "78–79°F",
+   "80–81°F",
+   "82–83°F"
+  ],
+  "lo": 25.278,
+  "hi": 28.611,
+  "price": 1.15,
+  "pm": 0.749,
+  "pm_model": 0.641,
+  "edge": -0.401,
+  "level": "light",
+  "key": "la|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-27",
+  "mu": 9.96,
+  "sigma": 1.45,
+  "sd": 0.79,
+  "n": 19,
+  "first": "2026-11-25T17:06+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 1.14,
+  "pm": 0.828,
+  "pm_model": 0.739,
+  "edge": -0.312,
+  "level": "light",
+  "key": "seattle|2026-11-27",
+  "tier": "test"
  }
 ]
