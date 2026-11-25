@@ -9439,7 +9439,7 @@
   "sd": 1.63,
   "n": 19,
   "first": "2026-11-23T14:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "56–57°F",
   "labels": [
@@ -9455,7 +9455,9 @@
   "edge": -0.321,
   "level": "light",
   "key": "seattle|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "60–61°F",
+  "hit": false
  },
  {
   "city": "milan",
@@ -9817,7 +9819,7 @@
   "sd": 1.01,
   "n": 19,
   "first": "2026-11-24T08:45+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "64–65°F",
   "labels": [
@@ -9833,7 +9835,9 @@
   "edge": -0.151,
   "level": "light",
   "key": "sf|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "warsaw",
