@@ -1353,7 +1353,9 @@
    ],
    "alerts": {
     "sell": "2026-11-25T08:00+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "tokyo|2026-11-25": {
    "city": "tokyo",
@@ -1982,6 +1984,12 @@
    "week": "2026-W48",
    "hit": false,
    "price": 0.711
+  },
+  {
+   "date": "2026-11-25",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.736
   }
  ],
  "last_summary": "2026-W47",

@@ -5231,7 +5231,7 @@
    }
   ],
   "first": "2026-11-24T07:18+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-25T22:00+00:00",
   "kind": "corr",
   "label": "52–53°F",
@@ -5267,17 +5267,19 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T21:58+00:00",
-   "pm": 0.97,
-   "val": 0.932,
+   "t": "2026-11-25T22:56+00:00",
+   "pm": 0.927,
+   "val": 0.993,
    "state": "sell",
-   "temp": 12.2,
+   "temp": 10.6,
    "max": 12.2,
-   "hour": 16.0
+   "hour": 16.9
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
-  }
+  },
+  "win": "54–55°F",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -5501,13 +5503,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T21:58+00:00",
-   "pm": 0.296,
-   "val": 0.147,
+   "t": "2026-11-25T22:56+00:00",
+   "pm": 0.289,
+   "val": 0.345,
    "state": "weak",
    "temp": 22.8,
    "max": 22.8,
-   "hour": 17.0
+   "hour": 17.9
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00",

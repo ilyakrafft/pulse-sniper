@@ -9163,7 +9163,7 @@
   "sd": 1.26,
   "n": 19,
   "first": "2026-11-23T09:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "54–55°F",
   "labels": [
@@ -9179,7 +9179,9 @@
   "edge": -0.314,
   "level": "light",
   "key": "dallas|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "54–55°F",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -9463,7 +9465,7 @@
   "sd": 0.5,
   "n": 21,
   "first": "2026-11-23T16:07+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "8°C",
   "labels": [
@@ -9479,7 +9481,9 @@
   "edge": -0.13,
   "level": "light",
   "key": "milan|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "7°C",
+  "hit": true
  },
  {
   "city": "madrid",
