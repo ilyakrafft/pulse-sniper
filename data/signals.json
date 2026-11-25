@@ -5267,13 +5267,13 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T19:58+00:00",
-   "pm": 0.984,
-   "val": 1.016,
+   "t": "2026-11-25T20:58+00:00",
+   "pm": 0.995,
+   "val": 0.941,
    "state": "sell",
    "temp": 11.7,
    "max": 11.7,
-   "hour": 14.0
+   "hour": 15.0
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
@@ -5501,13 +5501,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T19:58+00:00",
-   "pm": 0.77,
-   "val": 0.147,
+   "t": "2026-11-25T20:58+00:00",
+   "pm": 0.553,
+   "val": 0.525,
    "state": "hold",
-   "temp": 22.2,
+   "temp": 22.8,
    "max": 22.8,
-   "hour": 15.0
+   "hour": 16.0
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"
@@ -6136,5 +6136,109 @@
   "level": "light",
   "key": "hongkong|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-hong-kong-on-november-27-2026"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-27",
+  "mu": 19.24,
+  "sigma": 1.03,
+  "sd": 0.82,
+  "n": 17,
+  "st": "ZHHH",
+  "liq": 37397.28,
+  "v24": 3649.42,
+  "dist": [
+   {
+    "l": "13°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "14°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "15°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "16°C",
+    "m": 0.004,
+    "p": 0.009
+   },
+   {
+    "l": "17°C",
+    "m": 0.042,
+    "p": 0.002
+   },
+   {
+    "l": "18°C",
+    "m": 0.191,
+    "p": 0.04
+   },
+   {
+    "l": "19°C",
+    "m": 0.364,
+    "p": 0.26
+   },
+   {
+    "l": "20°C",
+    "m": 0.29,
+    "p": 0.465
+   },
+   {
+    "l": "21°C",
+    "m": 0.096,
+    "p": 0.215
+   },
+   {
+    "l": "22°C",
+    "m": 0.013,
+    "p": 0.018
+   },
+   {
+    "l": "23°C и выше",
+    "m": 0.001,
+    "p": 0.006
+   }
+  ],
+  "first": "2026-11-25T20:58+00:00",
+  "status": "open",
+  "until": "2026-11-27T08:00+00:00",
+  "kind": "corr",
+  "label": "19°C",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ],
+  "lo": 17.5,
+  "hi": 20.5,
+  "legs": [
+   {
+    "l": "18°C",
+    "price": 0.05,
+    "pm": 0.191
+   },
+   {
+    "l": "19°C",
+    "price": 0.27,
+    "pm": 0.364
+   },
+   {
+    "l": "20°C",
+    "price": 0.48,
+    "pm": 0.29
+   }
+  ],
+  "price": 0.8,
+  "pm": 0.812,
+  "pm_model": 0.844,
+  "edge": 0.012,
+  "level": "light",
+  "key": "wuhan|2026-11-27",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026"
  }
 ]

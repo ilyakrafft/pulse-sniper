@@ -9407,7 +9407,7 @@
   "sd": 1.52,
   "n": 19,
   "first": "2026-11-23T14:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -9423,7 +9423,9 @@
   "edge": -0.382,
   "level": "light",
   "key": "houston|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "60–61°F",
+  "hit": true
  },
  {
   "city": "seattle",
@@ -9649,7 +9651,7 @@
   "sd": 0.93,
   "n": 16,
   "first": "2026-11-24T06:02+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "46–47°F",
   "labels": [
@@ -9665,7 +9667,9 @@
   "edge": -0.226,
   "level": "light",
   "key": "nyc|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "46–47°F",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -11203,6 +11207,32 @@
   "edge": -0.164,
   "level": "light",
   "key": "moscow|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-27",
+  "mu": 1.22,
+  "sigma": 1.0,
+  "sd": 0.7,
+  "n": 21,
+  "first": "2026-11-25T20:58+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "1°C",
+  "labels": [
+   "0°C",
+   "1°C",
+   "2°C"
+  ],
+  "lo": -0.5,
+  "hi": 2.5,
+  "price": 1.03,
+  "pm": 0.862,
+  "pm_model": 0.857,
+  "edge": -0.168,
+  "level": "light",
+  "key": "warsaw|2026-11-27",
   "tier": "test"
  }
 ]
