@@ -1398,6 +1398,22 @@
     "1°C",
     "2°C"
    ]
+  },
+  "amsterdam|2026-11-26": {
+   "city": "amsterdam",
+   "date": "2026-11-26",
+   "label": "2°C",
+   "pm": 0.701,
+   "price": 0.7,
+   "to": [
+    "12b3338af259"
+   ],
+   "kind": "corr",
+   "labels": [
+    "1°C",
+    "2°C",
+    "3°C"
+   ]
   }
  },
  "free_week": {},

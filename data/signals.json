@@ -5149,13 +5149,13 @@
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T02:57+00:00",
-   "pm": 0.771,
-   "val": 0.719,
+   "t": "2026-11-25T04:05+00:00",
+   "pm": 0.769,
+   "val": 0.685,
    "state": "hold",
-   "temp": 4,
+   "temp": 5,
    "max": 5,
-   "hour": 3.0
+   "hour": 4.1
   },
   "alerts": {}
  },
@@ -5367,13 +5367,13 @@
   "key": "tokyo|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T02:57+00:00",
-   "pm": 0.891,
-   "val": 0.714,
+   "t": "2026-11-25T04:05+00:00",
+   "pm": 0.778,
+   "val": 0.777,
    "state": "hold",
-   "temp": 13,
-   "max": 13,
-   "hour": 11.9
+   "temp": 14,
+   "max": 14,
+   "hour": 13.1
   },
   "alerts": {
    "sell": "2026-11-24T17:28+00:00"
@@ -5586,5 +5586,109 @@
   "level": "light",
   "key": "munich|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-26-2026"
+ },
+ {
+  "city": "amsterdam",
+  "date": "2026-11-26",
+  "mu": 1.13,
+  "sigma": 1.01,
+  "sd": 0.78,
+  "n": 23,
+  "st": "EHAM",
+  "liq": 37458.86,
+  "v24": 3843.59,
+  "dist": [
+   {
+    "l": "-5°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-4°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-3°C",
+    "m": 0.0,
+    "p": 0.005
+   },
+   {
+    "l": "-2°C",
+    "m": 0.004,
+    "p": 0.007
+   },
+   {
+    "l": "-1°C",
+    "m": 0.048,
+    "p": 0.019
+   },
+   {
+    "l": "0°C",
+    "m": 0.213,
+    "p": 0.285
+   },
+   {
+    "l": "1°C",
+    "m": 0.377,
+    "p": 0.515
+   },
+   {
+    "l": "2°C",
+    "m": 0.27,
+    "p": 0.135
+   },
+   {
+    "l": "3°C",
+    "m": 0.078,
+    "p": 0.015
+   },
+   {
+    "l": "4°C",
+    "m": 0.009,
+    "p": 0.006
+   },
+   {
+    "l": "5°C и выше",
+    "m": 0.0,
+    "p": 0.004
+   }
+  ],
+  "first": "2026-11-25T04:05+00:00",
+  "status": "open",
+  "until": "2026-11-26T15:00+00:00",
+  "kind": "corr",
+  "label": "2°C",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ],
+  "lo": 0.5,
+  "hi": 3.5,
+  "legs": [
+   {
+    "l": "1°C",
+    "price": 0.53,
+    "pm": 0.377
+   },
+   {
+    "l": "2°C",
+    "price": 0.15,
+    "pm": 0.27
+   },
+   {
+    "l": "3°C",
+    "price": 0.02,
+    "pm": 0.078
+   }
+  ],
+  "price": 0.7,
+  "pm": 0.701,
+  "pm_model": 0.725,
+  "edge": 0.001,
+  "level": "light",
+  "key": "amsterdam|2026-11-26",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-26-2026"
  }
 ]
