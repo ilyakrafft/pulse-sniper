@@ -5149,13 +5149,13 @@
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T08:00+00:00",
-   "pm": 0.736,
-   "val": 0.678,
+   "t": "2026-11-25T09:10+00:00",
+   "pm": 0.751,
+   "val": 0.609,
    "state": "hold",
    "temp": 3,
    "max": 5,
-   "hour": 8.0
+   "hour": 9.2
   },
   "alerts": {}
  },
@@ -5263,13 +5263,13 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T08:00+00:00",
-   "pm": 0.917,
-   "val": 0.945,
+   "t": "2026-11-25T09:10+00:00",
+   "pm": 0.84,
+   "val": 0.944,
    "state": "sell",
-   "temp": 5.6,
+   "temp": 3.9,
    "max": 6.1,
-   "hour": 2.0
+   "hour": 3.2
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
@@ -5497,13 +5497,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T08:00+00:00",
-   "pm": 0.96,
-   "val": 0.935,
-   "state": "sell",
+   "t": "2026-11-25T09:10+00:00",
+   "pm": 0.953,
+   "val": 0.805,
+   "state": "hold",
    "temp": 21.7,
    "max": 22.8,
-   "hour": 3.0
+   "hour": 4.2
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"
@@ -5820,5 +5820,109 @@
   "level": "light",
   "key": "miami|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-26-2026"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-26",
+  "mu": 11.58,
+  "sigma": 1.21,
+  "sd": 0.88,
+  "n": 18,
+  "st": "KATL",
+  "liq": 41745.1,
+  "v24": 4785.16,
+  "dist": [
+   {
+    "l": "43°F и ниже",
+    "m": 0.0,
+    "p": 0.006
+   },
+   {
+    "l": "44–45°F",
+    "m": 0.0,
+    "p": 0.005
+   },
+   {
+    "l": "46–47°F",
+    "m": 0.007,
+    "p": 0.03
+   },
+   {
+    "l": "48–49°F",
+    "m": 0.055,
+    "p": 0.2
+   },
+   {
+    "l": "50–51°F",
+    "m": 0.205,
+    "p": 0.52
+   },
+   {
+    "l": "52–53°F",
+    "m": 0.35,
+    "p": 0.205
+   },
+   {
+    "l": "54–55°F",
+    "m": 0.271,
+    "p": 0.028
+   },
+   {
+    "l": "56–57°F",
+    "m": 0.096,
+    "p": 0.011
+   },
+   {
+    "l": "58–59°F",
+    "m": 0.015,
+    "p": 0.006
+   },
+   {
+    "l": "60–61°F",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "62°F и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-25T09:10+00:00",
+  "status": "open",
+  "until": "2026-11-26T21:00+00:00",
+  "kind": "corr",
+  "label": "52–53°F",
+  "labels": [
+   "50–51°F",
+   "52–53°F",
+   "54–55°F"
+  ],
+  "lo": 9.722,
+  "hi": 13.056,
+  "legs": [
+   {
+    "l": "50–51°F",
+    "price": 0.54,
+    "pm": 0.205
+   },
+   {
+    "l": "52–53°F",
+    "price": 0.22,
+    "pm": 0.35
+   },
+   {
+    "l": "54–55°F",
+    "price": 0.034,
+    "pm": 0.271
+   }
+  ],
+  "price": 0.794,
+  "pm": 0.797,
+  "pm_model": 0.826,
+  "edge": 0.003,
+  "level": "light",
+  "key": "atlanta|2026-11-26",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-26-2026"
  }
 ]
