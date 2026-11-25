@@ -8935,7 +8935,7 @@
   "sd": 1.31,
   "n": 19,
   "first": "2026-11-23T06:06+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "1°C",
   "labels": [
@@ -8951,7 +8951,9 @@
   "edge": -0.352,
   "level": "light",
   "key": "munich|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "1°C",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -9823,7 +9825,7 @@
   "sd": 0.57,
   "n": 21,
   "first": "2026-11-24T08:45+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "2°C",
   "labels": [
@@ -9839,7 +9841,9 @@
   "edge": -0.223,
   "level": "light",
   "key": "warsaw|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "2°C",
+  "hit": true
  },
  {
   "city": "denver",
@@ -10907,6 +10911,162 @@
   "edge": -0.242,
   "level": "light",
   "key": "miami|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-27",
+  "mu": 33.77,
+  "sigma": 1.23,
+  "sd": 1.08,
+  "n": 17,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 1.15,
+  "pm": 0.847,
+  "pm_model": 0.769,
+  "edge": -0.303,
+  "level": "light",
+  "key": "jeddah|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-27",
+  "mu": 26.29,
+  "sigma": 1.11,
+  "sd": 0.92,
+  "n": 17,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "26°C",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ],
+  "lo": 24.5,
+  "hi": 27.5,
+  "price": 1.03,
+  "pm": 0.876,
+  "pm_model": 0.81,
+  "edge": -0.154,
+  "level": "light",
+  "key": "telaviv|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-26",
+  "mu": 13.43,
+  "sigma": 1.82,
+  "sd": 1.99,
+  "n": 21,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "price": 0.9,
+  "pm": 0.681,
+  "pm_model": 0.581,
+  "edge": -0.219,
+  "level": "light",
+  "key": "nyc|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "sf",
+  "date": "2026-11-27",
+  "mu": 17.61,
+  "sigma": 1.42,
+  "sd": 1.29,
+  "n": 19,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "62–63°F",
+  "labels": [
+   "60–61°F",
+   "62–63°F",
+   "64–65°F"
+  ],
+  "lo": 15.278,
+  "hi": 18.611,
+  "price": 1.13,
+  "pm": 0.783,
+  "pm_model": 0.708,
+  "edge": -0.347,
+  "level": "light",
+  "key": "sf|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-26",
+  "mu": 1.47,
+  "sigma": 0.95,
+  "sd": 0.74,
+  "n": 21,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "1°C",
+  "labels": [
+   "0°C",
+   "1°C",
+   "2°C"
+  ],
+  "lo": -0.5,
+  "hi": 2.5,
+  "price": 1.03,
+  "pm": 0.873,
+  "pm_model": 0.841,
+  "edge": -0.157,
+  "level": "light",
+  "key": "warsaw|2026-11-26",
+  "tier": "test"
+ },
+ {
+  "city": "lucknow",
+  "date": "2026-11-27",
+  "mu": 25.1,
+  "sigma": 1.11,
+  "sd": 0.87,
+  "n": 17,
+  "first": "2026-11-25T14:25+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 1.13,
+  "pm": 0.887,
+  "pm_model": 0.822,
+  "edge": -0.243,
+  "level": "light",
+  "key": "lucknow|2026-11-27",
   "tier": "test"
  }
 ]
