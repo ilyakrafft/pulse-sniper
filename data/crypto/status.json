@@ -1,57 +1,57 @@
 {
- "updated": "2026-11-25T16:19+00:00",
+ "updated": "2026-11-25T17:55+00:00",
  "assets": {
   "BTC": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 58540.28,
-   "sigma_day_pct": 3.32
+   "spot": 59728.55,
+   "sigma_day_pct": 3.5
   },
   "ETH": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 1648.95,
-   "sigma_day_pct": 3.81
+   "spot": 1679.99,
+   "sigma_day_pct": 4.0
   },
   "SOL": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 67.86,
-   "sigma_day_pct": 4.15
+   "spot": 69.47,
+   "sigma_day_pct": 4.36
   },
   "XRP": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 0.9013,
-   "sigma_day_pct": 3.88
+   "spot": 0.9254,
+   "sigma_day_pct": 4.06
   }
  },
  "rules": {
   "bitcoin": {
-   "slug": "bitcoin-above-on-november-25-2026",
-   "end_gamma": "2026-11-25T17:00:00Z",
-   "end_assumed": "2026-11-25T17:00:00+00:00",
+   "slug": "bitcoin-above-on-november-26-2026",
+   "end_gamma": "2026-11-26T17:00:00Z",
+   "end_assumed": "2026-11-26T17:00:00+00:00",
    "resolutionSource": "https://www.binance.com/en/trade/BTC_USDT",
    "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for BTC/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the BTC/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/BTC_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
   },
   "ethereum": {
-   "slug": "ethereum-above-on-november-25-2026",
-   "end_gamma": "2026-11-25T17:00:00Z",
-   "end_assumed": "2026-11-25T17:00:00+00:00",
+   "slug": "ethereum-above-on-november-26-2026",
+   "end_gamma": "2026-11-26T17:00:00Z",
+   "end_assumed": "2026-11-26T17:00:00+00:00",
    "resolutionSource": "https://www.binance.com/en/trade/ETH_USDT",
    "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for ETH/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the ETH/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/ETH_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
   },
   "solana": {
-   "slug": "solana-above-on-november-25-2026",
-   "end_gamma": "2026-11-25T17:00:00Z",
-   "end_assumed": "2026-11-25T17:00:00+00:00",
+   "slug": "solana-above-on-november-26-2026",
+   "end_gamma": "2026-11-26T17:00:00Z",
+   "end_assumed": "2026-11-26T17:00:00+00:00",
    "resolutionSource": "https://www.binance.com/en/trade/SOL_USDT",
    "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for SOL/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the SOL/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/SOL_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
   },
   "xrp": {
-   "slug": "xrp-above-on-november-25-2026",
-   "end_gamma": "2026-11-25T17:00:00Z",
-   "end_assumed": "2026-11-25T17:00:00+00:00",
+   "slug": "xrp-above-on-november-26-2026",
+   "end_gamma": "2026-11-26T17:00:00Z",
+   "end_assumed": "2026-11-26T17:00:00+00:00",
    "resolutionSource": "https://www.binance.com/en/trade/XRP_USDT",
    "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for XRP/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the XRP/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/XRP_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
   }
@@ -59,14 +59,19 @@
  "dropped": 0,
  "errors": [],
  "found_events": 40,
- "pending": 88,
- "resolved": 0,
+ "pending": 44,
+ "resolved": 44,
  "scores": {
   "24": {
    "n": 0
   },
   "6": {
-   "n": 0
+   "n": 44,
+   "events": 4,
+   "brier_model": 0.0028,
+   "brier_market": 0.0068,
+   "bets": 6,
+   "roi": 0.183
   }
  },
  "verdict": "learning",
