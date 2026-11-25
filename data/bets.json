@@ -804,5 +804,22 @@
    "70–71°F",
    "72–73°F"
   ]
+ },
+ {
+  "date": "2026-11-25",
+  "city": "tokyo",
+  "label": "13°C",
+  "win": "14°C",
+  "hit": true,
+  "price": 0.714,
+  "pm": 0.745,
+  "edge": 0.031,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "12°C",
+   "13°C",
+   "14°C"
+  ]
  }
 ]

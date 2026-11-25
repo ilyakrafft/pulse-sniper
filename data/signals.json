@@ -5149,13 +5149,13 @@
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T06:29+00:00",
-   "pm": 0.737,
-   "val": 0.756,
+   "t": "2026-11-25T08:00+00:00",
+   "pm": 0.736,
+   "val": 0.678,
    "state": "hold",
-   "temp": 4,
+   "temp": 3,
    "max": 5,
-   "hour": 6.5
+   "hour": 8.0
   },
   "alerts": {}
  },
@@ -5261,7 +5261,19 @@
   "edge": 0.011,
   "level": "light",
   "key": "dallas|2026-11-25",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
+  "live": {
+   "t": "2026-11-25T08:00+00:00",
+   "pm": 0.917,
+   "val": 0.945,
+   "state": "sell",
+   "temp": 5.6,
+   "max": 6.1,
+   "hour": 2.0
+  },
+  "alerts": {
+   "sell": "2026-11-25T08:00+00:00"
+  }
  },
  {
   "city": "tokyo",
@@ -5331,7 +5343,7 @@
    }
   ],
   "first": "2026-11-24T08:45+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-25T07:00+00:00",
   "kind": "corr",
   "label": "13°C",
@@ -5367,17 +5379,19 @@
   "key": "tokyo|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T06:29+00:00",
+   "t": "2026-11-25T08:00+00:00",
    "pm": 0.747,
-   "val": 0.941,
+   "val": 0.994,
    "state": "sell",
    "temp": 13,
    "max": 14,
-   "hour": 15.5
+   "hour": 17.0
   },
   "alerts": {
    "sell": "2026-11-24T17:28+00:00"
-  }
+  },
+  "win": "14°C",
+  "hit": true
  },
  {
   "city": "miami",
@@ -5483,13 +5497,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T06:29+00:00",
+   "t": "2026-11-25T08:00+00:00",
    "pm": 0.96,
-   "val": 0.875,
+   "val": 0.935,
    "state": "sell",
-   "temp": 22.2,
-   "max": 22.2,
-   "hour": 1.5
+   "temp": 21.7,
+   "max": 22.8,
+   "hour": 3.0
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"

@@ -1670,5 +1670,21 @@
  "singapore|2026-11-25": {
   "win": "31°C",
   "actual": 31
+ },
+ "busan|2026-11-25": {
+  "win": "10°C",
+  "actual": 10
+ },
+ "shenzhen|2026-11-25": {
+  "win": "18°C",
+  "actual": 18
+ },
+ "tokyo|2026-11-25": {
+  "win": "14°C",
+  "actual": 14
+ },
+ "wuhan|2026-11-25": {
+  "win": "16°C",
+  "actual": 16
  }
 }
