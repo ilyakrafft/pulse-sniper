@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-25T08:59+00:00",
+ "updated": "2026-11-25T10:18+00:00",
  "assets": {
   "BTC": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 59418.48,
-   "sigma_day_pct": 3.42
+   "spot": 58992.0,
+   "sigma_day_pct": 3.37
   },
   "ETH": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 1653.16,
-   "sigma_day_pct": 3.93
+   "spot": 1645.86,
+   "sigma_day_pct": 3.86
   },
   "SOL": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 68.13,
-   "sigma_day_pct": 4.25
+   "spot": 67.75,
+   "sigma_day_pct": 4.17
   },
   "XRP": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 0.9228,
-   "sigma_day_pct": 3.93
+   "spot": 0.9157,
+   "sigma_day_pct": 3.87
   }
  },
  "rules": {
@@ -70,5 +70,9 @@
   }
  },
  "verdict": "learning",
- "verdict_text": "Нужно 100 закрытых рынков, сейчас 0."
+ "verdict_text": "Нужно 100 закрытых рынков (сейчас 0) и 40 событий (сейчас 0).",
+ "need": {
+  "markets": 100,
+  "events": 40
+ }
 }
