@@ -12001,5 +12001,32 @@
    "jma_gsm": 24.9,
    "ens": 25.58
   }
+ },
+ {
+  "date": "2026-11-25",
+  "city": "telaviv",
+  "k": 23,
+  "p": 0.815,
+  "actual": 24,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 23.0,
+   "ecmwf_aifs025_single": 23.4,
+   "icon_seamless": 23.8,
+   "gfs_seamless": 22.4,
+   "ukmo_seamless": 23.0,
+   "meteofrance_seamless": 24.5,
+   "gem_seamless": 23.2,
+   "jma_seamless": 22.6,
+   "cma_grapes_global": 21.9,
+   "ecmwf_ifs": 23.6,
+   "icon_global": 23.6,
+   "gfs_global": 22.4,
+   "gem_global": 23.2,
+   "ukmo_global_deterministic_10km": 23.0,
+   "meteofrance_arpege_world": 25.0,
+   "jma_gsm": 22.6,
+   "ens": 23.2
+  }
  }
 ]

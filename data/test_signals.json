@@ -9321,7 +9321,7 @@
   "sd": 0.97,
   "n": 17,
   "first": "2026-11-23T13:19+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "24°C",
   "labels": [
@@ -9337,7 +9337,9 @@
   "edge": -0.228,
   "level": "light",
   "key": "telaviv|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "24°C",
+  "hit": true
  },
  {
   "city": "miami",
@@ -10825,6 +10827,58 @@
   "edge": -0.32,
   "level": "light",
   "key": "chicago|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "madrid",
+  "date": "2026-11-27",
+  "mu": 10.76,
+  "sigma": 1.16,
+  "sd": 1.01,
+  "n": 19,
+  "first": "2026-11-25T11:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "11°C",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ],
+  "lo": 9.5,
+  "hi": 12.5,
+  "price": 0.92,
+  "pm": 0.756,
+  "pm_model": 0.793,
+  "edge": -0.164,
+  "level": "light",
+  "key": "madrid|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-26",
+  "mu": 14.86,
+  "sigma": 1.51,
+  "sd": 1.3,
+  "n": 19,
+  "first": "2026-11-25T11:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "price": 1.14,
+  "pm": 0.785,
+  "pm_model": 0.728,
+  "edge": -0.355,
+  "level": "light",
+  "key": "denver|2026-11-26",
   "tier": "test"
  }
 ]
