@@ -977,11 +977,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     var el = $("v-markets"); if (!el) return;
     var c = state.cry, s = state.scr, h = "";
     h += '<div class="view-head"><h2>Рынки</h2><p>Самые активные рынки других категорий. Это обзор без прогнозов: сигналы мы показываем только там, где модель доказала, что точнее рынка.</p></div>';
-    var s24 = c && c.scores && c.scores["24"] ? c.scores["24"] : null, n = s24 ? (s24.n || 0) : 0, pc = Math.min(100, Math.round(100 * n / MK_NEED));
+    var s24 = c && c.scores && c.scores["24"] ? c.scores["24"] : null, n = s24 ? (s24.n || 0) : 0, ne = s24 ? (s24.events || 0) : 0, NE = c && c.need && c.need.events ? c.need.events : 40;
+    var pc = Math.min(100, Math.round(100 * Math.min(n / MK_NEED, ne / NE)));
     var vt = { learning: "Идёт проверка", model_better: "Модель опережает рынок", market_better: "Рынок пока точнее модели" };
     h += '<div class="card rise"><h3>Крипто: проверка модели</h3><p class="sub">Рынки «цена выше X к дате» по BTC, ETH, SOL и XRP. Мы считаем шанс по цене и волатильности и сравниваем с ценой рынка. Сигналов по крипто пока нет.</p>';
     if (c && c.scores) {
-      h += '<div class="mk-stat"><span>' + esc(vt[c.verdict] || "Идёт проверка") + '</span><b>' + n + ' из ' + MK_NEED + ' рынков</b></div><div class="ckbar"><em style="--w:' + pc + '%"></em></div>';
+      h += '<div class="mk-stat"><span>' + esc(vt[c.verdict] || "Идёт проверка") + '</span><b>' + n + ' из ' + MK_NEED + ' рынков · ' + ne + ' из ' + NE + ' событий</b></div><div class="ckbar"><em style="--w:' + pc + '%"></em></div>';
       if (n > 0 && s24.brier_model != null) h += '<p class="sub" style="margin:10px 0 0">Ошибка прогноза за сутки до расчёта (меньше значит точнее): модель ' + String(s24.brier_model).replace(".", ",") + ', рынок ' + String(s24.brier_market).replace(".", ",") + '.</p>';
       else h += '<p class="sub" style="margin:10px 0 0">Первые итоги появятся, когда закроются первые рынки: ждём ' + (c.pending || 0) + '.</p>';
     } else h += '<p class="sub" style="margin:8px 0 0">Проверка запускается раз в час, данные появятся после первого запуска.</p>';

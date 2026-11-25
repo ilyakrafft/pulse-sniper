@@ -44,6 +44,7 @@ FAT = 0.15                   # доля «толстых хвостов» в с�
 FAT_SCALE = 3.0
 MIN_EDGE = 0.06              # для условной проверки доходности: берём сторону, где модель лучше цены хотя бы на 6 п.п.
 NEED_MARKETS = 100           # сколько закрытых рынков нужно для вердикта
+NEED_EVENTS = 40             # и сколько разных событий (монета + день): страйки одного дня зависят друг от друга, это не независимые проверки
 SCREENER_TAGS = ["politics", "sports", "crypto", "economy", "esports"]
 
 
@@ -325,8 +326,8 @@ def score(resolved):
 
 def verdict(sc):
     s = sc.get("24", {"n": 0})
-    if s["n"] < NEED_MARKETS:
-        return "learning", "Нужно %d закрытых рынков, сейчас %d." % (NEED_MARKETS, s["n"])
+    if s["n"] < NEED_MARKETS or s.get("events", 0) < NEED_EVENTS:
+        return "learning", "Нужно %d закрытых рынков (сейчас %d) и %d событий (сейчас %d)." % (NEED_MARKETS, s["n"], NEED_EVENTS, s.get("events", 0))
     better = s["brier_model"] < s["brier_market"] * 0.97
     profit = s.get("bets", 0) >= 30 and (s.get("roi") or -1) > 0
     if better and profit:
@@ -375,7 +376,8 @@ def main():
         status["errors"].append(traceback.format_exc()[-600:])
     sc = score(resolved)
     v, text = verdict(sc)
-    status.update({"pending": len(pending), "resolved": len(resolved), "scores": sc, "verdict": v, "verdict_text": text})
+    status.update({"pending": len(pending), "resolved": len(resolved), "scores": sc, "verdict": v, "verdict_text": text,
+                   "need": {"markets": NEED_MARKETS, "events": NEED_EVENTS}})
     if status["rules"]:
         save(CDIR / "rules.json", status["rules"])
     save(CDIR / "pending.json", pending)
