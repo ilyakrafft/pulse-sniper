@@ -1694,5 +1694,13 @@
  "chongqing|2026-11-25": {
   "win": "17°C",
   "actual": 17
+ },
+ "jeddah|2026-11-25": {
+  "win": "34°C",
+  "actual": 34
+ },
+ "lucknow|2026-11-25": {
+  "win": "26°C",
+  "actual": 26
  }
 }
