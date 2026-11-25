@@ -11178,5 +11178,31 @@
   "level": "light",
   "key": "atlanta|2026-11-27",
   "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-27",
+  "mu": -2.59,
+  "sigma": 1.06,
+  "sd": 0.83,
+  "n": 17,
+  "first": "2026-11-25T19:58+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "-3°C",
+  "labels": [
+   "-4°C",
+   "-3°C",
+   "-2°C"
+  ],
+  "lo": -4.5,
+  "hi": -1.5,
+  "price": 1.03,
+  "pm": 0.866,
+  "pm_model": 0.813,
+  "edge": -0.164,
+  "level": "light",
+  "key": "moscow|2026-11-27",
+  "tier": "test"
  }
 ]
