@@ -4,307 +4,835 @@
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 52000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": 0.996,
+    "ask": 0.998,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|54000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 54000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.9994,
+    "market": 0.973,
+    "bid": 0.968,
+    "ask": 0.978,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|56000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 56000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.989,
+    "market": 0.9265,
+    "bid": 0.926,
+    "ask": 0.927,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|58000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 58000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.7829,
+    "market": 0.6525,
+    "bid": 0.652,
+    "ask": 0.653,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|60000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 60000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0367,
+    "market": 0.125,
+    "bid": 0.12,
+    "ask": 0.13,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|62000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 62000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0043,
+    "market": 0.035,
+    "bid": 0.031,
+    "ask": 0.039,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|64000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 64000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0002,
+    "market": 0.0035,
+    "bid": 0.003,
+    "ask": 0.004,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|66000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 66000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0,
+    "market": 0.0015,
+    "bid": 0.001,
+    "ask": 0.002,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|68000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 68000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|70000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 70000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "bitcoin-above-on-november-25-2026|72000.0": {
   "asset": "BTC",
   "slug": "bitcoin-above-on-november-25-2026",
   "strike": 72000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 58522.45,
+    "sigma_h": 0.006812,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1200.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1200.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1300.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1300.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 1.0,
+    "market": 0.998,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1400.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1400.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 1.0,
+    "market": 0.9955,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1500.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1500.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.9992,
+    "market": 0.9855,
+    "bid": 0.982,
+    "ask": 0.989,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1600.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1600.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.9491,
+    "market": 0.836,
+    "bid": 0.832,
+    "ask": 0.84,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1700.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1700.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0231,
+    "market": 0.055,
+    "bid": 0.05,
+    "ask": 0.06,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1800.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1800.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0005,
+    "market": 0.006,
+    "bid": 0.005,
+    "ask": 0.007,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|1900.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 1900.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0,
+    "market": 0.0025,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|2000.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 2000.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|2100.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 2100.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "ethereum-above-on-november-25-2026|2200.0": {
   "asset": "ETH",
   "slug": "ethereum-above-on-november-25-2026",
   "strike": 2200.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 1639.61,
+    "sigma_h": 0.007802,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|50.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 50.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 1.0,
+    "market": 0.987,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|55.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 55.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 1.0,
+    "market": 0.9815,
+    "bid": 0.971,
+    "ask": 0.992,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|60.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 60.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.9999,
+    "market": 0.9745,
+    "bid": 0.954,
+    "ask": 0.995,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|65.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 65.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.9777,
+    "market": 0.9145,
+    "bid": 0.901,
+    "ask": 0.928,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|70.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 70.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0293,
+    "market": 0.102,
+    "bid": 0.076,
+    "ask": 0.128,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|75.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 75.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0004,
+    "market": 0.0205,
+    "bid": 0.001,
+    "ask": 0.04,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|80.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 80.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|85.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 85.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0,
+    "market": 0.002,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|90.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 90.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0,
+    "market": 0.002,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|95.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 95.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0,
+    "market": 0.0015,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "solana-above-on-november-25-2026|100.0": {
   "asset": "SOL",
   "slug": "solana-above-on-november-25-2026",
   "strike": 100.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 67.63,
+    "sigma_h": 0.008403,
+    "model": 0.0,
+    "market": 0.0015,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|0.5": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 0.5,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|0.6": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 0.6,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|0.7": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 0.7,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 1.0,
+    "market": 0.9775,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|0.8": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 0.8,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 1.0,
+    "market": 0.954,
+    "bid": 0.914,
+    "ask": 0.994,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|0.9": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 0.9,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.732,
+    "market": 0.683,
+    "bid": 0.605,
+    "ask": 0.761,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.0": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.0,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0004,
+    "market": 0.0485,
+    "bid": 0.004,
+    "ask": 0.093,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.1": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.1,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0,
+    "market": 0.0055,
+    "bid": 0.001,
+    "ask": 0.01,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.2": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.2,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0,
+    "market": 0.003,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.3": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.3,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0,
+    "market": 0.002,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.4": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.4,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0,
+    "market": 0.0025,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  },
  "xrp-above-on-november-25-2026|1.5": {
   "asset": "XRP",
   "slug": "xrp-above-on-november-25-2026",
   "strike": 1.5,
   "T": "2026-11-25T17:00:00+00:00",
-  "snaps": {}
+  "snaps": {
+   "6": {
+    "t": "2026-11-25T12:08+00:00",
+    "tau": 4.85,
+    "spot": 0.9073,
+    "sigma_h": 0.007816,
+    "model": 0.0,
+    "market": 0.0025,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   }
+  }
  }
 }
