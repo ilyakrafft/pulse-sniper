@@ -452,6 +452,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   <section id="v-cabinet" class="view" hidden></section>
   <section id="v-report" class="view" hidden></section>
   <section id="v-strategy" class="view" hidden></section>
+  <section id="v-markets" class="view" hidden></section>
 </div>
 
 <nav class="dock" id="dock" aria-label="Разделы">
@@ -552,7 +553,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     { key: "gfs_seamless", name: "GFS", sub: "США, NOAA", w: 1.0, noise: 1.15 },
     { key: "gem_seamless", name: "GEM", sub: "Канада, ECCC", w: 0.9, noise: 1.2 }
   ];
-  var DAYS = 7, VIEWS = ["globe", "signals", "cabinet", "report", "strategy"];
+  var DAYS = 7, VIEWS = ["globe", "signals", "cabinet", "report", "strategy", "markets"];
   var STOPS = [[-20, [59, 76, 192]], [-5, [79, 157, 222]], [5, [127, 216, 232]], [12, [200, 232, 138]], [20, [255, 209, 102]], [28, [255, 155, 74]], [36, [232, 69, 44]]];
   var MONTHS_EN = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
@@ -965,6 +966,38 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       (bn > 1 ? '<div class="card rise" style="--i:5"><h3>По городам</h3><p class="sub">Сколько сигналов сыграло в каждом городе.</p><div class="cityb">' + cityRows + '</div></div>' : "") + '<div class="card rise" style="--i:5"><h3>Все закрытые сигналы</h3><div class="res">' + (betRows || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в единицах рынка (°C или °F).</p></div>' + cta +
       '<p class="note" style="margin-top:14px">Прошлые результаты не гарантируют будущих. Это не финансовая рекомендация.</p>';
     runCounts(el);
+  }
+
+  /* ---------- раздел «Рынки»: обзор других категорий и теневая проверка модели ---------- */
+  var MK_CATS = [["crypto", "Крипто"], ["politics", "Политика"], ["sports", "Спорт"], ["esports", "Киберспорт"], ["economy", "Экономика"]];
+  var MK_NEED = 100;
+  function mkMoney(v) { v = +v || 0; return v >= 1e6 ? "$" + (v / 1e6).toFixed(1).replace(".", ",") + " млн" : v >= 1e3 ? "$" + Math.round(v / 1e3) + " тыс" : "$" + Math.round(v); }
+  function mkDate(s) { var d = new Date(s); return isNaN(d.getTime()) ? "" : d.toLocaleDateString("ru-RU", { day: "numeric", month: "short" }); }
+  function renderMarkets() {
+    var el = $("v-markets"); if (!el) return;
+    var c = state.cry, s = state.scr, h = "";
+    h += '<div class="view-head"><h2>Рынки</h2><p>Самые активные рынки других категорий. Это обзор без прогнозов: сигналы мы показываем только там, где модель доказала, что точнее рынка.</p></div>';
+    var s24 = c && c.scores && c.scores["24"] ? c.scores["24"] : null, n = s24 ? (s24.n || 0) : 0, pc = Math.min(100, Math.round(100 * n / MK_NEED));
+    var vt = { learning: "Идёт проверка", model_better: "Модель опережает рынок", market_better: "Рынок пока точнее модели" };
+    h += '<div class="card rise"><h3>Крипто: проверка модели</h3><p class="sub">Рынки «цена выше X к дате» по BTC, ETH, SOL и XRP. Мы считаем шанс по цене и волатильности и сравниваем с ценой рынка. Сигналов по крипто пока нет.</p>';
+    if (c && c.scores) {
+      h += '<div class="mk-stat"><span>' + esc(vt[c.verdict] || "Идёт проверка") + '</span><b>' + n + ' из ' + MK_NEED + ' рынков</b></div><div class="ckbar"><em style="--w:' + pc + '%"></em></div>';
+      if (n > 0 && s24.brier_model != null) h += '<p class="sub" style="margin:10px 0 0">Ошибка прогноза за сутки до расчёта (меньше значит точнее): модель ' + String(s24.brier_model).replace(".", ",") + ', рынок ' + String(s24.brier_market).replace(".", ",") + '.</p>';
+      else h += '<p class="sub" style="margin:10px 0 0">Первые итоги появятся, когда закроются первые рынки: ждём ' + (c.pending || 0) + '.</p>';
+    } else h += '<p class="sub" style="margin:8px 0 0">Проверка запускается раз в час, данные появятся после первого запуска.</p>';
+    h += '</div>';
+    var any = false;
+    MK_CATS.forEach(function (cat, k) {
+      var items = s && s.cats && Array.isArray(s.cats[cat[0]]) ? s.cats[cat[0]] : [];
+      if (!items.length) return; any = true;
+      h += '<div class="card rise" style="--i:' + (k + 1) + '"><h3>' + cat[1] + '</h3><div class="mk-list">' + items.slice(0, 6).map(function (x) {
+        var lead = x.yes == null ? "" : (x.n > 1 && x.q ? esc(x.q) + ": " : "Да ") + Math.round(100 * x.yes) + "%";
+        return '<a class="mk-row" href="' + SITE + encodeURIComponent(x.slug || "") + '" target="_blank" rel="noopener noreferrer"><b>' + esc(x.title || "") + '</b><span class="r">' + mkMoney(x.vol24) + '</span><small>' + lead + '</small><small class="r">' + esc(mkDate(x.end)) + '</small></a>';
+      }).join("") + '</div></div>';
+    });
+    if (!any) h += '<div class="card"><div class="empty">Обзор появится после первого запуска сбора данных.</div></div>';
+    h += '<p class="note" style="margin-top:14px">Объём указан за сутки. Ссылки открывают рынок на Pulse Market. Это не прогноз и не финансовая рекомендация.</p>';
+    el.innerHTML = h;
   }
 
   /* ---------- раздел «Стратегия» ---------- */
@@ -1393,8 +1426,9 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     VIEWS.forEach(function (x) { $("v-" + x).hidden = x !== v; });
     var di = VIEWS.indexOf(v); $("dock").classList.toggle("off", di > 3); if (di <= 3) $("dock").style.setProperty("--i", di);
     var sp = document.getElementById("stratPill"); if (sp) sp.setAttribute("aria-pressed", v === "strategy" ? "true" : "false");
+    var mp = document.getElementById("mkPill"); if (mp) mp.setAttribute("aria-pressed", v === "markets" ? "true" : "false");
     Array.prototype.forEach.call(document.querySelectorAll("#dock button"), function (b) { if (b.getAttribute("data-v") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
-    if (v === "signals") renderSignals(); if (v === "report") renderReport(); if (v === "strategy") renderStrategy(); if (v === "cabinet") { renderCabinet(); maybeLoadPf(); }
+    if (v === "signals") renderSignals(); if (v === "report") renderReport(); if (v === "strategy") renderStrategy(); if (v === "markets") renderMarkets(); if (v === "cabinet") { renderCabinet(); maybeLoadPf(); }
     if (location.hash !== "#" + v) { try { location.hash = v; } catch (e) {} }
     window.scrollTo(0, 0);
   }
@@ -1599,6 +1633,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   renderAll();
   (function () { var pills = document.querySelector(".pills"); if (!pills) return; var b = document.createElement("button"); b.type = "button"; b.id = "stratPill"; b.className = "pill"; b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Стратегия и инструкция");
     b.innerHTML = '<span class="bk">📖</span><span class="t">Стратегия</span>'; pills.appendChild(b); b.addEventListener("click", function () { setView(state.view === "strategy" ? "globe" : "strategy"); }); })();
+  (function () { var pills = document.querySelector(".pills"); if (!pills) return; var b = document.createElement("button"); b.type = "button"; b.id = "mkPill"; b.className = "pill"; b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Рынки других категорий");
+    b.innerHTML = '<span aria-hidden="true">📊</span><span class="t">Рынки</span>'; pills.appendChild(b); b.addEventListener("click", function () { setView(state.view === "markets" ? "globe" : "markets"); }); })();
   var h0 = location.hash.slice(1); setView(VIEWS.indexOf(h0) > -1 ? h0 : "globe");
 
   /* Реальные данные. На своём хостинге: прогнозы Open-Meteo и файлы stats.json / markets.json от бота. */
@@ -1639,6 +1675,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
     fetch("data/test_signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.wide = Array.isArray(j) ? j : []; if (state.view === "report") renderReport(); }).catch(function () {});
     fetch("data/lock_signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.lock = Array.isArray(j) ? j : []; if (state.view === "report") renderReport(); }).catch(function () {});
     fetch("data/tuning.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.tune = j || null; if (window.__tunePill) window.__tunePill(); renderAll(); }).catch(function () {});
+    fetch("data/screener.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.scr = j || null; if (state.view === "markets") renderMarkets(); }).catch(function () {});
+    fetch("data/crypto/status.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) { state.cry = j || null; if (state.view === "markets") renderMarkets(); }).catch(function () {});
     fetch("data/signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("no"); return r.json(); }).then(function (j) {
       state.sigFile = Array.isArray(j) ? j : []; renderAll();
     }).catch(function () {});
@@ -1899,6 +1937,8 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
 .dots{display:flex;flex-wrap:wrap;gap:7px}.dots i{width:16px;height:16px;border-radius:50%;animation:dotin .5s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:calc(var(--i)*40ms)}.dots i.w{background:var(--good);box-shadow:0 0 10px -2px var(--good)}.dots i.l{background:var(--bad)}
 @keyframes dotin{from{transform:scale(0)}}
 .cityb{display:grid;gap:8px}
+.mk-stat{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-top:12px;font-size:14px}.mk-stat span{color:var(--muted)}.mk-stat b{font-family:var(--f-mono);font-weight:600}
+.mk-list{display:grid;gap:8px;margin-top:10px}.mk-row{display:grid;grid-template-columns:1fr auto;gap:3px 12px;padding:10px 12px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);color:inherit;text-decoration:none}.mk-row b{font-weight:600;font-size:14px;line-height:1.3;overflow-wrap:anywhere}.mk-row small{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.mk-row .r{text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:12px}.mk-row b+.r{color:var(--g1);font-weight:600}
 .res .rr2{animation:fadeup .5s backwards}.res .rr2:nth-child(2){animation-delay:.06s}.res .rr2:nth-child(3){animation-delay:.12s}.res .rr2:nth-child(4){animation-delay:.18s}.res .rr2:nth-child(n+5){animation-delay:.24s}
 @media(prefers-reduced-motion:reduce){.dots i,.res .rr2,.trio span,.vd{animation:none}}
 
