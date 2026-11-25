@@ -5113,7 +5113,7 @@
    }
   ],
   "first": "2026-11-24T02:36+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-25T16:00+00:00",
   "kind": "corr",
   "label": "8°C",
@@ -5149,17 +5149,19 @@
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T14:25+00:00",
-   "pm": 0.427,
-   "val": 0.032,
+   "t": "2026-11-25T15:38+00:00",
+   "pm": 0.259,
+   "val": 0.03,
    "state": "weak",
    "temp": 6,
    "max": 6,
-   "hour": 14.4
+   "hour": 15.6
   },
   "alerts": {
    "weak": "2026-11-25T14:25+00:00"
-  }
+  },
+  "win": "6°C",
+  "hit": false
  },
  {
   "city": "dallas",
@@ -5265,13 +5267,13 @@
   "key": "dallas|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-dallas-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T14:25+00:00",
-   "pm": 0.871,
-   "val": 0.991,
+   "t": "2026-11-25T15:38+00:00",
+   "pm": 0.87,
+   "val": 0.972,
    "state": "sell",
-   "temp": 2.2,
-   "max": 6.1,
-   "hour": 8.4
+   "temp": 3.9,
+   "max": 5.6,
+   "hour": 9.6
   },
   "alerts": {
    "sell": "2026-11-25T08:00+00:00"
@@ -5499,13 +5501,13 @@
   "key": "miami|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T14:25+00:00",
+   "t": "2026-11-25T15:38+00:00",
    "pm": 0.953,
-   "val": 0.75,
+   "val": 0.712,
    "state": "hold",
    "temp": 21.7,
-   "max": 22.8,
-   "hour": 9.4
+   "max": 22,
+   "hour": 10.6
   },
   "alerts": {
    "sell": "2026-11-25T06:29+00:00"
@@ -5926,5 +5928,109 @@
   "level": "light",
   "key": "atlanta|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-26-2026"
+ },
+ {
+  "city": "madrid",
+  "date": "2026-11-27",
+  "mu": 10.84,
+  "sigma": 1.13,
+  "sd": 0.96,
+  "n": 19,
+  "st": "LEMD",
+  "liq": 32717.87,
+  "v24": 1502.95,
+  "dist": [
+   {
+    "l": "4°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "5°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "6°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "7°C",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "8°C",
+    "m": 0.018,
+    "p": 0.007
+   },
+   {
+    "l": "9°C",
+    "m": 0.099,
+    "p": 0.038
+   },
+   {
+    "l": "10°C",
+    "m": 0.265,
+    "p": 0.055
+   },
+   {
+    "l": "11°C",
+    "m": 0.339,
+    "p": 0.24
+   },
+   {
+    "l": "12°C",
+    "m": 0.208,
+    "p": 0.405
+   },
+   {
+    "l": "13°C",
+    "m": 0.061,
+    "p": 0.26
+   },
+   {
+    "l": "14°C и выше",
+    "m": 0.009,
+    "p": 0.06
+   }
+  ],
+  "first": "2026-11-25T15:38+00:00",
+  "status": "open",
+  "until": "2026-11-27T15:00+00:00",
+  "kind": "corr",
+  "label": "11°C",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ],
+  "lo": 9.5,
+  "hi": 12.5,
+  "legs": [
+   {
+    "l": "10°C",
+    "price": 0.07,
+    "pm": 0.265
+   },
+   {
+    "l": "11°C",
+    "price": 0.26,
+    "pm": 0.339
+   },
+   {
+    "l": "12°C",
+    "price": 0.42,
+    "pm": 0.208
+   }
+  ],
+  "price": 0.75,
+  "pm": 0.767,
+  "pm_model": 0.812,
+  "edge": 0.017,
+  "level": "light",
+  "key": "madrid|2026-11-27",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-27-2026"
  }
 ]

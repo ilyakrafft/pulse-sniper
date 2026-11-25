@@ -1718,5 +1718,17 @@
  "warsaw|2026-11-25": {
   "win": "2°C",
   "actual": 2
+ },
+ "amsterdam|2026-11-25": {
+  "win": "2°C",
+  "actual": 2
+ },
+ "london|2026-11-25": {
+  "win": "6°C",
+  "actual": 6
+ },
+ "madrid|2026-11-25": {
+  "win": "12°C",
+  "actual": 12
  }
 }
