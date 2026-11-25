@@ -1654,5 +1654,21 @@
  "sf|2026-11-24": {
   "win": "62–63°F",
   "actual": 17
+ },
+ "atlanta|2026-11-25": {
+  "win": "54–55°F",
+  "actual": 13
+ },
+ "helsinki|2026-11-25": {
+  "win": "0°C",
+  "actual": 0
+ },
+ "hongkong|2026-11-25": {
+  "win": "20°C",
+  "actual": 20
+ },
+ "singapore|2026-11-25": {
+  "win": "31°C",
+  "actual": 31
  }
 }

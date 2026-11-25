@@ -5149,13 +5149,13 @@
   "key": "london|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-london-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T05:14+00:00",
-   "pm": 0.769,
-   "val": 0.703,
+   "t": "2026-11-25T06:29+00:00",
+   "pm": 0.737,
+   "val": 0.756,
    "state": "hold",
-   "temp": 5,
+   "temp": 4,
    "max": 5,
-   "hour": 5.2
+   "hour": 6.5
   },
   "alerts": {}
  },
@@ -5367,13 +5367,13 @@
   "key": "tokyo|2026-11-25",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tokyo-on-november-25-2026",
   "live": {
-   "t": "2026-11-25T05:14+00:00",
-   "pm": 0.827,
-   "val": 0.877,
+   "t": "2026-11-25T06:29+00:00",
+   "pm": 0.747,
+   "val": 0.941,
    "state": "sell",
-   "temp": 14,
+   "temp": 13,
    "max": 14,
-   "hour": 14.2
+   "hour": 15.5
   },
   "alerts": {
    "sell": "2026-11-24T17:28+00:00"
@@ -5481,7 +5481,19 @@
   "edge": 0.038,
   "level": "light",
   "key": "miami|2026-11-25",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-25-2026",
+  "live": {
+   "t": "2026-11-25T06:29+00:00",
+   "pm": 0.96,
+   "val": 0.875,
+   "state": "sell",
+   "temp": 22.2,
+   "max": 22.2,
+   "hour": 1.5
+  },
+  "alerts": {
+   "sell": "2026-11-25T06:29+00:00"
+  }
  },
  {
   "city": "munich",
@@ -5690,5 +5702,109 @@
   "level": "light",
   "key": "amsterdam|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-26-2026"
+ },
+ {
+  "city": "miami",
+  "date": "2026-11-26",
+  "mu": 25.64,
+  "sigma": 0.98,
+  "sd": 0.75,
+  "n": 19,
+  "st": "KMIA",
+  "liq": 8866.54,
+  "v24": 4605.31,
+  "dist": [
+   {
+    "l": "69°F и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "70–71°F",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "72–73°F",
+    "m": 0.004,
+    "p": 0.006
+   },
+   {
+    "l": "74–75°F",
+    "m": 0.061,
+    "p": 0.011
+   },
+   {
+    "l": "76–77°F",
+    "m": 0.289,
+    "p": 0.075
+   },
+   {
+    "l": "78–79°F",
+    "m": 0.423,
+    "p": 0.58
+   },
+   {
+    "l": "80–81°F",
+    "m": 0.194,
+    "p": 0.3
+   },
+   {
+    "l": "82–83°F",
+    "m": 0.028,
+    "p": 0.018
+   },
+   {
+    "l": "84–85°F",
+    "m": 0.001,
+    "p": 0.006
+   },
+   {
+    "l": "86–87°F",
+    "m": 0.0,
+    "p": 0.005
+   },
+   {
+    "l": "88°F и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-25T06:29+00:00",
+  "status": "open",
+  "until": "2026-11-26T21:00+00:00",
+  "kind": "corr",
+  "label": "76–77°F",
+  "labels": [
+   "74–75°F",
+   "76–77°F",
+   "78–79°F"
+  ],
+  "lo": 23.056,
+  "hi": 26.389,
+  "legs": [
+   {
+    "l": "74–75°F",
+    "price": 0.017,
+    "pm": 0.061
+   },
+   {
+    "l": "76–77°F",
+    "price": 0.09,
+    "pm": 0.289
+   },
+   {
+    "l": "78–79°F",
+    "price": 0.6,
+    "pm": 0.423
+   }
+  ],
+  "price": 0.707,
+  "pm": 0.73,
+  "pm_model": 0.773,
+  "edge": 0.023,
+  "level": "light",
+  "key": "miami|2026-11-26",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-26-2026"
  }
 ]
