@@ -10003,7 +10003,7 @@
   "sd": 1.24,
   "n": 19,
   "first": "2026-11-24T12:35+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "54–55°F",
   "labels": [
@@ -10019,7 +10019,9 @@
   "edge": -0.275,
   "level": "light",
   "key": "dallas|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "54–55°F",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -10169,7 +10171,7 @@
   "sd": 1.47,
   "n": 17,
   "first": "2026-11-24T15:01+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "78–79°F",
   "labels": [
@@ -10185,7 +10187,9 @@
   "edge": -0.251,
   "level": "light",
   "key": "la|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "80–81°F",
+  "hit": true
  },
  {
   "city": "busan",
