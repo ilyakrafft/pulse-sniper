@@ -10083,7 +10083,7 @@
   "sd": 0.92,
   "n": 19,
   "first": "2026-11-24T13:56+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -10099,7 +10099,9 @@
   "edge": -0.068,
   "level": "light",
   "key": "madrid|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -11989,6 +11991,110 @@
   "edge": -0.338,
   "level": "light",
   "key": "houston|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-28",
+  "mu": 34.44,
+  "sigma": 1.48,
+  "sd": 1.49,
+  "n": 17,
+  "first": "2026-11-26T15:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 1.12,
+  "pm": 0.794,
+  "pm_model": 0.667,
+  "edge": -0.326,
+  "level": "light",
+  "key": "jeddah|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-28",
+  "mu": 10.85,
+  "sigma": 1.35,
+  "sd": 1.2,
+  "n": 19,
+  "first": "2026-11-26T15:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "52–53°F",
+  "labels": [
+   "50–51°F",
+   "52–53°F",
+   "54–55°F"
+  ],
+  "lo": 9.722,
+  "hi": 13.056,
+  "price": 1.14,
+  "pm": 0.803,
+  "pm_model": 0.748,
+  "edge": -0.337,
+  "level": "light",
+  "key": "nyc|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-28",
+  "mu": -2.83,
+  "sigma": 1.06,
+  "sd": 0.85,
+  "n": 17,
+  "first": "2026-11-26T15:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "-3°C",
+  "labels": [
+   "-4°C",
+   "-3°C",
+   "-2°C"
+  ],
+  "lo": -4.5,
+  "hi": -1.5,
+  "price": 0.99,
+  "pm": 0.876,
+  "pm_model": 0.837,
+  "edge": -0.114,
+  "level": "light",
+  "key": "moscow|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "sf",
+  "date": "2026-11-28",
+  "mu": 18.74,
+  "sigma": 1.49,
+  "sd": 1.42,
+  "n": 19,
+  "first": "2026-11-26T15:35+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "64–65°F",
+  "labels": [
+   "62–63°F",
+   "64–65°F",
+   "66–67°F"
+  ],
+  "lo": 16.389,
+  "hi": 19.722,
+  "price": 1.0,
+  "pm": 0.742,
+  "pm_model": 0.689,
+  "edge": -0.258,
+  "level": "light",
+  "key": "sf|2026-11-28",
   "tier": "test"
  }
 ]
