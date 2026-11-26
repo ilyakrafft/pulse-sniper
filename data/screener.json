@@ -1,66 +1,75 @@
 {
- "updated": "2026-11-26T21:59+00:00",
+ "updated": "2026-11-26T23:03+00:00",
  "cats": {
   "politics": [
-   {
-    "title": "Taipei Mayor Election Winner",
-    "slug": "taipei-mayor-election-winner-20260813125857100",
-    "end": "2026-11-29T04:59:00Z",
-    "vol24": 804306,
-    "n": 30,
-    "q": "Puma Shen",
-    "yes": 0.391
-   },
    {
     "title": "Next French Presidential Election",
     "slug": "next-french-presidential-election",
     "end": "2027-04-19T03:59:00Z",
-    "vol24": 719222,
+    "vol24": 784096,
     "n": 128,
     "q": "David Lisnard",
-    "yes": 0.232
+    "yes": 0.234
+   },
+   {
+    "title": "Taipei Mayor Election Winner",
+    "slug": "taipei-mayor-election-winner-20260813125857100",
+    "end": "2026-11-29T04:59:00Z",
+    "vol24": 777660,
+    "n": 30,
+    "q": "Puma Shen",
+    "yes": 0.389
    },
    {
     "title": "Prime Minister of Israel after the next election?",
     "slug": "who-will-be-the-next-prime-minister-of-israel-after-the-next-election",
     "end": "2026-10-28T03:59:00Z",
-    "vol24": 540241,
+    "vol24": 540329,
     "n": 28,
     "q": "Benjamin Netanyahu",
-    "yes": 0.114
-   },
-   {
-    "title": "Elon Musk # tweets November 20 - November 27, 2026?",
-    "slug": "elon-musk-of-tweets-november-20-november-27-2026",
-    "end": "2026-11-27T17:00:00Z",
-    "vol24": 488145,
-    "n": 19,
-    "q": "220-239",
-    "yes": 0.001
+    "yes": 0.116
    },
    {
     "title": "Next Prime Minister of Spain?",
     "slug": "next-prime-minister-of-spain-20260625005215443",
     "end": "2026-11-30T04:59:00Z",
-    "vol24": 476551,
+    "vol24": 522723,
     "n": 58,
     "q": "Pedro Sánchez",
-    "yes": 0.098
+    "yes": 0.093
+   },
+   {
+    "title": "Elon Musk # tweets November 20 - November 27, 2026?",
+    "slug": "elon-musk-of-tweets-november-20-november-27-2026",
+    "end": "2026-11-27T17:00:00Z",
+    "vol24": 488610,
+    "n": 19,
+    "q": "220-239",
+    "yes": 0.001
    },
    {
     "title": "Will the US confirm that aliens exist by...?",
     "slug": "will-the-us-confirm-that-aliens-exist-before-2027",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 471804,
+    "vol24": 472001,
     "n": 1,
     "q": "December 31",
     "yes": 0.013
    },
    {
+    "title": "New Taipei Mayor Election Winner",
+    "slug": "new-taipei-mayor-election-winner-20260813125857200",
+    "end": "2026-11-29T04:59:00Z",
+    "vol24": 296756,
+    "n": 30,
+    "q": "Lee Shu-chuan",
+    "yes": 0.395
+   },
+   {
     "title": "Republican Presidential Nominee 2028",
     "slug": "republican-presidential-nominee-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 348982,
+    "vol24": 286806,
     "n": 128,
     "q": "Byron Donalds",
     "yes": 0.004
@@ -69,25 +78,16 @@
     "title": "Presidential Election Winner 2028",
     "slug": "presidential-election-winner-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 324260,
+    "vol24": 283415,
     "n": 128,
     "q": "LeBron James",
     "yes": 0.001
    },
    {
-    "title": "New Taipei Mayor Election Winner",
-    "slug": "new-taipei-mayor-election-winner-20260813125857200",
-    "end": "2026-11-29T04:59:00Z",
-    "vol24": 310640,
-    "n": 30,
-    "q": "Lee Shu-chuan",
-    "yes": 0.395
-   },
-   {
     "title": "Democratic Presidential Nominee 2028",
     "slug": "democratic-presidential-nominee-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 285760,
+    "vol24": 269443,
     "n": 128,
     "q": "Oprah Winfrey",
     "yes": 0.002
@@ -95,28 +95,19 @@
   ],
   "sports": [
    {
-    "title": "Bears vs. Lions",
-    "slug": "nfl-chi-det-2026-11-26",
-    "end": "2026-11-26T18:00:00Z",
-    "vol24": 7619169,
-    "n": 3,
-    "q": "Bears Total Offensive Yards: O/U 350.5",
-    "yes": 0.995
-   },
-   {
     "title": "Eagles vs. Cowboys",
     "slug": "nfl-phi-dal-2026-11-26",
     "end": "2026-11-26T21:30:00Z",
-    "vol24": 1991727,
-    "n": 306,
-    "q": "Spread -8.5",
-    "yes": 0.625
+    "vol24": 3774676,
+    "n": 274,
+    "q": "Eagles vs. Cowboys",
+    "yes": 0.035
    },
    {
     "title": "Suns vs. Rockets",
     "slug": "nba-phx-hou-2026-11-25",
     "end": "2026-11-26T01:30:00Z",
-    "vol24": 1826567,
+    "vol24": 1806888,
     "n": 1,
     "q": "Devin Booker: Assists O/U 5.5",
     "yes": 0.986
@@ -125,7 +116,7 @@
     "title": "Bulls vs. Hornets",
     "slug": "nba-chi-cha-2026-11-25",
     "end": "2026-11-26T00:00:00Z",
-    "vol24": 1661501,
+    "vol24": 1551645,
     "n": 2,
     "q": "Nicolas Claxton: Points O/U 9.5",
     "yes": 0.5
@@ -134,55 +125,64 @@
     "title": "Crystal Palace FC vs. Real Sociedad de Fútbol",
     "slug": "uel-cry-rso-2026-11-26",
     "end": "2026-11-26T20:00:00Z",
-    "vol24": 1173051,
+    "vol24": 1206714,
     "n": 3,
     "q": "Crystal Palace FC",
-    "yes": 1.0
-   },
-   {
-    "title": "UEFA Champions League: 2027 Champion",
-    "slug": "uefa-champions-league-2027-champion-20260701202025549",
-    "end": "2027-06-20T03:59:00Z",
-    "vol24": 662068,
-    "n": 42,
-    "q": "Shakhtar Donetsk",
-    "yes": 0.002
-   },
-   {
-    "title": "Beşiktaş JK vs. MH Hapoel Be'er Sheva",
-    "slug": "uel-bes-hbs-2026-11-26",
-    "end": "2026-11-26T17:45:00Z",
-    "vol24": 633995,
-    "n": 3,
-    "q": "Beşiktaş JK",
     "yes": 1.0
    },
    {
     "title": "Chiefs vs. Bills",
     "slug": "nfl-kc-buf-2026-11-27",
     "end": "2026-11-27T01:20:00Z",
-    "vol24": 573493,
+    "vol24": 742240,
     "n": 306,
     "q": "Spread -2.5",
     "yes": 0.545
    },
    {
+    "title": "UEFA Champions League: 2027 Champion",
+    "slug": "uefa-champions-league-2027-champion-20260701202025549",
+    "end": "2027-06-20T03:59:00Z",
+    "vol24": 590010,
+    "n": 42,
+    "q": "Shakhtar Donetsk",
+    "yes": 0.002
+   },
+   {
+    "title": "San Salvador: Lucas Da Silva vs Diego Duran",
+    "slug": "atp-si-diegodu-2026-11-25",
+    "end": "2026-12-02T16:00:00Z",
+    "vol24": 568056,
+    "n": 4,
+    "q": "San Salvador: Lucas Da Silva vs Diego Duran",
+    "yes": 0.608
+   },
+   {
     "title": "Crystal Palace FC vs. Real Sociedad de Fútbol - More Markets",
     "slug": "uel-cry-rso-2026-11-26-more-markets",
     "end": "2026-11-26T20:00:00Z",
-    "vol24": 529656,
+    "vol24": 546059,
     "n": 51,
     "q": "O/U 2.5",
     "yes": 1.0
    },
    {
-    "title": "Beşiktaş JK vs. MH Hapoel Be'er Sheva - More Markets",
-    "slug": "uel-bes-hbs-2026-11-26-more-markets",
-    "end": "2026-11-26T17:45:00Z",
-    "vol24": 489557,
-    "n": 51,
-    "q": "O/U 0.5",
+    "title": "Juventus FC vs. AS Omónoia Leukosías",
+    "slug": "uel-juv-omo-2026-11-26",
+    "end": "2026-11-26T20:00:00Z",
+    "vol24": 482501,
+    "n": 3,
+    "q": "Juventus FC",
     "yes": 1.0
+   },
+   {
+    "title": "Dota 2: Spirit Academy vs Inner Circle (BO3) - European Pro League Playoffs",
+    "slug": "dota2-spirit1-ic-2026-11-26",
+    "end": "2026-11-27T00:50:00Z",
+    "vol24": 401445,
+    "n": 5,
+    "q": "Match Winner",
+    "yes": 0.001
    }
   ],
   "crypto": [
@@ -190,52 +190,52 @@
     "title": "Bitcoin price on November 27?",
     "slug": "bitcoin-price-on-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 2071099,
+    "vol24": 2074449,
     "n": 11,
     "q": "60,000-62,000",
-    "yes": 0.585
+    "yes": 0.53
    },
    {
     "title": "What price will Bitcoin hit in November?",
     "slug": "what-price-will-bitcoin-hit-in-november-2026",
     "end": "2026-12-01T05:00:00Z",
-    "vol24": 720750,
+    "vol24": 728166,
     "n": 23,
     "q": "↓ 55,000",
-    "yes": 0.089
+    "yes": 0.108
    },
    {
     "title": "What price will Bitcoin hit on November 26?",
     "slug": "what-price-will-bitcoin-hit-on-november-26-2026",
     "end": "2026-11-27T05:00:00Z",
-    "vol24": 504492,
+    "vol24": 522719,
     "n": 14,
     "q": "↑ 64,000",
-    "yes": 0.011
+    "yes": 0.008
    },
    {
     "title": "What price will Bitcoin hit in 2026?",
     "slug": "what-price-will-bitcoin-hit-before-2027",
     "end": "2027-01-01T05:00:00Z",
-    "vol24": 403457,
+    "vol24": 409737,
     "n": 27,
     "q": "↓ 45,000",
-    "yes": 0.131
+    "yes": 0.133
    },
    {
     "title": "What price will Bitcoin hit November 23-29?",
     "slug": "what-price-will-bitcoin-hit-november-23-29-2026",
     "end": "2026-11-30T05:00:00Z",
-    "vol24": 360476,
+    "vol24": 357955,
     "n": 15,
     "q": "↓ 50,000",
-    "yes": 0.011
+    "yes": 0.013
    },
    {
     "title": "Bitcoin above ___ on November 27?",
     "slug": "bitcoin-above-on-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 235737,
+    "vol24": 239611,
     "n": 11,
     "q": "50,000",
     "yes": 1.0
@@ -244,37 +244,37 @@
     "title": "What price will Ethereum hit in November?",
     "slug": "what-price-will-ethereum-hit-in-november-2026",
     "end": "2026-12-01T05:00:00Z",
-    "vol24": 214414,
+    "vol24": 223670,
     "n": 21,
     "q": "↓ 1,300",
-    "yes": 0.013
+    "yes": 0.015
    },
    {
     "title": "What price will Ethereum hit November 23-29?",
     "slug": "what-price-will-ethereum-hit-november-23-29-2026",
     "end": "2026-11-30T05:00:00Z",
-    "vol24": 139709,
+    "vol24": 135655,
     "n": 14,
     "q": "↓ 1,500",
-    "yes": 0.045
+    "yes": 0.055
    },
    {
     "title": "Ethereum above ___ on November 27?",
     "slug": "ethereum-above-on-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 70904,
+    "vol24": 71549,
     "n": 11,
     "q": "1,800",
-    "yes": 0.038
+    "yes": 0.029
    },
    {
     "title": "What price will Ethereum hit in 2026?",
     "slug": "what-price-will-ethereum-hit-before-2027",
     "end": "2027-01-01T05:00:00Z",
-    "vol24": 60974,
+    "vol24": 62191,
     "n": 19,
     "q": "↓ 1,500",
-    "yes": 0.493
+    "yes": 0.509
    }
   ],
   "economy": [
@@ -282,16 +282,16 @@
     "title": "Fed Decision in December?",
     "slug": "fed-decision-in-december-20260729232808632",
     "end": "2026-12-10T04:59:00Z",
-    "vol24": 1298376,
+    "vol24": 1239759,
     "n": 5,
     "q": "No change",
-    "yes": 0.037
+    "yes": 0.038
    },
    {
     "title": "Fed Decision in January?",
     "slug": "fed-decision-in-january-20260729233815502",
     "end": "2027-01-28T04:59:00Z",
-    "vol24": 140870,
+    "vol24": 140967,
     "n": 5,
     "q": "25 bps increase",
     "yes": 0.535
@@ -300,19 +300,19 @@
     "title": "Largest Company end of December 2026?",
     "slug": "largest-company-end-of-december-2026",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 50440,
+    "vol24": 49267,
     "n": 28,
     "q": "NVIDIA",
-    "yes": 0.064
+    "yes": 0.065
    },
    {
     "title": "NYSE marketwide circuit breaker by...?",
     "slug": "nyse-marketwide-circuit-breaker-before-2027",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 49021,
+    "vol24": 38802,
     "n": 4,
     "q": "December 31",
-    "yes": 0.054
+    "yes": 0.053
    },
    {
     "title": "Bab el-Mandeb Strait effectively closed by...?",
@@ -324,28 +324,28 @@
     "yes": 0.037
    },
    {
-    "title": "How many Fed rate cuts in 2026?",
-    "slug": "how-many-fed-rate-cuts-in-2026",
-    "end": "2027-01-01T04:59:00Z",
-    "vol24": 24334,
-    "n": 13,
-    "q": "0 (0 bps)",
-    "yes": 0.983
-   },
-   {
     "title": "Largest Company end of November 2026?",
     "slug": "largest-company-end-of-november-2026",
     "end": "2026-12-01T04:59:00Z",
-    "vol24": 23968,
+    "vol24": 23964,
     "n": 25,
     "q": "NVIDIA",
     "yes": 0.001
    },
    {
+    "title": "How many Fed rate cuts in 2026?",
+    "slug": "how-many-fed-rate-cuts-in-2026",
+    "end": "2027-01-01T04:59:00Z",
+    "vol24": 23654,
+    "n": 13,
+    "q": "0 (0 bps)",
+    "yes": 0.984
+   },
+   {
     "title": "Canadian unwrought aluminum duty rate on December 31, 2027?",
     "slug": "section-232-rate-on-canadian-primary-aluminum",
     "end": "2027-12-31T05:01:00Z",
-    "vol24": 17057,
+    "vol24": 17109,
     "n": 6,
     "q": ">40-50%",
     "yes": 0.405
@@ -363,7 +363,7 @@
     "title": "Fear & Greed Index on November 27?",
     "slug": "fear-greed-index-on-november-27-2026",
     "end": "2026-11-28T04:59:00Z",
-    "vol24": 14660,
+    "vol24": 14181,
     "n": 7,
     "q": "0–24",
     "yes": 0.91
@@ -374,34 +374,25 @@
     "title": "Dota 2: Spirit Academy vs Inner Circle (BO3) - European Pro League Playoffs",
     "slug": "dota2-spirit1-ic-2026-11-26",
     "end": "2026-11-27T00:50:00Z",
-    "vol24": 256372,
+    "vol24": 401445,
     "n": 5,
-    "q": "Game 2 Winner",
+    "q": "Match Winner",
     "yes": 0.001
    },
    {
     "title": "Counter-Strike: Lynn Vision vs Heroic (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-lvg-hero-2026-11-27",
     "end": "2026-11-27T12:00:00Z",
-    "vol24": 244412,
+    "vol24": 249760,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.225
    },
    {
-    "title": "Counter-Strike: Lir vs Spirit Academy (BO3) - CCT Europe Series #15 Group Stage",
-    "slug": "cs2-lir-tsa-2026-11-26",
-    "end": "2026-11-27T01:00:00Z",
-    "vol24": 161403,
-    "n": 4,
-    "q": "Match Winner",
-    "yes": 0.001
-   },
-   {
     "title": "PGL Major Singapore 2026: Winner",
     "slug": "pgl-major-singapore-2026-winner-1793811600000",
     "end": "2026-12-15T04:59:00Z",
-    "vol24": 114666,
+    "vol24": 110813,
     "n": 33,
     "q": "FURIA",
     "yes": 0.155
@@ -410,26 +401,35 @@
     "title": "Dota 2: Team Synapse vs Team Allied (BO3) - Esports Pro Circuit  Group A",
     "slug": "dota2-synaps-all2-2026-11-26",
     "end": "2026-11-27T00:00:00Z",
-    "vol24": 98138,
-    "n": 3,
-    "q": "Game 2 Winner",
-    "yes": 0.001
+    "vol24": 102350,
+    "n": 2,
+    "q": "Match Winner",
+    "yes": 1.0
    },
    {
     "title": "Counter-Strike: Mira vs Los Niños (BO3) - Gamers Club Liga Série A Playoffs",
     "slug": "cs2-mira-ln-2026-11-26",
     "end": "2026-11-27T01:00:00Z",
-    "vol24": 97892,
+    "vol24": 100359,
     "n": 4,
     "q": "Map 1 Winner",
     "yes": 0.001
    },
    {
+    "title": "Counter-Strike: Grêmio Esports vs RED Canids Academy (BO3) - Gamers Club Liga Série A Playoffs",
+    "slug": "cs2-grmioe-reda-2026-11-26",
+    "end": "2026-11-27T03:30:00Z",
+    "vol24": 61814,
+    "n": 4,
+    "q": "Match Winner",
+    "yes": 0.565
+   },
+   {
     "title": "Counter-Strike: Donstu Esports vs Sökerorg (BO3) - CCT Europe Closed Qualifier: Series #16 Group B",
     "slug": "cs2-don-skr2-2026-11-26",
     "end": "2026-11-27T01:00:00Z",
-    "vol24": 48010,
-    "n": 6,
+    "vol24": 54953,
+    "n": 5,
     "q": "Match Winner",
     "yes": 1.0
    },
@@ -437,28 +437,28 @@
     "title": "Counter-Strike: M80 vs 100 Thieves (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-m80-100t-2026-11-27",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 43294,
+    "vol24": 46262,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.385
    },
    {
-    "title": "Valorant: Aurora Gaming vs WIP Esports (BO3) - VCT EMEA Kickoff: Europe - Qualifier Swiss Stage",
-    "slug": "val-aurora-wip-2026-11-26",
-    "end": "2026-11-27T00:30:00Z",
-    "vol24": 42105,
-    "n": 6,
-    "q": "Match Winner",
-    "yes": 0.001
-   },
-   {
     "title": "Counter-Strike: TTG Esports vs Vitality Academy (BO3) - ESEA Advanced Europe Playoffs",
     "slug": "cs2-ttgesp-vita-2026-11-26",
     "end": "2026-11-27T00:00:00Z",
-    "vol24": 32362,
-    "n": 5,
+    "vol24": 32706,
+    "n": 4,
     "q": "Match Winner",
-    "yes": 0.996
+    "yes": 1.0
+   },
+   {
+    "title": "Counter-Strike: ENCELADE vs AXE (BO3) - CCT Europe Contenders #11 Playoffs",
+    "slug": "cs2-encela-axe-2026-11-26",
+    "end": "2026-11-27T04:10:00Z",
+    "vol24": 28296,
+    "n": 4,
+    "q": "Map 1 Winner",
+    "yes": 0.001
    }
   ]
  }
