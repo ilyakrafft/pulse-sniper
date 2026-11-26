@@ -5858,13 +5858,13 @@
   "key": "miami|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T17:56+00:00",
-   "pm": 0.83,
-   "val": 0.882,
+   "t": "2026-11-26T18:59+00:00",
+   "pm": 0.876,
+   "val": 0.907,
    "state": "sell",
    "temp": 25.6,
    "max": 25.6,
-   "hour": 12.9
+   "hour": 14.0
   },
   "alerts": {
    "sell": "2026-11-26T09:31+00:00"
@@ -6298,13 +6298,13 @@
   "key": "wuhan|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026",
   "live": {
-   "t": "2026-11-26T17:56+00:00",
+   "t": "2026-11-26T18:59+00:00",
    "pm": 0.876,
-   "val": 0.818,
+   "val": 0.829,
    "state": "hold",
    "temp": 9,
    "max": 9,
-   "hour": 1.9
+   "hour": 3.0
   },
   "alerts": {
    "sell": "2026-11-26T16:41+00:00"
