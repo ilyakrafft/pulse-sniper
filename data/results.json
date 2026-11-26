@@ -1802,5 +1802,17 @@
  "wuhan|2026-11-26": {
   "win": "19°C",
   "actual": 19
+ },
+ "chengdu|2026-11-26": {
+  "win": "15°C",
+  "actual": 15
+ },
+ "lucknow|2026-11-26": {
+  "win": "25°C",
+  "actual": 25
+ },
+ "shenzhen|2026-11-26": {
+  "win": "19°C",
+  "actual": 19
  }
 }
