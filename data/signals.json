@@ -5620,13 +5620,13 @@
   "key": "munich|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T01:13+00:00",
-   "pm": 0.909,
-   "val": 0.732,
+   "t": "2026-11-26T02:39+00:00",
+   "pm": 0.942,
+   "val": 0.756,
    "state": "hold",
-   "temp": -1,
+   "temp": -2,
    "max": -1,
-   "hour": 2.2
+   "hour": 3.6
   },
   "alerts": {}
  },
@@ -5734,13 +5734,13 @@
   "key": "amsterdam|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T01:13+00:00",
-   "pm": 0.804,
-   "val": 0.833,
+   "t": "2026-11-26T02:39+00:00",
+   "pm": 0.82,
+   "val": 0.823,
    "state": "hold",
    "temp": -1,
    "max": -1,
-   "hour": 2.2
+   "hour": 3.6
   },
   "alerts": {}
  },

@@ -11248,5 +11248,57 @@
   "level": "light",
   "key": "warsaw|2026-11-27",
   "tier": "test"
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-27",
+  "mu": 15.34,
+  "sigma": 1.36,
+  "sd": 1.23,
+  "n": 17,
+  "first": "2026-11-26T02:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "price": 1.14,
+  "pm": 0.8,
+  "pm_model": 0.733,
+  "edge": -0.34,
+  "level": "light",
+  "key": "nyc|2026-11-27",
+  "tier": "test"
+ },
+ {
+  "city": "houston",
+  "date": "2026-11-27",
+  "mu": 17.22,
+  "sigma": 1.65,
+  "sd": 1.41,
+  "n": 17,
+  "first": "2026-11-26T02:39+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "64–65°F",
+  "labels": [
+   "62–63°F",
+   "64–65°F",
+   "66–67°F"
+  ],
+  "lo": 16.389,
+  "hi": 19.722,
+  "price": 1.07,
+  "pm": 0.749,
+  "pm_model": 0.628,
+  "edge": -0.321,
+  "level": "light",
+  "key": "houston|2026-11-27",
+  "tier": "test"
  }
 ]
