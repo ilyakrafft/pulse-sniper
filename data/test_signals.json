@@ -11740,5 +11740,83 @@
   "level": "light",
   "key": "chicago|2026-11-28",
   "tier": "test"
+ },
+ {
+  "city": "helsinki",
+  "date": "2026-11-28",
+  "mu": 0.1,
+  "sigma": 1.59,
+  "sd": 1.71,
+  "n": 19,
+  "first": "2026-11-26T10:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "0°C",
+  "labels": [
+   "-1°C",
+   "0°C",
+   "1°C и выше"
+  ],
+  "lo": -1.5,
+  "hi": 90.0,
+  "price": 1.15,
+  "pm": 0.885,
+  "pm_model": 0.842,
+  "edge": -0.265,
+  "level": "light",
+  "key": "helsinki|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-28",
+  "mu": 8.77,
+  "sigma": 1.24,
+  "sd": 0.95,
+  "n": 20,
+  "first": "2026-11-26T10:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "9°C",
+  "labels": [
+   "8°C",
+   "9°C",
+   "10°C"
+  ],
+  "lo": 7.5,
+  "hi": 10.5,
+  "price": 1.09,
+  "pm": 0.821,
+  "pm_model": 0.764,
+  "edge": -0.269,
+  "level": "light",
+  "key": "milan|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "lucknow",
+  "date": "2026-11-28",
+  "mu": 24.95,
+  "sigma": 1.11,
+  "sd": 0.9,
+  "n": 17,
+  "first": "2026-11-26T10:16+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 1.09,
+  "pm": 0.879,
+  "pm_model": 0.822,
+  "edge": -0.211,
+  "level": "light",
+  "key": "lucknow|2026-11-28",
+  "tier": "test"
  }
 ]
