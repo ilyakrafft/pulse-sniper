@@ -10417,7 +10417,7 @@
   "sd": 0.74,
   "n": 19,
   "first": "2026-11-24T23:26+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "46–47°F",
   "labels": [
@@ -10433,7 +10433,9 @@
   "edge": -0.138,
   "level": "light",
   "key": "chicago|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "44–45°F",
+  "hit": true
  },
  {
   "city": "miami",
@@ -10443,7 +10445,7 @@
   "sd": 0.82,
   "n": 19,
   "first": "2026-11-25T00:24+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "78–79°F",
   "labels": [
@@ -10459,7 +10461,9 @@
   "edge": -0.193,
   "level": "light",
   "key": "miami|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "78–79°F",
+  "hit": true
  },
  {
   "city": "seattle",

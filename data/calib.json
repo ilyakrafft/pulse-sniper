@@ -23922,24 +23922,6 @@
  ],
  "miami": [
   {
-   "d": "2026-09-27",
-   "mu": 30.34,
-   "sd": 0.71,
-   "a": 31.38888888888889,
-   "m": {
-    "ecmwf_ifs025": 30.2,
-    "ecmwf_aifs025_single": 28.6,
-    "icon_seamless": 30.3,
-    "gfs_seamless": 31.2,
-    "ukmo_seamless": 31.1,
-    "gem_seamless": 30.1,
-    "jma_seamless": 30.7,
-    "cma_grapes_global": 29.6,
-    "ecmwf_ifs": 30.5
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-28",
    "mu": 30.84,
    "sd": 0.76,
@@ -25111,6 +25093,34 @@
     "ncep_nbm_conus": 24.0,
     "gem_regional": 24.0,
     "ens": 24.6
+   }
+  },
+  {
+   "d": "2026-11-26",
+   "mu": 24.38,
+   "sd": 1.34,
+   "a": 25.83,
+   "m": {
+    "ecmwf_ifs025": 25.9,
+    "ecmwf_aifs025_single": 25.3,
+    "icon_seamless": 25.1,
+    "gfs_seamless": 22.1,
+    "ukmo_seamless": 24.6,
+    "meteofrance_seamless": 23.8,
+    "gem_seamless": 23.1,
+    "jma_seamless": 24.6,
+    "cma_grapes_global": 25.3,
+    "ecmwf_ifs": 26.0,
+    "icon_global": 25.1,
+    "gfs_global": 27.3,
+    "gem_global": 22.8,
+    "ukmo_global_deterministic_10km": 24.6,
+    "meteofrance_arpege_world": 23.8,
+    "jma_gsm": 24.6,
+    "gfs_hrrr": 22.1,
+    "ncep_nbm_conus": 25.0,
+    "gem_regional": 23.1,
+    "ens": 25.3
    }
   }
  ],
@@ -30988,24 +30998,6 @@
  ],
  "chicago": [
   {
-   "d": "2026-09-27",
-   "mu": 21.48,
-   "sd": 1.02,
-   "a": 22.5,
-   "m": {
-    "ecmwf_ifs025": 21.1,
-    "ecmwf_aifs025_single": 21.5,
-    "icon_seamless": 21.9,
-    "gfs_seamless": 23.0,
-    "ukmo_seamless": 20.0,
-    "gem_seamless": 22.7,
-    "jma_seamless": 19.6,
-    "cma_grapes_global": 20.2,
-    "ecmwf_ifs": 21.1
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-28",
    "mu": 22.13,
    "sd": 0.87,
@@ -32172,6 +32164,34 @@
     "ncep_nbm_conus": 6.6,
     "gem_regional": 5.7,
     "ens": 5.1
+   }
+  },
+  {
+   "d": "2026-11-26",
+   "mu": 6.84,
+   "sd": 0.9,
+   "a": 6.94,
+   "m": {
+    "ecmwf_ifs025": 6.6,
+    "ecmwf_aifs025_single": 6.7,
+    "icon_seamless": 7.1,
+    "gfs_seamless": 7.7,
+    "ukmo_seamless": 6.6,
+    "meteofrance_seamless": 6.8,
+    "gem_seamless": 7.6,
+    "jma_seamless": 3.8,
+    "cma_grapes_global": 2.9,
+    "ecmwf_ifs": 7.1,
+    "icon_global": 7.1,
+    "gfs_global": 7.1,
+    "gem_global": 6.0,
+    "ukmo_global_deterministic_10km": 6.6,
+    "meteofrance_arpege_world": 6.8,
+    "jma_gsm": 3.8,
+    "gfs_hrrr": 7.7,
+    "ncep_nbm_conus": 7.1,
+    "gem_regional": 7.3,
+    "ens": 6.4
    }
   }
  ],

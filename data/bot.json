@@ -1459,7 +1459,9 @@
    ],
    "alerts": {
     "sell": "2026-11-26T09:31+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "atlanta|2026-11-26": {
    "city": "atlanta",
@@ -2035,6 +2037,12 @@
    "week": "2026-W48",
    "hit": false,
    "price": 0.794
+  },
+  {
+   "date": "2026-11-26",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.707
   }
  ],
  "last_summary": "2026-W47",
