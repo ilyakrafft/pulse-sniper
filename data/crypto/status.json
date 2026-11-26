@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-26T17:16+00:00",
+ "updated": "2026-11-26T18:02+00:00",
  "assets": {
   "BTC": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 60559.64,
-   "sigma_day_pct": 2.99
+   "spot": 60540.31,
+   "sigma_day_pct": 2.97
   },
   "ETH": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 1694.99,
-   "sigma_day_pct": 3.44
+   "spot": 1694.7,
+   "sigma_day_pct": 3.42
   },
   "SOL": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 71.07,
-   "sigma_day_pct": 3.73
+   "spot": 71.06,
+   "sigma_day_pct": 3.71
   },
   "XRP": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 0.9513,
-   "sigma_day_pct": 3.59
+   "spot": 0.9526,
+   "sigma_day_pct": 3.57
   }
  },
  "rules": {
@@ -59,23 +59,28 @@
  "dropped": 0,
  "errors": [],
  "found_events": 40,
- "pending": 88,
- "resolved": 44,
+ "pending": 44,
+ "resolved": 88,
  "scores": {
   "24": {
-   "n": 0
-  },
-  "6": {
    "n": 44,
    "events": 4,
-   "brier_model": 0.0028,
-   "brier_market": 0.0068,
-   "bets": 6,
-   "roi": 0.183
+   "brier_model": 0.0197,
+   "brier_market": 0.0222,
+   "bets": 2,
+   "roi": 0.241
+  },
+  "6": {
+   "n": 88,
+   "events": 8,
+   "brier_model": 0.0061,
+   "brier_market": 0.0087,
+   "bets": 7,
+   "roi": 0.174
   }
  },
  "verdict": "learning",
- "verdict_text": "Нужно 100 закрытых рынков (сейчас 0) и 40 событий (сейчас 0).",
+ "verdict_text": "Нужно 100 закрытых рынков (сейчас 44) и 40 событий (сейчас 4).",
  "need": {
   "markets": 100,
   "events": 40
