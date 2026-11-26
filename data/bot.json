@@ -1476,7 +1476,9 @@
     "52–53°F",
     "54–55°F"
    ],
-   "alerts": {}
+   "alerts": {},
+   "done": true,
+   "hit": false
   },
   "madrid|2026-11-27": {
    "city": "madrid",
@@ -2027,6 +2029,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.727
+  },
+  {
+   "date": "2026-11-26",
+   "week": "2026-W48",
+   "hit": false,
+   "price": 0.794
   }
  ],
  "last_summary": "2026-W47",

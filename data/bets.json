@@ -906,5 +906,22 @@
    "1°C",
    "2°C"
   ]
+ },
+ {
+  "date": "2026-11-26",
+  "city": "atlanta",
+  "label": "52–53°F",
+  "win": "48–49°F",
+  "hit": false,
+  "price": 0.794,
+  "pm": 0.797,
+  "edge": 0.003,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "50–51°F",
+   "52–53°F",
+   "54–55°F"
+  ]
  }
 ]

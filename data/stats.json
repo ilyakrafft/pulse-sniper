@@ -13131,5 +13131,35 @@
    "dmi_harmonie_arome_europe": 0.4,
    "ens": -0.17
   }
+ },
+ {
+  "date": "2026-11-26",
+  "city": "atlanta",
+  "k": 10,
+  "p": 0.809,
+  "actual": 9,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 10.0,
+   "ecmwf_aifs025_single": 9.0,
+   "icon_seamless": 9.5,
+   "gfs_seamless": 9.9,
+   "ukmo_seamless": 10.7,
+   "meteofrance_seamless": 8.9,
+   "gem_seamless": 11.1,
+   "jma_seamless": 10.7,
+   "cma_grapes_global": 11.9,
+   "ecmwf_ifs": 10.3,
+   "icon_global": 9.5,
+   "gfs_global": 9.3,
+   "gem_global": 11.5,
+   "ukmo_global_deterministic_10km": 10.7,
+   "meteofrance_arpege_world": 8.9,
+   "jma_gsm": 10.7,
+   "gfs_hrrr": 9.9,
+   "ncep_nbm_conus": 10.7,
+   "gem_regional": 11.1,
+   "ens": 10.0
+  }
  }
 ]

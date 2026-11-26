@@ -10251,7 +10251,7 @@
   "sd": 1.21,
   "n": 17,
   "first": "2026-11-24T15:01+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "52–53°F",
   "labels": [
@@ -10267,7 +10267,9 @@
   "edge": -0.33,
   "level": "light",
   "key": "atlanta|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "48–49°F",
+  "hit": false
  },
  {
   "city": "houston",
