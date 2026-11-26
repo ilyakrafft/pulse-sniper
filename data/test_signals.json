@@ -9247,7 +9247,7 @@
   "sd": 0.91,
   "n": 19,
   "first": "2026-11-23T09:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "42–43°F",
   "labels": [
@@ -9263,7 +9263,9 @@
   "edge": -0.276,
   "level": "light",
   "key": "chicago|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "42–43°F",
+  "hit": true
  },
  {
   "city": "lucknow",

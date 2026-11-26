@@ -21,28 +21,6 @@
   "gem_regional": 24.0,
   "ens": 24.58
  },
- "chicago|2026-11-25": {
-  "ecmwf_ifs025": 4.6,
-  "ecmwf_aifs025_single": 5.2,
-  "icon_seamless": 5.5,
-  "gfs_seamless": 5.1,
-  "ukmo_seamless": 4.6,
-  "meteofrance_seamless": 6.0,
-  "gem_seamless": 6.5,
-  "jma_seamless": 4.3,
-  "cma_grapes_global": 3.4,
-  "ecmwf_ifs": 5.0,
-  "icon_global": 5.5,
-  "gfs_global": 6.7,
-  "gem_global": 6.0,
-  "ukmo_global_deterministic_10km": 4.6,
-  "meteofrance_arpege_world": 6.0,
-  "jma_gsm": 4.3,
-  "gfs_hrrr": 5.1,
-  "ncep_nbm_conus": 6.6,
-  "gem_regional": 5.7,
-  "ens": 5.14
- },
  "dallas|2026-11-26": {
   "ecmwf_ifs025": 10.2,
   "ecmwf_aifs025_single": 10.7,
