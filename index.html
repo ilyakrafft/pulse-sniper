@@ -927,6 +927,36 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       (ps.length ? '<div class="muted" style="font-size:12px;margin-top:6px">На паузе: ' + ps.map(nm).join(", ") + '</div>' : '') +
       (log ? '<ul class="tunelog">' + log + '</ul>' : '') + '</div>';
   }
+  /* ---------- калькулятор: сколько заработал бы по реальным итогам ---------- */
+  function calcState() { return state.calc || (state.calc = { stake: 100, from: "", to: "", rule: "rule", fee: false }); }
+  function isoD(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function calcResult() {
+    var c = calcState(), bets = (state.bets || []).filter(function (r) { return r.price > 0 && r.price < 1; });
+    if (c.rule === "rule") bets = bets.filter(function (r) { return r.price >= 0.70 && r.price <= 0.90; });
+    bets = bets.filter(function (r) { var k = isoD(r.dt); return (!c.from || k >= c.from) && (!c.to || k <= c.to); }).sort(function (a, b) { return a.dt - b.dt; });
+    var S = Math.max(1, +c.stake || 0), pnl = 0, wins = 0, peak = 0, low = 0, run = 0;
+    bets.forEach(function (r) {
+      var fee = c.fee ? S * 0.01 : 0, g = r.hit ? S * (1 / r.price - 1) : -S;
+      pnl += g - fee; if (r.hit) wins++; run += g - fee; peak = Math.max(peak, run); low = Math.min(low, run - peak);
+    });
+    var spent = S * bets.length;
+    return '<div class="mk-stat"><span>Сигналов закрыто</span><b>' + bets.length + '</b></div>' +
+      '<div class="mk-stat"><span>Сыграло</span><b>' + wins + ' из ' + bets.length + '</b></div>' +
+      '<div class="mk-stat"><span>Всего поставлено</span><b>' + usd(spent) + '</b></div>' +
+      '<div class="mk-stat"><span>Итог</span><b style="color:' + (pnl >= 0 ? "var(--ok,#2bd67b)" : "var(--bad,#ff5a5f)") + '">' + (pnl >= 0 ? "+" : "") + usd(pnl) + (spent ? " (" + (pnl >= 0 ? "+" : MINUS) + Math.abs(Math.round(pnl / spent * 100)) + "%)" : "") + '</b></div>' +
+      '<div class="mk-stat"><span>Самая большая просадка</span><b>' + usd(low) + '</b></div>';
+  }
+  function calcCard() {
+    var c = calcState(), ds = (state.bets || []).map(function (r) { return isoD(r.dt); }).sort(), a = ds[0] || "", b = ds[ds.length - 1] || "";
+    return '<div class="card rise" id="calcCard" style="--i:2"><h3>Сколько можно было заработать</h3><p class="sub">Ставка на каждый сигнал, итоги реальные: по закрытым рынкам, по цене, которую показал сигнал.</p>' +
+      '<div class="seg" role="group" aria-label="Какие сигналы"><button type="button" data-cr="rule" aria-pressed="' + (c.rule === "rule") + '">Цена 0,70–0,90</button><button type="button" data-cr="all" aria-pressed="' + (c.rule === "all") + '">Все сигналы</button></div>' +
+      '<div class="mk-stat"><span>Ставка на сигнал, $</span><input id="calcStake" type="number" inputmode="decimal" min="1" step="1" value="' + c.stake + '" style="width:90px;text-align:right"></div>' +
+      '<div class="mk-stat"><span>С даты</span><input id="calcFrom" type="date" min="' + a + '" max="' + b + '" value="' + (c.from || a) + '"></div>' +
+      '<div class="mk-stat"><span>По дату</span><input id="calcTo" type="date" min="' + a + '" max="' + b + '" value="' + (c.to || b) + '"></div>' +
+      '<label class="mk-stat" style="cursor:pointer"><span>Учесть комиссию 1%</span><input id="calcFee" type="checkbox"' + (c.fee ? " checked" : "") + '></label>' +
+      '<div id="calcOut" style="margin-top:6px">' + calcResult() + '</div>' +
+      '<p class="sub" style="margin:10px 0 0">Это расчёт по прошлым итогам, а не обещание дохода. Реальная цена входа в терминале может отличаться.</p></div>';
+  }
   function renderReportSignals() {
     var el = $("v-report"), cut = state.period;
     var bets = (state.bets || []).filter(function (r) { return r.age <= cut; }).sort(function (x, y) { return y.dt - x.dt; });
@@ -960,7 +990,7 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
       '<div class="card rep-hero rise" style="--i:0"><div class="rh-t"><span class="kick">Сигналы</span><strong>0</strong><em> закрыто</em><div class="betsempty" style="margin-top:8px">Первые итоги появятся, когда закроются рынки, по которым уже выданы сигналы.</div></div></div>';
     el.innerHTML = '<div class="view-head"><h2>Отчёт</h2><p>Итоги сигналов, которые вы видели в боте и приложении. Один счёт, без пересчётов.</p></div>' + tuneCard() + demo +
       '<div class="seg" role="group" aria-label="Период"><button type="button" data-p="7" aria-pressed="' + (cut === 7) + '">7 дней</button><button type="button" data-p="30" aria-pressed="' + (cut === 30) + '">30 дней</button></div>' + hero +
-      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + bn + '">' + bn + '</strong></div><div class="tile rise" style="--i:2"><small>Коридоров</small><strong data-count="' + corrN + '">' + corrN + '</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + how +
+      '<div class="tiles tiles3"><div class="tile rise" style="--i:1"><small>Закрыто</small><strong data-count="' + bn + '">' + bn + '</strong></div><div class="tile rise" style="--i:2"><small>Коридоров</small><strong data-count="' + corrN + '">' + corrN + '</strong></div><div class="tile rise" style="--i:3"><small>Лучшая серия</small><strong data-count="' + best + '">' + best + '</strong></div></div>' + calcCard() + how +
       (dots ? '<div class="card rise" style="--i:3"><h3>Последние сигналы</h3><p class="sub">Каждая точка это один закрытый сигнал: зелёная сыграл, красная нет.</p><div class="dots">' + dots + '</div></div>' : "") +
       (cum.length ? '<div class="card rise" style="--i:4"><h3>Доля сыгравших сигналов</h3><p class="sub">Растёт или падает по мере закрытия рынков.</p><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Доля сыгравших сигналов">' + svg + '</svg></div>' : "") +
       (bn > 1 ? '<div class="card rise" style="--i:5"><h3>По городам</h3><p class="sub">Сколько сигналов сыграло в каждом городе.</p><div class="cityb">' + cityRows + '</div></div>' : "") + '<div class="card rise" style="--i:5"><h3>Все закрытые сигналы</h3><div class="res">' + (betRows || '<div class="empty">Пока нет закрытых сигналов.</div>') + '</div><p class="sub" style="margin:10px 0 0">Температуры в единицах рынка (°C или °F).</p></div>' + cta +
@@ -1437,6 +1467,12 @@ input[type="email"] { font: inherit; color: var(--fg); background: var(--surface
   $("dock").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setView(b.getAttribute("data-v")); });
   $("chips").addEventListener("click", function (e) { var b = e.target.closest(".chip"); if (b) selectCity(b.getAttribute("data-id")); });
   $("days").addEventListener("click", function (e) { var b = e.target.closest(".day"); if (b) { state.day = +b.getAttribute("data-d"); renderAll(); } });
+  $("v-report").addEventListener("input", function (e) {
+    var c = calcState(), t = e.target; if (!t || !t.id || t.id.indexOf("calc") !== 0) return;
+    if (t.id === "calcStake") c.stake = +t.value; else if (t.id === "calcFrom") c.from = t.value; else if (t.id === "calcTo") c.to = t.value; else if (t.id === "calcFee") c.fee = t.checked;
+    var o = $("calcOut"); if (o) o.innerHTML = calcResult();
+  });
+  $("v-report").addEventListener("click", function (e) { var b = e.target.closest("[data-cr]"); if (b) { calcState().rule = b.getAttribute("data-cr"); renderReport(); } });
   $("v-report").addEventListener("click", function (e) { var rt = e.target.closest("[data-rt]"); if (rt) { state.repTab = rt.getAttribute("data-rt"); renderReport(); return; } var b = e.target.closest("[data-p]"); if (b) { state.period = +b.getAttribute("data-p"); renderReport(); } });
   try { var sa = +localStorage.getItem("izo.amt"); if (sa > 0) state.amt = sa; } catch (e) {}
   function saveAmt(v) { state.amt = v; try { localStorage.setItem("izo.amt", String(v)); } catch (e) {} document.querySelectorAll(".calc").forEach(function (cd) { var inp = cd.querySelector("[data-calc]"); if (inp && document.activeElement !== inp) inp.value = v; calcNums(cd); }); }
