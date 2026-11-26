@@ -1,29 +1,29 @@
 {
  "bitcoin": {
-  "slug": "bitcoin-above-on-november-26-2026",
-  "end_gamma": "2026-11-26T17:00:00Z",
-  "end_assumed": "2026-11-26T17:00:00+00:00",
+  "slug": "bitcoin-above-on-november-27-2026",
+  "end_gamma": "2026-11-27T17:00:00Z",
+  "end_assumed": "2026-11-27T17:00:00+00:00",
   "resolutionSource": "https://www.binance.com/en/trade/BTC_USDT",
   "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for BTC/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the BTC/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/BTC_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
  },
  "ethereum": {
-  "slug": "ethereum-above-on-november-26-2026",
-  "end_gamma": "2026-11-26T17:00:00Z",
-  "end_assumed": "2026-11-26T17:00:00+00:00",
+  "slug": "ethereum-above-on-november-27-2026",
+  "end_gamma": "2026-11-27T17:00:00Z",
+  "end_assumed": "2026-11-27T17:00:00+00:00",
   "resolutionSource": "https://www.binance.com/en/trade/ETH_USDT",
   "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for ETH/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the ETH/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/ETH_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
  },
  "solana": {
-  "slug": "solana-above-on-november-26-2026",
-  "end_gamma": "2026-11-26T17:00:00Z",
-  "end_assumed": "2026-11-26T17:00:00+00:00",
+  "slug": "solana-above-on-november-27-2026",
+  "end_gamma": "2026-11-27T17:00:00Z",
+  "end_assumed": "2026-11-27T17:00:00+00:00",
   "resolutionSource": "https://www.binance.com/en/trade/SOL_USDT",
   "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for SOL/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the SOL/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/SOL_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
  },
  "xrp": {
-  "slug": "xrp-above-on-november-26-2026",
-  "end_gamma": "2026-11-26T17:00:00Z",
-  "end_assumed": "2026-11-26T17:00:00+00:00",
+  "slug": "xrp-above-on-november-27-2026",
+  "end_gamma": "2026-11-27T17:00:00Z",
+  "end_assumed": "2026-11-27T17:00:00+00:00",
   "resolutionSource": "https://www.binance.com/en/trade/XRP_USDT",
   "text": "This market will resolve to \"Yes\" if the Binance 1 minute candle for XRP/USDT closing at 12:00 in the ET timezone (noon) on the date specified in the title has a final \"Close\" price higher than the price specified in the title. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market is Binance, specifically the XRP/USDT \"Close\" prices currently available at https://www.binance.com/en/trade/XRP_USDT with \"1m\" and \"Candles\" selected on the top bar.\n\nPlease note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.\n\nPrice precision is determined by the number of decimal places in the source."
  }
