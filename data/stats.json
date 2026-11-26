@@ -12520,5 +12520,35 @@
    "gem_regional": 5.7,
    "ens": 5.14
   }
+ },
+ {
+  "date": "2026-11-25",
+  "city": "miami",
+  "k": 24,
+  "p": 0.807,
+  "actual": 23,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 25.3,
+   "ecmwf_aifs025_single": 24.0,
+   "icon_seamless": 23.9,
+   "gfs_seamless": 23.1,
+   "ukmo_seamless": 24.7,
+   "meteofrance_seamless": 24.4,
+   "gem_seamless": 24.0,
+   "jma_seamless": 23.5,
+   "cma_grapes_global": 24.3,
+   "ecmwf_ifs": 24.9,
+   "icon_global": 23.9,
+   "gfs_global": 26.2,
+   "gem_global": 24.9,
+   "ukmo_global_deterministic_10km": 24.7,
+   "meteofrance_arpege_world": 24.4,
+   "jma_gsm": 23.5,
+   "gfs_hrrr": 23.1,
+   "ncep_nbm_conus": 24.0,
+   "gem_regional": 24.0,
+   "ens": 24.58
+  }
  }
 ]

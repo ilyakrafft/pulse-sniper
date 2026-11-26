@@ -9359,7 +9359,7 @@
   "sd": 1.13,
   "n": 19,
   "first": "2026-11-23T13:19+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "76–77°F",
   "labels": [
@@ -9375,7 +9375,9 @@
   "edge": -0.207,
   "level": "light",
   "key": "miami|2026-11-25",
-  "tier": "test"
+  "tier": "test",
+  "win": "72–73°F",
+  "hit": false
  },
  {
   "city": "amsterdam",

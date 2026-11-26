@@ -5467,7 +5467,7 @@
    }
   ],
   "first": "2026-11-24T12:35+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-25T21:00+00:00",
   "kind": "corr",
   "label": "76–77°F",
@@ -5514,7 +5514,9 @@
   "alerts": {
    "sell": "2026-11-25T06:29+00:00",
    "weak": "2026-11-25T21:58+00:00"
-  }
+  },
+  "win": "72–73°F",
+  "hit": false
  },
  {
   "city": "munich",
@@ -5620,13 +5622,13 @@
   "key": "munich|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T04:01+00:00",
-   "pm": 0.942,
-   "val": 0.756,
+   "t": "2026-11-26T05:11+00:00",
+   "pm": 0.933,
+   "val": 0.761,
    "state": "hold",
    "temp": -2,
    "max": -1,
-   "hour": 5.0
+   "hour": 6.2
   },
   "alerts": {}
  },
@@ -5734,15 +5736,17 @@
   "key": "amsterdam|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T04:01+00:00",
-   "pm": 0.82,
-   "val": 0.838,
-   "state": "hold",
+   "t": "2026-11-26T05:11+00:00",
+   "pm": 0.802,
+   "val": 0.908,
+   "state": "sell",
    "temp": -2,
    "max": -1,
-   "hour": 5.0
+   "hour": 6.2
   },
-  "alerts": {}
+  "alerts": {
+   "sell": "2026-11-26T05:11+00:00"
+  }
  },
  {
   "city": "miami",
