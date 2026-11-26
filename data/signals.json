@@ -6300,13 +6300,13 @@
   "key": "wuhan|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026",
   "live": {
-   "t": "2026-11-26T20:06+00:00",
+   "t": "2026-11-26T20:59+00:00",
    "pm": 0.884,
-   "val": 0.792,
+   "val": 0.815,
    "state": "hold",
    "temp": 8,
    "max": 9,
-   "hour": 4.1
+   "hour": 5.0
   },
   "alerts": {
    "sell": "2026-11-26T16:41+00:00"
@@ -6415,5 +6415,109 @@
   "level": "light",
   "key": "miami|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-27-2026"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-28",
+  "mu": 18.54,
+  "sigma": 1.07,
+  "sd": 0.93,
+  "n": 17,
+  "st": "ZHHH",
+  "liq": 11168.89,
+  "v24": 5469.71,
+  "dist": [
+   {
+    "l": "14°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "15°C",
+    "m": 0.002,
+    "p": 0.002
+   },
+   {
+    "l": "16°C",
+    "m": 0.026,
+    "p": 0.002
+   },
+   {
+    "l": "17°C",
+    "m": 0.138,
+    "p": 0.019
+   },
+   {
+    "l": "18°C",
+    "m": 0.319,
+    "p": 0.13
+   },
+   {
+    "l": "19°C",
+    "m": 0.329,
+    "p": 0.53
+   },
+   {
+    "l": "20°C",
+    "m": 0.151,
+    "p": 0.295
+   },
+   {
+    "l": "21°C",
+    "m": 0.031,
+    "p": 0.029
+   },
+   {
+    "l": "22°C",
+    "m": 0.003,
+    "p": 0.002
+   },
+   {
+    "l": "23°C",
+    "m": 0.0,
+    "p": 0.002
+   },
+   {
+    "l": "24°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-26T20:59+00:00",
+  "status": "open",
+  "until": "2026-11-28T08:00+00:00",
+  "kind": "corr",
+  "label": "18°C",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ],
+  "lo": 16.5,
+  "hi": 19.5,
+  "legs": [
+   {
+    "l": "17°C",
+    "price": 0.027,
+    "pm": 0.138
+   },
+   {
+    "l": "18°C",
+    "price": 0.14,
+    "pm": 0.319
+   },
+   {
+    "l": "19°C",
+    "price": 0.55,
+    "pm": 0.329
+   }
+  ],
+  "price": 0.717,
+  "pm": 0.744,
+  "pm_model": 0.787,
+  "edge": 0.027,
+  "level": "light",
+  "key": "wuhan|2026-11-28",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026"
  }
 ]
