@@ -10283,7 +10283,7 @@
   "sd": 1.42,
   "n": 17,
   "first": "2026-11-24T16:12+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "60–61°F",
   "labels": [
@@ -10299,7 +10299,9 @@
   "edge": -0.383,
   "level": "light",
   "key": "houston|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "58–59°F",
+  "hit": true
  },
  {
   "city": "lucknow",

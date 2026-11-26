@@ -6300,13 +6300,13 @@
   "key": "wuhan|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026",
   "live": {
-   "t": "2026-11-26T21:57+00:00",
-   "pm": 0.842,
-   "val": 0.8,
+   "t": "2026-11-26T22:58+00:00",
+   "pm": 0.841,
+   "val": 0.837,
    "state": "hold",
-   "temp": 11,
+   "temp": 8,
    "max": 11,
-   "hour": 6.0
+   "hour": 7.0
   },
   "alerts": {
    "sell": "2026-11-26T16:41+00:00"
