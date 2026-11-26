@@ -9775,7 +9775,7 @@
   "sd": 1.51,
   "n": 19,
   "first": "2026-11-24T07:18+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "5°C",
   "labels": [
@@ -9791,7 +9791,9 @@
   "edge": -0.23,
   "level": "light",
   "key": "paris|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "5°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -10021,7 +10023,7 @@
   "sd": 1.22,
   "n": 17,
   "first": "2026-11-24T12:35+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -10037,7 +10039,9 @@
   "edge": -0.23,
   "level": "light",
   "key": "telaviv|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -10345,7 +10349,7 @@
   "sd": 1.64,
   "n": 17,
   "first": "2026-11-24T21:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "34°C",
   "labels": [
@@ -10361,7 +10365,9 @@
   "edge": -0.292,
   "level": "light",
   "key": "jeddah|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "33°C",
+  "hit": true
  },
  {
   "city": "moscow",
@@ -10371,7 +10377,7 @@
   "sd": 0.63,
   "n": 17,
   "first": "2026-11-24T22:32+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "-1°C",
   "labels": [
@@ -10387,7 +10393,9 @@
   "edge": -0.249,
   "level": "light",
   "key": "moscow|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "-1°C",
+  "hit": true
  },
  {
   "city": "chicago",
@@ -11817,6 +11825,32 @@
   "edge": -0.211,
   "level": "light",
   "key": "lucknow|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-28",
+  "mu": 15.04,
+  "sigma": 1.52,
+  "sd": 1.34,
+  "n": 19,
+  "first": "2026-11-26T11:29+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "60–61°F",
+  "labels": [
+   "58–59°F",
+   "60–61°F",
+   "62–63°F"
+  ],
+  "lo": 14.167,
+  "hi": 17.5,
+  "price": 1.13,
+  "pm": 0.72,
+  "pm_model": 0.663,
+  "edge": -0.41,
+  "level": "light",
+  "key": "atlanta|2026-11-28",
   "tier": "test"
  }
 ]

@@ -1814,5 +1814,21 @@
  "shenzhen|2026-11-26": {
   "win": "19°C",
   "actual": 19
+ },
+ "jeddah|2026-11-26": {
+  "win": "33°C",
+  "actual": 33
+ },
+ "moscow|2026-11-26": {
+  "win": "-1°C",
+  "actual": -1
+ },
+ "paris|2026-11-26": {
+  "win": "5°C",
+  "actual": 5
+ },
+ "telaviv|2026-11-26": {
+  "win": "26°C",
+  "actual": 26
  }
 }
