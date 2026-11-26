@@ -9639,7 +9639,7 @@
   "sd": 0.73,
   "n": 16,
   "first": "2026-11-24T06:02+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "0°C",
   "labels": [
@@ -9655,7 +9655,9 @@
   "edge": -0.224,
   "level": "light",
   "key": "munich|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "0°C",
+  "hit": true
  },
  {
   "city": "nyc",

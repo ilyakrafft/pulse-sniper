@@ -889,5 +889,22 @@
    "2°C",
    "3°C"
   ]
+ },
+ {
+  "date": "2026-11-26",
+  "city": "munich",
+  "label": "1°C",
+  "win": "0°C",
+  "hit": true,
+  "price": 0.727,
+  "pm": 0.747,
+  "edge": 0.02,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "0°C",
+   "1°C",
+   "2°C"
+  ]
  }
 ]

@@ -5586,7 +5586,7 @@
    }
   ],
   "first": "2026-11-24T19:37+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-26T15:00+00:00",
   "kind": "corr",
   "label": "1°C",
@@ -5622,17 +5622,19 @@
   "key": "munich|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T15:35+00:00",
-   "pm": 0.89,
-   "val": 0.951,
+   "t": "2026-11-26T16:41+00:00",
+   "pm": 0.878,
+   "val": 1.002,
    "state": "sell",
    "temp": 0,
    "max": 0,
-   "hour": 16.6
+   "hour": 17.7
   },
   "alerts": {
    "sell": "2026-11-26T14:23+00:00"
-  }
+  },
+  "win": "0°C",
+  "hit": true
  },
  {
   "city": "amsterdam",
@@ -5856,13 +5858,13 @@
   "key": "miami|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T15:35+00:00",
-   "pm": 0.864,
-   "val": 0.877,
+   "t": "2026-11-26T16:41+00:00",
+   "pm": 0.917,
+   "val": 0.913,
    "state": "sell",
-   "temp": 22.8,
-   "max": 22.8,
-   "hour": 10.6
+   "temp": 23.9,
+   "max": 23.9,
+   "hour": 11.7
   },
   "alerts": {
    "sell": "2026-11-26T09:31+00:00"
@@ -5972,13 +5974,13 @@
   "key": "atlanta|2026-11-26",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-26-2026",
   "live": {
-   "t": "2026-11-26T15:35+00:00",
-   "pm": 0.857,
-   "val": 0.376,
+   "t": "2026-11-26T16:41+00:00",
+   "pm": 0.854,
+   "val": 0.06,
    "state": "hold",
-   "temp": 8.9,
-   "max": 8.9,
-   "hour": 10.6
+   "temp": 9.4,
+   "max": 9.4,
+   "hour": 11.7
   },
   "alerts": {}
  },
@@ -6292,7 +6294,19 @@
   "edge": 0.012,
   "level": "light",
   "key": "wuhan|2026-11-27",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-27-2026",
+  "live": {
+   "t": "2026-11-26T16:41+00:00",
+   "pm": 0.918,
+   "val": 0.884,
+   "state": "sell",
+   "temp": 9,
+   "max": 9,
+   "hour": 0.7
+  },
+  "alerts": {
+   "sell": "2026-11-26T16:41+00:00"
+  }
  },
  {
   "city": "miami",
