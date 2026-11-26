@@ -872,5 +872,22 @@
    "76–77°F",
    "78–79°F"
   ]
+ },
+ {
+  "date": "2026-11-26",
+  "city": "amsterdam",
+  "label": "2°C",
+  "win": "1°C",
+  "hit": true,
+  "price": 0.7,
+  "pm": 0.701,
+  "edge": 0.001,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ]
  }
 ]

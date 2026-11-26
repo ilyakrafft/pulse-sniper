@@ -1415,7 +1415,9 @@
     "1°C",
     "2°C"
    ],
-   "alerts": {}
+   "alerts": {
+    "sell": "2026-11-26T14:23+00:00"
+   }
   },
   "amsterdam|2026-11-26": {
    "city": "amsterdam",
@@ -1434,7 +1436,9 @@
    ],
    "alerts": {
     "sell": "2026-11-26T05:11+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "miami|2026-11-26": {
    "city": "miami",
@@ -2006,6 +2010,12 @@
    "week": "2026-W48",
    "hit": false,
    "price": 0.76
+  },
+  {
+   "date": "2026-11-26",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.7
   }
  ],
  "last_summary": "2026-W47",

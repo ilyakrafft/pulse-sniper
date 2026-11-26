@@ -1834,5 +1834,17 @@
  "london|2026-11-26": {
   "win": "6°C",
   "actual": 6
+ },
+ "amsterdam|2026-11-26": {
+  "win": "1°C",
+  "actual": 1
+ },
+ "milan|2026-11-26": {
+  "win": "10°C",
+  "actual": 10
+ },
+ "warsaw|2026-11-26": {
+  "win": "2°C",
+  "actual": 2
  }
 }
