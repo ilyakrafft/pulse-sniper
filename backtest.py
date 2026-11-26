@@ -1,4 +1,4 @@
-"""Pulse Sniper: честный прогон стратегии по истории (до 180 дней).
+"""Pulse Sniper: честный прогон стратегии по истории (до 365 дней).
 Для каждого закрытого рынка: прогноз моделей (архив Open-Meteo), цены вариантов накануне в 12:00 UTC
 (история цен Polymarket), три соседних варианта вокруг прогноза, итог по выигравшему варианту.
 Ограничения: архивные прогнозы чуть точнее настоящих; цена = последняя сделка + 1 п.п. на спред."""
@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 import collect as C
 
-DAYS = 180
+DAYS = 365
 HIST = "https://historical-forecast-api.open-meteo.com/v1/forecast"
 CLOB = "https://clob.polymarket.com/prices-history?market=%s&interval=max&fidelity=%d"
 MODELS = ["ecmwf_ifs025", "icon_seamless", "gfs_seamless", "ukmo_seamless"]
@@ -90,7 +90,7 @@ def fetch_prices(ev):
     return ev
 
 
-def corridor(bins, mu, sigma):
+def corridor(bins, mu, sigma, by_edge=False):
     best = None
     for j in range(len(bins) - 2):
         w = bins[j:j + 3]
@@ -100,8 +100,9 @@ def corridor(bins, mu, sigma):
         mid = sum(b["price"] for b in w)
         cost = sum(min(0.99, b["price"] + SPREAD) for b in w)
         p = 0.6 * pm + 0.4 * mid
-        if best is None or p > best["p"]:
-            best = {"p": p, "pm": pm, "cost": cost, "mid": mid, "hit": any(b["win"] for b in w), "j": j}
+        key = (p - cost) if by_edge else p
+        if best is None or key > best.get("key", -9):
+            best = {"key": key, "p": p, "pm": pm, "cost": cost, "mid": mid, "hit": any(b["win"] for b in w), "j": j}
     return best
 
 
@@ -162,6 +163,7 @@ def main():
         for e in rows:
             e["bias"] = sum(hist[-20:]) / len(hist[-20:]) if len(hist) >= 5 else 0.0
             hist.append(e["wc"] - e["mu"])
+    new_rows = []
     res = {"strict": [], "current": [], "loose": [], "market": [], "all": [], "current_bias": [], "strict_bias": []}
     per_city = {}
     for e in evs:
@@ -184,6 +186,32 @@ def main():
                 res["all"].append(r)
                 if r["cost"] <= 1.0 and r["p"] >= 0.5:
                     res["loose"].append(r)
+    # ТЕКУЩИЕ правила приложения (с поправкой смещения), лучший по запасу коридор
+    for e in evs:
+        mu = e["mu"] + e["bias"]
+        sigma = max(1.1, math.sqrt(1.0 + (e["sd"] or 0) ** 2))
+        c = corridor(e["bins"], mu, sigma, by_edge=True)
+        if not c:
+            continue
+        r = dict(c, city=e["c"], d=e["d"], edge=c["p"] - c["cost"], sd=e["sd"] or 0)
+        if 0.70 <= r["cost"] <= 0.90 and r["p"] >= 0.70 and r["pm"] >= 0.70 and r["edge"] >= 0 and r["sd"] <= 1.1:
+            new_rows.append(r)
+    summary_new = {"all": stat(new_rows)}
+    summary_new["with_fee_1pct"] = stat([dict(r, cost=r["cost"] * 1.01) for r in new_rows])
+    summary_new["with_fee_2pct"] = stat([dict(r, cost=r["cost"] * 1.02) for r in new_rows])
+    mm = {}
+    for r in new_rows:
+        mm.setdefault(r["d"][:7], []).append(r)
+    summary_new["by_month"] = {k: stat(v) for k, v in sorted(mm.items())}
+    cc = {}
+    for r in new_rows:
+        cc.setdefault(r["city"], []).append(r)
+    summary_new["by_city"] = {k: stat(v) for k, v in sorted(cc.items())}
+    bk = {}
+    for r in new_rows:
+        b = "0.70-0.80" if r["cost"] < 0.80 else "0.80-0.90"
+        bk.setdefault(b, []).append(r)
+    summary_new["by_price"] = {k: stat(v) for k, v in sorted(bk.items())}
     # рынок сам по себе: коридор из трёх вариантов с максимальной суммой цен, без прогноза
     for e in evs:
         bs = e["bins"]
@@ -205,6 +233,7 @@ def main():
     summary["by_month_current_bias"] = {k: stat(v) for k, v in sorted(months.items())}
     summary["by_city_current_bias"] = {k: stat(v) for k, v in sorted(per_city.items())}
     summary["spread_sensitivity"] = {str(sp): sets_for(evs, sp) for sp in (0.0, 0.01, 0.02, 0.03, 0.05, 0.08)}
+    summary["new_rules"] = summary_new
     summary["events"] = len(evs)
     summary["updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes")
     print(json.dumps(summary, ensure_ascii=False, indent=1))
