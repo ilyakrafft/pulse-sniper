@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-27T05:16+00:00",
+ "updated": "2026-11-27T06:16+00:00",
  "assets": {
   "BTC": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 61638.97,
+   "spot": 61891.06,
    "sigma_day_pct": 2.87
   },
   "ETH": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 1741.9,
-   "sigma_day_pct": 3.39
+   "spot": 1739.69,
+   "sigma_day_pct": 3.37
   },
   "SOL": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 73.13,
-   "sigma_day_pct": 3.63
+   "spot": 73.21,
+   "sigma_day_pct": 3.61
   },
   "XRP": {
    "ok": true,
    "source": "data-api.binance.vision",
-   "spot": 0.9633,
-   "sigma_day_pct": 3.45
+   "spot": 0.9716,
+   "sigma_day_pct": 3.49
   }
  },
  "rules": {
