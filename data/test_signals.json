@@ -11005,7 +11005,7 @@
   "sd": 0.96,
   "n": 19,
   "first": "2026-11-25T12:42+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "74–75°F",
   "labels": [
@@ -11021,7 +11021,9 @@
   "edge": -0.242,
   "level": "light",
   "key": "miami|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "72–73°F",
+  "hit": true
  },
  {
   "city": "jeddah",
@@ -12937,6 +12939,32 @@
   "edge": -0.191,
   "level": "light",
   "key": "sf|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "denver",
+  "date": "2026-11-29",
+  "mu": 9.99,
+  "sigma": 1.73,
+  "sd": 1.62,
+  "n": 19,
+  "first": "2026-11-27T20:31+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "price": 1.09,
+  "pm": 0.694,
+  "pm_model": 0.659,
+  "edge": -0.396,
+  "level": "light",
+  "key": "denver|2026-11-29",
   "tier": "test"
  }
 ]
