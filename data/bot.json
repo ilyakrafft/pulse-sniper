@@ -1534,7 +1534,9 @@
    ],
    "alerts": {
     "sell": "2026-11-26T16:41+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "miami|2026-11-27": {
    "city": "miami",
@@ -2071,6 +2073,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.71
+  },
+  {
+   "date": "2026-11-27",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.8
   }
  ],
  "last_summary": "2026-W47",

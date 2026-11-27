@@ -957,5 +957,22 @@
    "26°C",
    "27°C"
   ]
+ },
+ {
+  "date": "2026-11-27",
+  "city": "wuhan",
+  "label": "19°C",
+  "win": "19°C",
+  "hit": true,
+  "price": 0.8,
+  "pm": 0.812,
+  "edge": 0.012,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ]
  }
 ]
