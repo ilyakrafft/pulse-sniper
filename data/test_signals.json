@@ -10645,7 +10645,7 @@
   "sd": 0.97,
   "n": 20,
   "first": "2026-11-25T08:00+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "9°C",
   "labels": [
@@ -10661,7 +10661,9 @@
   "edge": -0.317,
   "level": "light",
   "key": "milan|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "9°C",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -10837,7 +10839,7 @@
   "sd": 0.66,
   "n": 17,
   "first": "2026-11-25T09:10+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "0°C",
   "labels": [
@@ -10853,7 +10855,9 @@
   "edge": -0.181,
   "level": "light",
   "key": "munich|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "0°C",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -12801,6 +12805,110 @@
   "edge": -0.307,
   "level": "light",
   "key": "seattle|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-29",
+  "mu": 24.22,
+  "sigma": 1.1,
+  "sd": 0.77,
+  "n": 15,
+  "first": "2026-11-27T14:57+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "24°C",
+  "labels": [
+   "23°C",
+   "24°C",
+   "25°C"
+  ],
+  "lo": 22.5,
+  "hi": 25.5,
+  "price": 1.0,
+  "pm": 0.841,
+  "pm_model": 0.819,
+  "edge": -0.159,
+  "level": "light",
+  "key": "shenzhen|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "moscow",
+  "date": "2026-11-29",
+  "mu": -2.86,
+  "sigma": 1.06,
+  "sd": 0.86,
+  "n": 15,
+  "first": "2026-11-27T14:57+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "-3°C",
+  "labels": [
+   "-4°C",
+   "-3°C",
+   "-2°C"
+  ],
+  "lo": -4.5,
+  "hi": -1.5,
+  "price": 1.09,
+  "pm": 0.879,
+  "pm_model": 0.839,
+  "edge": -0.211,
+  "level": "light",
+  "key": "moscow|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "madrid",
+  "date": "2026-11-29",
+  "mu": 13.46,
+  "sigma": 1.57,
+  "sd": 1.68,
+  "n": 17,
+  "first": "2026-11-27T14:57+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "14°C",
+  "labels": [
+   "13°C",
+   "14°C",
+   "15°C"
+  ],
+  "lo": 12.5,
+  "hi": 15.5,
+  "price": 1.02,
+  "pm": 0.743,
+  "pm_model": 0.632,
+  "edge": -0.277,
+  "level": "light",
+  "key": "madrid|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "la",
+  "date": "2026-11-29",
+  "mu": 22.06,
+  "sigma": 1.41,
+  "sd": 1.36,
+  "n": 17,
+  "first": "2026-11-27T14:57+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "72–73°F",
+  "labels": [
+   "70–71°F",
+   "72–73°F",
+   "74–75°F"
+  ],
+  "lo": 20.833,
+  "hi": 24.167,
+  "price": 1.01,
+  "pm": 0.824,
+  "pm_model": 0.741,
+  "edge": -0.186,
+  "level": "light",
+  "key": "la|2026-11-29",
   "tier": "test"
  }
 ]
