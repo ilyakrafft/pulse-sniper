@@ -11021,7 +11021,7 @@
   "sd": 1.08,
   "n": 17,
   "first": "2026-11-25T14:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "34°C",
   "labels": [
@@ -11037,7 +11037,9 @@
   "edge": -0.303,
   "level": "light",
   "key": "jeddah|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "33°C",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -11155,7 +11157,7 @@
   "sd": 0.87,
   "n": 17,
   "first": "2026-11-25T14:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -11171,7 +11173,9 @@
   "edge": -0.243,
   "level": "light",
   "key": "lucknow|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "25°C",
+  "hit": true
  },
  {
   "city": "shenzhen",
@@ -11287,7 +11291,7 @@
   "sd": 0.83,
   "n": 17,
   "first": "2026-11-25T19:58+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "-3°C",
   "labels": [
@@ -11303,7 +11307,9 @@
   "edge": -0.164,
   "level": "light",
   "key": "moscow|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "-2°C",
+  "hit": true
  },
  {
   "city": "warsaw",
@@ -12629,6 +12635,58 @@
   "edge": -0.324,
   "level": "light",
   "key": "atlanta|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "hongkong",
+  "date": "2026-11-29",
+  "mu": 22.81,
+  "sigma": 1.07,
+  "sd": 0.88,
+  "n": 17,
+  "first": "2026-11-27T11:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "23°C",
+  "labels": [
+   "22°C",
+   "23°C",
+   "24°C"
+  ],
+  "lo": 21.5,
+  "hi": 24.5,
+  "price": 1.05,
+  "pm": 0.879,
+  "pm_model": 0.832,
+  "edge": -0.171,
+  "level": "light",
+  "key": "hongkong|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "milan",
+  "date": "2026-11-29",
+  "mu": 7.96,
+  "sigma": 1.43,
+  "sd": 1.31,
+  "n": 20,
+  "first": "2026-11-27T11:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C"
+  ],
+  "lo": 6.5,
+  "hi": 9.5,
+  "price": 1.05,
+  "pm": 0.751,
+  "pm_model": 0.705,
+  "edge": -0.299,
+  "level": "light",
+  "key": "milan|2026-11-29",
   "tier": "test"
  }
 ]

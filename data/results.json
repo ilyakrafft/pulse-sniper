@@ -1930,5 +1930,17 @@
  "helsinki|2026-11-27": {
   "win": "-3°C",
   "actual": -3
+ },
+ "jeddah|2026-11-27": {
+  "win": "33°C",
+  "actual": 33
+ },
+ "lucknow|2026-11-27": {
+  "win": "25°C",
+  "actual": 25
+ },
+ "moscow|2026-11-27": {
+  "win": "-2°C",
+  "actual": -2
  }
 }

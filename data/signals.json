@@ -6092,13 +6092,13 @@
   "key": "madrid|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T10:32+00:00",
-   "pm": 0.856,
-   "val": 0.282,
+   "t": "2026-11-27T11:26+00:00",
+   "pm": 0.945,
+   "val": 0.405,
    "state": "hold",
-   "temp": 7,
-   "max": 7,
-   "hour": 11.5
+   "temp": 8,
+   "max": 8,
+   "hour": 12.4
   },
   "alerts": {}
  },
@@ -6430,13 +6430,13 @@
   "key": "miami|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T10:32+00:00",
-   "pm": 0.88,
-   "val": 0.89,
+   "t": "2026-11-27T11:26+00:00",
+   "pm": 0.881,
+   "val": 0.914,
    "state": "sell",
-   "temp": 17.2,
+   "temp": 16.1,
    "max": 19.4,
-   "hour": 5.5
+   "hour": 6.4
   },
   "alerts": {
    "sell": "2026-11-27T06:32+00:00"
