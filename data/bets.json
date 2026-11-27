@@ -940,5 +940,22 @@
    "76–77°F",
    "78–79°F"
   ]
+ },
+ {
+  "date": "2026-11-27",
+  "city": "hongkong",
+  "label": "26°C",
+  "win": "25°C",
+  "hit": true,
+  "price": 0.71,
+  "pm": 0.737,
+  "edge": 0.027,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "25°C",
+   "26°C",
+   "27°C"
+  ]
  }
 ]

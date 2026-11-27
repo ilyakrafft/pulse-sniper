@@ -10587,7 +10587,7 @@
   "sd": 1.17,
   "n": 18,
   "first": "2026-11-25T06:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "17°C",
   "labels": [
@@ -10603,7 +10603,9 @@
   "edge": -0.246,
   "level": "light",
   "key": "tokyo|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "17°C",
+  "hit": true
  },
  {
   "city": "chongqing",
@@ -10849,7 +10851,7 @@
   "sd": 1.12,
   "n": 15,
   "first": "2026-11-25T10:35+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -10865,7 +10867,9 @@
   "edge": -0.308,
   "level": "light",
   "key": "hongkong|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "25°C",
+  "hit": true
  },
  {
   "city": "busan",
@@ -10875,7 +10879,7 @@
   "sd": 0.73,
   "n": 15,
   "first": "2026-11-25T10:35+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -10891,7 +10895,9 @@
   "edge": -0.172,
   "level": "light",
   "key": "busan|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "20°C",
+  "hit": true
  },
  {
   "city": "chicago",
@@ -12145,6 +12151,110 @@
   "edge": -0.323,
   "level": "light",
   "key": "seattle|2026-11-28",
+  "tier": "test"
+ },
+ {
+  "city": "london",
+  "date": "2026-11-29",
+  "mu": 10.92,
+  "sigma": 1.08,
+  "sd": 0.9,
+  "n": 19,
+  "first": "2026-11-27T06:32+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "11°C",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ],
+  "lo": 9.5,
+  "hi": 12.5,
+  "price": 0.92,
+  "pm": 0.833,
+  "pm_model": 0.835,
+  "edge": -0.087,
+  "level": "light",
+  "key": "london|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "paris",
+  "date": "2026-11-29",
+  "mu": 8.57,
+  "sigma": 1.76,
+  "sd": 1.88,
+  "n": 19,
+  "first": "2026-11-27T06:32+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "8°C",
+  "labels": [
+   "7°C",
+   "8°C",
+   "9°C и выше"
+  ],
+  "lo": 6.5,
+  "hi": 90.0,
+  "price": 1.06,
+  "pm": 0.928,
+  "pm_model": 0.88,
+  "edge": -0.132,
+  "level": "light",
+  "key": "paris|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "tokyo",
+  "date": "2026-11-29",
+  "mu": 14.91,
+  "sigma": 1.36,
+  "sd": 1.36,
+  "n": 18,
+  "first": "2026-11-27T06:32+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "15°C",
+  "labels": [
+   "14°C",
+   "15°C",
+   "16°C"
+  ],
+  "lo": 13.5,
+  "hi": 16.5,
+  "price": 0.79,
+  "pm": 0.705,
+  "pm_model": 0.729,
+  "edge": -0.085,
+  "level": "light",
+  "key": "tokyo|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "chengdu",
+  "date": "2026-11-29",
+  "mu": 18.59,
+  "sigma": 1.41,
+  "sd": 0.9,
+  "n": 17,
+  "first": "2026-11-27T06:32+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "19°C",
+  "labels": [
+   "18°C",
+   "19°C",
+   "20°C"
+  ],
+  "lo": 17.5,
+  "hi": 20.5,
+  "price": 1.09,
+  "pm": 0.724,
+  "pm_model": 0.693,
+  "edge": -0.366,
+  "level": "light",
+  "key": "chengdu|2026-11-29",
   "tier": "test"
  }
 ]
