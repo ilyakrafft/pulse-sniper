@@ -1,21 +1,21 @@
 {
- "updated": "2026-11-27T03:02+00:00",
+ "updated": "2026-11-27T04:10+00:00",
  "cats": {
   "politics": [
    {
     "title": "Taipei Mayor Election Winner",
     "slug": "taipei-mayor-election-winner-20260813125857100",
     "end": "2026-11-29T04:59:00Z",
-    "vol24": 785938,
+    "vol24": 767175,
     "n": 30,
     "q": "Puma Shen",
-    "yes": 0.39
+    "yes": 0.393
    },
    {
     "title": "Next French Presidential Election",
     "slug": "next-french-presidential-election",
     "end": "2027-04-19T03:59:00Z",
-    "vol24": 774592,
+    "vol24": 721221,
     "n": 128,
     "q": "David Lisnard",
     "yes": 0.239
@@ -24,73 +24,73 @@
     "title": "Prime Minister of Israel after the next election?",
     "slug": "who-will-be-the-next-prime-minister-of-israel-after-the-next-election",
     "end": "2026-10-28T03:59:00Z",
-    "vol24": 687234,
+    "vol24": 703012,
     "n": 28,
     "q": "Benjamin Netanyahu",
-    "yes": 0.117
+    "yes": 0.118
    },
    {
     "title": "Next Prime Minister of Spain?",
     "slug": "next-prime-minister-of-spain-20260625005215443",
     "end": "2026-11-30T04:59:00Z",
-    "vol24": 559819,
+    "vol24": 576999,
     "n": 58,
     "q": "Pedro Sánchez",
-    "yes": 0.084
+    "yes": 0.102
    },
    {
     "title": "Elon Musk # tweets November 20 - November 27, 2026?",
     "slug": "elon-musk-of-tweets-november-20-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 447851,
+    "vol24": 445007,
     "n": 18,
     "q": "240-259",
-    "yes": 0.381
+    "yes": 0.355
    },
    {
     "title": "Presidential Election Winner 2028",
     "slug": "presidential-election-winner-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 293851,
+    "vol24": 291671,
     "n": 128,
     "q": "LeBron James",
     "yes": 0.001
    },
    {
-    "title": "New Taipei Mayor Election Winner",
-    "slug": "new-taipei-mayor-election-winner-20260813125857200",
-    "end": "2026-11-29T04:59:00Z",
-    "vol24": 290595,
-    "n": 30,
-    "q": "Lee Shu-chuan",
-    "yes": 0.39
-   },
-   {
     "title": "Republican Presidential Nominee 2028",
     "slug": "republican-presidential-nominee-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 288512,
+    "vol24": 282958,
     "n": 128,
     "q": "Byron Donalds",
     "yes": 0.004
    },
    {
+    "title": "Next Prime Minister of Sweden",
+    "slug": "next-prime-minister-of-sweden",
+    "end": "2027-07-01T03:59:00Z",
+    "vol24": 275608,
+    "n": 36,
+    "q": "Magdalena Andersson",
+    "yes": 0.1
+   },
+   {
     "title": "Democratic Presidential Nominee 2028",
     "slug": "democratic-presidential-nominee-2028",
     "end": "2028-11-08T04:59:00Z",
-    "vol24": 274759,
+    "vol24": 272665,
     "n": 128,
     "q": "Oprah Winfrey",
     "yes": 0.002
    },
    {
-    "title": "Next Prime Minister of Sweden",
-    "slug": "next-prime-minister-of-sweden",
-    "end": "2027-07-01T03:59:00Z",
-    "vol24": 271493,
-    "n": 36,
-    "q": "Magdalena Andersson",
-    "yes": 0.1
+    "title": "What technical failure caused the FAA's nationwide ground stop?",
+    "slug": "what-technical-failure-caused-the-faas-nationwide-ground-stop",
+    "end": "2026-12-01T04:59:00Z",
+    "vol24": 215908,
+    "n": 4,
+    "q": "Software or configuration error",
+    "yes": 0.243
    }
   ],
   "sports": [
@@ -98,79 +98,52 @@
     "title": "Chiefs vs. Bills",
     "slug": "nfl-kc-buf-2026-11-27",
     "end": "2026-11-27T01:20:00Z",
-    "vol24": 5339338,
-    "n": 278,
+    "vol24": 7194241,
+    "n": 176,
     "q": "Chiefs vs. Bills",
-    "yes": 0.355
-   },
-   {
-    "title": "Suns vs. Rockets",
-    "slug": "nba-phx-hou-2026-11-25",
-    "end": "2026-11-26T01:30:00Z",
-    "vol24": 806757,
-    "n": 1,
-    "q": "Devin Booker: Assists O/U 5.5",
-    "yes": 0.986
-   },
-   {
-    "title": "São Paulo FC vs. Clube do Remo - More Markets",
-    "slug": "bra-sao-cre-2026-11-26-more-markets",
-    "end": "2026-11-26T23:00:00Z",
-    "vol24": 648674,
-    "n": 46,
-    "q": "O/U 2.5",
-    "yes": 1.0
+    "yes": 0.485
    },
    {
     "title": "UEFA Champions League: 2027 Champion",
     "slug": "uefa-champions-league-2027-champion-20260701202025549",
     "end": "2027-06-20T03:59:00Z",
-    "vol24": 570910,
+    "vol24": 567728,
     "n": 42,
     "q": "Shakhtar Donetsk",
     "yes": 0.002
    },
    {
-    "title": "Broncos vs. Steelers",
-    "slug": "nfl-den-pit-2026-11-27",
-    "end": "2026-11-27T20:00:00Z",
-    "vol24": 390699,
-    "n": 306,
-    "q": "Spread -4.5",
-    "yes": 0.505
+    "title": "CF Pachuca vs. CD Guadalajara - More Markets",
+    "slug": "mex-pac-gua-2026-11-26-more-markets",
+    "end": "2026-11-27T01:00:00Z",
+    "vol24": 474054,
+    "n": 50,
+    "q": "O/U 2.5",
+    "yes": 1.0
    },
    {
     "title": "TCU vs. Texas Tech",
     "slug": "cfb-tcu-txtech-2026-11-26",
     "end": "2026-11-27T01:00:00Z",
-    "vol24": 383873,
-    "n": 76,
+    "vol24": 438231,
+    "n": 64,
     "q": "TCU vs. Texas Tech",
-    "yes": 0.034
+    "yes": 0.001
    },
    {
-    "title": "São Paulo FC vs. Clube do Remo",
-    "slug": "bra-sao-cre-2026-11-26",
-    "end": "2026-11-26T23:00:00Z",
-    "vol24": 379129,
-    "n": 3,
-    "q": "São Paulo FC",
-    "yes": 1.0
-   },
-   {
-    "title": "CF Pachuca vs. CD Guadalajara - More Markets",
-    "slug": "mex-pac-gua-2026-11-26-more-markets",
-    "end": "2026-11-27T01:00:00Z",
-    "vol24": 342013,
-    "n": 50,
-    "q": "O/U 2.5",
-    "yes": 0.225
+    "title": "Broncos vs. Steelers",
+    "slug": "nfl-den-pit-2026-11-27",
+    "end": "2026-11-27T20:00:00Z",
+    "vol24": 392302,
+    "n": 306,
+    "q": "Spread -4.5",
+    "yes": 0.505
    },
    {
     "title": "Counter-Strike: Lynn Vision vs Heroic (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-lvg-hero-2026-11-27",
     "end": "2026-11-27T12:00:00Z",
-    "vol24": 294207,
+    "vol24": 318143,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.225
@@ -179,10 +152,37 @@
     "title": "Counter-Strike: M80 vs 100 Thieves (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-m80-100t-2026-11-27",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 218588,
+    "vol24": 230021,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.365
+   },
+   {
+    "title": "Counter-Strike: Grêmio Esports vs RED Canids Academy (BO3) - Gamers Club Liga Série A Playoffs",
+    "slug": "cs2-grmioe-reda-2026-11-26",
+    "end": "2026-11-27T03:30:00Z",
+    "vol24": 223889,
+    "n": 3,
+    "q": "Match Winner",
+    "yes": 1.0
+   },
+   {
+    "title": "Club León FC vs. CF Cruz Azul",
+    "slug": "mex-leo-caz-2026-11-26",
+    "end": "2026-11-27T03:10:00Z",
+    "vol24": 213277,
+    "n": 3,
+    "q": "CF Cruz Azul",
+    "yes": 0.905
+   },
+   {
+    "title": "CF Pachuca vs. CD Guadalajara",
+    "slug": "mex-pac-gua-2026-11-26",
+    "end": "2026-11-27T01:00:00Z",
+    "vol24": 211084,
+    "n": 3,
+    "q": "CF Pachuca",
+    "yes": 1.0
    }
   ],
   "crypto": [
@@ -190,61 +190,61 @@
     "title": "Bitcoin price on November 27?",
     "slug": "bitcoin-price-on-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 2084458,
+    "vol24": 2091885,
     "n": 11,
     "q": "60,000-62,000",
-    "yes": 0.565
+    "yes": 0.595
    },
    {
     "title": "What price will Bitcoin hit in November?",
     "slug": "what-price-will-bitcoin-hit-in-november-2026",
     "end": "2026-12-01T05:00:00Z",
-    "vol24": 642142,
+    "vol24": 647586,
     "n": 23,
     "q": "↓ 55,000",
-    "yes": 0.072
+    "yes": 0.069
    },
    {
     "title": "What price will Bitcoin hit on November 26?",
     "slug": "what-price-will-bitcoin-hit-on-november-26-2026",
     "end": "2026-11-27T05:00:00Z",
-    "vol24": 614867,
+    "vol24": 628158,
     "n": 14,
-    "q": "↑ 64,000",
-    "yes": 0.005
+    "q": "↑ 62,000",
+    "yes": 0.034
    },
    {
     "title": "What price will Bitcoin hit in 2026?",
     "slug": "what-price-will-bitcoin-hit-before-2027",
     "end": "2027-01-01T05:00:00Z",
-    "vol24": 420253,
+    "vol24": 436205,
     "n": 27,
     "q": "↓ 45,000",
     "yes": 0.115
    },
    {
+    "title": "Bitcoin above ___ on November 27?",
+    "slug": "bitcoin-above-on-november-27-2026",
+    "end": "2026-11-27T17:00:00Z",
+    "vol24": 352818,
+    "n": 11,
+    "q": "62,000",
+    "yes": 0.295
+   },
+   {
     "title": "What price will Bitcoin hit November 23-29?",
     "slug": "what-price-will-bitcoin-hit-november-23-29-2026",
     "end": "2026-11-30T05:00:00Z",
-    "vol24": 339172,
+    "vol24": 305988,
     "n": 15,
     "q": "↓ 50,000",
     "yes": 0.009
    },
    {
-    "title": "Bitcoin above ___ on November 27?",
-    "slug": "bitcoin-above-on-november-27-2026",
-    "end": "2026-11-27T17:00:00Z",
-    "vol24": 318438,
-    "n": 11,
-    "q": "62,000",
-    "yes": 0.305
-   },
-   {
     "title": "What price will Ethereum hit in November?",
     "slug": "what-price-will-ethereum-hit-in-november-2026",
     "end": "2026-12-01T05:00:00Z",
-    "vol24": 162802,
+    "vol24": 140326,
     "n": 21,
     "q": "↓ 1,300",
     "yes": 0.011
@@ -253,28 +253,28 @@
     "title": "What price will Ethereum hit November 23-29?",
     "slug": "what-price-will-ethereum-hit-november-23-29-2026",
     "end": "2026-11-30T05:00:00Z",
-    "vol24": 119604,
+    "vol24": 110128,
     "n": 14,
     "q": "↓ 1,500",
-    "yes": 0.045
+    "yes": 0.04
    },
    {
     "title": "Ethereum above ___ on November 27?",
     "slug": "ethereum-above-on-november-27-2026",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 92862,
+    "vol24": 94290,
     "n": 11,
     "q": "1,800",
-    "yes": 0.077
+    "yes": 0.066
    },
    {
     "title": "What price will Ethereum hit on November 26?",
     "slug": "what-price-will-ethereum-hit-on-november-26-2026",
     "end": "2026-11-27T05:00:00Z",
-    "vol24": 71322,
+    "vol24": 76260,
     "n": 13,
     "q": "↓ 1,600",
-    "yes": 0.002
+    "yes": 0.006
    }
   ],
   "economy": [
@@ -282,19 +282,37 @@
     "title": "Fed Decision in December?",
     "slug": "fed-decision-in-december-20260729232808632",
     "end": "2026-12-10T04:59:00Z",
-    "vol24": 1175629,
+    "vol24": 782543,
     "n": 5,
     "q": "No change",
-    "yes": 0.036
+    "yes": 0.035
    },
    {
     "title": "Fed Decision in January?",
     "slug": "fed-decision-in-january-20260729233815502",
     "end": "2027-01-28T04:59:00Z",
-    "vol24": 138315,
+    "vol24": 154302,
     "n": 5,
     "q": "25 bps increase",
-    "yes": 0.535
+    "yes": 0.545
+   },
+   {
+    "title": "Strait of Hormuz traffic returns to normal by November 30?",
+    "slug": "strait-of-hormuz-traffic-returns-to-normal-by-november-30-20260810151158765",
+    "end": "2026-12-01T04:59:00Z",
+    "vol24": 82534,
+    "n": 1,
+    "q": "Strait of Hormuz traffic returns to normal by November 30?",
+    "yes": 0.002
+   },
+   {
+    "title": "Bab el-Mandeb Strait effectively closed by...?",
+    "slug": "bab-el-mandeb-strait-effectively-closed-by",
+    "end": "2027-01-01T04:59:00Z",
+    "vol24": 56063,
+    "n": 2,
+    "q": "December 31",
+    "yes": 0.038
    },
    {
     "title": "NYSE marketwide circuit breaker by...?",
@@ -309,61 +327,43 @@
     "title": "Canadian unwrought aluminum duty rate on December 31, 2027?",
     "slug": "section-232-rate-on-canadian-primary-aluminum",
     "end": "2027-12-31T05:01:00Z",
-    "vol24": 28872,
+    "vol24": 31024,
     "n": 6,
     "q": ">40-50%",
-    "yes": 0.535
-   },
-   {
-    "title": "Bab el-Mandeb Strait effectively closed by...?",
-    "slug": "bab-el-mandeb-strait-effectively-closed-by",
-    "end": "2027-01-01T04:59:00Z",
-    "vol24": 27578,
-    "n": 2,
-    "q": "December 31",
-    "yes": 0.038
+    "yes": 0.485
    },
    {
     "title": "Largest Company end of December 2026?",
     "slug": "largest-company-end-of-december-2026",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 26381,
+    "vol24": 26075,
     "n": 28,
     "q": "NVIDIA",
-    "yes": 0.068
+    "yes": 0.067
    },
    {
     "title": "How many Fed rate cuts in 2026?",
     "slug": "how-many-fed-rate-cuts-in-2026",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 21414,
+    "vol24": 25481,
     "n": 13,
     "q": "0 (0 bps)",
-    "yes": 0.983
+    "yes": 0.984
    },
    {
     "title": "Strait of Hormuz traffic returns to normal by December 31?",
     "slug": "strait-of-hormuz-traffic-returns-to-normal-by-december-31",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 19473,
+    "vol24": 21574,
     "n": 2,
     "q": "Strait of Hormuz traffic returns to normal by December 31?",
     "yes": 0.029
    },
    {
-    "title": "Strait of Hormuz traffic returns to normal by November 30?",
-    "slug": "strait-of-hormuz-traffic-returns-to-normal-by-november-30-20260810151158765",
-    "end": "2026-12-01T04:59:00Z",
-    "vol24": 18757,
-    "n": 1,
-    "q": "Strait of Hormuz traffic returns to normal by November 30?",
-    "yes": 0.003
-   },
-   {
     "title": "Which companies will the US take a stake in?",
     "slug": "which-companies-will-the-us-take-a-stake-in",
     "end": "2027-01-01T04:59:00Z",
-    "vol24": 16127,
+    "vol24": 16218,
     "n": 17,
     "q": "Anduril",
     "yes": 0.07
@@ -374,7 +374,7 @@
     "title": "Counter-Strike: Lynn Vision vs Heroic (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-lvg-hero-2026-11-27",
     "end": "2026-11-27T12:00:00Z",
-    "vol24": 294207,
+    "vol24": 318143,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.225
@@ -383,7 +383,7 @@
     "title": "Counter-Strike: M80 vs 100 Thieves (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-m80-100t-2026-11-27",
     "end": "2026-11-27T17:00:00Z",
-    "vol24": 218588,
+    "vol24": 230021,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.365
@@ -392,19 +392,10 @@
     "title": "Counter-Strike: Grêmio Esports vs RED Canids Academy (BO3) - Gamers Club Liga Série A Playoffs",
     "slug": "cs2-grmioe-reda-2026-11-26",
     "end": "2026-11-27T03:30:00Z",
-    "vol24": 188651,
-    "n": 4,
+    "vol24": 223889,
+    "n": 3,
     "q": "Match Winner",
     "yes": 1.0
-   },
-   {
-    "title": "PGL Major Singapore 2026: Winner",
-    "slug": "pgl-major-singapore-2026-winner-1793811600000",
-    "end": "2026-12-15T04:59:00Z",
-    "vol24": 121203,
-    "n": 33,
-    "q": "FURIA",
-    "yes": 0.155
    },
    {
     "title": "Dota 2: Team Synapse vs Team Allied (BO3) - Esports Pro Circuit  Group A",
@@ -416,10 +407,19 @@
     "yes": 1.0
    },
    {
+    "title": "PGL Major Singapore 2026: Winner",
+    "slug": "pgl-major-singapore-2026-winner-1793811600000",
+    "end": "2026-12-15T04:59:00Z",
+    "vol24": 105341,
+    "n": 33,
+    "q": "FURIA",
+    "yes": 0.155
+   },
+   {
     "title": "Counter-Strike: Imperial vs Wildcard (BO3) - PGL Major Singapore Stage 1",
     "slug": "cs2-imp11-wc1-2026-11-27",
     "end": "2026-11-27T14:30:00Z",
-    "vol24": 55135,
+    "vol24": 56353,
     "n": 11,
     "q": "Match Winner",
     "yes": 0.615
@@ -428,37 +428,37 @@
     "title": "Dota 2: GamerLegion vs 1win (BO3) - BLAST Slam Playoffs",
     "slug": "dota2-gl-1win-2026-11-27",
     "end": "2026-11-27T19:30:00Z",
-    "vol24": 14982,
+    "vol24": 15363,
     "n": 5,
     "q": "Match Winner",
     "yes": 0.425
    },
    {
-    "title": "Counter-Strike: RoundsGG vs OldBoys (BO3) - ESEA Advanced Europe Playoffs",
-    "slug": "cs2-rgg-old1-2026-11-26",
-    "end": "2026-11-27T01:10:00Z",
-    "vol24": 14354,
-    "n": 3,
-    "q": "Match Winner",
-    "yes": 0.001
-   },
-   {
     "title": "Dota 2: PARIVISION vs Team Liquid (BO3) - BLAST Slam Playoffs",
     "slug": "dota2-pari-liquid-2026-11-27",
     "end": "2026-11-27T16:00:00Z",
-    "vol24": 11851,
+    "vol24": 12447,
     "n": 5,
     "q": "Match Winner",
-    "yes": 0.755
+    "yes": 0.76
    },
    {
-    "title": "Counter-Strike: PARTIZAN vs Inner Circle Prospect (BO3) - ESEA Advanced Europe Playoffs",
-    "slug": "cs2-prtzn-innerc2-2026-11-26",
-    "end": "2026-11-27T01:25:00Z",
-    "vol24": 9080,
-    "n": 4,
+    "title": "Valorant: Leones vs Contra (BO3) - VCT Americas Kickoff: LATAM North - Qualifier Playoffs",
+    "slug": "val-leones-bbb-2026-11-26",
+    "end": "2026-11-29T04:00:00Z",
+    "vol24": 7561,
+    "n": 14,
     "q": "Match Winner",
-    "yes": 0.001
+    "yes": 0.83
+   },
+   {
+    "title": "PGL Major Singapore 2026: Qualify to Stage 2",
+    "slug": "pgl-major-singapore-2026-qualify-to-stage-2",
+    "end": "2027-01-13T04:59:00Z",
+    "vol24": 4886,
+    "n": 6,
+    "q": "Lynn Vision",
+    "yes": 0.23
    }
   ]
  }
