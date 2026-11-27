@@ -11395,7 +11395,7 @@
   "sd": 1.41,
   "n": 17,
   "first": "2026-11-26T02:39+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "64–65°F",
   "labels": [
@@ -11411,7 +11411,9 @@
   "edge": -0.321,
   "level": "light",
   "key": "houston|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "62–63°F",
+  "hit": true
  },
  {
   "city": "london",
