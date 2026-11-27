@@ -6056,7 +6056,7 @@
    }
   ],
   "first": "2026-11-25T15:38+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-27T15:00+00:00",
   "kind": "corr",
   "label": "11°C",
@@ -6092,17 +6092,19 @@
   "key": "madrid|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T16:03+00:00",
-   "pm": 0.865,
-   "val": 0.922,
+   "t": "2026-11-27T17:11+00:00",
+   "pm": 0.747,
+   "val": 0.994,
    "state": "sell",
-   "temp": 12,
+   "temp": 10,
    "max": 12,
-   "hour": 17.1
+   "hour": 18.2
   },
   "alerts": {
    "sell": "2026-11-27T16:03+00:00"
-  }
+  },
+  "win": "12°C",
+  "hit": true
  },
  {
   "city": "hongkong",
@@ -6432,13 +6434,13 @@
   "key": "miami|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T16:03+00:00",
-   "pm": 0.936,
-   "val": 0.796,
-   "state": "hold",
-   "temp": 22.2,
-   "max": 22.2,
-   "hour": 11.1
+   "t": "2026-11-27T17:11+00:00",
+   "pm": 0.939,
+   "val": 0.901,
+   "state": "sell",
+   "temp": 22.8,
+   "max": 22.8,
+   "hour": 12.2
   },
   "alerts": {
    "sell": "2026-11-27T06:32+00:00"
@@ -6546,7 +6548,17 @@
   "edge": 0.027,
   "level": "light",
   "key": "wuhan|2026-11-28",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026",
+  "live": {
+   "t": "2026-11-27T17:11+00:00",
+   "pm": 0.758,
+   "val": 0.401,
+   "state": "hold",
+   "temp": 9,
+   "max": 9,
+   "hour": 1.2
+  },
+  "alerts": {}
  },
  {
   "city": "chicago",

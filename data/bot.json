@@ -1499,7 +1499,9 @@
    ],
    "alerts": {
     "sell": "2026-11-27T16:03+00:00"
-   }
+   },
+   "done": true,
+   "hit": true
   },
   "hongkong|2026-11-27": {
    "city": "hongkong",
@@ -1573,7 +1575,8 @@
     "17°C",
     "18°C",
     "19°C"
-   ]
+   ],
+   "alerts": {}
   },
   "chicago|2026-11-28": {
    "city": "chicago",
@@ -2129,6 +2132,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.8
+  },
+  {
+   "date": "2026-11-27",
+   "week": "2026-W48",
+   "hit": true,
+   "price": 0.75
   }
  ],
  "last_summary": "2026-W47",

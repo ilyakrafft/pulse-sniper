@@ -10949,7 +10949,7 @@
   "sd": 1.01,
   "n": 19,
   "first": "2026-11-25T11:35+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "11°C",
   "labels": [
@@ -10965,7 +10965,9 @@
   "edge": -0.164,
   "level": "light",
   "key": "madrid|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "12°C",
+  "hit": true
  },
  {
   "city": "denver",
@@ -12909,6 +12911,32 @@
   "edge": -0.186,
   "level": "light",
   "key": "la|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "sf",
+  "date": "2026-11-29",
+  "mu": 18.45,
+  "sigma": 1.08,
+  "sd": 0.67,
+  "n": 19,
+  "first": "2026-11-27T17:11+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "64–65°F",
+  "labels": [
+   "62–63°F",
+   "64–65°F",
+   "66–67°F"
+  ],
+  "lo": 16.389,
+  "hi": 19.722,
+  "price": 1.09,
+  "pm": 0.899,
+  "pm_model": 0.852,
+  "edge": -0.191,
+  "level": "light",
+  "key": "sf|2026-11-29",
   "tier": "test"
  }
 ]

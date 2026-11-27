@@ -974,5 +974,22 @@
    "19°C",
    "20°C"
   ]
+ },
+ {
+  "date": "2026-11-27",
+  "city": "madrid",
+  "label": "11°C",
+  "win": "12°C",
+  "hit": true,
+  "price": 0.75,
+  "pm": 0.767,
+  "edge": 0.017,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "10°C",
+   "11°C",
+   "12°C"
+  ]
  }
 ]
