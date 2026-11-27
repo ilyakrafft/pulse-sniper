@@ -15,6 +15,17 @@
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -33,6 +44,17 @@
     "market": 0.9925,
     "bid": 0.992,
     "ask": 0.993,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -53,6 +75,17 @@
     "bid": 0.99,
     "ask": 0.993,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -71,6 +104,17 @@
     "market": 0.9825,
     "bid": 0.981,
     "ask": 0.984,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 1.0,
+    "market": 0.9975,
+    "bid": 0.997,
+    "ask": 0.998,
     "src": "data-api.binance.vision"
    }
   }
@@ -91,6 +135,17 @@
     "bid": 0.95,
     "ask": 0.96,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.9988,
+    "market": 0.992,
+    "bid": 0.991,
+    "ask": 0.993,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -109,6 +164,17 @@
     "market": 0.67,
     "bid": 0.66,
     "ask": 0.68,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.9779,
+    "market": 0.945,
+    "bid": 0.94,
+    "ask": 0.95,
     "src": "data-api.binance.vision"
    }
   }
@@ -129,6 +195,17 @@
     "bid": 0.15,
     "ask": 0.16,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.2779,
+    "market": 0.335,
+    "bid": 0.33,
+    "ask": 0.34,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -147,6 +224,17 @@
     "market": 0.0255,
     "bid": 0.024,
     "ask": 0.027,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.0107,
+    "market": 0.034,
+    "bid": 0.031,
+    "ask": 0.037,
     "src": "data-api.binance.vision"
    }
   }
@@ -167,6 +255,17 @@
     "bid": 0.007,
     "ask": 0.009,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.0006,
+    "market": 0.0045,
+    "bid": 0.004,
+    "ask": 0.005,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -182,6 +281,17 @@
     "spot": 60559.64,
     "sigma_h": 0.006098,
     "model": 0.004,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.0,
     "market": 0.0005,
     "bid": null,
     "ask": null,
@@ -205,6 +315,17 @@
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 61652.41,
+    "sigma_h": 0.005658,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -219,6 +340,17 @@
     "tau": 23.73,
     "spot": 1694.99,
     "sigma_h": 0.007031,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
     "model": 1.0,
     "market": 0.9995,
     "bid": null,
@@ -243,6 +375,17 @@
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -259,6 +402,17 @@
     "sigma_h": 0.007031,
     "model": 1.0,
     "market": 0.998,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 1.0,
+    "market": 0.9995,
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
@@ -281,6 +435,17 @@
     "bid": 0.995,
     "ask": 0.998,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 1.0,
+    "market": 0.9995,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -299,6 +464,17 @@
     "market": 0.989,
     "bid": 0.988,
     "ask": 0.99,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 1.0,
+    "market": 0.9985,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -319,6 +495,17 @@
     "bid": 0.952,
     "ask": 0.958,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.9989,
+    "market": 0.989,
+    "bid": 0.987,
+    "ask": 0.991,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -337,6 +524,17 @@
     "market": 0.455,
     "bid": 0.45,
     "ask": 0.46,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.877,
+    "market": 0.78,
+    "bid": 0.77,
+    "ask": 0.79,
     "src": "data-api.binance.vision"
    }
   }
@@ -357,6 +555,17 @@
     "bid": 0.041,
     "ask": 0.045,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.0114,
+    "market": 0.0445,
+    "bid": 0.04,
+    "ask": 0.049,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -375,6 +584,17 @@
     "market": 0.0095,
     "bid": 0.009,
     "ask": 0.01,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.0001,
+    "market": 0.0085,
+    "bid": 0.008,
+    "ask": 0.009,
     "src": "data-api.binance.vision"
    }
   }
@@ -395,6 +615,17 @@
     "bid": 0.01,
     "ask": 0.011,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.0,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -410,6 +641,17 @@
     "spot": 1694.99,
     "sigma_h": 0.007031,
     "model": 0.0001,
+    "market": 0.0005,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 1723.47,
+    "sigma_h": 0.006726,
+    "model": 0.0,
     "market": 0.0005,
     "bid": null,
     "ask": null,
@@ -433,6 +675,17 @@
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 1.0,
+    "market": 0.998,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -451,6 +704,17 @@
     "market": 0.9955,
     "bid": 0.995,
     "ask": 0.996,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 1.0,
+    "market": 0.998,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -471,6 +735,17 @@
     "bid": 0.992,
     "ask": 0.998,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 1.0,
+    "market": 0.998,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -489,6 +764,17 @@
     "market": 0.9945,
     "bid": 0.991,
     "ask": 0.998,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 1.0,
+    "market": 0.999,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -509,6 +795,17 @@
     "bid": 0.952,
     "ask": 0.98,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 1.0,
+    "market": 0.9945,
+    "bid": 0.994,
+    "ask": 0.995,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -527,6 +824,17 @@
     "market": 0.69,
     "bid": 0.68,
     "ask": 0.7,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.9869,
+    "market": 0.969,
+    "bid": 0.956,
+    "ask": 0.982,
     "src": "data-api.binance.vision"
    }
   }
@@ -547,6 +855,17 @@
     "bid": 0.05,
     "ask": 0.08,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.0413,
+    "market": 0.0865,
+    "bid": 0.068,
+    "ask": 0.105,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -565,6 +884,17 @@
     "market": 0.021,
     "bid": 0.02,
     "ask": 0.022,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.0004,
+    "market": 0.0015,
+    "bid": 0.001,
+    "ask": 0.002,
     "src": "data-api.binance.vision"
    }
   }
@@ -585,6 +915,17 @@
     "bid": 0.009,
     "ask": 0.013,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.0,
+    "market": 0.001,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -603,6 +944,17 @@
     "market": 0.006,
     "bid": 0.003,
     "ask": 0.009,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.0,
+    "market": 0.002,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -623,6 +975,17 @@
     "bid": null,
     "ask": null,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 73.14,
+    "sigma_h": 0.00718,
+    "model": 0.0,
+    "market": 0.001,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -637,6 +1000,17 @@
     "tau": 23.73,
     "spot": 0.9513,
     "sigma_h": 0.007336,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
     "model": 1.0,
     "market": 0.997,
     "bid": null,
@@ -661,6 +1035,17 @@
     "bid": 0.995,
     "ask": 0.999,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -679,6 +1064,17 @@
     "market": 0.997,
     "bid": 0.995,
     "ask": 0.999,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 1.0,
+    "market": 0.997,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -699,6 +1095,17 @@
     "bid": 0.995,
     "ask": 0.999,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 1.0,
+    "market": 0.9975,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -716,6 +1123,17 @@
     "model": 0.9988,
     "market": 0.995,
     "bid": 0.991,
+    "ask": 0.999,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 1.0,
+    "market": 0.9975,
+    "bid": 0.996,
     "ask": 0.999,
     "src": "data-api.binance.vision"
    }
@@ -737,6 +1155,17 @@
     "bid": 0.91,
     "ask": 0.95,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.9993,
+    "market": 0.977,
+    "bid": 0.956,
+    "ask": 0.998,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -755,6 +1184,17 @@
     "market": 0.105,
     "bid": 0.09,
     "ask": 0.12,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.0406,
+    "market": 0.115,
+    "bid": 0.09,
+    "ask": 0.14,
     "src": "data-api.binance.vision"
    }
   }
@@ -775,6 +1215,17 @@
     "bid": 0.003,
     "ask": 0.009,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.0,
+    "market": 0.0125,
+    "bid": 0.001,
+    "ask": 0.024,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -793,6 +1244,17 @@
     "market": 0.0055,
     "bid": 0.002,
     "ask": 0.009,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.0,
+    "market": 0.0145,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
@@ -813,6 +1275,17 @@
     "bid": 0.001,
     "ask": 0.009,
     "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.0,
+    "market": 0.003,
+    "bid": null,
+    "ask": null,
+    "src": "data-api.binance.vision"
    }
   }
  },
@@ -831,6 +1304,17 @@
     "market": 0.005,
     "bid": 0.001,
     "ask": 0.009,
+    "src": "data-api.binance.vision"
+   },
+   "6": {
+    "t": "2026-11-27T12:02+00:00",
+    "tau": 4.96,
+    "spot": 0.9758,
+    "sigma_h": 0.006954,
+    "model": 0.0,
+    "market": 0.003,
+    "bid": null,
+    "ask": null,
     "src": "data-api.binance.vision"
    }
   }
