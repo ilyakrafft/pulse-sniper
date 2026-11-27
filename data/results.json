@@ -1910,5 +1910,17 @@
  "tokyo|2026-11-27": {
   "win": "17°C",
   "actual": 17
+ },
+ "chengdu|2026-11-27": {
+  "win": "21°C",
+  "actual": 21
+ },
+ "chongqing|2026-11-27": {
+  "win": "19°C",
+  "actual": 19
+ },
+ "shenzhen|2026-11-27": {
+  "win": "25°C",
+  "actual": 25
  }
 }
