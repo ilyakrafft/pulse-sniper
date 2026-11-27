@@ -10665,7 +10665,7 @@
   "sd": 1.7,
   "n": 17,
   "first": "2026-11-25T08:00+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "32°C",
   "labels": [
@@ -10681,7 +10681,9 @@
   "edge": -0.388,
   "level": "light",
   "key": "singapore|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "32°C",
+  "hit": true
  },
  {
   "city": "chengdu",
@@ -11057,7 +11059,7 @@
   "sd": 1.99,
   "n": 21,
   "first": "2026-11-25T14:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "54–55°F",
   "labels": [
@@ -11073,7 +11075,9 @@
   "edge": -0.219,
   "level": "light",
   "key": "nyc|2026-11-26",
-  "tier": "test"
+  "tier": "test",
+  "win": "52–53°F",
+  "hit": true
  },
  {
   "city": "sf",
