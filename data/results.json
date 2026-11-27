@@ -1950,5 +1950,17 @@
  "telaviv|2026-11-27": {
   "win": "26°C",
   "actual": 26
+ },
+ "amsterdam|2026-11-27": {
+  "win": "1°C",
+  "actual": 1
+ },
+ "paris|2026-11-27": {
+  "win": "4°C",
+  "actual": 4
+ },
+ "warsaw|2026-11-27": {
+  "win": "1°C",
+  "actual": 1
  }
 }

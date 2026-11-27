@@ -10561,7 +10561,7 @@
   "sd": 1.48,
   "n": 19,
   "first": "2026-11-25T06:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "3°C",
   "labels": [
@@ -10577,7 +10577,9 @@
   "edge": -0.158,
   "level": "light",
   "key": "paris|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "4°C",
+  "hit": true
  },
  {
   "city": "tokyo",
@@ -10807,7 +10809,7 @@
   "sd": 1.04,
   "n": 17,
   "first": "2026-11-25T09:10+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "1°C",
   "labels": [
@@ -10823,7 +10825,9 @@
   "edge": -0.19,
   "level": "light",
   "key": "amsterdam|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "1°C",
+  "hit": true
  },
  {
   "city": "munich",
@@ -11321,7 +11325,7 @@
   "sd": 0.7,
   "n": 21,
   "first": "2026-11-25T20:58+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "1°C",
   "labels": [
@@ -11337,7 +11341,9 @@
   "edge": -0.168,
   "level": "light",
   "key": "warsaw|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "1°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -12743,6 +12749,58 @@
   "edge": -0.282,
   "level": "light",
   "key": "telaviv|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "helsinki",
+  "date": "2026-11-29",
+  "mu": 2.47,
+  "sigma": 1.05,
+  "sd": 0.84,
+  "n": 19,
+  "first": "2026-11-27T13:55+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "2°C",
+  "labels": [
+   "1°C",
+   "2°C",
+   "3°C"
+  ],
+  "lo": 0.5,
+  "hi": 3.5,
+  "price": 1.14,
+  "pm": 0.88,
+  "pm_model": 0.806,
+  "edge": -0.26,
+  "level": "light",
+  "key": "helsinki|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "seattle",
+  "date": "2026-11-29",
+  "mu": 9.12,
+  "sigma": 1.47,
+  "sd": 0.87,
+  "n": 19,
+  "first": "2026-11-27T13:55+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "48–49°F",
+  "labels": [
+   "46–47°F",
+   "48–49°F",
+   "50–51°F"
+  ],
+  "lo": 7.5,
+  "hi": 10.833,
+  "price": 1.12,
+  "pm": 0.813,
+  "pm_model": 0.744,
+  "edge": -0.307,
+  "level": "light",
+  "key": "seattle|2026-11-29",
   "tier": "test"
  }
 ]
