@@ -11906,24 +11906,6 @@
  ],
  "helsinki": [
   {
-   "d": "2026-09-28",
-   "mu": 14.92,
-   "sd": 0.32,
-   "a": 16.0,
-   "m": {
-    "ecmwf_ifs025": 14.9,
-    "ecmwf_aifs025_single": 14.9,
-    "icon_seamless": 14.9,
-    "gfs_seamless": 14.5,
-    "ukmo_seamless": 14.6,
-    "gem_seamless": 15.1,
-    "jma_seamless": 15.4,
-    "cma_grapes_global": 15.2,
-    "ecmwf_ifs": 15.7
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-29",
    "mu": 15.54,
    "sd": 0.5,
@@ -13132,6 +13114,36 @@
     "dmi_harmonie_arome_europe": -0.2,
     "metno_nordic": -1.4,
     "ens": -0.8
+   }
+  },
+  {
+   "d": "2026-11-27",
+   "mu": -3.24,
+   "sd": 0.73,
+   "a": -3.0,
+   "m": {
+    "ecmwf_ifs025": -3.5,
+    "ecmwf_aifs025_single": -3.5,
+    "icon_seamless": -3.8,
+    "gfs_seamless": -2.7,
+    "ukmo_seamless": -1.4,
+    "meteofrance_seamless": -3.1,
+    "gem_seamless": -4.6,
+    "jma_seamless": -3.6,
+    "cma_grapes_global": -4.8,
+    "ecmwf_ifs": -3.6,
+    "icon_global": -3.7,
+    "gfs_global": -2.7,
+    "gem_global": -4.7,
+    "ukmo_global_deterministic_10km": -1.4,
+    "meteofrance_arpege_world": -3.0,
+    "jma_gsm": -3.6,
+    "knmi_harmonie_arome_europe": -3.0,
+    "icon_eu": -3.8,
+    "meteofrance_arpege_europe": -3.1,
+    "dmi_harmonie_arome_europe": -2.9,
+    "metno_nordic": -3.0,
+    "ens": -3.1
    }
   }
  ],

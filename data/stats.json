@@ -13649,5 +13649,37 @@
    "jma_gsm": 20.3,
    "ens": 19.09
   }
+ },
+ {
+  "date": "2026-11-27",
+  "city": "helsinki",
+  "k": -3,
+  "p": 0.795,
+  "actual": -3,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": -3.5,
+   "ecmwf_aifs025_single": -3.5,
+   "icon_seamless": -3.8,
+   "gfs_seamless": -2.7,
+   "ukmo_seamless": -1.4,
+   "meteofrance_seamless": -3.1,
+   "gem_seamless": -4.6,
+   "jma_seamless": -3.6,
+   "cma_grapes_global": -4.8,
+   "ecmwf_ifs": -3.6,
+   "icon_global": -3.7,
+   "gfs_global": -2.7,
+   "gem_global": -4.7,
+   "ukmo_global_deterministic_10km": -1.4,
+   "meteofrance_arpege_world": -3.0,
+   "jma_gsm": -3.6,
+   "knmi_harmonie_arome_europe": -3.0,
+   "icon_eu": -3.8,
+   "meteofrance_arpege_europe": -3.1,
+   "dmi_harmonie_arome_europe": -2.9,
+   "metno_nordic": -3.0,
+   "ens": -3.07
+  }
  }
 ]
