@@ -6092,13 +6092,13 @@
   "key": "madrid|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-madrid-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T11:26+00:00",
-   "pm": 0.945,
-   "val": 0.405,
+   "t": "2026-11-27T12:34+00:00",
+   "pm": 0.964,
+   "val": 0.273,
    "state": "hold",
-   "temp": 8,
-   "max": 8,
-   "hour": 12.4
+   "temp": 10,
+   "max": 10,
+   "hour": 13.6
   },
   "alerts": {}
  },
@@ -6430,13 +6430,13 @@
   "key": "miami|2026-11-27",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-miami-on-november-27-2026",
   "live": {
-   "t": "2026-11-27T11:26+00:00",
-   "pm": 0.881,
-   "val": 0.914,
+   "t": "2026-11-27T12:34+00:00",
+   "pm": 0.874,
+   "val": 0.893,
    "state": "sell",
-   "temp": 16.1,
+   "temp": 17.8,
    "max": 19.4,
-   "hour": 6.4
+   "hour": 7.6
   },
   "alerts": {
    "sell": "2026-11-27T06:32+00:00"
@@ -6545,5 +6545,109 @@
   "level": "light",
   "key": "wuhan|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026"
+ },
+ {
+  "city": "chicago",
+  "date": "2026-11-28",
+  "mu": 10.61,
+  "sigma": 1.09,
+  "sd": 0.98,
+  "n": 20,
+  "st": "KORD",
+  "liq": 11501.77,
+  "v24": 4730.08,
+  "dist": [
+   {
+    "l": "41°F и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "42–43°F",
+    "m": 0.0,
+    "p": 0.005
+   },
+   {
+    "l": "44–45°F",
+    "m": 0.002,
+    "p": 0.009
+   },
+   {
+    "l": "46–47°F",
+    "m": 0.032,
+    "p": 0.009
+   },
+   {
+    "l": "48–49°F",
+    "m": 0.175,
+    "p": 0.028
+   },
+   {
+    "l": "50–51°F",
+    "m": 0.373,
+    "p": 0.2
+   },
+   {
+    "l": "52–53°F",
+    "m": 0.307,
+    "p": 0.555
+   },
+   {
+    "l": "54–55°F",
+    "m": 0.098,
+    "p": 0.205
+   },
+   {
+    "l": "56–57°F",
+    "m": 0.012,
+    "p": 0.018
+   },
+   {
+    "l": "58–59°F",
+    "m": 0.001,
+    "p": 0.004
+   },
+   {
+    "l": "60°F и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-27T12:34+00:00",
+  "status": "open",
+  "until": "2026-11-28T22:00+00:00",
+  "kind": "corr",
+  "label": "50–51°F",
+  "labels": [
+   "48–49°F",
+   "50–51°F",
+   "52–53°F"
+  ],
+  "lo": 8.611,
+  "hi": 11.944,
+  "legs": [
+   {
+    "l": "48–49°F",
+    "price": 0.035,
+    "pm": 0.175
+   },
+   {
+    "l": "50–51°F",
+    "price": 0.22,
+    "pm": 0.373
+   },
+   {
+    "l": "52–53°F",
+    "price": 0.57,
+    "pm": 0.307
+   }
+  ],
+  "price": 0.825,
+  "pm": 0.826,
+  "pm_model": 0.855,
+  "edge": 0.001,
+  "level": "light",
+  "key": "chicago|2026-11-28",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026"
  }
 ]

@@ -11049,7 +11049,7 @@
   "sd": 0.92,
   "n": 17,
   "first": "2026-11-25T14:25+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -11065,7 +11065,9 @@
   "edge": -0.154,
   "level": "light",
   "key": "telaviv|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "nyc",
@@ -11345,7 +11347,7 @@
   "sd": 1.23,
   "n": 17,
   "first": "2026-11-26T02:39+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "58–59°F",
   "labels": [
@@ -11361,7 +11363,9 @@
   "edge": -0.34,
   "level": "light",
   "key": "nyc|2026-11-27",
-  "tier": "test"
+  "tier": "test",
+  "win": "56–57°F",
+  "hit": true
  },
  {
   "city": "houston",
@@ -12687,6 +12691,58 @@
   "edge": -0.299,
   "level": "light",
   "key": "milan|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "jeddah",
+  "date": "2026-11-29",
+  "mu": 34.41,
+  "sigma": 1.39,
+  "sd": 1.37,
+  "n": 17,
+  "first": "2026-11-27T12:34+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "34°C",
+  "labels": [
+   "33°C",
+   "34°C",
+   "35°C"
+  ],
+  "lo": 32.5,
+  "hi": 35.5,
+  "price": 1.07,
+  "pm": 0.781,
+  "pm_model": 0.698,
+  "edge": -0.289,
+  "level": "light",
+  "key": "jeddah|2026-11-29",
+  "tier": "test"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-29",
+  "mu": 22.23,
+  "sigma": 1.25,
+  "sd": 1.19,
+  "n": 17,
+  "first": "2026-11-27T12:34+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "23°C",
+  "labels": [
+   "22°C",
+   "23°C",
+   "24°C"
+  ],
+  "lo": 21.5,
+  "hi": 24.5,
+  "price": 1.01,
+  "pm": 0.728,
+  "pm_model": 0.686,
+  "edge": -0.282,
+  "level": "light",
+  "key": "telaviv|2026-11-29",
   "tier": "test"
  }
 ]
