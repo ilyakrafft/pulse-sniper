@@ -10793,24 +10793,6 @@
  ],
  "tokyo": [
   {
-   "d": "2026-09-29",
-   "mu": 22.67,
-   "sd": 0.57,
-   "a": 23.0,
-   "m": {
-    "ecmwf_ifs025": 22.2,
-    "ecmwf_aifs025_single": 22.0,
-    "icon_seamless": 22.6,
-    "gfs_seamless": 23.8,
-    "ukmo_seamless": 23.2,
-    "gem_seamless": 22.5,
-    "jma_seamless": 22.5,
-    "cma_grapes_global": 22.0,
-    "ecmwf_ifs": 22.4
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-30",
    "mu": 20.93,
    "sd": 0.55,
@@ -11977,6 +11959,32 @@
     "jma_gsm": 17.5,
     "jma_msm": 16.7,
     "ens": 16.5
+   }
+  },
+  {
+   "d": "2026-11-28",
+   "mu": 18.96,
+   "sd": 0.89,
+   "a": 19.0,
+   "m": {
+    "ecmwf_ifs025": 19.2,
+    "ecmwf_aifs025_single": 17.0,
+    "icon_seamless": 19.7,
+    "gfs_seamless": 18.0,
+    "ukmo_seamless": 19.3,
+    "meteofrance_seamless": 18.5,
+    "gem_seamless": 19.4,
+    "jma_seamless": 19.5,
+    "cma_grapes_global": 20.5,
+    "ecmwf_ifs": 20.3,
+    "icon_global": 19.7,
+    "gfs_global": 18.0,
+    "gem_global": 19.4,
+    "ukmo_global_deterministic_10km": 19.3,
+    "meteofrance_arpege_world": 18.5,
+    "jma_gsm": 20.0,
+    "jma_msm": 19.5,
+    "ens": 17.9
    }
   }
  ],
@@ -13225,24 +13233,6 @@
  ],
  "moscow": [
   {
-   "d": "2026-09-26",
-   "mu": 16.38,
-   "sd": 0.28,
-   "a": 17.0,
-   "m": {
-    "ecmwf_ifs025": 16.8,
-    "ecmwf_aifs025_single": 15.9,
-    "icon_seamless": 16.2,
-    "gfs_seamless": 16.3,
-    "ukmo_seamless": 16.4,
-    "gem_seamless": 16.4,
-    "jma_seamless": 16.7,
-    "cma_grapes_global": 15.8,
-    "ecmwf_ifs": 16.6
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-27",
    "mu": 17.63,
    "sd": 0.23,
@@ -14395,6 +14385,31 @@
     "meteofrance_arpege_world": -3.6,
     "jma_gsm": -2.5,
     "ens": -2.9
+   }
+  },
+  {
+   "d": "2026-11-28",
+   "mu": -3.25,
+   "sd": 0.59,
+   "a": -3.0,
+   "m": {
+    "ecmwf_ifs025": -3.3,
+    "ecmwf_aifs025_single": -3.4,
+    "icon_seamless": -3.1,
+    "gfs_seamless": -3.6,
+    "ukmo_seamless": -2.6,
+    "meteofrance_seamless": -3.7,
+    "gem_seamless": -2.5,
+    "jma_seamless": -2.9,
+    "cma_grapes_global": -6.2,
+    "ecmwf_ifs": -3.5,
+    "icon_global": -3.0,
+    "gfs_global": -3.6,
+    "gem_global": -2.5,
+    "ukmo_global_deterministic_10km": -2.6,
+    "meteofrance_arpege_world": -3.7,
+    "jma_gsm": -2.9,
+    "ens": -3.3
    }
   }
  ],
