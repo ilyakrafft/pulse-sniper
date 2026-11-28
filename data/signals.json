@@ -6670,13 +6670,13 @@
   "key": "chicago|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T09:26+00:00",
-   "pm": 0.768,
-   "val": 0.679,
+   "t": "2026-11-28T10:27+00:00",
+   "pm": 0.656,
+   "val": 0.548,
    "state": "hold",
    "temp": 2.8,
    "max": 2.8,
-   "hour": 3.4
+   "hour": 4.5
   },
   "alerts": {}
  },
@@ -6784,13 +6784,13 @@
   "key": "atlanta|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T09:26+00:00",
-   "pm": 0.769,
-   "val": 0.378,
+   "t": "2026-11-28T10:27+00:00",
+   "pm": 0.746,
+   "val": 0.398,
    "state": "hold",
-   "temp": 3.3,
+   "temp": 2.8,
    "max": 3.9,
-   "hour": 4.4
+   "hour": 5.5
   },
   "alerts": {}
  },
@@ -6898,13 +6898,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T09:26+00:00",
-   "pm": 0.757,
-   "val": 0.679,
+   "t": "2026-11-28T10:27+00:00",
+   "pm": 0.795,
+   "val": 0.702,
    "state": "hold",
-   "temp": -1,
-   "max": -1,
-   "hour": 10.4
+   "temp": 1,
+   "max": 1,
+   "hour": 11.4
   },
   "alerts": {}
  },
@@ -7011,5 +7011,109 @@
   "level": "light",
   "key": "nyc|2026-11-29",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-nyc-on-november-29-2026"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-29",
+  "mu": 21.93,
+  "sigma": 1.02,
+  "sd": 0.9,
+  "n": 17,
+  "st": "LLBG",
+  "liq": 32230.9,
+  "v24": 8944.68,
+  "dist": [
+   {
+    "l": "17°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "18°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "19°C",
+    "m": 0.008,
+    "p": 0.001
+   },
+   {
+    "l": "20°C",
+    "m": 0.071,
+    "p": 0.004
+   },
+   {
+    "l": "21°C",
+    "m": 0.256,
+    "p": 0.025
+   },
+   {
+    "l": "22°C",
+    "m": 0.376,
+    "p": 0.175
+   },
+   {
+    "l": "23°C",
+    "m": 0.227,
+    "p": 0.575
+   },
+   {
+    "l": "24°C",
+    "m": 0.056,
+    "p": 0.225
+   },
+   {
+    "l": "25°C",
+    "m": 0.006,
+    "p": 0.013
+   },
+   {
+    "l": "26°C",
+    "m": 0.0,
+    "p": 0.002
+   },
+   {
+    "l": "27°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-28T10:27+00:00",
+  "status": "open",
+  "until": "2026-11-29T14:00+00:00",
+  "kind": "corr",
+  "label": "22°C",
+  "labels": [
+   "21°C",
+   "22°C",
+   "23°C"
+  ],
+  "lo": 20.5,
+  "hi": 23.5,
+  "legs": [
+   {
+    "l": "21°C",
+    "price": 0.031,
+    "pm": 0.256
+   },
+   {
+    "l": "22°C",
+    "price": 0.2,
+    "pm": 0.376
+   },
+   {
+    "l": "23°C",
+    "price": 0.59,
+    "pm": 0.227
+   }
+  ],
+  "price": 0.821,
+  "pm": 0.825,
+  "pm_model": 0.858,
+  "edge": 0.004,
+  "level": "light",
+  "key": "telaviv|2026-11-29",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tel-aviv-on-november-29-2026"
  }
 ]

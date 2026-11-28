@@ -12049,7 +12049,7 @@
   "sd": 1.22,
   "n": 17,
   "first": "2026-11-26T14:23+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -12065,7 +12065,9 @@
   "edge": -0.282,
   "level": "light",
   "key": "telaviv|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "houston",
@@ -13497,6 +13499,58 @@
   "edge": -0.296,
   "level": "light",
   "key": "lucknow|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "amsterdam",
+  "date": "2026-11-30",
+  "mu": 6.05,
+  "sigma": 1.31,
+  "sd": 1.28,
+  "n": 19,
+  "first": "2026-11-28T10:27+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "7°C",
+  "labels": [
+   "6°C",
+   "7°C",
+   "8°C и выше"
+  ],
+  "lo": 5.5,
+  "hi": 90.0,
+  "price": 1.13,
+  "pm": 0.775,
+  "pm_model": 0.662,
+  "edge": -0.355,
+  "level": "light",
+  "key": "amsterdam|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "atlanta",
+  "date": "2026-11-30",
+  "mu": 15.15,
+  "sigma": 1.64,
+  "sd": 1.53,
+  "n": 19,
+  "first": "2026-11-28T10:27+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "price": 1.13,
+  "pm": 0.712,
+  "pm_model": 0.673,
+  "edge": -0.418,
+  "level": "light",
+  "key": "atlanta|2026-11-30",
   "tier": "test"
  }
 ]
