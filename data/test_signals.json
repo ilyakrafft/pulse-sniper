@@ -11535,7 +11535,7 @@
   "sd": 1.1,
   "n": 17,
   "first": "2026-11-26T06:29+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "18°C",
   "labels": [
@@ -11551,7 +11551,9 @@
   "edge": -0.331,
   "level": "light",
   "key": "chengdu|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "20°C",
+  "hit": false
  },
  {
   "city": "chongqing",
@@ -11587,7 +11589,7 @@
   "sd": 1.44,
   "n": 15,
   "first": "2026-11-26T07:59+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "31°C",
   "labels": [
@@ -11603,7 +11605,9 @@
   "edge": -0.329,
   "level": "light",
   "key": "singapore|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "32°C",
+  "hit": true
  },
  {
   "city": "wuhan",
@@ -11613,7 +11617,7 @@
   "sd": 1.1,
   "n": 15,
   "first": "2026-11-26T07:59+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "19°C",
   "labels": [
@@ -11629,7 +11633,9 @@
   "edge": -0.354,
   "level": "light",
   "key": "wuhan|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "21°C",
+  "hit": false
  },
  {
   "city": "dallas",
@@ -11717,7 +11723,7 @@
   "sd": 0.98,
   "n": 15,
   "first": "2026-11-26T09:31+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -11733,7 +11739,9 @@
   "edge": -0.273,
   "level": "light",
   "key": "hongkong|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "miami",
@@ -12007,7 +12015,7 @@
   "sd": 1.04,
   "n": 17,
   "first": "2026-11-26T14:23+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "26°C",
   "labels": [
@@ -12023,7 +12031,9 @@
   "edge": -0.294,
   "level": "light",
   "key": "shenzhen|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "27°C",
+  "hit": true
  },
  {
   "city": "telaviv",
@@ -13115,6 +13125,84 @@
   "edge": -0.365,
   "level": "light",
   "key": "chengdu|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "munich",
+  "date": "2026-11-30",
+  "mu": 2.54,
+  "sigma": 1.22,
+  "sd": 1.13,
+  "n": 19,
+  "first": "2026-11-28T07:13+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "3°C",
+  "labels": [
+   "2°C",
+   "3°C",
+   "4°C"
+  ],
+  "lo": 1.5,
+  "hi": 4.5,
+  "price": 0.96,
+  "pm": 0.739,
+  "pm_model": 0.748,
+  "edge": -0.221,
+  "level": "light",
+  "key": "munich|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "singapore",
+  "date": "2026-11-30",
+  "mu": 30.4,
+  "sigma": 1.59,
+  "sd": 1.68,
+  "n": 17,
+  "first": "2026-11-28T07:13+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "31°C",
+  "labels": [
+   "30°C",
+   "31°C",
+   "32°C"
+  ],
+  "lo": 29.5,
+  "hi": 32.5,
+  "price": 1.03,
+  "pm": 0.715,
+  "pm_model": 0.622,
+  "edge": -0.315,
+  "level": "light",
+  "key": "singapore|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "busan",
+  "date": "2026-11-30",
+  "mu": 17.42,
+  "sigma": 1.24,
+  "sd": 0.84,
+  "n": 17,
+  "first": "2026-11-28T07:13+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "17°C",
+  "labels": [
+   "16°C",
+   "17°C",
+   "18°C"
+  ],
+  "lo": 15.5,
+  "hi": 18.5,
+  "price": 1.06,
+  "pm": 0.83,
+  "pm_model": 0.749,
+  "edge": -0.23,
+  "level": "light",
+  "key": "busan|2026-11-30",
   "tier": "test"
  }
 ]

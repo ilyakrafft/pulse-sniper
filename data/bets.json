@@ -1008,5 +1008,22 @@
    "72–73°F",
    "74–75°F"
   ]
+ },
+ {
+  "date": "2026-11-28",
+  "city": "wuhan",
+  "label": "18°C",
+  "win": "21°C",
+  "hit": false,
+  "price": 0.717,
+  "pm": 0.744,
+  "edge": 0.027,
+  "level": "light",
+  "kind": "corr",
+  "labels": [
+   "17°C",
+   "18°C",
+   "19°C"
+  ]
  }
 ]

@@ -1580,7 +1580,9 @@
    ],
    "alerts": {
     "weak": "2026-11-28T05:59+00:00"
-   }
+   },
+   "done": true,
+   "hit": false
   },
   "chicago|2026-11-28": {
    "city": "chicago",
@@ -1596,7 +1598,8 @@
     "48–49°F",
     "50–51°F",
     "52–53°F"
-   ]
+   ],
+   "alerts": {}
   },
   "atlanta|2026-11-28": {
    "city": "atlanta",
@@ -2166,6 +2169,12 @@
    "week": "2026-W48",
    "hit": true,
    "price": 0.718
+  },
+  {
+   "date": "2026-11-28",
+   "week": "2026-W48",
+   "hit": false,
+   "price": 0.717
   }
  ],
  "last_summary": "2026-W47",

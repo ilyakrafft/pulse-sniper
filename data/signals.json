@@ -6516,7 +6516,7 @@
    }
   ],
   "first": "2026-11-26T20:59+00:00",
-  "status": "open",
+  "status": "done",
   "until": "2026-11-28T08:00+00:00",
   "kind": "corr",
   "label": "18°C",
@@ -6552,17 +6552,19 @@
   "key": "wuhan|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T05:59+00:00",
-   "pm": 0.144,
+   "t": "2026-11-28T07:13+00:00",
+   "pm": 0.0,
    "val": 0.003,
    "state": "weak",
-   "temp": 20,
-   "max": 20,
-   "hour": 14.0
+   "temp": 21,
+   "max": 21,
+   "hour": 15.2
   },
   "alerts": {
    "weak": "2026-11-28T05:59+00:00"
-  }
+  },
+  "win": "21°C",
+  "hit": false
  },
  {
   "city": "chicago",
@@ -6666,7 +6668,17 @@
   "edge": 0.001,
   "level": "light",
   "key": "chicago|2026-11-28",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026",
+  "live": {
+   "t": "2026-11-28T07:13+00:00",
+   "pm": 0.807,
+   "val": 0.719,
+   "state": "hold",
+   "temp": 2.2,
+   "max": 2.2,
+   "hour": 1.2
+  },
+  "alerts": {}
  },
  {
   "city": "atlanta",
@@ -6772,13 +6784,13 @@
   "key": "atlanta|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T05:59+00:00",
-   "pm": 0.791,
-   "val": 0.434,
+   "t": "2026-11-28T07:13+00:00",
+   "pm": 0.784,
+   "val": 0.419,
    "state": "hold",
    "temp": 3.9,
    "max": 3.9,
-   "hour": 1.0
+   "hour": 2.2
   },
   "alerts": {}
  },
@@ -6886,13 +6898,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T05:59+00:00",
-   "pm": 0.775,
-   "val": 0.64,
+   "t": "2026-11-28T07:13+00:00",
+   "pm": 0.757,
+   "val": 0.675,
    "state": "hold",
-   "temp": -3,
+   "temp": -2,
    "max": -2,
-   "hour": 7.0
+   "hour": 8.2
   },
   "alerts": {}
  },
