@@ -6552,13 +6552,13 @@
   "key": "wuhan|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T02:54+00:00",
-   "pm": 0.833,
-   "val": 0.525,
+   "t": "2026-11-28T03:57+00:00",
+   "pm": 0.88,
+   "val": 0.243,
    "state": "hold",
-   "temp": 15,
-   "max": 15,
-   "hour": 10.9
+   "temp": 18,
+   "max": 18,
+   "hour": 11.9
   },
   "alerts": {}
  },
@@ -6874,13 +6874,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T02:54+00:00",
-   "pm": 0.806,
-   "val": 0.64,
+   "t": "2026-11-28T03:57+00:00",
+   "pm": 0.784,
+   "val": 0.654,
    "state": "hold",
    "temp": -2,
    "max": -2,
-   "hour": 3.9
+   "hour": 5.0
   },
   "alerts": {}
  }
