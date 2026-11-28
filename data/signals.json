@@ -6552,15 +6552,17 @@
   "key": "wuhan|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T05:01+00:00",
-   "pm": 0.798,
-   "val": 0.027,
-   "state": "hold",
-   "temp": 19,
-   "max": 19,
-   "hour": 13.0
+   "t": "2026-11-28T05:59+00:00",
+   "pm": 0.144,
+   "val": 0.003,
+   "state": "weak",
+   "temp": 20,
+   "max": 20,
+   "hour": 14.0
   },
-  "alerts": {}
+  "alerts": {
+   "weak": "2026-11-28T05:59+00:00"
+  }
  },
  {
   "city": "chicago",
@@ -6768,7 +6770,17 @@
   "edge": 0.039,
   "level": "light",
   "key": "atlanta|2026-11-28",
-  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026"
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
+  "live": {
+   "t": "2026-11-28T05:59+00:00",
+   "pm": 0.791,
+   "val": 0.434,
+   "state": "hold",
+   "temp": 3.9,
+   "max": 3.9,
+   "hour": 1.0
+  },
+  "alerts": {}
  },
  {
   "city": "amsterdam",
@@ -6874,14 +6886,118 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T05:01+00:00",
-   "pm": 0.784,
-   "val": 0.627,
+   "t": "2026-11-28T05:59+00:00",
+   "pm": 0.775,
+   "val": 0.64,
    "state": "hold",
    "temp": -3,
    "max": -2,
-   "hour": 6.0
+   "hour": 7.0
   },
   "alerts": {}
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-29",
+  "mu": 12.85,
+  "sigma": 1.1,
+  "sd": 0.78,
+  "n": 19,
+  "st": "KLGA",
+  "liq": 19528.16,
+  "v24": 1594.06,
+  "dist": [
+   {
+    "l": "47°F и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "48–49°F",
+    "m": 0.002,
+    "p": 0.045
+   },
+   {
+    "l": "50–51°F",
+    "m": 0.031,
+    "p": 0.045
+   },
+   {
+    "l": "52–53°F",
+    "m": 0.172,
+    "p": 0.021
+   },
+   {
+    "l": "54–55°F",
+    "m": 0.369,
+    "p": 0.125
+   },
+   {
+    "l": "56–57°F",
+    "m": 0.31,
+    "p": 0.56
+   },
+   {
+    "l": "58–59°F",
+    "m": 0.102,
+    "p": 0.23
+   },
+   {
+    "l": "60–61°F",
+    "m": 0.013,
+    "p": 0.045
+   },
+   {
+    "l": "62–63°F",
+    "m": 0.001,
+    "p": 0.001
+   },
+   {
+    "l": "64–65°F",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "66°F и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-28T05:59+00:00",
+  "status": "open",
+  "until": "2026-11-29T21:00+00:00",
+  "kind": "corr",
+  "label": "54–55°F",
+  "labels": [
+   "52–53°F",
+   "54–55°F",
+   "56–57°F"
+  ],
+  "lo": 10.833,
+  "hi": 14.167,
+  "legs": [
+   {
+    "l": "52–53°F",
+    "price": 0.041,
+    "pm": 0.172
+   },
+   {
+    "l": "54–55°F",
+    "price": 0.14,
+    "pm": 0.369
+   },
+   {
+    "l": "56–57°F",
+    "price": 0.58,
+    "pm": 0.31
+   }
+  ],
+  "price": 0.761,
+  "pm": 0.793,
+  "pm_model": 0.851,
+  "edge": 0.032,
+  "level": "light",
+  "key": "nyc|2026-11-29",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-nyc-on-november-29-2026"
  }
 ]
