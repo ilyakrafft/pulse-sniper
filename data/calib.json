@@ -34892,24 +34892,6 @@
  ],
  "seattle": [
   {
-   "d": "2026-09-28",
-   "mu": 18.0,
-   "sd": 0.72,
-   "a": 18.055555555555554,
-   "m": {
-    "ecmwf_ifs025": 17.4,
-    "ecmwf_aifs025_single": 16.7,
-    "icon_seamless": 18.1,
-    "gfs_seamless": 18.5,
-    "ukmo_seamless": 19.0,
-    "gem_seamless": 18.8,
-    "jma_seamless": 17.5,
-    "cma_grapes_global": 17.2,
-    "ecmwf_ifs": 17.6
-   },
-   "bf": 1
-  },
-  {
    "d": "2026-09-29",
    "mu": 16.39,
    "sd": 0.98,
@@ -36086,6 +36068,34 @@
     "ncep_nbm_conus": 12.0,
     "gem_regional": 13.2,
     "ens": 11.9
+   }
+  },
+  {
+   "d": "2026-11-27",
+   "mu": 9.31,
+   "sd": 0.54,
+   "a": 9.17,
+   "m": {
+    "ecmwf_ifs025": 8.7,
+    "ecmwf_aifs025_single": 9.2,
+    "icon_seamless": 10.4,
+    "gfs_seamless": 8.7,
+    "ukmo_seamless": 9.5,
+    "meteofrance_seamless": 9.6,
+    "gem_seamless": 9.9,
+    "jma_seamless": 9.2,
+    "cma_grapes_global": 9.1,
+    "ecmwf_ifs": 8.7,
+    "icon_global": 10.4,
+    "gfs_global": 9.5,
+    "gem_global": 9.5,
+    "ukmo_global_deterministic_10km": 9.5,
+    "meteofrance_arpege_world": 9.6,
+    "jma_gsm": 9.2,
+    "gfs_hrrr": 8.7,
+    "ncep_nbm_conus": 9.1,
+    "gem_regional": 9.6,
+    "ens": 9.4
    }
   }
  ]
