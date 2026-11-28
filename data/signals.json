@@ -6670,13 +6670,13 @@
   "key": "chicago|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T10:27+00:00",
-   "pm": 0.656,
-   "val": 0.548,
+   "t": "2026-11-28T11:24+00:00",
+   "pm": 0.654,
+   "val": 0.34,
    "state": "hold",
    "temp": 2.8,
    "max": 2.8,
-   "hour": 4.5
+   "hour": 5.4
   },
   "alerts": {}
  },
@@ -6784,13 +6784,13 @@
   "key": "atlanta|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T10:27+00:00",
-   "pm": 0.746,
-   "val": 0.398,
+   "t": "2026-11-28T11:24+00:00",
+   "pm": 0.747,
+   "val": 0.385,
    "state": "hold",
    "temp": 2.8,
    "max": 3.9,
-   "hour": 5.5
+   "hour": 6.4
   },
   "alerts": {}
  },
@@ -6898,13 +6898,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T10:27+00:00",
-   "pm": 0.795,
-   "val": 0.702,
+   "t": "2026-11-28T11:24+00:00",
+   "pm": 0.884,
+   "val": 0.671,
    "state": "hold",
    "temp": 1,
    "max": 1,
-   "hour": 11.4
+   "hour": 12.4
   },
   "alerts": {}
  },
@@ -7115,5 +7115,213 @@
   "level": "light",
   "key": "telaviv|2026-11-29",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tel-aviv-on-november-29-2026"
+ },
+ {
+  "city": "wuhan",
+  "date": "2026-11-29",
+  "mu": 20.38,
+  "sigma": 1.08,
+  "sd": 0.87,
+  "n": 17,
+  "st": "ZHHH",
+  "liq": 13864.08,
+  "v24": 11755.73,
+  "dist": [
+   {
+    "l": "15°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "16°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "17°C",
+    "m": 0.004,
+    "p": 0.004
+   },
+   {
+    "l": "18°C",
+    "m": 0.037,
+    "p": 0.003
+   },
+   {
+    "l": "19°C",
+    "m": 0.166,
+    "p": 0.015
+   },
+   {
+    "l": "20°C",
+    "m": 0.336,
+    "p": 0.145
+   },
+   {
+    "l": "21°C",
+    "m": 0.306,
+    "p": 0.555
+   },
+   {
+    "l": "22°C",
+    "m": 0.126,
+    "p": 0.27
+   },
+   {
+    "l": "23°C",
+    "m": 0.023,
+    "p": 0.025
+   },
+   {
+    "l": "24°C",
+    "m": 0.002,
+    "p": 0.005
+   },
+   {
+    "l": "25°C и выше",
+    "m": 0.0,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-28T11:24+00:00",
+  "status": "open",
+  "until": "2026-11-29T08:00+00:00",
+  "kind": "corr",
+  "label": "20°C",
+  "labels": [
+   "19°C",
+   "20°C",
+   "21°C"
+  ],
+  "lo": 18.5,
+  "hi": 21.5,
+  "legs": [
+   {
+    "l": "19°C",
+    "price": 0.02,
+    "pm": 0.166
+   },
+   {
+    "l": "20°C",
+    "price": 0.17,
+    "pm": 0.336
+   },
+   {
+    "l": "21°C",
+    "price": 0.57,
+    "pm": 0.306
+   }
+  ],
+  "price": 0.76,
+  "pm": 0.771,
+  "pm_model": 0.809,
+  "edge": 0.011,
+  "level": "light",
+  "key": "wuhan|2026-11-29",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-wuhan-on-november-29-2026"
+ },
+ {
+  "city": "telaviv",
+  "date": "2026-11-30",
+  "mu": 25.16,
+  "sigma": 1.1,
+  "sd": 0.94,
+  "n": 17,
+  "st": "LLBG",
+  "liq": 5970.54,
+  "v24": 1891.98,
+  "dist": [
+   {
+    "l": "19°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "20°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "21°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "22°C",
+    "m": 0.007,
+    "p": 0.003
+   },
+   {
+    "l": "23°C",
+    "m": 0.057,
+    "p": 0.012
+   },
+   {
+    "l": "24°C",
+    "m": 0.208,
+    "p": 0.035
+   },
+   {
+    "l": "25°C",
+    "m": 0.348,
+    "p": 0.175
+   },
+   {
+    "l": "26°C",
+    "m": 0.268,
+    "p": 0.485
+   },
+   {
+    "l": "27°C",
+    "m": 0.095,
+    "p": 0.27
+   },
+   {
+    "l": "28°C",
+    "m": 0.015,
+    "p": 0.095
+   },
+   {
+    "l": "29°C и выше",
+    "m": 0.001,
+    "p": 0.067
+   }
+  ],
+  "first": "2026-11-28T11:24+00:00",
+  "status": "open",
+  "until": "2026-11-30T14:00+00:00",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "legs": [
+   {
+    "l": "24°C",
+    "price": 0.052,
+    "pm": 0.208
+   },
+   {
+    "l": "25°C",
+    "price": 0.21,
+    "pm": 0.348
+   },
+   {
+    "l": "26°C",
+    "price": 0.51,
+    "pm": 0.268
+   }
+  ],
+  "price": 0.772,
+  "pm": 0.773,
+  "pm_model": 0.824,
+  "edge": 0.001,
+  "level": "light",
+  "key": "telaviv|2026-11-30",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tel-aviv-on-november-30-2026"
  }
 ]
