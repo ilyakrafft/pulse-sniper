@@ -6670,13 +6670,13 @@
   "key": "chicago|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T08:30+00:00",
-   "pm": 0.767,
-   "val": 0.678,
+   "t": "2026-11-28T09:26+00:00",
+   "pm": 0.768,
+   "val": 0.679,
    "state": "hold",
-   "temp": 2.2,
-   "max": 2.2,
-   "hour": 2.5
+   "temp": 2.8,
+   "max": 2.8,
+   "hour": 3.4
   },
   "alerts": {}
  },
@@ -6784,13 +6784,13 @@
   "key": "atlanta|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T08:30+00:00",
+   "t": "2026-11-28T09:26+00:00",
    "pm": 0.769,
-   "val": 0.408,
+   "val": 0.378,
    "state": "hold",
-   "temp": 2.8,
+   "temp": 3.3,
    "max": 3.9,
-   "hour": 3.5
+   "hour": 4.4
   },
   "alerts": {}
  },
@@ -6898,13 +6898,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T08:30+00:00",
-   "pm": 0.755,
-   "val": 0.623,
+   "t": "2026-11-28T09:26+00:00",
+   "pm": 0.757,
+   "val": 0.679,
    "state": "hold",
    "temp": -1,
    "max": -1,
-   "hour": 9.5
+   "hour": 10.4
   },
   "alerts": {}
  },

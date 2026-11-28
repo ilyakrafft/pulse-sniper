@@ -11565,7 +11565,7 @@
   "sd": 1.52,
   "n": 15,
   "first": "2026-11-26T07:59+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "20°C",
   "labels": [
@@ -11581,7 +11581,9 @@
   "edge": -0.356,
   "level": "light",
   "key": "chongqing|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "21°C",
+  "hit": true
  },
  {
   "city": "singapore",
@@ -11913,7 +11915,7 @@
   "sd": 0.9,
   "n": 17,
   "first": "2026-11-26T10:16+00:00",
-  "status": "open",
+  "status": "done",
   "kind": "corr",
   "label": "25°C",
   "labels": [
@@ -11929,7 +11931,9 @@
   "edge": -0.211,
   "level": "light",
   "key": "lucknow|2026-11-28",
-  "tier": "test"
+  "tier": "test",
+  "win": "26°C",
+  "hit": true
  },
  {
   "city": "atlanta",
@@ -13389,6 +13393,110 @@
   "edge": -0.283,
   "level": "light",
   "key": "chicago|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "shenzhen",
+  "date": "2026-11-30",
+  "mu": 25.12,
+  "sigma": 1.25,
+  "sd": 1.07,
+  "n": 17,
+  "first": "2026-11-28T09:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 0.98,
+  "pm": 0.813,
+  "pm_model": 0.769,
+  "edge": -0.167,
+  "level": "light",
+  "key": "shenzhen|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "nyc",
+  "date": "2026-11-30",
+  "mu": 15.37,
+  "sigma": 1.3,
+  "sd": 1.07,
+  "n": 19,
+  "first": "2026-11-28T09:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "58–59°F",
+  "labels": [
+   "56–57°F",
+   "58–59°F",
+   "60–61°F"
+  ],
+  "lo": 13.056,
+  "hi": 16.389,
+  "price": 1.09,
+  "pm": 0.696,
+  "pm_model": 0.747,
+  "edge": -0.394,
+  "level": "light",
+  "key": "nyc|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "miami",
+  "date": "2026-11-30",
+  "mu": 27.98,
+  "sigma": 1.3,
+  "sd": 1.17,
+  "n": 19,
+  "first": "2026-11-28T09:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "82–83°F",
+  "labels": [
+   "80–81°F",
+   "82–83°F",
+   "84–85°F"
+  ],
+  "lo": 26.389,
+  "hi": 29.722,
+  "price": 1.01,
+  "pm": 0.795,
+  "pm_model": 0.798,
+  "edge": -0.215,
+  "level": "light",
+  "key": "miami|2026-11-30",
+  "tier": "test"
+ },
+ {
+  "city": "lucknow",
+  "date": "2026-11-30",
+  "mu": 25.0,
+  "sigma": 1.64,
+  "sd": 1.77,
+  "n": 17,
+  "first": "2026-11-28T09:26+00:00",
+  "status": "open",
+  "kind": "corr",
+  "label": "25°C",
+  "labels": [
+   "24°C",
+   "25°C",
+   "26°C"
+  ],
+  "lo": 23.5,
+  "hi": 26.5,
+  "price": 1.05,
+  "pm": 0.754,
+  "pm_model": 0.641,
+  "edge": -0.296,
+  "level": "light",
+  "key": "lucknow|2026-11-30",
   "tier": "test"
  }
 ]
