@@ -14639,5 +14639,37 @@
    "jma_gsm": 29.5,
    "ens": 33.77
   }
+ },
+ {
+  "date": "2026-11-28",
+  "city": "munich",
+  "k": 1,
+  "p": 0.791,
+  "actual": 1,
+  "hit": true,
+  "v": {
+   "ecmwf_ifs025": 0.2,
+   "ecmwf_aifs025_single": -0.1,
+   "icon_seamless": 1.1,
+   "gfs_seamless": 1.4,
+   "ukmo_seamless": 1.5,
+   "meteofrance_seamless": 0.7,
+   "gem_seamless": -1.3,
+   "jma_seamless": 0.0,
+   "cma_grapes_global": -0.2,
+   "ecmwf_ifs": 0.7,
+   "icon_global": 0.9,
+   "gfs_global": 1.4,
+   "gem_global": -1.3,
+   "ukmo_global_deterministic_10km": 1.5,
+   "meteofrance_arpege_world": 0.6,
+   "jma_gsm": 0.0,
+   "icon_d2": 1.1,
+   "knmi_harmonie_arome_europe": 0.9,
+   "icon_eu": 1.0,
+   "meteofrance_arpege_europe": 0.7,
+   "dmi_harmonie_arome_europe": 0.5,
+   "ens": 0.41
+  }
  }
 ]

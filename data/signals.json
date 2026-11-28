@@ -6670,13 +6670,13 @@
   "key": "chicago|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-chicago-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T11:24+00:00",
-   "pm": 0.654,
-   "val": 0.34,
+   "t": "2026-11-28T12:25+00:00",
+   "pm": 0.665,
+   "val": 0.172,
    "state": "hold",
-   "temp": 2.8,
-   "max": 2.8,
-   "hour": 5.4
+   "temp": 3.3,
+   "max": 3.3,
+   "hour": 6.4
   },
   "alerts": {}
  },
@@ -6784,13 +6784,13 @@
   "key": "atlanta|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-atlanta-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T11:24+00:00",
-   "pm": 0.747,
-   "val": 0.385,
+   "t": "2026-11-28T12:25+00:00",
+   "pm": 0.746,
+   "val": 0.472,
    "state": "hold",
-   "temp": 2.8,
+   "temp": 2.2,
    "max": 3.9,
-   "hour": 6.4
+   "hour": 7.4
   },
   "alerts": {}
  },
@@ -6898,13 +6898,13 @@
   "key": "amsterdam|2026-11-28",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-amsterdam-on-november-28-2026",
   "live": {
-   "t": "2026-11-28T11:24+00:00",
-   "pm": 0.884,
-   "val": 0.671,
+   "t": "2026-11-28T12:25+00:00",
+   "pm": 0.786,
+   "val": 0.767,
    "state": "hold",
-   "temp": 1,
-   "max": 1,
-   "hour": 12.4
+   "temp": 2,
+   "max": 2,
+   "hour": 13.4
   },
   "alerts": {}
  },
@@ -7323,5 +7323,213 @@
   "level": "light",
   "key": "telaviv|2026-11-30",
   "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-tel-aviv-on-november-30-2026"
+ },
+ {
+  "city": "munich",
+  "date": "2026-11-30",
+  "mu": 2.44,
+  "sigma": 1.1,
+  "sd": 0.93,
+  "n": 19,
+  "st": "EDDM",
+  "liq": 51155.25,
+  "v24": 2854.29,
+  "dist": [
+   {
+    "l": "-3°C и ниже",
+    "m": 0.0,
+    "p": 0.006
+   },
+   {
+    "l": "-2°C",
+    "m": 0.0,
+    "p": 0.007
+   },
+   {
+    "l": "-1°C",
+    "m": 0.004,
+    "p": 0.008
+   },
+   {
+    "l": "0°C",
+    "m": 0.035,
+    "p": 0.051
+   },
+   {
+    "l": "1°C",
+    "m": 0.157,
+    "p": 0.26
+   },
+   {
+    "l": "2°C",
+    "m": 0.326,
+    "p": 0.475
+   },
+   {
+    "l": "3°C",
+    "m": 0.311,
+    "p": 0.175
+   },
+   {
+    "l": "4°C",
+    "m": 0.137,
+    "p": 0.032
+   },
+   {
+    "l": "5°C",
+    "m": 0.028,
+    "p": 0.013
+   },
+   {
+    "l": "6°C",
+    "m": 0.003,
+    "p": 0.006
+   },
+   {
+    "l": "7°C и выше",
+    "m": 0.0,
+    "p": 0.007
+   }
+  ],
+  "first": "2026-11-28T12:25+00:00",
+  "status": "open",
+  "until": "2026-11-30T15:00+00:00",
+  "kind": "corr",
+  "label": "3°C",
+  "labels": [
+   "2°C",
+   "3°C",
+   "4°C"
+  ],
+  "lo": 1.5,
+  "hi": 4.5,
+  "legs": [
+   {
+    "l": "2°C",
+    "price": 0.48,
+    "pm": 0.326
+   },
+   {
+    "l": "3°C",
+    "price": 0.19,
+    "pm": 0.311
+   },
+   {
+    "l": "4°C",
+    "price": 0.041,
+    "pm": 0.137
+   }
+  ],
+  "price": 0.711,
+  "pm": 0.737,
+  "pm_model": 0.774,
+  "edge": 0.026,
+  "level": "light",
+  "key": "munich|2026-11-30",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-munich-on-november-30-2026"
+ },
+ {
+  "city": "warsaw",
+  "date": "2026-11-29",
+  "mu": -1.0,
+  "sigma": 1.12,
+  "sd": 1.06,
+  "n": 21,
+  "st": "EPWA",
+  "liq": 5164.65,
+  "v24": 2752.06,
+  "dist": [
+   {
+    "l": "-8°C и ниже",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-7°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-6°C",
+    "m": 0.0,
+    "p": 0.001
+   },
+   {
+    "l": "-5°C",
+    "m": 0.001,
+    "p": 0.011
+   },
+   {
+    "l": "-4°C",
+    "m": 0.012,
+    "p": 0.031
+   },
+   {
+    "l": "-3°C",
+    "m": 0.077,
+    "p": 0.25
+   },
+   {
+    "l": "-2°C",
+    "m": 0.238,
+    "p": 0.46
+   },
+   {
+    "l": "-1°C",
+    "m": 0.346,
+    "p": 0.21
+   },
+   {
+    "l": "0°C",
+    "m": 0.237,
+    "p": 0.06
+   },
+   {
+    "l": "1°C",
+    "m": 0.077,
+    "p": 0.015
+   },
+   {
+    "l": "2°C и выше",
+    "m": 0.012,
+    "p": 0.001
+   }
+  ],
+  "first": "2026-11-28T12:25+00:00",
+  "status": "open",
+  "until": "2026-11-29T15:00+00:00",
+  "kind": "corr",
+  "label": "-1°C",
+  "labels": [
+   "-2°C",
+   "-1°C",
+   "0°C"
+  ],
+  "lo": -2.5,
+  "hi": 0.5,
+  "legs": [
+   {
+    "l": "-2°C",
+    "price": 0.48,
+    "pm": 0.238
+   },
+   {
+    "l": "-1°C",
+    "price": 0.22,
+    "pm": 0.346
+   },
+   {
+    "l": "0°C",
+    "price": 0.081,
+    "pm": 0.237
+   }
+  ],
+  "price": 0.781,
+  "pm": 0.785,
+  "pm_model": 0.821,
+  "edge": 0.004,
+  "level": "light",
+  "key": "warsaw|2026-11-29",
+  "url": "https://pulsemarket.trade/ru/event/highest-temperature-in-warsaw-on-november-29-2026"
  }
 ]
